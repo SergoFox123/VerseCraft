@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "vercecraft:ancient_debris_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "minecraft:netherite_scrap"
+  }
+}

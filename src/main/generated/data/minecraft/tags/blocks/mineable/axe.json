@@ -1,0 +1,48 @@
+{
+  "replace": false,
+  "values": [
+    "vercecraft:acacia_mosaic",
+    "vercecraft:acacia_mosaic_slab",
+    "vercecraft:acacia_mosaic_stairs",
+
+    "vercecraft:birch_mosaic",
+    "vercecraft:birch_mosaic_slab",
+    "vercecraft:birch_mosaic_stairs",
+
+    "vercecraft:cherry_mosaic",
+    "vercecraft:cherry_mosaic_stairs",
+    "vercecraft:cherry_mosaic_slab",
+
+    "vercecraft:crimson_mosaic",
+    "vercecraft:crimson_mosaic_stairs",
+    "vercecraft:crimson_mosaic_slab",
+
+    "vercecraft:dark_oak_mosaic",
+    "vercecraft:dark_oak_mosaic_stairs",
+    "vercecraft:dark_oak_mosaic_slab",
+
+    "vercecraft:jungle_mosaic",
+    "vercecraft:jungle_mosaic_stairs",
+    "vercecraft:jungle_mosaic_slab",
+
+    "vercecraft:jungle_mosaic",
+    "vercecraft:jungle_mosaic_stairs",
+    "vercecraft:jungle_mosaic_slab",
+
+    "vercecraft:mangrove_mosaic",
+    "vercecraft:mangrove_mosaic_stairs",
+    "vercecraft:mangrove_mosaic_slab",
+
+    "vercecraft:oak_mosaic",
+    "vercecraft:oak_mosaic_stairs",
+    "vercecraft:oak_mosaic_slab",
+
+    "vercecraft:spruce_mosaic",
+    "vercecraft:spruce_mosaic_stairs",
+    "vercecraft:spruce_mosaic_slab",
+
+    "vercecraft:warped_mosaic",
+    "vercecraft:warped_mosaic_stairs",
+    "vercecraft:warped_mosaic_slab"
+  ]
+}

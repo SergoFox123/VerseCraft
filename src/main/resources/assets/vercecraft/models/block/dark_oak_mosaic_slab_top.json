@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "vercecraft:block/dark_oak_mosaic",
+    "side": "vercecraft:block/dark_oak_mosaic",
+    "top": "vercecraft:block/dark_oak_mosaic"
+  }
+}

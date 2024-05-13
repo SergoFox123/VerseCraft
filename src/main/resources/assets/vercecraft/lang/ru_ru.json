@@ -1,0 +1,41 @@
+{
+  "block.vercecraft.acacia_mosaic": "Акациевая мозаика",
+  "block.vercecraft.acacia_mosaic_stairs": "Ступеньки из акациевой мозаики",
+  "block.vercecraft.acacia_mosaic_slab": "Плита из акациевой мозаики",
+
+  "block.vercecraft.birch_mosaic": "Берёзовая мозаика",
+  "block.vercecraft.birch_mosaic_stairs": "Ступеньки из берёзовой мозаики",
+  "block.vercecraft.birch_mosaic_slab": "Плита из берёзовой мозаики",
+
+  "block.vercecraft.cherry_mosaic": "Вишнёвая мозаика",
+  "block.vercecraft.cherry_mosaic_stairs": "Ступеньки из вишнёвой мозаики",
+  "block.vercecraft.cherry_mosaic_slab": "Плита из вишнёвой мозаики",
+
+  "block.vercecraft.crimson_mosaic": "Багровая мозаика",
+  "block.vercecraft.crimson_mosaic_stairs": "Ступеньки из багровой мозаики",
+  "block.vercecraft.crimson_mosaic_slab": "Плита из багровой мозаики",
+
+  "block.vercecraft.dark_oak_mosaic": "Тёмно дубовая мозаика",
+  "block.vercecraft.dark_oak_mosaic_stairs": "Ступеньки из тёмного дубовой мозаики",
+  "block.vercecraft.dark_oak_mosaic_slab": "Плита из тёмного дубовой мозаики",
+
+  "block.vercecraft.jungle_mosaic": "Тропическая мозаика",
+  "block.vercecraft.jungle_mosaic_stairs": "Ступеньки из тропической мозаики",
+  "block.vercecraft.jungle_mosaic_slab": "Плита из тропической мозаики",
+
+  "block.vercecraft.mangrove_mosaic": "Мангровая мозаика",
+  "block.vercecraft.mangrove_mosaic_stairs": "Ступеньки из мангровой мозаики",
+  "block.vercecraft.mangrove_mosaic_slab": "Плита из мангровой мозаики",
+
+  "block.vercecraft.oak_mosaic": "Дубовая мозаика",
+  "block.vercecraft.oak_mosaic_stairs": "Ступеньки из дубовой мозаики",
+  "block.vercecraft.oak_mosaic_slab": "Плита из дубовой мозаики",
+
+  "block.vercecraft.spruce_mosaic": "Еловая мозаика",
+  "block.vercecraft.spruce_mosaic_stairs": "Ступеньки из еловой мозаики",
+  "block.vercecraft.spruce_mosaic_slab": "Плита из еловой мозаики",
+
+  "block.vercecraft.warped_mosaic": "Искажённая мозаика",
+  "block.vercecraft.warped_mosaic_stairs": "Ступеньки из искажённой мозаики",
+  "block.vercecraft.warped_mosaic_slab": "Плита из искажённой мозаики"
+}

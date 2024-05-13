@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VerceCraft.datagen.iml" filepath="$PROJECT_DIR$/.idea/modules/VerceCraft.datagen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VerceCraft.main.iml" filepath="$PROJECT_DIR$/.idea/modules/VerceCraft.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VerceCraft.test.iml" filepath="$PROJECT_DIR$/.idea/modules/VerceCraft.test.iml" />
+    </modules>
+  </component>
+</project>

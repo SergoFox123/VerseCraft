@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "vercecraft:block/mangrove_mosaic_slab"
+    },
+    "type=double": {
+      "model": "vercecraft:block/mangrove_mosaic"
+    },
+    "type=top": {
+      "model": "vercecraft:block/mangrove_mosaic_slab_top"
+    }
+  }
+}

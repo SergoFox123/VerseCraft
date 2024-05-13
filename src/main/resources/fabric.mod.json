@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "VerceCraft",
+  "description": "adding block, features and etc....",
+  "authors": [
+    "SergoFox",
+    "zozozrob_"
+  ],
+  "contributors": [
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": "",
+    "issues": ""
+  },
+  "license": "LGPL-3.0",
+  "icon": "assets/vercecraft/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.sergofox123.vercecraft.VerseCraft"
+    ],
+    "client": [
+      "net.sergofox123.vercecraft.VerseCraftClient"
+    ],
+    "frozenlib:mob_categories": [
+      "net.sergofox123.vercecraft.VerseCraft"
+    ],
+    "fabric-datagen": [
+      "net.sergofox123.vercecraft.misc.VerseCraftDataGenerator"
+    ]
+  },
+  "mixins": [
+    "vercecraft.mixins.json"
+  ],
+  "accessWidener": "vercecraft.accesswidener",
+  "depends": {
+    "frozenlib": "${frozenlib_version}",
+    "fabric-api": "${fabric_api_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17"
+  },
+  "suggests": {
+    "cloth-config": "*",
+    "terrablender": "*"
+  },
+  "frozenlib_registry": {
+    "mod_protocol": $protocol_version
+  }
+}
+
+

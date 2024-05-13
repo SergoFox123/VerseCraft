@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "vercecraft:block/spruce_mosaic_slab"
+    },
+    "type=double": {
+      "model": "vercecraft:block/spruce_mosaic"
+    },
+    "type=top": {
+      "model": "vercecraft:block/spruce_mosaic_slab_top"
+    }
+  }
+}
