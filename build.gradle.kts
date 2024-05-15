@@ -61,6 +61,10 @@ val sodium_version: String by project
 val run_sodium: String by project
 val shouldRunSodium = run_sodium == "true"
 
+val embeddium_version: String by project
+val run_embeddium: String by project
+val shouldRunEmbeddium = run_embeddium == "true"
+
 base {
     archivesName = archives_base_name
 }
@@ -212,17 +216,20 @@ dependencies {
     // TerraBlender
     modCompileOnlyApi("com.github.glitchfiend:TerraBlender-fabric:${terrablender_version}")
 
-    // Reach Entity Attributes
-    modApi("com.github.Treetrain1:reach-entity-attributes:1.20-SNAPSHOT")?.let { include(it) }
-
     // Particle Rain
     modCompileOnly("maven.modrinth:particle-rain:v2.0.5")
 
     // Sodium
     if (shouldRunSodium)
-        modImplementation("maven.modrinth:sodium:${sodium_version}")
+        modRuntimeOnly("maven.modrinth:sodium:${sodium_version}")
+
+    // Embeddium
+    val embed = "org.embeddedt:embeddium-fabric-1.20.6"
+    val embeddiumVersion = "0.3.18-git-78d86dd+mc1.20.6"
+    if (shouldRunEmbeddium)
+        modImplementation("$embed:$embeddiumVersion")
     else
-        modCompileOnly("maven.modrinth:sodium:${sodium_version}")
+        modCompileOnly("$embed:$embeddiumVersion")
 
     // FallingLeaves
     modCompileOnly("maven.modrinth:fallingleaves:${fallingleaves_version}")
@@ -290,8 +297,8 @@ tasks {
 
     withType(JavaCompile::class) {
         options.encoding = "UTF-8"
-        // Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
-        options.release.set(17)
+        // Minecraft 1.20.5 (24w14a) upwards uses Java 21.
+        options.release.set(21)
         options.isFork = true
         options.isIncremental = true
     }
@@ -311,8 +318,8 @@ val sourcesJar: Task by tasks
 val javadocJar: Task by tasks
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 
     // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
     // if it is present.
