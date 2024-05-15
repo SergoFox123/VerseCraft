@@ -198,7 +198,7 @@ dependencies {
         modApi("maven.modrinth:frozenlib:$frozenlib_version")?.let { include(it) }
 
     // Simple Copper Pipes
-    modApi("maven.modrinth:simple-copper-pipes:${copperpipes_version}")
+    modCompileOnlyApi("maven.modrinth:simple-copper-pipes:${copperpipes_version}")
 
     // Mod Menu
     modImplementation("com.terraformersmc:modmenu:$modmenu_version")
@@ -213,7 +213,7 @@ dependencies {
     modCompileOnlyApi("com.github.glitchfiend:TerraBlender-fabric:${terrablender_version}")
 
     // Reach Entity Attributes
-    modApi("com.jamieswhiteshirt:reach-entity-attributes:2.4.0")?.let { include(it) }
+    modApi("com.github.Treetrain1:reach-entity-attributes:1.20-SNAPSHOT")?.let { include(it) }
 
     // Particle Rain
     modCompileOnly("maven.modrinth:particle-rain:v2.0.5")

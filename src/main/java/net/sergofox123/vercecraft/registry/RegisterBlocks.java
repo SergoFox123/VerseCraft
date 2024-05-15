@@ -36,8 +36,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.sergofox123.vercecraft.misc.VerseSharedConstants;
 import static net.minecraft.world.level.block.Blocks.*;
+import static net.minecraft.world.level.block.Blocks.CRIMSON_STAIRS;
 
 
 public class RegisterBlocks {
@@ -45,160 +47,158 @@ public class RegisterBlocks {
 	//Acacia Mosaic
 
 	public static final Block ACACIA_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(ACACIA_PLANKS)
+
+		BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)
 	);
 
 	public static final StairBlock ACACIA_MOSAIC_STAIRS = new StairBlock(
-		ACACIA_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(ACACIA_STAIRS)
+		ACACIA_STAIRS.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_STAIRS)
 	);
 
 	public static final SlabBlock ACACIA_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(ACACIA_SLAB)
-
+		BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_SLAB)
 	);
 
 	//Birch Mosaic
 
 	public static final Block BIRCH_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(BIRCH_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)
 	);
 
 	public static final StairBlock BIRCH_MOSAIC_STAIRS = new StairBlock(
-		ACACIA_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(BIRCH_STAIRS)
+		BIRCH_PLANKS.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_STAIRS)
 	);
 
 	public static final SlabBlock BIRCH_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(BIRCH_SLAB)
-
+		BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_SLAB)
 	);
 
 	//Cherry Mosaic
 
 	public static final Block CHERRY_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(CHERRY_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)
 	);
 
 	public static final StairBlock CHERRY_MOSAIC_STAIRS = new StairBlock(
 		CHERRY_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(CHERRY_STAIRS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_STAIRS)
 	);
 
 	public static final SlabBlock CHERRY_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(CHERRY_SLAB)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_SLAB)
 
 	);
 
 	//Crimson Mosaic
 
 	public static final Block CRIMSON_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(CRIMSON_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)
 	);
 
 	public static final StairBlock CRIMSON_MOSAIC_STAIRS = new StairBlock(
 		CRIMSON_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(CRIMSON_STAIRS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_STAIRS)
 	);
 
 	public static final SlabBlock CRIMSON_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(CRIMSON_SLAB)
-
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SLAB)
 	);
 
 	//Dark Oak Mosaic
 
 	public static final Block DARK_OAK_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(DARK_OAK_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)
 	);
 
 	public static final StairBlock DARK_OAK_MOSAIC_STAIRS = new StairBlock(
-		CRIMSON_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(DARK_OAK_STAIRS)
+		DARK_OAK_PLANKS.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)
 	);
 
 	public static final SlabBlock DARK_OAK_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(DARK_OAK_SLAB)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_SLAB)
 
 	);
 
 	//Jungle Mosaic
 
 	public static final Block JUNGLE_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(JUNGLE_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)
 	);
 
 	public static final StairBlock JUNGLE_MOSAIC_STAIRS = new StairBlock(
-		ACACIA_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(JUNGLE_STAIRS)
+		JUNGLE_PLANKS.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_STAIRS)
+
 	);
 
 	public static final SlabBlock JUNGLE_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(JUNGLE_SLAB)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_SLAB)
 
 	);
 
 	//Mangrove Mosaic
 
 	public static final Block MANGROVE_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(MANGROVE_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)
 	);
 
 	public static final StairBlock MANGROVE_MOSAIC_STAIRS = new StairBlock(
 		ACACIA_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(MANGROVE_STAIRS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_STAIRS)
 	);
 
 	public static final SlabBlock MANGROVE_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(MANGROVE_SLAB)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_SLAB)
 
 	);
 
 	//Oak Mosaic
 
 	public static final Block OAK_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(OAK_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
 	);
 
 	public static final StairBlock OAK_MOSAIC_STAIRS = new StairBlock(
-		ACACIA_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(OAK_STAIRS)
+		OAK_PLANKS.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)
 	);
 
 	public static final SlabBlock OAK_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(OAK_SLAB)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)
 
 	);
 
 	//Spruce Mosaic
 
 	public static final Block SPRUCE_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(SPRUCE_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)
 	);
 
 	public static final StairBlock SPRUCE_MOSAIC_STAIRS = new StairBlock(
-		ACACIA_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(SPRUCE_STAIRS)
+		SPRUCE_PLANKS.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_STAIRS)
 	);
 
 	public static final SlabBlock SPRUCE_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(SPRUCE_SLAB)
-
+		BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_SLAB)
 	);
 
 	//Warped
 
 	public static final Block WARPED_MOSAIC = new Block(
-		FabricBlockSettings.copyOf(WARPED_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)
 	);
 
 	public static final StairBlock WARPED_MOSAIC_STAIRS = new StairBlock(
-		CRIMSON_PLANKS.defaultBlockState(),
-		FabricBlockSettings.copyOf(WARPED_STAIRS)
+		WARPED_PLANKS.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_STAIRS)
 	);
 
 	public static final SlabBlock WARPED_MOSAIC_SLAB = new SlabBlock(
-		FabricBlockSettings.copyOf(WARPED_SLAB)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_SLAB)
 
 	);
 
