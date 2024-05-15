@@ -1,8 +1,5 @@
 {
   "values": [
-    "#minecraft:sculk_replaceable",
-    "vercecraft:carved_polished_deepslate",
-    "vercecraft:polished_carved_deepslate",
-    "vercecraft:polished_deepslate_tiles"
+    "#minecraft:sculk_replaceable"
   ]
 }
