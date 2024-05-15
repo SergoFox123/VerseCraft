@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:jungle_slab"
-            ]
+            "items": "minecraft:jungle_slab"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_jungle_slab",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_jungle_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "vercecraft:jungle_mosaic"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

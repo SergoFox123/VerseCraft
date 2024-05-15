@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "vercecraft:acacia_mosaic_stairs"
-  },
-  "show_notification": true
+    "id": "vercecraft:acacia_mosaic_stairs"
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "vercecraft:mangrove_mosaic"
-            ]
+            "items": "vercecraft:mangrove_mosaic"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_mangrove_mosaic",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_mangrove_mosaic"
     ]
   ],
   "rewards": {
     "recipes": [
       "vercecraft:mangrove_mosaic_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

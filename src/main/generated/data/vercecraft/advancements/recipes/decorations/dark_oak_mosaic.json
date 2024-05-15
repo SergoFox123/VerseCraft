@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:dark_oak_slab"
-            ]
+            "items": "minecraft:dark_oak_slab"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_dark_oak_slab",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_dark_oak_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "vercecraft:dark_oak_mosaic"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

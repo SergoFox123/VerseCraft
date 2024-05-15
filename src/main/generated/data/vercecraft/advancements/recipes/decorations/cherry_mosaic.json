@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:cherry_slab"
-            ]
+            "items": "minecraft:cherry_slab"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_cherry_slab",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cherry_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "vercecraft:cherry_mosaic"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "vercecraft:cherry_mosaic_stairs"
-  },
-  "show_notification": true
+    "id": "vercecraft:cherry_mosaic_stairs"
+  }
 }

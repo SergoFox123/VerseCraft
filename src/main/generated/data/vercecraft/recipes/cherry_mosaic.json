@@ -11,7 +11,7 @@
     "#"
   ],
   "result": {
-    "item": "vercecraft:cherry_mosaic"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "vercecraft:cherry_mosaic"
+  }
 }

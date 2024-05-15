@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "vercecraft:birch_mosaic"
-            ]
+            "items": "vercecraft:birch_mosaic"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_birch_mosaic",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_birch_mosaic"
     ]
   ],
   "rewards": {
     "recipes": [
       "vercecraft:birch_mosaic_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

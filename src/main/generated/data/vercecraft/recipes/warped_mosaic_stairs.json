@@ -13,7 +13,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "vercecraft:warped_mosaic_stairs"
-  },
-  "show_notification": true
+    "id": "vercecraft:warped_mosaic_stairs"
+  }
 }

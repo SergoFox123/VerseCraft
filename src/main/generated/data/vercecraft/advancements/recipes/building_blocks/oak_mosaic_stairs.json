@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "vercecraft:oak_mosaic"
-            ]
+            "items": "vercecraft:oak_mosaic"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_oak_mosaic",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_oak_mosaic"
     ]
   ],
   "rewards": {
     "recipes": [
       "vercecraft:oak_mosaic_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
