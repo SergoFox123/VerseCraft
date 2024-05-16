@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "vercecraft:block/polished_carved_deepslate_top",
-    "side": "vercecraft:block/polished_carved_deepslate_side",
-    "top": "vercecraft:block/polished_carved_deepslate_top"
-  }
-}
