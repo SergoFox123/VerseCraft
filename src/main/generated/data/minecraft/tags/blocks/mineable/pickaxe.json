@@ -1,13 +1,6 @@
 {
   "replace": false,
   "values": [
-    "vercecraft:carved_polished_deepslate",
-    "vercecraft:polished_carved_deepslate",
-    "vercecraft:polished_deepslate_tiles",
-    "vercecraft:ancient_debris_block",
-    "vercecraft:polished_basalt_tiles",
-    "vercecraft:blackstone_tiles",
-    "vercecraft:cut_blackstone_bricks"
 
   ]
 }
