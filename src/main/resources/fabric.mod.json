@@ -11,7 +11,7 @@
   "contributors": [
   ],
   "contact": {
-    "homepage": "https://github.com/SergoFox123/VerseCraft",
+    "homepage": "https://modrinth.com/mod/versecraft",
     "sources": "https://github.com/SergoFox123/VerseCraft",
     "issues": "https://github.com/SergoFox123/VerseCraft/issues"
   },
@@ -50,5 +50,3 @@
     "mod_protocol": $protocol_version
   }
 }
-
-
