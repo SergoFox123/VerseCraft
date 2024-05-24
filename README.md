@@ -6,3 +6,6 @@ VerseCraft adds mosaics to each type of tree that is in the game and with each u
 https://www.curseforge.com/minecraft/mc-mods/versecraft
 
 https://modrinth.com/mod/versecraft
+
+
+The basis was taken from the repository: https://github.com/FrozenBlock/WilderWild
