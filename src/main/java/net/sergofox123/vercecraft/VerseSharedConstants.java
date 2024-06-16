@@ -13,7 +13,7 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.vercecraft.misc;
+package net.sergofox123.vercecraft;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import java.nio.file.Path;
@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class VerseSharedConstants {
-	public static final String PROJECT_ID = "VerseCraft";
+	public static final String PROJECT_ID = "VerceCraft";
 	public static final String MOD_ID = "vercecraft";
 	public static final Logger LOGGER = LoggerFactory.getLogger(PROJECT_ID);
 	// MEASURING
@@ -87,12 +87,12 @@ public class VerseSharedConstants {
 
 	@NotNull
 	public static ResourceLocation id(@NotNull String path) {
-		return new ResourceLocation(MOD_ID, path);
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}
 
 	@NotNull
 	public static ResourceLocation vanillaId(@NotNull String path) {
-		return new ResourceLocation("minecraft", path);
+		return ResourceLocation.withDefaultNamespace(path);
 	}
 
 	@NotNull

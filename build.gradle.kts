@@ -18,7 +18,7 @@ buildscript {
 }
 
 plugins {
-    id("fabric-loom") version("+")
+    id("fabric-loom") version("1.6.+")
     id("org.quiltmc.gradle.licenser") version("+")
     id("org.ajoberstar.grgit") version("+")
     id("com.modrinth.minotaur") version("+")
@@ -50,7 +50,6 @@ val frozenlib_version: String by project
 
 val betterend_version: String by project
 val betternether_version: String by project
-val modmenu_version: String by project
 val cloth_config_version: String by project
 val copperpipes_version: String by project
 val terrablender_version: String by project
@@ -204,11 +203,9 @@ dependencies {
     // Simple Copper Pipes
     modCompileOnlyApi("maven.modrinth:simple-copper-pipes:${copperpipes_version}")
 
-    // Mod Menu
-    modImplementation("com.terraformersmc:modmenu:$modmenu_version")
 
-    // Cloth Config
-    modImplementation("me.shedaniel.cloth:cloth-config-fabric:$cloth_config_version") {
+    // Cloth Confi
+    modCompileOnly("me.shedaniel.cloth:cloth-config-fabric:$cloth_config_version") {
         exclude(group = "net.fabricmc.fabric-api")
         exclude(group = "com.terraformersmc")
     }
@@ -249,7 +246,7 @@ tasks {
             "mod_id" to mod_id,
             "version" to version,
             "protocol_version" to protocol_version,
-            "minecraft_version" to minecraft_version,
+            "minecraft_version" to "~1.21-",//minecraft_version,
 
             "fabric_api_version" to ">=$fabric_api_version",
             "frozenlib_version" to ">=${frozenlib_version.split('-').firstOrNull()}-"

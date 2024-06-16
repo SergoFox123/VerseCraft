@@ -16,7 +16,6 @@
 package net.sergofox123.vercecraft.registry;
 
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.frozenblock.lib.item.api.FrozenCreativeTabs;
@@ -32,12 +31,10 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.sergofox123.vercecraft.misc.VerseSharedConstants;
+import net.sergofox123.vercecraft.VerseSharedConstants;
 import static net.minecraft.world.level.block.Blocks.*;
-import static net.minecraft.world.level.block.Blocks.CRIMSON_STAIRS;
 
 
 public class RegisterBlocks {
@@ -45,8 +42,8 @@ public class RegisterBlocks {
 	//Acacia Mosaic
 
 	public static final Block ACACIA_MOSAIC = new Block(
+		BlockBehaviour.Properties.ofFullCopy(ACACIA_PLANKS)
 
-		BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)
 	);
 
 	public static final StairBlock ACACIA_MOSAIC_STAIRS = new StairBlock(
