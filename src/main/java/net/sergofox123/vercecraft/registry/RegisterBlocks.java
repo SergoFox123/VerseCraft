@@ -31,7 +31,9 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.sergofox123.vercecraft.VerseSharedConstants;
 import static net.minecraft.world.level.block.Blocks.*;
@@ -197,6 +199,111 @@ public class RegisterBlocks {
 
 	);
 
+	//Calcite
+	public static final StairBlock CALCITE_STAIRS = new StairBlock(
+		CALCITE.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	public static final SlabBlock CALCITE_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE));
+
+
+	public static final WallBlock CALCITE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	public static final Block CHISELED_CALCITE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	//Polished Calcite
+
+	public static final Block POLISHED_CALCITE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	public static final StairBlock POLISHED_CALCITE_STAIRS = new StairBlock(
+		CALCITE.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	public static final SlabBlock POLISHED_CALCITE_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE));
+
+	public static final WallBlock POLISHED_CALCITE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	//Calcite Bricks
+
+	public static final Block CALCITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	public static final Block CRACKED_CALCITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+
+	public static final StairBlock CALCITE_BRICKS_STAIRS = new StairBlock(
+		CALCITE.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	public static final SlabBlock CALCITE_BRICKS_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE));
+
+	public static final WallBlock CALCITE_BRICKS_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	public static final Block CHISELED_CALCITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
 	public static void registerBB() {
 
 		//Acacia Mosaic
@@ -248,6 +355,28 @@ public class RegisterBlocks {
 		registerBlockAfter(Items.WARPED_PLANKS,"warped_mosaic", WARPED_MOSAIC, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(Items.WARPED_STAIRS,"warped_mosaic_stairs", WARPED_MOSAIC_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(Items.WARPED_SLAB,"warped_mosaic_slab", WARPED_MOSAIC_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+
+	    //Calcite
+		FrozenCreativeTabs.addAfter(Items.REINFORCED_DEEPSLATE, Items.CALCITE, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(Items.CALCITE,"calcite_stairs", CALCITE_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CALCITE_STAIRS,"calcite_slab", CALCITE_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CALCITE_SLAB,"calcite_wall", CALCITE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CALCITE_WALL,"chiseled_calcite", CHISELED_CALCITE, CreativeModeTabs.BUILDING_BLOCKS);
+
+		//Polished Calcite
+		registerBlockAfter(CHISELED_CALCITE,"polished_calcite", POLISHED_CALCITE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_CALCITE,"polished_calcite_stairs", POLISHED_CALCITE_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_CALCITE_STAIRS,"polished_calcite_slab", POLISHED_CALCITE_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_CALCITE_SLAB,"polished_calcite_wall", POLISHED_CALCITE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+
+		//Calcite Bricks
+		registerBlockAfter(POLISHED_CALCITE_WALL,"calcite_bricks", CALCITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CALCITE_BRICKS,"calcite_bricks_stairs", CALCITE_BRICKS_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CALCITE_BRICKS_STAIRS,"calcite_bricks_slab", CALCITE_BRICKS_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CALCITE_BRICKS_SLAB,"calcite_bricks_wall", CALCITE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CALCITE_BRICKS_WALL,"chiseled_calcite_bricks", CHISELED_CALCITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockBefore(CALCITE_BRICKS_STAIRS,"cracked_calcite_bricks", CRACKED_CALCITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+
 	}
 
 	public static void registerBlocks() {
