@@ -37,5 +37,22 @@
 
   "block.vercecraft.warped_mosaic": "Warped Mosaic",
   "block.vercecraft.warped_mosaic_stairs": "Warped Mosaic Stairs",
-  "block.vercecraft.warped_mosaic_slab": "Warped Mosaic Slab"
+  "block.vercecraft.warped_mosaic_slab": "Warped Mosaic Slab",
+
+  "block.vercecraft.calcite_stairs": "Calcite Stairs",
+  "block.vercecraft.calcite_slab": "Calcite Slab",
+  "block.vercecraft.calcite_wall": "Calcite Wall",
+
+  "block.vercecraft.polished_calcite": "Polished Calcite",
+  "block.vercecraft.polished_calcite_stairs": "Polished Calcite Stairs",
+  "block.vercecraft.polished_calcite_slab": "Polished Calcite Slab",
+  "block.vercecraft.polished_calcite_wall": "Polished Calcite Wall",
+  "block.vercecraft.chiseled_calcite": "Chiseled Calcite",
+
+  "block.vercecraft.calcite_bricks": "Calcite Bricks",
+  "block.vercecraft.cracked_calcite_bricks": "Cracked Calcite Bricks",
+  "block.vercecraft.calcite_bricks_stairs": "Calcite Bricks Stairs",
+  "block.vercecraft.calcite_bricks_slab": "Calcite Bricks Slab",
+  "block.vercecraft.calcite_bricks_wall": "Calcite Bricks Wall",
+  "block.vercecraft.chiseled_calcite_bricks": "Chiseled Calcite Bricks"
 }

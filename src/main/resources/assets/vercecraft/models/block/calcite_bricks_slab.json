@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "vercecraft:block/calcite_bricks",
+    "side": "vercecraft:block/calcite_bricks",
+    "top": "vercecraft:block/calcite_bricks"
+  }
+}
