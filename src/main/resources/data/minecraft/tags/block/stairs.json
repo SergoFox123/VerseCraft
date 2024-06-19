@@ -1,6 +1,5 @@
 {
   "values": [
-    "#minecraft:wooden_stairs",
     "vercecraft:acacia_mosaic_stairs",
     "vercecraft:birch_mosaic_stairs",
     "vercecraft:cherry_mosaic_stairs",
@@ -10,6 +9,10 @@
     "vercecraft:mangrove_mosaic_stairs",
     "vercecraft:oak_mosaic_stairs",
     "vercecraft:spruce_mosaic_stairs",
-    "vercecraft:warped_mosaic_stairs"
+    "vercecraft:warped_mosaic_stairs",
+
+    "vercecraft:calcite_stairs",
+    "vercecraft:polished_calcite_stairs",
+    "vercecraft:calcite_bricks_stairs"
   ]
 }
