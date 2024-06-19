@@ -1,6 +1,19 @@
 {
   "replace": false,
   "values": [
-
+    "vercecraft:calcite_stairs",
+    "vercecraft:calcite_slab",
+    "vercecraft:calcite_wall",
+    "vercecraft:chiseled_calcite",
+    "vercecraft:polished_calcite",
+    "vercecraft:polished_calcite_stairs",
+    "vercecraft:polished_calcite_slab",
+    "vercecraft:polished_calcite_wall",
+    "vercecraft:calcite_bricks",
+    "vercecraft:cracked_calcite_bricks",
+    "vercecraft:calcite_bricks_stairs",
+    "vercecraft:calcite_bricks_slab",
+    "vercecraft:calcite_bricks_wall",
+    "vercecraft:chiseled_calcite_bricks"
   ]
 }

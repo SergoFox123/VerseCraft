@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "vercecraft:polished_calcite"
+  },
+  "result": {
+    "count": 1,
+    "id": "vercecraft:chiseled_calcite_bricks"
+  }
+}
