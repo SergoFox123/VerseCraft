@@ -37,5 +37,22 @@
 
   "block.vercecraft.warped_mosaic": "Искажённая мозаика",
   "block.vercecraft.warped_mosaic_stairs": "Ступеньки из искажённой мозаики",
-  "block.vercecraft.warped_mosaic_slab": "Плита из искажённой мозаики"
+  "block.vercecraft.warped_mosaic_slab": "Плита из искажённой мозаики",
+
+  "block.vercecraft.calcite_stairs": "Кальцитовые ступеньки",
+  "block.vercecraft.calcite_slab": "Кальцитовая плита",
+  "block.vercecraft.calcite_wall": "Кальцитовая ограда",
+
+  "block.vercecraft.polished_calcite": "Полированный кальцит",
+  "block.vercecraft.polished_calcite_stairs": "Ступеньки из полированного кальцита",
+  "block.vercecraft.polished_calcite_slab": "Плита из полированного кальцита",
+  "block.vercecraft.polished_calcite_wall": "Ограда из полированного кальцита",
+  "block.vercecraft.chiseled_calcite": "Резной кальцит",
+
+  "block.vercecraft.calcite_bricks": "Кальцитовые кирпичи",
+  "block.vercecraft.cracked_calcite_bricks": "Потрескавшиеся кальцитовые кирпичи",
+  "block.vercecraft.calcite_bricks_stairs": "Ступеньки из кальцитового кирпича",
+  "block.vercecraft.calcite_bricks_slab": "Плита из кальцитового кирпича",
+  "block.vercecraft.calcite_bricks_wall": "Ограда из кальцитового кирпича",
+  "block.vercecraft.chiseled_calcite_bricks": "Резные кальцитовые кирпичи"
 }
