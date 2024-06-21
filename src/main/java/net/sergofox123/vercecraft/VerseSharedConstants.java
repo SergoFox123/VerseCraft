@@ -37,7 +37,6 @@ public class VerseSharedConstants {
 	 * It's smart to use this for at least registries.
 	 */
 	public static boolean UNSTABLE_LOGGING = FabricLoader.getInstance().isDevelopmentEnvironment();
-	public static boolean MC_LIVE_TENDRILS = false;
 
 	// LOGGING
 	public static void log(String message, boolean shouldLog) {

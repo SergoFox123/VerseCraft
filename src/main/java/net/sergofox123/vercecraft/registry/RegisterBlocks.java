@@ -19,6 +19,7 @@ package net.sergofox123.vercecraft.registry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.frozenblock.lib.item.api.FrozenCreativeTabs;
+import net.frozenblock.lib.shadow.org.intellij.lang.annotations.Identifier;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -465,7 +466,6 @@ public class RegisterBlocks {
 		registry.add(SPRUCE_MOSAIC_STAIRS.asItem(), 300);
 	}
 
-
 	public static void registerBlockProperties() {
 
 
@@ -473,8 +473,6 @@ public class RegisterBlocks {
 		registerFuels();
 
 	}
-
-
 
 	private static void registerBlock(String path, Block block) {
 		actualRegisterBlock(path, block);
@@ -520,6 +518,4 @@ public class RegisterBlocks {
 			Registry.register(BuiltInRegistries.ITEM, VerseSharedConstants.id(path), new BlockItem(block, new Item.Properties()));
 		}
 	}
-
-
 }
