@@ -16,7 +16,6 @@
 package net.sergofox123.vercecraft.registry;
 
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.frozenblock.lib.item.api.FrozenCreativeTabs;
@@ -36,9 +35,8 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.sergofox123.vercecraft.misc.VerseSharedConstants;
+import net.sergofox123.vercecraft.VerseSharedConstants;
 import static net.minecraft.world.level.block.Blocks.*;
-import static net.minecraft.world.level.block.Blocks.CRIMSON_STAIRS;
 
 
 public class RegisterBlocks {

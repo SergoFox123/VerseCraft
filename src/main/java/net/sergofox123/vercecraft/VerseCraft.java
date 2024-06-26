@@ -20,7 +20,6 @@ import net.fabricmc.loader.api.ModContainer;
 import net.frozenblock.lib.entrypoint.api.FrozenModInitializer;
 import net.frozenblock.lib.mobcategory.api.entrypoint.FrozenMobCategoryEntrypoint;
 import net.frozenblock.lib.mobcategory.impl.FrozenMobCategory;
-import net.sergofox123.vercecraft.misc.VerseSharedConstants;
 import net.sergofox123.vercecraft.registry.RegisterBlocks;
 import org.jetbrains.annotations.NotNull;
 

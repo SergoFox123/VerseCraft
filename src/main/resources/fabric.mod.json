@@ -42,6 +42,13 @@
     "minecraft": "${minecraft_version}",
     "java": ">=17"
   },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/368t6NQpEK"
+      }
+    }
+  },
   "suggests": {
     "cloth-config": "*",
     "terrablender": "*"
