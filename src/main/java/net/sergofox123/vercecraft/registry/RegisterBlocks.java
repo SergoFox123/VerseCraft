@@ -200,6 +200,15 @@ public class RegisterBlocks {
 
 	);
 
+	//Tuff
+
+	public static final Block CRACKED_TUFF_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(TUFF)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.TUFF)
+	);
+
 	//Calcite
 	public static final StairBlock CALCITE_STAIRS = new StairBlock(
 		CALCITE.defaultBlockState(),
@@ -357,7 +366,11 @@ public class RegisterBlocks {
 		registerBlockAfter(Items.WARPED_STAIRS,"warped_mosaic_stairs", WARPED_MOSAIC_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(Items.WARPED_SLAB,"warped_mosaic_slab", WARPED_MOSAIC_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
 
-	    //Calcite
+		//Tuff
+		registerBlockAfter(Items.TUFF_BRICKS,"cracked_tuff_bricks", CRACKED_TUFF_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+
+
+		//Calcite
 		FrozenCreativeTabs.addAfter(Items.REINFORCED_DEEPSLATE, Items.CALCITE, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(Items.CALCITE,"calcite_stairs", CALCITE_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(CALCITE_STAIRS,"calcite_slab", CALCITE_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
