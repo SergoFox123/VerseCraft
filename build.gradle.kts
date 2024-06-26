@@ -50,6 +50,7 @@ val frozenlib_version: String by project
 
 val betterend_version: String by project
 val betternether_version: String by project
+val modmenu_version: String by project
 val cloth_config_version: String by project
 val copperpipes_version: String by project
 val terrablender_version: String by project
@@ -59,6 +60,11 @@ val fallingleaves_version: String by project
 val sodium_version: String by project
 val run_sodium: String by project
 val shouldRunSodium = run_sodium == "true"
+val indium_version: String by project
+val run_indium: String by project
+val shouldRunIndium = (run_sodium == "true") && shouldRunSodium
+
+val continuity_version: String by project
 
 val embeddium_version: String by project
 val run_embeddium: String by project
@@ -203,9 +209,11 @@ dependencies {
     // Simple Copper Pipes
     modCompileOnlyApi("maven.modrinth:simple-copper-pipes:${copperpipes_version}")
 
+    // Mod Menu
+    modImplementation("com.terraformersmc:modmenu:$modmenu_version")
 
-    // Cloth Confi
-    modCompileOnly("me.shedaniel.cloth:cloth-config-fabric:$cloth_config_version") {
+    // Cloth Config
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:$cloth_config_version") {
         exclude(group = "net.fabricmc.fabric-api")
         exclude(group = "com.terraformersmc")
     }
@@ -219,6 +227,15 @@ dependencies {
     // Sodium
     if (shouldRunSodium)
         modRuntimeOnly("maven.modrinth:sodium:${sodium_version}")
+
+    // Indium
+    if (shouldRunSodium)
+        modImplementation("maven.modrinth:indium:${indium_version}")
+    else
+        modCompileOnly("maven.modrinth:indium:${indium_version}")
+
+    // Continuity
+    modImplementation("maven.modrinth:continuity:${continuity_version}")
 
     // Embeddium
     val embed = "org.embeddedt:embeddium-fabric-1.20.6"

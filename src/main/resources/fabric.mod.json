@@ -3,7 +3,7 @@
   "id": "${mod_id}",
   "version": "${version}",
   "name": "VerceCraft",
-  "description": "adding block, features and etc....",
+  "description": "Adding block, features and etc....",
   "authors": [
     "SergoFox",
     "zozozrob_"
@@ -13,8 +13,7 @@
   "contact": {
     "homepage": "https://modrinth.com/mod/versecraft",
     "sources": "https://github.com/SergoFox123/VerseCraft",
-    "issues": "https://github.com/SergoFox123/VerseCraft/issues",
-    "discord": "https://discord.gg/368t6NQpEK"
+    "issues": "https://github.com/SergoFox123/VerseCraft/issues"
   },
   "license": "LGPL-3.0",
   "icon": "assets/vercecraft/icon.png",
@@ -42,6 +41,13 @@
     "fabric-api": "${fabric_api_version}",
     "minecraft": "${minecraft_version}",
     "java": ">=21"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/368t6NQpEK"
+      }
+    }
   },
   "suggests": {
     "cloth-config": "*",
