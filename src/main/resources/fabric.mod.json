@@ -13,7 +13,8 @@
   "contact": {
     "homepage": "https://modrinth.com/mod/versecraft",
     "sources": "https://github.com/SergoFox123/VerseCraft",
-    "issues": "https://github.com/SergoFox123/VerseCraft/issues"
+    "issues": "https://github.com/SergoFox123/VerseCraft/issues",
+    "discord": "https://discord.gg/368t6NQpEK"
   },
   "license": "LGPL-3.0",
   "icon": "assets/vercecraft/icon.png",
