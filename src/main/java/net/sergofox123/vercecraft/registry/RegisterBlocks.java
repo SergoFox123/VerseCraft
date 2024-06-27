@@ -16,6 +16,8 @@
 package net.sergofox123.vercecraft.registry;
 
 
+import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.frozenblock.lib.item.api.FrozenCreativeTabs;
@@ -31,16 +33,90 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.MapColor;
 import net.sergofox123.vercecraft.VerseSharedConstants;
 import static net.minecraft.world.level.block.Blocks.*;
 
 
 public class RegisterBlocks {
+
+	public static final BlockSetType AZALEA_SET = BlockSetTypeBuilder.copyOf(BlockSetType.OAK).register(VerseSharedConstants.id("azalea"));
+	public static final WoodType AZALEA_WOOD_TYPE = WoodTypeBuilder.copyOf(WoodType.ACACIA).register(VerseSharedConstants.id("azalea"), AZALEA_SET);
+
+	private static final MapColor AZALEA_PLANKS_COLOR = MapColor.TERRACOTTA_WHITE;
+
+	private static final MapColor AZALEA_BARK_COLOR = MapColor.TERRACOTTA_WHITE;
+
+	public static final Block AZALEA_LOG = Blocks.log(AZALEA_PLANKS_COLOR, AZALEA_BARK_COLOR);
+
+	public static final Block STRIPPED_AZALEA_LOG = Blocks.log(AZALEA_PLANKS_COLOR, AZALEA_BARK_COLOR);
+
+	public static final RotatedPillarBlock STRIPPED_AZALEA_WOOD = new RotatedPillarBlock(
+		BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	public static final RotatedPillarBlock AZALEA_WOOD = new RotatedPillarBlock(
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+			.mapColor(AZALEA_BARK_COLOR)
+	);
+
+	public static final Block AZALEA_PLANKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	public static final StairBlock AZALEA_STAIRS = new StairBlock(
+		AZALEA_PLANKS.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(AZALEA_PLANKS)
+	);
+
+	public static final Block AZALEA_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	public static final FenceBlock AZALEA_FENCE = new FenceBlock(
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	public static final Block AZALEA_FENCE_GATE = new FenceGateBlock(
+		AZALEA_WOOD_TYPE,
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	public static final DoorBlock AZALEA_DOOR = new DoorBlock(
+		AZALEA_SET,
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR).mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	public static final TrapDoorBlock AZALEA_TRAPDOOR = new TrapDoorBlock(
+		AZALEA_SET,
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	public static final PressurePlateBlock AZALEA_PRESSURE_PLATE = new PressurePlateBlock(
+		AZALEA_SET,
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	public static final Block AZALEA_BUTTON = Blocks.woodenButton(AZALEA_SET);
 
 	//Acacia Mosaic
 
@@ -316,6 +392,18 @@ public class RegisterBlocks {
 
 	public static void registerBB() {
 
+		//Azalea
+		registerBlockAfter(Items.ACACIA_BUTTON,"azalea_log", AZALEA_LOG, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_LOG,"azalea_wood", AZALEA_WOOD, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_WOOD,"stripped_azalea_log", STRIPPED_AZALEA_LOG, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(STRIPPED_AZALEA_LOG,"stripped_azalea_wood", STRIPPED_AZALEA_WOOD, CreativeModeTabs.BUILDING_BLOCKS);
+
+		registerBlockAfter(STRIPPED_AZALEA_WOOD,"azalea_planks", AZALEA_PLANKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_PLANKS,"azalea_stairs", AZALEA_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_STAIRS,"azalea_slab", AZALEA_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_SLAB,"azalea_fence", AZALEA_FENCE, CreativeModeTabs.BUILDING_BLOCKS);
+
+
 		//Acacia Mosaic
 		registerBlockAfter(Items.ACACIA_PLANKS,"acacia_mosaic", ACACIA_MOSAIC, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(Items.ACACIA_STAIRS,"acacia_mosaic_stairs", ACACIA_MOSAIC_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
@@ -391,6 +479,26 @@ public class RegisterBlocks {
 		registerBlockAfter(CALCITE_BRICKS_WALL,"chiseled_calcite_bricks", CHISELED_CALCITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockBefore(CALCITE_BRICKS_STAIRS,"cracked_calcite_bricks", CRACKED_CALCITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
 
+	}
+
+	public static void registerWoods() {
+		String azalea = "azalea";
+
+		String wood = azalea;
+		//Azalea
+		registerBlockAfter(Items.ACACIA_BUTTON, wood + "_log", AZALEA_LOG, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_LOG, wood + "_wood", AZALEA_WOOD, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_WOOD, "stripped_" + wood + "_log", STRIPPED_AZALEA_LOG, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(STRIPPED_AZALEA_LOG, "stripped_" + wood + "_wood", STRIPPED_AZALEA_WOOD, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(STRIPPED_AZALEA_WOOD, wood + "_planks", AZALEA_PLANKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_PLANKS, wood + "_stairs", AZALEA_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_STAIRS, wood + "_slab", AZALEA_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_SLAB, wood + "_fence", AZALEA_FENCE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_FENCE, wood + "_fence_gate", AZALEA_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_FENCE_GATE, wood + "_door", AZALEA_DOOR, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_DOOR, wood + "_trapdoor", AZALEA_TRAPDOOR, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_TRAPDOOR, wood + "_pressure_plate", AZALEA_PRESSURE_PLATE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(AZALEA_PRESSURE_PLATE, wood + "_button", AZALEA_BUTTON, CreativeModeTabs.BUILDING_BLOCKS);
 	}
 
 	public static void registerBlocks() {
@@ -484,7 +592,7 @@ public class RegisterBlocks {
 
 		registerFlammability();
 		registerFuels();
-
+		registerWoods();
 	}
 
 	private static void registerBlock(String path, Block block) {

@@ -1,4 +1,18 @@
 {
+  "block.vercecraft.azalea_log": "Azalea Log",
+  "block.vercecraft.azalea_wood": "Azalea Wood",
+  "block.vercecraft.stripped_azalea_log": "Stripped Azalea Log",
+  "block.vercecraft.stripped_azalea_wood": "Stripped Azalea Wood",
+  "block.vercecraft.azalea_planks": "Azalea Planks",
+  "block.vercecraft.azalea_stairs": "Azalea Stairs",
+  "block.vercecraft.azalea_slab": "Azalea Slab",
+  "block.vercecraft.azalea_fence": "Azalea Fence",
+  "block.vercecraft.azalea_fence_gate": "Azalea Fence Gate",
+  "block.vercecraft.azalea_door": "Azalea Door",
+  "block.vercecraft.azalea_trapdoor": "Azalea Trapdoor",
+  "block.vercecraft.azalea_pressure_plate": "Azalea Pressure Plate",
+  "block.vercecraft.azalea_button": "Azalea Button",
+
   "block.vercecraft.acacia_mosaic": "Acacia Mosaic",
   "block.vercecraft.acacia_mosaic_stairs": "Acacia Mosaic Stairs",
   "block.vercecraft.acacia_mosaic_slab": "Acacia Mosaic Slab",
