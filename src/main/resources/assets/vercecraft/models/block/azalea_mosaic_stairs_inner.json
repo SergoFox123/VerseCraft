@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "vercecraft:block/azalea_mosaic",
+    "side": "vercecraft:block/azalea_mosaic",
+    "top": "vercecraft:block/azalea_mosaic"
+  }
+}

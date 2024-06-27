@@ -118,6 +118,22 @@ public class RegisterBlocks {
 
 	public static final Block AZALEA_BUTTON = Blocks.woodenButton(AZALEA_SET);
 
+	//Azalea Mosaic
+
+	public static final Block AZALEA_MOSAIC = new Block(
+		BlockBehaviour.Properties.ofFullCopy(AZALEA_PLANKS)
+
+	);
+
+	public static final StairBlock AZALEA_MOSAIC_STAIRS = new StairBlock(
+		ACACIA_STAIRS.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(AZALEA_STAIRS)
+	);
+
+	public static final SlabBlock AZALEA_MOSAIC_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(AZALEA_SLAB)
+	);
+
 	//Acacia Mosaic
 
 	public static final Block ACACIA_MOSAIC = new Block(
@@ -392,16 +408,7 @@ public class RegisterBlocks {
 
 	public static void registerBB() {
 
-		//Azalea
-		registerBlockAfter(Items.ACACIA_BUTTON,"azalea_log", AZALEA_LOG, CreativeModeTabs.BUILDING_BLOCKS);
-		registerBlockAfter(AZALEA_LOG,"azalea_wood", AZALEA_WOOD, CreativeModeTabs.BUILDING_BLOCKS);
-		registerBlockAfter(AZALEA_WOOD,"stripped_azalea_log", STRIPPED_AZALEA_LOG, CreativeModeTabs.BUILDING_BLOCKS);
-		registerBlockAfter(STRIPPED_AZALEA_LOG,"stripped_azalea_wood", STRIPPED_AZALEA_WOOD, CreativeModeTabs.BUILDING_BLOCKS);
 
-		registerBlockAfter(STRIPPED_AZALEA_WOOD,"azalea_planks", AZALEA_PLANKS, CreativeModeTabs.BUILDING_BLOCKS);
-		registerBlockAfter(AZALEA_PLANKS,"azalea_stairs", AZALEA_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
-		registerBlockAfter(AZALEA_STAIRS,"azalea_slab", AZALEA_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
-		registerBlockAfter(AZALEA_SLAB,"azalea_fence", AZALEA_FENCE, CreativeModeTabs.BUILDING_BLOCKS);
 
 
 		//Acacia Mosaic
@@ -499,6 +506,11 @@ public class RegisterBlocks {
 		registerBlockAfter(AZALEA_DOOR, wood + "_trapdoor", AZALEA_TRAPDOOR, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(AZALEA_TRAPDOOR, wood + "_pressure_plate", AZALEA_PRESSURE_PLATE, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(AZALEA_PRESSURE_PLATE, wood + "_button", AZALEA_BUTTON, CreativeModeTabs.BUILDING_BLOCKS);
+
+		//Azalea Mosaic
+		registerBlockBefore(AZALEA_STAIRS,wood+ "_mosaic", AZALEA_MOSAIC, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockBefore(AZALEA_SLAB, wood + "_mosaic_stairs", AZALEA_MOSAIC_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockBefore(AZALEA_FENCE, wood + "_mosaic_slab", AZALEA_MOSAIC_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
 	}
 
 	public static void registerBlocks() {
