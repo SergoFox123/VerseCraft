@@ -1,6 +1,27 @@
 {
   "replace": false,
   "values": [
+
+    "vercecraft:azalea_log",
+    "vercecraft:azalea_wood",
+    "vercecraft:stripped_azalea_log",
+    "vercecraft:stripped_azalea_wood",
+    "vercecraft:azalea_planks",
+    "vercecraft:azalea_mosaic",
+    "vercecraft:azalea_stairs",
+    "vercecraft:azalea_mosaic_stairs",
+    "vercecraft:azalea_slab",
+    "vercecraft:azalea_mosaic_slab",
+    "vercecraft:azalea_fence",
+    "vercecraft:azalea_fence_gate",
+    "vercecraft:azalea_door",
+    "vercecraft:azalea_trapdoor",
+    "vercecraft:azalea_pressure_plate",
+    "vercecraft:azalea_button",
+    "vercecraft:azalea_sign",
+    "vercecraft:azalea_hanging_sign",
+    "vercecraft:azalea_wall_hanging_sign",
+
     "vercecraft:acacia_mosaic",
     "vercecraft:acacia_mosaic_slab",
     "vercecraft:acacia_mosaic_stairs",
