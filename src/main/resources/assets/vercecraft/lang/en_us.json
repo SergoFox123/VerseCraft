@@ -12,6 +12,12 @@
   "block.vercecraft.azalea_trapdoor": "Azalea Trapdoor",
   "block.vercecraft.azalea_pressure_plate": "Azalea Pressure Plate",
   "block.vercecraft.azalea_button": "Azalea Button",
+  "block.vercecraft.azalea_hanging_sign": "Azalea Hanging Sign",
+  "block.vercecraft.azalea_sign": "Azalea Sign",
+
+  "item.vercecraft.azalea_chest_boat": "Azalea Chest Boat",
+  "item.vercecraft.azalea_boat": "Azalea Boat",
+
 
   "block.vercecraft.azalea_mosaic": "Azalea Mosaic",
   "block.vercecraft.azalea_mosaic_stairs": "Azalea Mosaic Stairs",

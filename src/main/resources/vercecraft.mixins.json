@@ -4,6 +4,9 @@
   "package": "net.sergofox123.vercecraft.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "entity.boat.BoatDropsMixin",
+    "entity.boat.BoatTypeMixin",
+    "entity.boat.ChestBoatDropsMixin"
   ],
   "client": [
   ],

@@ -20,10 +20,15 @@ import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.frozenblock.lib.block.api.FrozenCeilingHangingSignBlock;
+import net.frozenblock.lib.block.api.FrozenSignBlock;
+import net.frozenblock.lib.block.api.FrozenWallHangingSignBlock;
+import net.frozenblock.lib.block.api.FrozenWallSignBlock;
 import net.frozenblock.lib.item.api.FrozenCreativeTabs;
 import net.frozenblock.lib.shadow.org.intellij.lang.annotations.Identifier;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -117,6 +122,37 @@ public class RegisterBlocks {
 	);
 
 	public static final Block AZALEA_BUTTON = Blocks.woodenButton(AZALEA_SET);
+
+	public static final FrozenSignBlock AZALEA_SIGN = new FrozenSignBlock(
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
+			.mapColor(AZALEA_LOG.defaultMapColor()),
+		AZALEA_WOOD_TYPE,
+		ResourceKey.create(Registries.LOOT_TABLE, VerseSharedConstants.id("blocks/azalea_sign"))
+	);
+
+	public static final FrozenWallSignBlock AZALEA_WALL_SIGN = new FrozenWallSignBlock(
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)
+			.mapColor(AZALEA_LOG.defaultMapColor())
+			.dropsLike(AZALEA_SIGN),
+		AZALEA_WOOD_TYPE,
+		ResourceKey.create(Registries.LOOT_TABLE, VerseSharedConstants.id("blocks/azalea_sign"))
+	);
+
+	public static final FrozenCeilingHangingSignBlock AZALEA_HANGING_SIGN = new FrozenCeilingHangingSignBlock(
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)
+			.mapColor(AZALEA_LOG.defaultMapColor()),
+		AZALEA_WOOD_TYPE,
+		ResourceKey.create(Registries.LOOT_TABLE, VerseSharedConstants.id("blocks/azalea_hanging_sign"))
+	);
+
+	public static final FrozenWallHangingSignBlock AZALEA_WALL_HANGING_SIGN = new FrozenWallHangingSignBlock(
+		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)
+			.mapColor(AZALEA_LOG.defaultMapColor())
+			.dropsLike(AZALEA_HANGING_SIGN),
+		AZALEA_WOOD_TYPE,
+		ResourceKey.create(Registries.LOOT_TABLE, VerseSharedConstants.id("blocks/azalea_hanging_sign"))
+	);
+
 
 	//Azalea Mosaic
 
@@ -511,6 +547,11 @@ public class RegisterBlocks {
 		registerBlockBefore(AZALEA_STAIRS,wood+ "_mosaic", AZALEA_MOSAIC, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockBefore(AZALEA_SLAB, wood + "_mosaic_stairs", AZALEA_MOSAIC_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockBefore(AZALEA_FENCE, wood + "_mosaic_slab", AZALEA_MOSAIC_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+
+		registerBlock(azalea + "_sign", AZALEA_SIGN);
+		registerBlock(azalea + "_wall_sign", AZALEA_WALL_SIGN);
+		registerBlock(azalea + "_hanging_sign", AZALEA_HANGING_SIGN);
+		registerBlock(azalea + "_wall_hanging_sign", AZALEA_WALL_HANGING_SIGN);
 	}
 
 	public static void registerBlocks() {
