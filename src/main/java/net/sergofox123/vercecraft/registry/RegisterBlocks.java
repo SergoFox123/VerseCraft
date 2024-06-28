@@ -20,6 +20,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.frozenblock.lib.block.api.FrozenCeilingHangingSignBlock;
 import net.frozenblock.lib.block.api.FrozenSignBlock;
 import net.frozenblock.lib.block.api.FrozenWallHangingSignBlock;
@@ -603,6 +604,11 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC_SLAB, 5, 20);
 	}
 
+	private static void registerStrippable() {
+		StrippableBlockRegistry.register(AZALEA_LOG, STRIPPED_AZALEA_LOG);
+		StrippableBlockRegistry.register(AZALEA_WOOD, STRIPPED_AZALEA_WOOD);
+	}
+
 	private static void registerFuels() {
 		VerseSharedConstants.logWithModId("Registering Fuels for", VerseSharedConstants.UNSTABLE_LOGGING);
 		FuelRegistry registry = FuelRegistry.INSTANCE;
@@ -642,7 +648,7 @@ public class RegisterBlocks {
 
 	public static void registerBlockProperties() {
 
-
+		registerStrippable();
 		registerFlammability();
 		registerFuels();
 		registerWoods();
