@@ -22,6 +22,7 @@ import net.frozenblock.lib.mobcategory.api.entrypoint.FrozenMobCategoryEntrypoin
 import net.frozenblock.lib.mobcategory.impl.FrozenMobCategory;
 import net.sergofox123.vercecraft.registry.RegisterBlocks;
 
+import net.sergofox123.vercecraft.registry.RegisterItems;
 import org.jetbrains.annotations.NotNull;
 
 public final class VerseCraft extends FrozenModInitializer implements FrozenMobCategoryEntrypoint {
@@ -36,6 +37,9 @@ public final class VerseCraft extends FrozenModInitializer implements FrozenMobC
 
 
 		RegisterBlocks.registerBlocks();
+
+		RegisterItems.registerItems();
+		RegisterItems.registerBlockItems();
 
 		RegisterBlocks.registerBlockProperties();
 

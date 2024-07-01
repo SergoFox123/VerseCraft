@@ -18,6 +18,9 @@ package net.sergofox123.vercecraft;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.minecraft.client.renderer.RenderType;
+import net.sergofox123.vercecraft.registry.RegisterBlocks;
 
 @Environment(EnvType.CLIENT)
 public final class VerseCraftClient implements ClientModInitializer {
@@ -25,6 +28,13 @@ public final class VerseCraftClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+
+		BlockRenderLayerMap renderLayerRegistry = BlockRenderLayerMap.INSTANCE;
+
+		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_DOOR, RenderType.cutout());
+		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, RenderType.cutout());
+
 	}
+
 
 }

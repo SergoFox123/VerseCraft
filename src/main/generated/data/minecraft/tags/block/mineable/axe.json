@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
+
+    "vercecraft:azalea_mosaic",
+    "vercecraft:azalea_mosaic_stairs",
+    "vercecraft:azalea_mosaic_slab",
+
     "vercecraft:acacia_mosaic",
     "vercecraft:acacia_mosaic_slab",
     "vercecraft:acacia_mosaic_stairs",
