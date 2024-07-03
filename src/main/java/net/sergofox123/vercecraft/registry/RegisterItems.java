@@ -35,6 +35,7 @@ import net.sergofox123.vercecraft.VerseSharedConstants;
 
 public class RegisterItems {
 
+	//Azalea
 	public static final SignItem AZALEA_SIGN = new SignItem(new Item.Properties().stacksTo(16),
 		RegisterBlocks.AZALEA_SIGN, RegisterBlocks.AZALEA_WALL_SIGN
 	);
@@ -45,6 +46,10 @@ public class RegisterItems {
 
 	public static final BoatItem AZALEA_BOAT = new BoatItem(false, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
 	public static final BoatItem AZALEA_CHEST_BOAT = new BoatItem(true, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
+
+	//Pottery Sherd
+
+	public static final Item DRAGON_POTTERY_SHERD = new Item(new Item.Properties());
 
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
@@ -61,6 +66,13 @@ public class RegisterItems {
 
 		registerItemAfter(Items.ACACIA_CHEST_BOAT, AZALEA_BOAT, "azalea_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
 		registerItemAfter(AZALEA_BOAT, AZALEA_CHEST_BOAT, "azalea_chest_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
+	}
+
+	public static void init() {
+
+		registerItemBefore(Items.BURN_POTTERY_SHERD, DRAGON_POTTERY_SHERD, "dragon_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+
+
 	}
 
 	@SafeVarargs

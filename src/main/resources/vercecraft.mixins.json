@@ -6,9 +6,12 @@
   "mixins": [
     "entity.boat.BoatDropsMixin",
     "entity.boat.BoatTypeMixin",
-    "entity.boat.ChestBoatDropsMixin"
+    "entity.boat.ChestBoatDropsMixin",
+    "common.decorated_pot.DecoratedPotBlockEntityMixin"
   ],
   "client": [
+    "client.decorated_pot.DecoratedPotRendererMixin",
+    "client.decorated_pot.DecoratedPotPatternsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -20,10 +20,20 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.block.entity.DecoratedPotPattern;
 import net.sergofox123.vercecraft.registry.RegisterBlocks;
 
 @Environment(EnvType.CLIENT)
 public final class VerseCraftClient implements ClientModInitializer {
+
+	public static final String BLANK_DECORATED_NAME = "decorated_pot_blank_side";
+	public static final String DRAGON_POTTERY_PATTERN_NAME = "dragon_pottery_pattern";
+
+
+	public static final ResourceKey<DecoratedPotPattern> BLANK_DECORATED = ResourceKey.create(Registries.DECORATED_POT_PATTERN, VerseSharedConstants.id(BLANK_DECORATED_NAME));
+	public static final ResourceKey<DecoratedPotPattern> DRAGON_POTTERY_PATTERN = ResourceKey.create(Registries.DECORATED_POT_PATTERN, VerseSharedConstants.id(DRAGON_POTTERY_PATTERN_NAME));
 
 
 	@Override

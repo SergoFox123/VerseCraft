@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "vercecraft:item/dragon_pottery_sherd"
+  }
+}
