@@ -51,6 +51,16 @@ public class RegisterItems {
 
 	public static final Item DRAGON_POTTERY_SHERD = new Item(new Item.Properties());
 
+	public static final Item EGG_POTTERY_SHERD = new Item(new Item.Properties());
+
+	public static final Item PILLAGER_POTTERY_SHERD = new Item(new Item.Properties());
+
+	public static final Item PORTAL_POTTERY_SHERD = new Item(new Item.Properties());
+
+	public static final Item SWORD_POTTERY_SHERD = new Item(new Item.Properties());
+
+
+
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
 	}
@@ -70,8 +80,11 @@ public class RegisterItems {
 
 	public static void init() {
 
-		registerItemBefore(Items.BURN_POTTERY_SHERD, DRAGON_POTTERY_SHERD, "dragon_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-
+		registerItemAfter(Items.BURN_POTTERY_SHERD, DRAGON_POTTERY_SHERD, "dragon_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerItemAfter(DRAGON_POTTERY_SHERD, EGG_POTTERY_SHERD, "egg_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerItemAfter(EGG_POTTERY_SHERD, PILLAGER_POTTERY_SHERD, "pillager_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerItemAfter(PILLAGER_POTTERY_SHERD, PORTAL_POTTERY_SHERD, "portal_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerItemAfter(PORTAL_POTTERY_SHERD, SWORD_POTTERY_SHERD, "sword_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 
 	}
 

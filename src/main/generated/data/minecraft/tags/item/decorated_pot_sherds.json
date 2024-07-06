@@ -1,5 +1,9 @@
 {
   "values": [
-    "vercecraft:dragon_pottery_sherd"
+    "vercecraft:dragon_pottery_sherd",
+    "vercecraft:egg_pottery_sherd",
+    "vercecraft:pillager_pottery_sherd",
+    "vercecraft:portal_pottery_sherd",
+    "vercecraft:sword_pottery_sherd"
   ]
 }

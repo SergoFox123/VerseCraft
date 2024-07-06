@@ -32,6 +32,11 @@ public class DecoratedPotPatternsMixin {
 		newMap.putAll(original);
 
 		newMap.put(RegisterItems.DRAGON_POTTERY_SHERD, VerseCraftClient.DRAGON_POTTERY_PATTERN);
+		newMap.put(RegisterItems.EGG_POTTERY_SHERD, VerseCraftClient.EGG_POTTERY_PATTERN);
+		newMap.put(RegisterItems.PILLAGER_POTTERY_SHERD, VerseCraftClient.PILLAGER_POTTERY_PATTERN);
+		newMap.put(RegisterItems.PORTAL_POTTERY_SHERD, VerseCraftClient.PORTAL_POTTERY_PATTERN);
+		newMap.put(RegisterItems.SWORD_POTTERY_SHERD, VerseCraftClient.SWORD_POTTERY_PATTERN);
+
 
 
 		return Map.copyOf(newMap);
@@ -43,7 +48,10 @@ public class DecoratedPotPatternsMixin {
 
 
 		verseCraft$register(registry, VerseCraftClient.DRAGON_POTTERY_PATTERN, VerseCraftClient.DRAGON_POTTERY_PATTERN_NAME);
-
+		verseCraft$register(registry, VerseCraftClient.EGG_POTTERY_PATTERN, VerseCraftClient.EGG_POTTERY_PATTERN_NAME);
+		verseCraft$register(registry, VerseCraftClient.PILLAGER_POTTERY_PATTERN, VerseCraftClient.PILLAGER_POTTERY_PATTERN_NAME);
+		verseCraft$register(registry, VerseCraftClient.PORTAL_POTTERY_PATTERN, VerseCraftClient.PORTAL_POTTERY_PATTERN_NAME);
+		verseCraft$register(registry, VerseCraftClient.SWORD_POTTERY_PATTERN, VerseCraftClient.SWORD_POTTERY_PATTERN_NAME);
 	}
 
 	@Contract("_, _, _ -> new")
