@@ -1,6 +1,23 @@
 {
   "replace": false,
   "values": [
+    "vercecraft:cracked_tuff_bricks",
+
+    "vercecraft:dripstone_stairs",
+    "vercecraft:dripstone_slab",
+    "vercecraft:dripstone_wall",
+    "vercecraft:chiseled_dripstone",
+    "vercecraft:polished_dripstone",
+    "vercecraft:polished_dripstone_stairs",
+    "vercecraft:polished_dripstone_slab",
+    "vercecraft:polished_dripstone_wall",
+    "vercecraft:dripstone_bricks",
+    "vercecraft:cracked_dripstone_bricks",
+    "vercecraft:dripstone_bricks_stairs",
+    "vercecraft:dripstone_bricks_slab",
+    "vercecraft:dripstone_bricks_wall",
+    "vercecraft:chiseled_dripstone_bricks",
+
     "vercecraft:calcite_stairs",
     "vercecraft:calcite_slab",
     "vercecraft:calcite_wall",
@@ -14,7 +31,6 @@
     "vercecraft:calcite_bricks_stairs",
     "vercecraft:calcite_bricks_slab",
     "vercecraft:calcite_bricks_wall",
-    "vercecraft:chiseled_calcite_bricks",
-    "vercecraft:cracked_tuff_bricks"
+    "vercecraft:chiseled_calcite_bricks"
   ]
 }

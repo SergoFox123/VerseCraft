@@ -2,6 +2,10 @@
   "values": [
     "vercecraft:calcite_wall",
     "vercecraft:polished_calcite_wall",
-    "vercecraft:calcite_bricks_wall"
+    "vercecraft:calcite_bricks_wall",
+
+    "vercecraft:dripstone_wall",
+    "vercecraft:polished_dripstone_wall",
+    "vercecraft:dripstone_bricks_wall"
   ]
 }

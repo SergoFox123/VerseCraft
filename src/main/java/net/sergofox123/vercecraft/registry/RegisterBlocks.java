@@ -444,9 +444,113 @@ public class RegisterBlocks {
 			.sound(SoundType.CALCITE)
 	);
 
+	//Dripstone
+
+	public static final StairBlock DRIPSTONE_STAIRS = new StairBlock(
+		DRIPSTONE_BLOCK.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
+	public static final SlabBlock DRIPSTONE_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK));
+
+
+	public static final WallBlock DRIPSTONE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
+	public static final Block CHISELED_DRIPSTONE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
+	//Polished Dripstone
+
+	public static final Block POLISHED_DRIPSTONE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
+	public static final StairBlock POLISHED_DRIPSTONE_STAIRS = new StairBlock(
+		DRIPSTONE_BLOCK.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
+	public static final SlabBlock POLISHED_DRIPSTONE_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK));
+
+	public static final WallBlock POLISHED_DRIPSTONE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
+	//Dripstone Bricks
+
+	public static final Block DRIPSTONE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(CALCITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.CALCITE)
+	);
+
+	public static final Block CRACKED_DRIPSTONE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
+
+	public static final StairBlock DRIPSTONE_BRICKS_STAIRS = new StairBlock(
+		DRIPSTONE_BLOCK.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
+	public static final SlabBlock DRIPSTONE_BRICKS_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK));
+
+	public static final WallBlock DRIPSTONE_BRICKS_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
+	public static final Block CHISELED_DRIPSTONE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DRIPSTONE_BLOCK)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.DRIPSTONE_BLOCK)
+	);
+
 	public static void registerBB() {
-
-
 
 
 		//Acacia Mosaic
@@ -523,6 +627,29 @@ public class RegisterBlocks {
 		registerBlockAfter(CALCITE_BRICKS_SLAB,"calcite_bricks_wall", CALCITE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(CALCITE_BRICKS_WALL,"chiseled_calcite_bricks", CHISELED_CALCITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockBefore(CALCITE_BRICKS_STAIRS,"cracked_calcite_bricks", CRACKED_CALCITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+
+		//Dripstone
+		FrozenCreativeTabs.addAfter(Items.CHISELED_TUFF_BRICKS, Items.DRIPSTONE_BLOCK, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(Items.DRIPSTONE_BLOCK,"dripstone_stairs", DRIPSTONE_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DRIPSTONE_STAIRS,"dripstone_slab", DRIPSTONE_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DRIPSTONE_SLAB,"dripstone_wall", DRIPSTONE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DRIPSTONE_WALL,"chiseled_dripstone", CHISELED_DRIPSTONE, CreativeModeTabs.BUILDING_BLOCKS);
+
+		//Polished Dripstone
+		registerBlockAfter(CHISELED_DRIPSTONE,"polished_dripstone", POLISHED_DRIPSTONE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_DRIPSTONE,"polished_dripstone_stairs", POLISHED_DRIPSTONE_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_DRIPSTONE_STAIRS,"polished_dripstone_slab", POLISHED_DRIPSTONE_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_DRIPSTONE_SLAB,"polished_dripstone_wall", POLISHED_DRIPSTONE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+
+		//Dripstone Bricks
+
+		registerBlockAfter(POLISHED_DRIPSTONE_WALL,"dripstone_bricks", DRIPSTONE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DRIPSTONE_BRICKS,"dripstone_bricks_stairs", DRIPSTONE_BRICKS_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DRIPSTONE_BRICKS_STAIRS,"dripstone_bricks_slab", DRIPSTONE_BRICKS_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DRIPSTONE_BRICKS_SLAB,"dripstone_bricks_wall", DRIPSTONE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DRIPSTONE_BRICKS_WALL,"chiseled_dripstone_bricks", CHISELED_DRIPSTONE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockBefore(DRIPSTONE_BRICKS_STAIRS,"cracked_dripstone_bricks", CRACKED_DRIPSTONE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+
 
 		//Azalea Wood
 		registerBlockAfter(Items.ACACIA_BUTTON,"azalea_log", AZALEA_LOG, CreativeModeTabs.BUILDING_BLOCKS);

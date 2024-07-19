@@ -87,5 +87,22 @@
   "block.vercecraft.calcite_bricks_stairs": "Calcite Bricks Stairs",
   "block.vercecraft.calcite_bricks_slab": "Calcite Bricks Slab",
   "block.vercecraft.calcite_bricks_wall": "Calcite Bricks Wall",
-  "block.vercecraft.chiseled_calcite_bricks": "Chiseled Calcite Bricks"
+  "block.vercecraft.chiseled_calcite_bricks": "Chiseled Calcite Bricks",
+
+  "block.vercecraft.dripstone_stairs": "Dripstone Stairs",
+  "block.vercecraft.dripstone_slab": "Dripstone Slab",
+  "block.vercecraft.dripstone_wall": "Dripstone Wall",
+
+  "block.vercecraft.polished_dripstone": "Polished Dripstone",
+  "block.vercecraft.polished_dripstone_stairs": "Polished Dripstone Stairs",
+  "block.vercecraft.polished_dripstone_slab": "Polished Dripstone Slab",
+  "block.vercecraft.polished_dripstone_wall": "Polished Dripstone Wall",
+  "block.vercecraft.chiseled_dripstone": "Chiseled Dripstone",
+
+  "block.vercecraft.dripstone_bricks": "Dripstone Bricks",
+  "block.vercecraft.cracked_dripstone_bricks": "Cracked Dripstone Bricks",
+  "block.vercecraft.dripstone_bricks_stairs": "Dripstone Bricks Stairs",
+  "block.vercecraft.dripstone_bricks_slab": "Dripstone Bricks Slab",
+  "block.vercecraft.dripstone_bricks_wall": "Dripstone Bricks Wall",
+  "block.vercecraft.chiseled_dripstone_bricks": "Chiseled Dripstone Bricks"
 }
