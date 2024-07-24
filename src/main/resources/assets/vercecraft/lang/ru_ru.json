@@ -1,7 +1,36 @@
 {
+  "block.vercecraft.azalea_log": "Азалиевое бревно",
+  "block.vercecraft.azalea_wood": "Азалиевое дерево",
+  "block.vercecraft.stripped_azalea_log": "Обтёсанное азалиевое бревно",
+  "block.vercecraft.stripped_azalea_wood": "Обтёсанная азалиевая древесина",
+  "block.vercecraft.azalea_planks": "Азалиевые доски",
+  "block.vercecraft.azalea_stairs": "Азалиевые ступеньки",
+  "block.vercecraft.azalea_slab": "Азалиевая плита",
+  "block.vercecraft.azalea_fence": "Азалиевый забор",
+  "block.vercecraft.azalea_fence_gate": "Азалиевая калитка",
+  "block.vercecraft.azalea_door": "Азалиевая дверь",
+  "block.vercecraft.azalea_trapdoor": "Азалиевый люк",
+  "block.vercecraft.azalea_pressure_plate": "Азалиевая нажимная плита",
+  "block.vercecraft.azalea_button": "Азалиевая кнопка",
+  "block.vercecraft.azalea_hanging_sign": "Азалиевая подвесная табличка",
+  "block.vercecraft.azalea_sign": "Азалиевая табличка",
+
+  "item.vercecraft.azalea_chest_boat": "Азалиевая грузовая лодка",
+  "item.vercecraft.azalea_boat": "Азалиевая лодка",
+
+  "item.vercecraft.dragon_pottery_sherd": "Глиняный черепок «Дракон»",
+  "item.vercecraft.egg_pottery_sherd": "Глиняный черепок «Яйцо»",
+  "item.vercecraft.pillager_pottery_sherd": "Глиняный черепок «Пилладжер»",
+  "item.vercecraft.portal_pottery_sherd": "Глиняный черепок «Портал»",
+  "item.vercecraft.sword_pottery_sherd": "Глиняный черепок «Меч»",
+
   "block.vercecraft.acacia_mosaic": "Акациевая мозаика",
   "block.vercecraft.acacia_mosaic_stairs": "Ступеньки из акациевой мозаики",
   "block.vercecraft.acacia_mosaic_slab": "Плита из акациевой мозаики",
+
+  "block.vercecraft.azalea_mosaic": "Азалиевая мозаика",
+  "block.vercecraft.azalea_mosaic_stairs": "Ступеньки из азалиевой мозаики",
+  "block.vercecraft.azalea_mosaic_slab": "Плита из азалиевой мозаики",
 
   "block.vercecraft.birch_mosaic": "Берёзовая мозаика",
   "block.vercecraft.birch_mosaic_stairs": "Ступеньки из берёзовой мозаики",
@@ -56,5 +85,22 @@
   "block.vercecraft.calcite_bricks_stairs": "Ступеньки из кальцитового кирпича",
   "block.vercecraft.calcite_bricks_slab": "Плита из кальцитового кирпича",
   "block.vercecraft.calcite_bricks_wall": "Ограда из кальцитового кирпича",
-  "block.vercecraft.chiseled_calcite_bricks": "Резные кальцитовые кирпичи"
+  "block.vercecraft.chiseled_calcite_bricks": "Резные кальцитовые кирпичи",
+
+  "block.vercecraft.dripstone_stairs": "Ступеньки из натёчного камня",
+  "block.vercecraft.dripstone_slab": "Плита из натёчного камня",
+  "block.vercecraft.dripstone_wall": "Ограда из натёчного камня",
+
+  "block.vercecraft.polished_dripstone": "Полированный натёчный камень",
+  "block.vercecraft.polished_dripstone_stairs": "Ступеньки из полированного натёчного камня",
+  "block.vercecraft.polished_dripstone_slab": "Плита из полированного натёчного камня",
+  "block.vercecraft.polished_dripstone_wall": "Ограда из полированного натёчного камня",
+  "block.vercecraft.chiseled_dripstone": "Резной натёчный камень",
+
+  "block.vercecraft.dripstone_bricks": "Натёчные кирпичи",
+  "block.vercecraft.cracked_dripstone_bricks": "Потрескавшиеся натёчные кирпичи",
+  "block.vercecraft.dripstone_bricks_stairs": "Ступеньки из натёчного кирпича",
+  "block.vercecraft.dripstone_bricks_slab": "Плита из натёчного кирпича",
+  "block.vercecraft.dripstone_bricks_wall": "Ограда из натёчного кирпича",
+  "block.vercecraft.chiseled_dripstone_bricks": "Резные натёчные кирпичи"
 }
