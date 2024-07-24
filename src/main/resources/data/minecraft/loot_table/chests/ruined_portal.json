@@ -69,11 +69,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "vercecraft:portal_pottery_sherd",
-          "weight": 20
-        },
-        {
-          "type": "minecraft:item",
           "functions": [
             {
               "add": false,
@@ -87,6 +82,22 @@
           ],
           "name": "minecraft:gold_nugget",
           "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "vercecraft:portal_pottery_sherd",
+          "weight": 40
         },
         {
           "type": "minecraft:item",
