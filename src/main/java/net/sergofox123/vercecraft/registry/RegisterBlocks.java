@@ -61,80 +61,86 @@ import static net.minecraft.world.level.block.Blocks.*;
 
 public class RegisterBlocks {
 
-	public static final BlockSetType AZALEA_SET = BlockSetTypeBuilder.copyOf(BlockSetType.OAK).register(VerseSharedConstants.id("azalea"));
-	public static final WoodType AZALEA_WOOD_TYPE = WoodTypeBuilder.copyOf(WoodType.ACACIA).register(VerseSharedConstants.id("azalea"), AZALEA_SET);
+	public static final BlockSetType AZALEA_SET = BlockSetTypeBuilder.copyOf(BlockSetType.CHERRY).register(VerseSharedConstants.id("azalea"));
+	public static final WoodType AZALEA_WOOD_TYPE = WoodTypeBuilder.copyOf(WoodType.CHERRY).register(VerseSharedConstants.id("azalea"), AZALEA_SET);
 
 	private static final MapColor AZALEA_PLANKS_COLOR = MapColor.TERRACOTTA_WHITE;
 
 	private static final MapColor AZALEA_BARK_COLOR = MapColor.TERRACOTTA_WHITE;
 
-	public static final Block AZALEA_LOG = Blocks.log(AZALEA_PLANKS_COLOR, AZALEA_BARK_COLOR);
+	public static final Block AZALEA_LOG = new RotatedPillarBlock(
+		BlockBehaviour.Properties.ofFullCopy(CHERRY_LOG)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
 
-	public static final Block STRIPPED_AZALEA_LOG = Blocks.log(AZALEA_PLANKS_COLOR, AZALEA_BARK_COLOR);
+	public static final Block STRIPPED_AZALEA_LOG = new RotatedPillarBlock(
+		BlockBehaviour.Properties.ofFullCopy(STRIPPED_CHERRY_LOG)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
 
 	public static final RotatedPillarBlock STRIPPED_AZALEA_WOOD = new RotatedPillarBlock(
-		BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
 	public static final RotatedPillarBlock AZALEA_WOOD = new RotatedPillarBlock(
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WOOD)
 			.mapColor(AZALEA_BARK_COLOR)
 	);
 
 	public static final Block AZALEA_PLANKS = new Block(
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
 	public static final StairBlock AZALEA_STAIRS = new StairBlock(
 		AZALEA_PLANKS.defaultBlockState(),
-		BlockBehaviour.Properties.ofFullCopy(AZALEA_PLANKS)
+		BlockBehaviour.Properties.ofFullCopy(CHERRY_PLANKS)
 	);
 
 	public static final Block AZALEA_SLAB = new SlabBlock(
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_SLAB)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
 	public static final FenceBlock AZALEA_FENCE = new FenceBlock(
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_FENCE)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
 	public static final Block AZALEA_FENCE_GATE = new FenceGateBlock(
 		AZALEA_WOOD_TYPE,
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_FENCE_GATE)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
 	public static final DoorBlock AZALEA_DOOR = new DoorBlock(
 		AZALEA_SET,
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR).mapColor(AZALEA_PLANKS_COLOR)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_DOOR).mapColor(AZALEA_PLANKS_COLOR)
 	);
 
 	public static final TrapDoorBlock AZALEA_TRAPDOOR = new TrapDoorBlock(
 		AZALEA_SET,
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_TRAPDOOR)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
 	public static final PressurePlateBlock AZALEA_PRESSURE_PLATE = new PressurePlateBlock(
 		AZALEA_SET,
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).mapColor(AZALEA_PLANKS_COLOR)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PRESSURE_PLATE).mapColor(AZALEA_PLANKS_COLOR)
 	);
 
 	public static final Block AZALEA_BUTTON = Blocks.woodenButton(AZALEA_SET);
 
 	public static final FrozenSignBlock AZALEA_SIGN = new FrozenSignBlock(
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
+		BlockBehaviour.Properties.ofFullCopy(CHERRY_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor()),
 		AZALEA_WOOD_TYPE,
 		ResourceKey.create(Registries.LOOT_TABLE, VerseSharedConstants.id("blocks/azalea_sign"))
 	);
 
 	public static final FrozenWallSignBlock AZALEA_WALL_SIGN = new FrozenWallSignBlock(
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WALL_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor())
 			.dropsLike(AZALEA_SIGN),
 		AZALEA_WOOD_TYPE,
@@ -142,14 +148,14 @@ public class RegisterBlocks {
 	);
 
 	public static final FrozenCeilingHangingSignBlock AZALEA_HANGING_SIGN = new FrozenCeilingHangingSignBlock(
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_HANGING_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor()),
 		AZALEA_WOOD_TYPE,
 		ResourceKey.create(Registries.LOOT_TABLE, VerseSharedConstants.id("blocks/azalea_hanging_sign"))
 	);
 
 	public static final FrozenWallHangingSignBlock AZALEA_WALL_HANGING_SIGN = new FrozenWallHangingSignBlock(
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WALL_HANGING_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor())
 			.dropsLike(AZALEA_HANGING_SIGN),
 		AZALEA_WOOD_TYPE,
