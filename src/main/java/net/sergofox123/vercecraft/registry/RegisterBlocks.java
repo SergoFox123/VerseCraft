@@ -33,9 +33,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -44,11 +46,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -556,6 +560,64 @@ public class RegisterBlocks {
 			.sound(SoundType.DRIPSTONE_BLOCK)
 	);
 
+	//Diorite
+
+	public static final Block CHISELED_DIORITE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final WallBlock POLISHED_DIORITE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE_WALL)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block DIORITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CRACKED_DIORITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final StairBlock DIORITE_BRICKS_STAIRS = new StairBlock(
+		DRIPSTONE_BLOCK.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final SlabBlock DIORITE_BRICKS_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE));
+
+	public static final WallBlock DIORITE_BRICKS_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CHISELED_DIORITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
 	public static void registerBB() {
 
 
@@ -611,6 +673,17 @@ public class RegisterBlocks {
 
 		//Tuff
 		registerBlockAfter(Items.TUFF_BRICKS,"cracked_tuff_bricks", CRACKED_TUFF_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+
+		//Diorite
+		registerBlockAfter(Items.DIORITE_WALL,"chiseled_diorite", CHISELED_DIORITE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(Items.POLISHED_DIORITE_SLAB,"polished_diorite_wall", POLISHED_DIORITE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_DIORITE_WALL,"diorite_bricks", DIORITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DIORITE_BRICKS,"cracked_diorite_bricks", CRACKED_DIORITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CRACKED_DIORITE_BRICKS,"diorite_bricks_stairs", DIORITE_BRICKS_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DIORITE_BRICKS_STAIRS,"diorite_bricks_slab", DIORITE_BRICKS_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DIORITE_BRICKS_SLAB,"diorite_bricks_wall", DIORITE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DIORITE_BRICKS_WALL,"chiseled_diorite_bricks", CHISELED_DIORITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+
 
 
 		//Calcite
@@ -680,7 +753,6 @@ public class RegisterBlocks {
 		registerBlock("azalea_hanging_sign", AZALEA_HANGING_SIGN);
 		registerBlock("azalea_wall_hanging_sign", AZALEA_WALL_HANGING_SIGN);
 	}
-
 
 
 	public static void registerBlocks() {
