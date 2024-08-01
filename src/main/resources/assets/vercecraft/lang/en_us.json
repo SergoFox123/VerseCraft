@@ -70,6 +70,17 @@
 
   "block.vercecraft.cracked_tuff_bricks": "Cracked Tuff Bricks",
 
+
+  "block.vercecraft.chiseled_diorite": "Chiseled Diorite",
+  "block.vercecraft.polished_diorite_wall": "Polished Diorite Wall",
+  "block.vercecraft.diorite_bricks": "Diorite Bricks",
+  "block.vercecraft.cracked_diorite_bricks": "Cracked Diorite Bricks",
+  "block.vercecraft.diorite_bricks_stairs": "Diorite Bricks Stairs",
+  "block.vercecraft.diorite_bricks_slab": "Diorite Bricks Slab",
+  "block.vercecraft.diorite_bricks_wall": "Diorite Bricks Wall",
+  "block.vercecraft.chiseled_diorite_bricks": "Chiseled Diorite Bricks",
+
+
   "block.vercecraft.calcite_stairs": "Calcite Stairs",
   "block.vercecraft.calcite_slab": "Calcite Slab",
   "block.vercecraft.calcite_wall": "Calcite Wall",
