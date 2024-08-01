@@ -68,7 +68,16 @@
   "block.vercecraft.warped_mosaic_stairs": "Ступеньки из искажённой мозаики",
   "block.vercecraft.warped_mosaic_slab": "Плита из искажённой мозаики",
 
-  "block.vercecraft.cracked_calcite_bricks": "Потрескавшиеся туфовые кирпичи",
+  "block.vercecraft.chiseled_diorite": "Резной диорит",
+  "block.vercecraft.polished_diorite_wall": "Ограда из полированного диорита",
+  "block.vercecraft.diorite_bricks": "Диоритовые кирпичи",
+  "block.vercecraft.cracked_diorite_bricks": "Потрескавшиеся диоритовые кирпичи",
+  "block.vercecraft.diorite_bricks_stairs": "Ступеньки из диоритового кирпича",
+  "block.vercecraft.diorite_bricks_slab": "Плита из диоритового кирпича",
+  "block.vercecraft.diorite_bricks_wall": "Ограда из диоритового кирпича",
+  "block.vercecraft.chiseled_diorite_bricks": "Резные диоритовые кирпичи",
+
+  "block.vercecraft.cracked_tuff_bricks": "Потрескавшиеся туфовые кирпичи",
 
   "block.vercecraft.calcite_stairs": "Кальцитовые ступеньки",
   "block.vercecraft.calcite_slab": "Кальцитовая плита",
