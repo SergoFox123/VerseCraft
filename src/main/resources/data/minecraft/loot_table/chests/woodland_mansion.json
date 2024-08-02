@@ -306,7 +306,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "vercecraft:pillager_pottery_sherd"
+          "name": "versecraft:pillager_pottery_sherd"
         }
       ],
       "rolls": 1.0

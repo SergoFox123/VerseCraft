@@ -1,14 +1,14 @@
 {
   "values": [
-    "vercecraft:polished_diorite_wall",
-    "vercecraft:diorite_bricks_wall",
+    "versecraft:polished_diorite_wall",
+    "versecraft:diorite_bricks_wall",
 
-    "vercecraft:calcite_wall",
-    "vercecraft:polished_calcite_wall",
-    "vercecraft:calcite_bricks_wall",
+    "versecraft:calcite_wall",
+    "versecraft:polished_calcite_wall",
+    "versecraft:calcite_bricks_wall",
 
-    "vercecraft:dripstone_wall",
-    "vercecraft:polished_dripstone_wall",
-    "vercecraft:dripstone_bricks_wall"
+    "versecraft:dripstone_wall",
+    "versecraft:polished_dripstone_wall",
+    "versecraft:dripstone_bricks_wall"
   ]
 }

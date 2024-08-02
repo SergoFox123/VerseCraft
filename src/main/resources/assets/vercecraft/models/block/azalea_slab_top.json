@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "vercecraft:block/azalea_planks",
-    "side": "vercecraft:block/azalea_planks",
-    "top": "vercecraft:block/azalea_planks"
-  }
-}

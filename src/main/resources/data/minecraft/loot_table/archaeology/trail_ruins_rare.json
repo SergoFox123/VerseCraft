@@ -6,11 +6,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "vercecraft:egg_pottery_sherd"
+          "name": "versecraft:egg_pottery_sherd"
         },
         {
           "type": "minecraft:item",
-          "name": "vercecraft:sword_pottery_sherd"
+          "name": "versecraft:sword_pottery_sherd"
         },
         {
           "type": "minecraft:item",
