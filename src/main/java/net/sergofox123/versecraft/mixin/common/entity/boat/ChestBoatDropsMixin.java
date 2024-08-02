@@ -13,7 +13,7 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft.mixin.entity.boat;
+package net.sergofox123.versecraft.mixin.common.entity.boat;
 
 import net.minecraft.world.entity.vehicle.ChestBoat;
 import net.minecraft.world.item.Item;

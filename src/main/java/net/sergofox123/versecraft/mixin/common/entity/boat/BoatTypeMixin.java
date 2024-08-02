@@ -13,7 +13,7 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft.mixin.entity.boat;
+package net.sergofox123.versecraft.mixin.common.entity.boat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
