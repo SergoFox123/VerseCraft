@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:diorite_brick_from_polished_diorite_stonecutting"
+        "recipe": "versecraft:diorite_brick_from_polished_diorite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:diorite_brick_from_polished_diorite_stonecutting"
+      "versecraft:diorite_brick_from_polished_diorite_stonecutting"
     ]
   }
 }

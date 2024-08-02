@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:chiseled_calcite_bricks_from_calcite_bricks_stonecutting"
+        "recipe": "versecraft:chiseled_calcite_bricks_from_calcite_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:calcite_bricks"
+            "items": "versecraft:calcite_bricks"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:chiseled_calcite_bricks_from_calcite_bricks_stonecutting"
+      "versecraft:chiseled_calcite_bricks_from_calcite_bricks_stonecutting"
     ]
   }
 }

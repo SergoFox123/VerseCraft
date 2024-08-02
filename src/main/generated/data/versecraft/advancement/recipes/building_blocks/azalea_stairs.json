@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:azalea_planks"
+            "items": "versecraft:azalea_planks"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:azalea_stairs"
+        "recipe": "versecraft:azalea_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:azalea_stairs"
+      "versecraft:azalea_stairs"
     ]
   }
 }

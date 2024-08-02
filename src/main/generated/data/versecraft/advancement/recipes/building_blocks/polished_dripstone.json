@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:polished_dripstone"
+        "recipe": "versecraft:polished_dripstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:polished_dripstone"
+      "versecraft:polished_dripstone"
     ]
   }
 }

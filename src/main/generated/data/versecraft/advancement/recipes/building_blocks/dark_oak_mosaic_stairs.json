@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:dark_oak_mosaic"
+            "items": "versecraft:dark_oak_mosaic"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:dark_oak_mosaic_stairs"
+        "recipe": "versecraft:dark_oak_mosaic_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:dark_oak_mosaic_stairs"
+      "versecraft:dark_oak_mosaic_stairs"
     ]
   }
 }

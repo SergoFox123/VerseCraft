@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:birch_mosaic"
+            "items": "versecraft:birch_mosaic"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:birch_mosaic_slab"
+        "recipe": "versecraft:birch_mosaic_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:birch_mosaic_slab"
+      "versecraft:birch_mosaic_slab"
     ]
   }
 }

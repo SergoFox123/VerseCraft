@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:calcite_brick_stairs"
+        "recipe": "versecraft:calcite_brick_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:calcite_bricks"
+            "items": "versecraft:calcite_bricks"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:calcite_brick_stairs"
+      "versecraft:calcite_brick_stairs"
     ]
   }
 }

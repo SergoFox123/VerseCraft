@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:oak_mosaic"
+            "items": "versecraft:oak_mosaic"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:oak_mosaic_stairs"
+        "recipe": "versecraft:oak_mosaic_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:oak_mosaic_stairs"
+      "versecraft:oak_mosaic_stairs"
     ]
   }
 }

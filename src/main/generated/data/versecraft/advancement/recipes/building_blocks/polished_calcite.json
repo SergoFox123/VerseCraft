@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:polished_calcite"
+        "recipe": "versecraft:polished_calcite"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:polished_calcite"
+      "versecraft:polished_calcite"
     ]
   }
 }

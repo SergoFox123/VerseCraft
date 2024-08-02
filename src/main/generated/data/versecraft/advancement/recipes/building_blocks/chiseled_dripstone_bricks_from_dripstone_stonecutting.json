@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:chiseled_dripstone_bricks_from_dripstone_stonecutting"
+        "recipe": "versecraft:chiseled_dripstone_bricks_from_dripstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:chiseled_dripstone_bricks_from_dripstone_stonecutting"
+      "versecraft:chiseled_dripstone_bricks_from_dripstone_stonecutting"
     ]
   }
 }

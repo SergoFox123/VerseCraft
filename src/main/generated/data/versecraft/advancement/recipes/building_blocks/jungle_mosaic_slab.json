@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:jungle_mosaic"
+            "items": "versecraft:jungle_mosaic"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:jungle_mosaic_slab"
+        "recipe": "versecraft:jungle_mosaic_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:jungle_mosaic_slab"
+      "versecraft:jungle_mosaic_slab"
     ]
   }
 }

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:polished_dripstone"
+            "items": "versecraft:polished_dripstone"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:polished_dripstone_stairs_from_polished_dripstone_stonecutting"
+        "recipe": "versecraft:polished_dripstone_stairs_from_polished_dripstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:polished_dripstone_stairs_from_polished_dripstone_stonecutting"
+      "versecraft:polished_dripstone_stairs_from_polished_dripstone_stonecutting"
     ]
   }
 }

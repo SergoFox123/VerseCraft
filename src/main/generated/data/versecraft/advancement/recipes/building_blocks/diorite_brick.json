@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:diorite_brick"
+        "recipe": "versecraft:diorite_brick"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:diorite_brick"
+      "versecraft:diorite_brick"
     ]
   }
 }

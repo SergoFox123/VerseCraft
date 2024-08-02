@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:polished_calcite"
+            "items": "versecraft:polished_calcite"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:polished_calcite_slab"
+        "recipe": "versecraft:polished_calcite_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:polished_calcite_slab"
+      "versecraft:polished_calcite_slab"
     ]
   }
 }

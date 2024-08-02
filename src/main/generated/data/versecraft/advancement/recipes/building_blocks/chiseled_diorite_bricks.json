@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:chiseled_diorite_bricks"
+        "recipe": "versecraft:chiseled_diorite_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:diorite_bricks_slab"
+            "items": "versecraft:diorite_bricks_slab"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:chiseled_diorite_bricks"
+      "versecraft:chiseled_diorite_bricks"
     ]
   }
 }

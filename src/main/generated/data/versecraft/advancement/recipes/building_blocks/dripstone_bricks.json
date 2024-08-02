@@ -6,7 +6,7 @@
       "conditions": {
         "items": [
           {
-            "items": "vercecraft:polished_dripstone"
+            "items": "versecraft:polished_dripstone"
           }
         ]
       },
@@ -14,7 +14,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vercecraft:dripstone_brick"
+        "recipe": "versecraft:dripstone_brick"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -27,7 +27,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vercecraft:dripstone_brick"
+      "versecraft:dripstone_brick"
     ]
   }
 }
