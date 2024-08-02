@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "versecraft:block/dripstone_bricks_slab"
+    },
+    "type=double": {
+      "model": "versecraft:block/dripstone_bricks"
+    },
+    "type=top": {
+      "model": "versecraft:block/dripstone_bricks_slab_top"
+    }
+  }
+}

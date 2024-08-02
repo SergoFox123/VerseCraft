@@ -65,7 +65,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "vercecraft:azalea_log",
+        "Name": "versecraft:azalea_log",
         "Properties": {
           "axis": "y"
         }

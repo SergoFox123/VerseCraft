@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "vercecraft:block/cherry_mosaic",
-    "side": "vercecraft:block/cherry_mosaic",
-    "top": "vercecraft:block/cherry_mosaic"
-  }
-}
