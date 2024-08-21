@@ -50,7 +50,7 @@ public class BoatTypeMixin {
 
 	@Inject(method = "<clinit>", at = @At(value = "FIELD",
 		opcode = Opcodes.PUTSTATIC,
-		target = "Lnet/minecraft/world/entity/vehicle/Boat$Type;$VALUES:[Lnet/minecraft/world/entity/vehicle/Boat$Type;",
+		target = "Lnet/minecraft/net.sergofox123.versecraft.world/entity/vehicle/Boat$Type;$VALUES:[Lnet/minecraft/net.sergofox123.versecraft.world/entity/vehicle/Boat$Type;",
 		shift = At.Shift.AFTER))
 	private static void verseCraft$addCustomBoatType(CallbackInfo info) {
 		var types = new ArrayList<>(Arrays.asList($VALUES));
