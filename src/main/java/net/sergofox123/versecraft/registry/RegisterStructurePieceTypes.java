@@ -21,7 +21,8 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.sergofox123.versecraft.VerseSharedConstants;
 import org.jetbrains.annotations.NotNull;
 
-public class RegisterStructurePieceTypes {
+public class RegisterStructurePieceTypes { ;
+
 
 	public static void init() {
 	}

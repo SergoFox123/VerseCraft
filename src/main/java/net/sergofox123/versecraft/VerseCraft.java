@@ -18,11 +18,14 @@ package net.sergofox123.versecraft;
 import java.util.ArrayList;
 import net.fabricmc.loader.api.ModContainer;
 import net.frozenblock.lib.entrypoint.api.FrozenModInitializer;
+import net.frozenblock.lib.feature_flag.api.FrozenFeatureFlags;
 import net.frozenblock.lib.mobcategory.api.entrypoint.FrozenMobCategoryEntrypoint;
 import net.frozenblock.lib.mobcategory.impl.FrozenMobCategory;
 import net.sergofox123.versecraft.registry.RegisterBlocks;
 
 import net.sergofox123.versecraft.registry.RegisterItems;
+import net.sergofox123.versecraft.registry.RegisterStructurePieceTypes;
+import net.sergofox123.versecraft.registry.RegisterStructureTypes;
 import net.sergofox123.versecraft.registry.RegisterStructures;
 import org.jetbrains.annotations.NotNull;
 
@@ -36,7 +39,8 @@ public final class VerseCraft extends FrozenModInitializer implements FrozenMobC
 	public void onInitialize(String modId, ModContainer container) {
 		VerseSharedConstants.startMeasuring(this);
 
-
+		RegisterStructureTypes.init();
+		RegisterStructurePieceTypes.init();
 		RegisterBlocks.registerBlocks();
 
 		RegisterItems.registerItems();

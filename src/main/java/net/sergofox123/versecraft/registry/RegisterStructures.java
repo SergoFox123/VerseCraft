@@ -29,7 +29,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -39,12 +38,9 @@ import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.AlwaysTrueTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.PosAlwaysTrueTest;
-import net.minecraft.world.level.levelgen.structure.templatesystem.ProcessorRule;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RandomBlockMatchTest;
-import net.minecraft.world.level.levelgen.structure.templatesystem.RuleProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
-import net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.AppendLoot;
-import net.minecraft.world.level.storage.loot.LootTable;
+import net.sergofox123.versecraft.world.structure.CrypticCryptGenerator;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -62,42 +58,24 @@ public final class RegisterStructures {
 
 	public static void bootstrapTemplatePool(@NotNull BootstrapContext<StructureTemplatePool> context) {
 
+
 	}
 
 	public static void bootstrap(@NotNull BootstrapContext<Structure> context) {
 
-
+		CrypticCryptGenerator.bootstrap(context);
 	}
 
 	public static void bootstrapStructureSet(@NotNull BootstrapContext<StructureSet> context) {
 
+		CrypticCryptGenerator.bootstrapStructureSet(context);
 
 	}
 
 	public static void bootstrapProcessor(@NotNull BootstrapContext<StructureProcessorList> context) {
 
-
 	}
 
-	@Contract("_, _, _, _ -> new")
-	public static @NotNull RuleProcessor archyLootProcessor(Block original, @NotNull Block suspicious, ResourceKey<LootTable> registryKey, float chance) {
-		return new RuleProcessor(
-			ImmutableList.of(
-				archyProcessorRule(original, suspicious, registryKey, chance)
-			)
-		);
-	}
-
-	@Contract("_, _, _, _ -> new")
-	public static @NotNull ProcessorRule archyProcessorRule(Block original, @NotNull Block suspicious, ResourceKey<LootTable> registryKey, float chance) {
-		return new ProcessorRule(
-			new RandomBlockMatchTest(original, chance),
-			AlwaysTrueTest.INSTANCE,
-			PosAlwaysTrueTest.INSTANCE,
-			suspicious.defaultBlockState(),
-			new AppendLoot(registryKey)
-		);
-	}
 
 	@Contract("_, _ -> new")
 	public static @NotNull BlockStateRespectingRuleProcessor decoratedPotSherdProcessor(float chance, Item... sherds) {
