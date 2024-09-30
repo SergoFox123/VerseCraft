@@ -31,11 +31,4 @@ public final class VerseCraftDataGenerator implements DataGeneratorEntrypoint {
 
 
 	}
-
-	@Override
-	public void buildRegistry(@NotNull RegistrySetBuilder registryBuilder) {
-		VerseSharedConstants.logWithModId("Registering Biomes for", VerseSharedConstants.UNSTABLE_LOGGING);
-
-	}
-
 }

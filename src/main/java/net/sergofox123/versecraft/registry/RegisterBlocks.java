@@ -768,7 +768,6 @@ public class RegisterBlocks {
 
 
 	public static void registerBlocks() {
-		VerseSharedConstants.logWithModId("Registering Blocks for", VerseSharedConstants.UNSTABLE_LOGGING);
 
 		registerBB();
 
@@ -776,7 +775,7 @@ public class RegisterBlocks {
 
 
 	private static void registerFlammability() {
-		VerseSharedConstants.logWithModId("Registering Flammability for", VerseSharedConstants.UNSTABLE_LOGGING);
+
 		var flammableBlockRegistry = FlammableBlockRegistry.getDefaultInstance();
 
 		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC, 5, 20);
@@ -842,7 +841,7 @@ public class RegisterBlocks {
 	}
 
 	private static void registerFuels() {
-		VerseSharedConstants.logWithModId("Registering Fuels for", VerseSharedConstants.UNSTABLE_LOGGING);
+
 		FuelRegistry registry = FuelRegistry.INSTANCE;
 
 		registry.add(ACACIA_MOSAIC.asItem(), 300);
