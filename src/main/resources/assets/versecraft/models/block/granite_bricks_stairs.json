@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "versecraft:block/granite_bricks",
+    "side": "versecraft:block/granite_bricks",
+    "top": "versecraft:block/granite_bricks"
+  }
+}

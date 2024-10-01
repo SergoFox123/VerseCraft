@@ -628,7 +628,121 @@ public class RegisterBlocks {
 			.sound(SoundType.STONE)
 	);
 
-	//Plants
+	//Andesite
+
+	public static final Block CHISELED_ANDESITE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final WallBlock POLISHED_ANDESITE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE_WALL)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block ANDESITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CRACKED_ANDESITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final StairBlock ANDESITE_BRICKS_STAIRS = new StairBlock(
+		DRIPSTONE_BLOCK.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final SlabBlock ANDESITE_BRICKS_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE));
+
+	public static final WallBlock ANDESITE_BRICKS_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CHISELED_ANDESITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	//Granite
+
+	public static final Block CHISELED_GRANITE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final WallBlock POLISHED_GRANITE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE_WALL)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block GRANITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CRACKED_GRANITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final StairBlock GRANITE_BRICKS_STAIRS = new StairBlock(
+		DRIPSTONE_BLOCK.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final SlabBlock GRANITE_BRICKS_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE));
+
+	public static final WallBlock GRANITE_BRICKS_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CHISELED_GRANITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
 
 	public static void registerBB() {
 
@@ -696,7 +810,25 @@ public class RegisterBlocks {
 		registerBlockAfter(DIORITE_BRICKS_SLAB,"diorite_bricks_wall", DIORITE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
 		registerBlockAfter(DIORITE_BRICKS_WALL,"chiseled_diorite_bricks", CHISELED_DIORITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
 
+        //Andesite
+		registerBlockAfter(Items.ANDESITE_WALL,"chiseled_andesite", CHISELED_ANDESITE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(Items.POLISHED_ANDESITE_SLAB,"polished_andesite_wall", POLISHED_ANDESITE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_ANDESITE_WALL,"andesite_bricks", ANDESITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(ANDESITE_BRICKS,"cracked_andesite_bricks", CRACKED_ANDESITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CRACKED_ANDESITE_BRICKS,"andesite_bricks_stairs", ANDESITE_BRICKS_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(ANDESITE_BRICKS_STAIRS,"andesite_bricks_slab", ANDESITE_BRICKS_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(ANDESITE_BRICKS_SLAB,"andesite_bricks_wall", ANDESITE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(ANDESITE_BRICKS_WALL,"chiseled_andesite_bricks", CHISELED_ANDESITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
 
+		//Granite
+		registerBlockAfter(Items.GRANITE_WALL,"chiseled_granite", CHISELED_GRANITE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(Items.POLISHED_GRANITE_SLAB,"polished_granite_wall", POLISHED_GRANITE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_GRANITE_WALL,"granite_bricks", GRANITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(GRANITE_BRICKS,"cracked_granite_bricks", CRACKED_GRANITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CRACKED_GRANITE_BRICKS,"granite_bricks_stairs", GRANITE_BRICKS_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(GRANITE_BRICKS_STAIRS,"granite_bricks_slab", GRANITE_BRICKS_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(GRANITE_BRICKS_SLAB,"granite_bricks_wall", GRANITE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(GRANITE_BRICKS_WALL,"chiseled_granite_bricks", CHISELED_GRANITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
 
 		//Calcite
 		FrozenCreativeTabs.addAfter(Items.REINFORCED_DEEPSLATE, Items.CALCITE, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, CreativeModeTabs.BUILDING_BLOCKS);
