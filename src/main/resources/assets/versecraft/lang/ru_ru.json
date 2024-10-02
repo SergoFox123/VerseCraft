@@ -77,6 +77,24 @@
   "block.versecraft.diorite_bricks_wall": "Ограда из диоритового кирпича",
   "block.versecraft.chiseled_diorite_bricks": "Резные диоритовые кирпичи",
 
+  "block.versecraft.chiseled_andesite": "Резной андезит",
+  "block.versecraft.polished_andesite_wall": "Ограда из полированного андезита",
+  "block.versecraft.andesite_bricks": "Андезитовые кирпичи",
+  "block.versecraft.cracked_andesite_bricks": "Потрескавшиеся андезитовые кирпичи",
+  "block.versecraft.andesite_bricks_stairs": "Ступеньки из андезитового кирпича",
+  "block.versecraft.andesite_bricks_slab": "Плита из андезитового кирпича",
+  "block.versecraft.andesite_bricks_wall": "Ограда из андезитового кирпича",
+  "block.versecraft.chiseled_andesite_bricks": "Резные андезитовые кирпичи",
+
+  "block.versecraft.chiseled_granite": "Резной гранит",
+  "block.versecraft.polished_granite_wall": "Ограда из полированного гранита",
+  "block.versecraft.granite_bricks": "Гранитовые кирпичи",
+  "block.versecraft.cracked_granite_bricks": "Потрескавшиеся гранитовые кирпичи",
+  "block.versecraft.granite_bricks_stairs": "Ступеньки из гранитового кирпича",
+  "block.versecraft.granite_bricks_slab": "Плита из гранитового кирпича",
+  "block.versecraft.granite_bricks_wall": "Ограда из гранитового кирпича",
+  "block.versecraft.chiseled_granite_bricks": "Резные гранитовые кирпичи",
+
   "block.versecraft.cracked_tuff_bricks": "Потрескавшиеся туфовые кирпичи",
 
   "block.versecraft.calcite_stairs": "Кальцитовые ступеньки",
