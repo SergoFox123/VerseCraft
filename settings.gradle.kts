@@ -25,7 +25,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "VerceCraft"
+rootProject.name = "VerseCraft"
 
 localRepository("FrozenLib", "maven.modrinth:frozenlib", true)
 

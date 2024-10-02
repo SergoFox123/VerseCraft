@@ -44,26 +44,14 @@ val maven_group: String by project
 val archives_base_name: String by project
 
 val fabric_api_version: String by project
-val fabric_asm_version: String by project
 val frozenlib_version: String by project
 
-val betterend_version: String by project
-val betternether_version: String by project
 val modmenu_version: String by project
 val cloth_config_version: String by project
-val copperpipes_version: String by project
-val terrablender_version: String by project
-val terralith_version: String by project
-val fallingleaves_version: String by project
 
 val sodium_version: String by project
 val run_sodium: String by project
 val shouldRunSodium = run_sodium == "true"
-val indium_version: String by project
-val run_indium: String by project
-val shouldRunIndium = (run_sodium == "true") && shouldRunSodium
-
-val continuity_version: String by project
 
 val embeddium_version: String by project
 val run_embeddium: String by project
@@ -122,9 +110,13 @@ loom {
         }
 
         named("client") {
+            vmArg("-Dfabric-tag-conventions-v2.missingTagTranslationWarning=SILENCED")
+
             ideConfigGenerated(true)
         }
         named("server") {
+            vmArg("-Dfabric-tag-conventions-v2.missingTagTranslationWarning=SILENCED")
+
             ideConfigGenerated(true)
         }
     }
@@ -166,8 +158,8 @@ repositories {
             includeGroup("com.terraformersmc")
         }
     }
+
     maven("https://maven.shedaniel.me/")
-    maven("https://maven.blamejared.com")
     maven("https://maven.minecraftforge.net/")
     maven("https://maven.parchmentmc.org")
     maven("https://maven.quiltmc.org/repository/release") {
@@ -200,13 +192,11 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_api_version")
 
     // FrozenLib
-    if (local_frozenlib)
-        api(project(":FrozenLib", configuration = "namedElements"))?.let { include(it) }
-    else
+    if (local_frozenlib) {
+        api(project(":FrozenLib", configuration = "namedElements"))
+        modCompileOnly(project(":FrozenLib"))?.let { include(it) }
+    } else
         modApi("maven.modrinth:frozenlib:$frozenlib_version")?.let { include(it) }
-
-    // Simple Copper Pipes
-    modCompileOnlyApi("maven.modrinth:simple-copper-pipes:${copperpipes_version}")
 
     // Mod Menu
     modImplementation("com.terraformersmc:modmenu:$modmenu_version")
@@ -217,41 +207,14 @@ dependencies {
         exclude(group = "com.terraformersmc")
     }
 
-    // TerraBlender
-    modCompileOnlyApi("com.github.glitchfiend:TerraBlender-fabric:${terrablender_version}")
-
-    // Particle Rain
-    modCompileOnly("maven.modrinth:particle-rain:v2.0.5")
-
-    // Sodium
-    if (shouldRunSodium)
-        modRuntimeOnly("maven.modrinth:sodium:${sodium_version}")
-
-    // Indium
-    if (shouldRunSodium)
-        modImplementation("maven.modrinth:indium:${indium_version}")
-    else
-        modCompileOnly("maven.modrinth:indium:${indium_version}")
-
-    // Continuity
-    modImplementation("maven.modrinth:continuity:${continuity_version}")
-
     // Embeddium
-    val embed = "org.embeddedt:embeddium-fabric-1.20.6"
-    val embeddiumVersion = "0.3.18-git-78d86dd+mc1.20.6"
     if (shouldRunEmbeddium)
-        modImplementation("$embed:$embeddiumVersion")
+        modImplementation("maven.modrinth:embeddium:${embeddium_version}")
     else
-        modCompileOnly("$embed:$embeddiumVersion")
+        modCompileOnly("maven.modrinth:embeddium:${embeddium_version}")
 
-    // FallingLeaves
-    modCompileOnly("maven.modrinth:fallingleaves:${fallingleaves_version}")
-
-    // BetterEnd
-    modCompileOnly("maven.modrinth:betterend:${betterend_version}")
-
-    // BetterNether
-    modCompileOnly("maven.modrinth:betternether:${betternether_version}")
+    // WorldEdit
+    modImplementation("maven.modrinth:worldedit:7.3.4-beta-01")
 
     "datagenImplementation"(sourceSets.main.get().output)
 }
@@ -262,7 +225,7 @@ tasks {
             "mod_id" to mod_id,
             "version" to version,
             "protocol_version" to protocol_version,
-            "minecraft_version" to "~1.21-",//minecraft_version,
+            "minecraft_version" to "~1.21",
 
             "fabric_api_version" to ">=$fabric_api_version",
             "frozenlib_version" to ">=${frozenlib_version.split('-').firstOrNull()}-"
@@ -346,7 +309,7 @@ artifacts {
 }
 
 fun getModVersion(): String {
-    var version = "$mod_version-mc$minecraft_version"
+    var version = "$mod_version+$minecraft_version"
 
     if (release != null && !release) {
         //version += "-unstable"

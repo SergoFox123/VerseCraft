@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "versecraft:diorite_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "versecraft:diorite_bricks_stairs"
+  }
+}

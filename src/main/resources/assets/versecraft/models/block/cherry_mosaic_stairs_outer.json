@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "versecraft:block/cherry_mosaic",
+    "side": "versecraft:block/cherry_mosaic",
+    "top": "versecraft:block/cherry_mosaic"
+  }
+}

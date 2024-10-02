@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "id": "${mod_id}",
   "version": "${version}",
-  "name": "VerceCraft",
+  "name": "VerseCraft",
   "description": "Adding block, features and etc....",
   "authors": [
     "SergoFox",
-    "zozozrob_"
+    "Zozozrob"
   ],
   "contributors": [
   ],
@@ -16,38 +16,31 @@
     "issues": "https://github.com/SergoFox123/VerseCraft/issues"
   },
   "license": "LGPL-3.0",
-  "icon": "assets/vercecraft/icon.png",
+  "icon": "assets/versecraft/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.sergofox123.vercecraft.VerseCraft"
+      "net.sergofox123.versecraft.VerseCraft"
     ],
     "client": [
-      "net.sergofox123.vercecraft.VerseCraftClient"
+      "net.sergofox123.versecraft.VerseCraftClient"
     ],
     "frozenlib:mob_categories": [
-      "net.sergofox123.vercecraft.VerseCraft"
+      "net.sergofox123.versecraft.VerseCraft"
     ],
     "fabric-datagen": [
-      "net.sergofox123.vercecraft.misc.VerseCraftDataGenerator"
+      "net.sergofox123.versecraft.misc.VerseCraftDataGenerator"
     ]
   },
   "mixins": [
-    "vercecraft.mixins.json"
+    "versecraft.mixins.json"
   ],
-  "accessWidener": "vercecraft.accesswidener",
+  "accessWidener": "versecraft.accesswidener",
   "depends": {
     "frozenlib": "${frozenlib_version}",
     "fabric-api": "${fabric_api_version}",
     "minecraft": "${minecraft_version}",
     "java": ">=21"
-  },
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.gg/368t6NQpEK"
-      }
-    }
   },
   "suggests": {
     "cloth-config": "*",

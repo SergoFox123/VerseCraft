@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "vercecraft:block/crimson_mosaic",
-    "side": "vercecraft:block/crimson_mosaic",
-    "top": "vercecraft:block/crimson_mosaic"
-  }
-}

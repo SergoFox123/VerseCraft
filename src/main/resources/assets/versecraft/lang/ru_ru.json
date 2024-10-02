@@ -1,0 +1,133 @@
+{
+  "block.versecraft.azalea_log": "Азалиевое бревно",
+  "block.versecraft.azalea_wood": "Азалиевое дерево",
+  "block.versecraft.stripped_azalea_log": "Обтёсанное азалиевое бревно",
+  "block.versecraft.stripped_azalea_wood": "Обтёсанная азалиевая древесина",
+  "block.versecraft.azalea_planks": "Азалиевые доски",
+  "block.versecraft.azalea_stairs": "Азалиевые ступеньки",
+  "block.versecraft.azalea_slab": "Азалиевая плита",
+  "block.versecraft.azalea_fence": "Азалиевый забор",
+  "block.versecraft.azalea_fence_gate": "Азалиевая калитка",
+  "block.versecraft.azalea_door": "Азалиевая дверь",
+  "block.versecraft.azalea_trapdoor": "Азалиевый люк",
+  "block.versecraft.azalea_pressure_plate": "Азалиевая нажимная плита",
+  "block.versecraft.azalea_button": "Азалиевая кнопка",
+  "block.versecraft.azalea_hanging_sign": "Азалиевая подвесная табличка",
+  "block.versecraft.azalea_sign": "Азалиевая табличка",
+
+  "item.versecraft.azalea_chest_boat": "Азалиевая грузовая лодка",
+  "item.versecraft.azalea_boat": "Азалиевая лодка",
+
+  "item.versecraft.dragon_pottery_sherd": "Глиняный черепок «Дракон»",
+  "item.versecraft.egg_pottery_sherd": "Глиняный черепок «Яйцо»",
+  "item.versecraft.pillager_pottery_sherd": "Глиняный черепок «Разбойник»",
+  "item.versecraft.portal_pottery_sherd": "Глиняный черепок «Портал»",
+  "item.versecraft.sword_pottery_sherd": "Глиняный черепок «Меч»",
+
+  "block.versecraft.acacia_mosaic": "Акациевая мозаика",
+  "block.versecraft.acacia_mosaic_stairs": "Ступеньки из акациевой мозаики",
+  "block.versecraft.acacia_mosaic_slab": "Плита из акациевой мозаики",
+
+  "block.versecraft.azalea_mosaic": "Азалиевая мозаика",
+  "block.versecraft.azalea_mosaic_stairs": "Ступеньки из азалиевой мозаики",
+  "block.versecraft.azalea_mosaic_slab": "Плита из азалиевой мозаики",
+
+  "block.versecraft.birch_mosaic": "Берёзовая мозаика",
+  "block.versecraft.birch_mosaic_stairs": "Ступеньки из берёзовой мозаики",
+  "block.versecraft.birch_mosaic_slab": "Плита из берёзовой мозаики",
+
+  "block.versecraft.cherry_mosaic": "Вишнёвая мозаика",
+  "block.versecraft.cherry_mosaic_stairs": "Ступеньки из вишнёвой мозаики",
+  "block.versecraft.cherry_mosaic_slab": "Плита из вишнёвой мозаики",
+
+  "block.versecraft.crimson_mosaic": "Багровая мозаика",
+  "block.versecraft.crimson_mosaic_stairs": "Ступеньки из багровой мозаики",
+  "block.versecraft.crimson_mosaic_slab": "Плита из багровой мозаики",
+
+  "block.versecraft.dark_oak_mosaic": "Тёмно дубовая мозаика",
+  "block.versecraft.dark_oak_mosaic_stairs": "Ступеньки из тёмного дубовой мозаики",
+  "block.versecraft.dark_oak_mosaic_slab": "Плита из тёмного дубовой мозаики",
+
+  "block.versecraft.jungle_mosaic": "Тропическая мозаика",
+  "block.versecraft.jungle_mosaic_stairs": "Ступеньки из тропической мозаики",
+  "block.versecraft.jungle_mosaic_slab": "Плита из тропической мозаики",
+
+  "block.versecraft.mangrove_mosaic": "Мангровая мозаика",
+  "block.versecraft.mangrove_mosaic_stairs": "Ступеньки из мангровой мозаики",
+  "block.versecraft.mangrove_mosaic_slab": "Плита из мангровой мозаики",
+
+  "block.versecraft.oak_mosaic": "Дубовая мозаика",
+  "block.versecraft.oak_mosaic_stairs": "Ступеньки из дубовой мозаики",
+  "block.versecraft.oak_mosaic_slab": "Плита из дубовой мозаики",
+
+  "block.versecraft.spruce_mosaic": "Еловая мозаика",
+  "block.versecraft.spruce_mosaic_stairs": "Ступеньки из еловой мозаики",
+  "block.versecraft.spruce_mosaic_slab": "Плита из еловой мозаики",
+
+  "block.versecraft.warped_mosaic": "Искажённая мозаика",
+  "block.versecraft.warped_mosaic_stairs": "Ступеньки из искажённой мозаики",
+  "block.versecraft.warped_mosaic_slab": "Плита из искажённой мозаики",
+
+  "block.versecraft.chiseled_diorite": "Резной диорит",
+  "block.versecraft.polished_diorite_wall": "Ограда из полированного диорита",
+  "block.versecraft.diorite_bricks": "Диоритовые кирпичи",
+  "block.versecraft.cracked_diorite_bricks": "Потрескавшиеся диоритовые кирпичи",
+  "block.versecraft.diorite_bricks_stairs": "Ступеньки из диоритового кирпича",
+  "block.versecraft.diorite_bricks_slab": "Плита из диоритового кирпича",
+  "block.versecraft.diorite_bricks_wall": "Ограда из диоритового кирпича",
+  "block.versecraft.chiseled_diorite_bricks": "Резные диоритовые кирпичи",
+
+  "block.versecraft.chiseled_andesite": "Резной андезит",
+  "block.versecraft.polished_andesite_wall": "Ограда из полированного андезита",
+  "block.versecraft.andesite_bricks": "Андезитовые кирпичи",
+  "block.versecraft.cracked_andesite_bricks": "Потрескавшиеся андезитовые кирпичи",
+  "block.versecraft.andesite_bricks_stairs": "Ступеньки из андезитового кирпича",
+  "block.versecraft.andesite_bricks_slab": "Плита из андезитового кирпича",
+  "block.versecraft.andesite_bricks_wall": "Ограда из андезитового кирпича",
+  "block.versecraft.chiseled_andesite_bricks": "Резные андезитовые кирпичи",
+
+  "block.versecraft.chiseled_granite": "Резной гранит",
+  "block.versecraft.polished_granite_wall": "Ограда из полированного гранита",
+  "block.versecraft.granite_bricks": "Гранитовые кирпичи",
+  "block.versecraft.cracked_granite_bricks": "Потрескавшиеся гранитовые кирпичи",
+  "block.versecraft.granite_bricks_stairs": "Ступеньки из гранитового кирпича",
+  "block.versecraft.granite_bricks_slab": "Плита из гранитового кирпича",
+  "block.versecraft.granite_bricks_wall": "Ограда из гранитового кирпича",
+  "block.versecraft.chiseled_granite_bricks": "Резные гранитовые кирпичи",
+
+  "block.versecraft.cracked_tuff_bricks": "Потрескавшиеся туфовые кирпичи",
+
+  "block.versecraft.calcite_stairs": "Кальцитовые ступеньки",
+  "block.versecraft.calcite_slab": "Кальцитовая плита",
+  "block.versecraft.calcite_wall": "Кальцитовая ограда",
+
+  "block.versecraft.polished_calcite": "Полированный кальцит",
+  "block.versecraft.polished_calcite_stairs": "Ступеньки из полированного кальцита",
+  "block.versecraft.polished_calcite_slab": "Плита из полированного кальцита",
+  "block.versecraft.polished_calcite_wall": "Ограда из полированного кальцита",
+  "block.versecraft.chiseled_calcite": "Резной кальцит",
+
+  "block.versecraft.calcite_bricks": "Кальцитовые кирпичи",
+  "block.versecraft.cracked_calcite_bricks": "Потрескавшиеся кальцитовые кирпичи",
+  "block.versecraft.calcite_bricks_stairs": "Ступеньки из кальцитового кирпича",
+  "block.versecraft.calcite_bricks_slab": "Плита из кальцитового кирпича",
+  "block.versecraft.calcite_bricks_wall": "Ограда из кальцитового кирпича",
+  "block.versecraft.chiseled_calcite_bricks": "Резные кальцитовые кирпичи",
+
+  "block.versecraft.dripstone_stairs": "Ступеньки из натёчного камня",
+  "block.versecraft.dripstone_slab": "Плита из натёчного камня",
+  "block.versecraft.dripstone_wall": "Ограда из натёчного камня",
+
+  "block.versecraft.polished_dripstone": "Полированный натёчный камень",
+  "block.versecraft.polished_dripstone_stairs": "Ступеньки из полированного натёчного камня",
+  "block.versecraft.polished_dripstone_slab": "Плита из полированного натёчного камня",
+  "block.versecraft.polished_dripstone_wall": "Ограда из полированного натёчного камня",
+  "block.versecraft.chiseled_dripstone": "Резной натёчный камень",
+
+  "block.versecraft.dripstone_bricks": "Натёчные кирпичи",
+  "block.versecraft.cracked_dripstone_bricks": "Потрескавшиеся натёчные кирпичи",
+  "block.versecraft.dripstone_bricks_stairs": "Ступеньки из натёчного кирпича",
+  "block.versecraft.dripstone_bricks_slab": "Плита из натёчного кирпича",
+  "block.versecraft.dripstone_bricks_wall": "Ограда из натёчного кирпича",
+  "block.versecraft.chiseled_dripstone_bricks": "Резные натёчные кирпичи"
+}

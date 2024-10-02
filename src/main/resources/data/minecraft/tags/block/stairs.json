@@ -1,23 +1,28 @@
 {
   "values": [
-    "vercecraft:azalea_mosaic_stairs",
-    "vercecraft:acacia_mosaic_stairs",
-    "vercecraft:birch_mosaic_stairs",
-    "vercecraft:cherry_mosaic_stairs",
-    "vercecraft:crimson_mosaic_stairs",
-    "vercecraft:dark_oak_mosaic_stairs",
-    "vercecraft:jungle_mosaic_stairs",
-    "vercecraft:mangrove_mosaic_stairs",
-    "vercecraft:oak_mosaic_stairs",
-    "vercecraft:spruce_mosaic_stairs",
-    "vercecraft:warped_mosaic_stairs",
+    "versecraft:azalea_mosaic_stairs",
+    "versecraft:acacia_mosaic_stairs",
+    "versecraft:birch_mosaic_stairs",
+    "versecraft:cherry_mosaic_stairs",
+    "versecraft:crimson_mosaic_stairs",
+    "versecraft:dark_oak_mosaic_stairs",
+    "versecraft:jungle_mosaic_stairs",
+    "versecraft:mangrove_mosaic_stairs",
+    "versecraft:oak_mosaic_stairs",
+    "versecraft:spruce_mosaic_stairs",
+    "versecraft:warped_mosaic_stairs",
 
-    "vercecraft:calcite_stairs",
-    "vercecraft:polished_calcite_stairs",
-    "vercecraft:calcite_bricks_stairs",
+    "versecraft:calcite_stairs",
+    "versecraft:polished_calcite_stairs",
+    "versecraft:calcite_bricks_stairs",
 
-    "vercecraft:dripstone_stairs",
-    "vercecraft:polished_dripstone_stairs",
-    "vercecraft:dripstone_bricks_stairs"
+    "versecraft:diorite_bricks_stairs",
+    "versecraft:andesite_bricks_stairs",
+    "versecraft:granite_bricks_stairs",
+
+    "versecraft:dripstone_stairs",
+    "versecraft:polished_dripstone_stairs",
+    "versecraft:dripstone_bricks_stairs"
+
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "versecraft:block/granite_bricks_slab"
+    },
+    "type=double": {
+      "model": "versecraft:block/granite_bricks"
+    },
+    "type=top": {
+      "model": "versecraft:block/granite_bricks_slab_top"
+    }
+  }
+}

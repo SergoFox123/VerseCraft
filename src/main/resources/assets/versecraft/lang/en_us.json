@@ -1,0 +1,134 @@
+{
+  "block.versecraft.azalea_log": "Azalea Log",
+  "block.versecraft.azalea_wood": "Azalea Wood",
+  "block.versecraft.stripped_azalea_log": "Stripped Azalea Log",
+  "block.versecraft.stripped_azalea_wood": "Stripped Azalea Wood",
+  "block.versecraft.azalea_planks": "Azalea Planks",
+  "block.versecraft.azalea_stairs": "Azalea Stairs",
+  "block.versecraft.azalea_slab": "Azalea Slab",
+  "block.versecraft.azalea_fence": "Azalea Fence",
+  "block.versecraft.azalea_fence_gate": "Azalea Fence Gate",
+  "block.versecraft.azalea_door": "Azalea Door",
+  "block.versecraft.azalea_trapdoor": "Azalea Trapdoor",
+  "block.versecraft.azalea_pressure_plate": "Azalea Pressure Plate",
+  "block.versecraft.azalea_button": "Azalea Button",
+  "block.versecraft.azalea_hanging_sign": "Azalea Hanging Sign",
+  "block.versecraft.azalea_sign": "Azalea Sign",
+
+  "item.versecraft.azalea_chest_boat": "Azalea Chest Boat",
+  "item.versecraft.azalea_boat": "Azalea Boat",
+
+  "item.versecraft.dragon_pottery_sherd": "Dragon Pottery Sherd",
+  "item.versecraft.egg_pottery_sherd": "Egg Pottery Sherd",
+  "item.versecraft.pillager_pottery_sherd": "Pillager Pottery Sherd",
+  "item.versecraft.portal_pottery_sherd": "Portal Pottery Sherd",
+  "item.versecraft.sword_pottery_sherd": "Sword Pottery Sherd",
+
+  "block.versecraft.acacia_mosaic": "Acacia Mosaic",
+  "block.versecraft.acacia_mosaic_stairs": "Acacia Mosaic Stairs",
+  "block.versecraft.acacia_mosaic_slab": "Acacia Mosaic Slab",
+
+  "block.versecraft.azalea_mosaic": "Azalea Mosaic",
+  "block.versecraft.azalea_mosaic_stairs": "Azalea Mosaic Stairs",
+  "block.versecraft.azalea_mosaic_slab": "Azalea Mosaic Slab",
+
+  "block.versecraft.birch_mosaic": "Birch Mosaic",
+  "block.versecraft.birch_mosaic_stairs": "Birch Mosaic Stairs",
+  "block.versecraft.birch_mosaic_slab": "Birch Mosaic Slab",
+
+  "block.versecraft.cherry_mosaic": "Cherry Mosaic",
+  "block.versecraft.cherry_mosaic_stairs": "Cherry Mosaic Stairs",
+  "block.versecraft.cherry_mosaic_slab": "Cherry Mosaic Slab",
+
+  "block.versecraft.crimson_mosaic": "Crimson Mosaic",
+  "block.versecraft.crimson_mosaic_stairs": "Crimson Mosaic Stairs",
+  "block.versecraft.crimson_mosaic_slab": "Crimson Mosaic Slab",
+
+  "block.versecraft.dark_oak_mosaic": "Dark Oak Mosaic",
+  "block.versecraft.dark_oak_mosaic_stairs": "Dark Oak Mosaic Stairs",
+  "block.versecraft.dark_oak_mosaic_slab": "Dark Oak Mosaic Slab",
+
+  "block.versecraft.jungle_mosaic": "Jungle Mosaic",
+  "block.versecraft.jungle_mosaic_stairs": "Jungle Mosaic Stairs",
+  "block.versecraft.jungle_mosaic_slab": "Jungle Mosaic Slab",
+
+  "block.versecraft.mangrove_mosaic": "Mangrove Mosaic",
+  "block.versecraft.mangrove_mosaic_stairs": "Mangrove Mosaic Stairs",
+  "block.versecraft.mangrove_mosaic_slab": "Mangrove Mosaic Slab",
+
+  "block.versecraft.oak_mosaic": "Oak Mosaic",
+  "block.versecraft.oak_mosaic_stairs": "Oak Mosaic Stairs",
+  "block.versecraft.oak_mosaic_slab": "Oak Mosaic Slab",
+
+  "block.versecraft.spruce_mosaic": "Spruce Mosaic",
+  "block.versecraft.spruce_mosaic_stairs": "Spruce Mosaic Stairs",
+  "block.versecraft.spruce_mosaic_slab": "Spruce Mosaic Slab",
+
+  "block.versecraft.warped_mosaic": "Warped Mosaic",
+  "block.versecraft.warped_mosaic_stairs": "Warped Mosaic Stairs",
+  "block.versecraft.warped_mosaic_slab": "Warped Mosaic Slab",
+
+  "block.versecraft.cracked_tuff_bricks": "Cracked Tuff Bricks",
+
+
+  "block.versecraft.chiseled_diorite": "Chiseled Diorite",
+  "block.versecraft.polished_diorite_wall": "Polished Diorite Wall",
+  "block.versecraft.diorite_bricks": "Diorite Bricks",
+  "block.versecraft.cracked_diorite_bricks": "Cracked Diorite Bricks",
+  "block.versecraft.diorite_bricks_stairs": "Diorite Bricks Stairs",
+  "block.versecraft.diorite_bricks_slab": "Diorite Bricks Slab",
+  "block.versecraft.diorite_bricks_wall": "Diorite Bricks Wall",
+  "block.versecraft.chiseled_diorite_bricks": "Chiseled Diorite Bricks",
+
+  "block.versecraft.chiseled_andesite": "Chiseled Andesite",
+  "block.versecraft.polished_andesite_wall": "Polished Andesite Wall",
+  "block.versecraft.andesite_bricks": "Andesite Bricks",
+  "block.versecraft.cracked_andesite_bricks": "Cracked Andesite Bricks",
+  "block.versecraft.andesite_bricks_stairs": "Andesite Bricks Stairs",
+  "block.versecraft.andesite_bricks_slab": "Andesite Bricks Slab",
+  "block.versecraft.andesite_bricks_wall": "Andesite Bricks Wall",
+  "block.versecraft.chiseled_andesite_bricks": "Chiseled Andesite Bricks",
+
+  "block.versecraft.chiseled_granite": "Chiseled Granite",
+  "block.versecraft.polished_granite_wall": "Polished Granite Wall",
+  "block.versecraft.granite_bricks": "Granite Bricks",
+  "block.versecraft.cracked_granite_bricks": "Cracked Granite Bricks",
+  "block.versecraft.granite_bricks_stairs": "Granite Bricks Stairs",
+  "block.versecraft.granite_bricks_slab": "Granite Bricks Slab",
+  "block.versecraft.granite_bricks_wall": "Granite Bricks Wall",
+  "block.versecraft.chiseled_granite_bricks": "Chiseled Granite Bricks",
+
+  "block.versecraft.calcite_stairs": "Calcite Stairs",
+  "block.versecraft.calcite_slab": "Calcite Slab",
+  "block.versecraft.calcite_wall": "Calcite Wall",
+
+  "block.versecraft.polished_calcite": "Polished Calcite",
+  "block.versecraft.polished_calcite_stairs": "Polished Calcite Stairs",
+  "block.versecraft.polished_calcite_slab": "Polished Calcite Slab",
+  "block.versecraft.polished_calcite_wall": "Polished Calcite Wall",
+  "block.versecraft.chiseled_calcite": "Chiseled Calcite",
+
+  "block.versecraft.calcite_bricks": "Calcite Bricks",
+  "block.versecraft.cracked_calcite_bricks": "Cracked Calcite Bricks",
+  "block.versecraft.calcite_bricks_stairs": "Calcite Bricks Stairs",
+  "block.versecraft.calcite_bricks_slab": "Calcite Bricks Slab",
+  "block.versecraft.calcite_bricks_wall": "Calcite Bricks Wall",
+  "block.versecraft.chiseled_calcite_bricks": "Chiseled Calcite Bricks",
+
+  "block.versecraft.dripstone_stairs": "Dripstone Stairs",
+  "block.versecraft.dripstone_slab": "Dripstone Slab",
+  "block.versecraft.dripstone_wall": "Dripstone Wall",
+
+  "block.versecraft.polished_dripstone": "Polished Dripstone",
+  "block.versecraft.polished_dripstone_stairs": "Polished Dripstone Stairs",
+  "block.versecraft.polished_dripstone_slab": "Polished Dripstone Slab",
+  "block.versecraft.polished_dripstone_wall": "Polished Dripstone Wall",
+  "block.versecraft.chiseled_dripstone": "Chiseled Dripstone",
+
+  "block.versecraft.dripstone_bricks": "Dripstone Bricks",
+  "block.versecraft.cracked_dripstone_bricks": "Cracked Dripstone Bricks",
+  "block.versecraft.dripstone_bricks_stairs": "Dripstone Bricks Stairs",
+  "block.versecraft.dripstone_bricks_slab": "Dripstone Bricks Slab",
+  "block.versecraft.dripstone_bricks_wall": "Dripstone Bricks Wall",
+  "block.versecraft.chiseled_dripstone_bricks": "Chiseled Dripstone Bricks"
+}

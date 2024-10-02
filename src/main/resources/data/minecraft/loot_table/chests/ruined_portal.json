@@ -96,7 +96,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "vercecraft:portal_pottery_sherd",
+          "name": "versecraft:portal_pottery_sherd",
           "weight": 40
         },
         {
