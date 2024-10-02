@@ -16,6 +16,7 @@
 package net.sergofox123.versecraft.registry;
 
 
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
@@ -29,6 +30,8 @@ import net.frozenblock.lib.item.api.FrozenCreativeTabs;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.BlockFamilies;
+import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -48,6 +51,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -130,7 +134,7 @@ public class RegisterBlocks {
 	public static final Block AZALEA_BUTTON = Blocks.woodenButton(AZALEA_SET);
 
 	public static final FrozenSignBlock AZALEA_SIGN = new FrozenSignBlock(
-		BlockBehaviour.Properties.ofFullCopy(CHERRY_SIGN)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor()),
 		AZALEA_WOOD_TYPE,
 		ResourceKey.create(Registries.LOOT_TABLE, VerseSharedConstants.id("blocks/azalea_sign"))
@@ -150,7 +154,6 @@ public class RegisterBlocks {
 		AZALEA_WOOD_TYPE,
 		ResourceKey.create(Registries.LOOT_TABLE, VerseSharedConstants.id("blocks/azalea_hanging_sign"))
 	);
-
 	public static final FrozenWallHangingSignBlock AZALEA_WALL_HANGING_SIGN = new FrozenWallHangingSignBlock(
 		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WALL_HANGING_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor())
@@ -159,6 +162,19 @@ public class RegisterBlocks {
 		ResourceKey.create(Registries.LOOT_TABLE, VerseSharedConstants.id("blocks/azalea_hanging_sign"))
 	);
 
+	public static final BlockFamily AZALEA = BlockFamilies.familyBuilder(AZALEA_PLANKS)
+		.button(AZALEA_BUTTON)
+		.slab(AZALEA_SLAB)
+		.stairs(AZALEA_STAIRS)
+		.fence(AZALEA_FENCE)
+		.fenceGate(AZALEA_FENCE_GATE)
+		.pressurePlate(AZALEA_PRESSURE_PLATE)
+		.sign(AZALEA_SIGN, AZALEA_WALL_SIGN)
+		.door(AZALEA_DOOR)
+		.trapdoor(AZALEA_TRAPDOOR)
+		.recipeGroupPrefix("wooden")
+		.recipeUnlockedBy("has_planks")
+		.getFamily();
 
 	//Azalea Mosaic
 
@@ -553,6 +569,180 @@ public class RegisterBlocks {
 			.sound(SoundType.DRIPSTONE_BLOCK)
 	);
 
+	//Diorite
+
+	public static final Block CHISELED_DIORITE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final WallBlock POLISHED_DIORITE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE_WALL)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block DIORITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CRACKED_DIORITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final StairBlock DIORITE_BRICKS_STAIRS = new StairBlock(
+		DRIPSTONE_BLOCK.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final SlabBlock DIORITE_BRICKS_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE));
+
+	public static final WallBlock DIORITE_BRICKS_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CHISELED_DIORITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(DIORITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	//Andesite
+
+	public static final Block CHISELED_ANDESITE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final WallBlock POLISHED_ANDESITE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE_WALL)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block ANDESITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CRACKED_ANDESITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final StairBlock ANDESITE_BRICKS_STAIRS = new StairBlock(
+		DRIPSTONE_BLOCK.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final SlabBlock ANDESITE_BRICKS_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE));
+
+	public static final WallBlock ANDESITE_BRICKS_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CHISELED_ANDESITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(ANDESITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	//Granite
+
+	public static final Block CHISELED_GRANITE = new Block(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final WallBlock POLISHED_GRANITE_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE_WALL)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block GRANITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CRACKED_GRANITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final StairBlock GRANITE_BRICKS_STAIRS = new StairBlock(
+		DRIPSTONE_BLOCK.defaultBlockState(),
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final SlabBlock GRANITE_BRICKS_SLAB = new SlabBlock(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE));
+
+	public static final WallBlock GRANITE_BRICKS_WALL = new WallBlock(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
+	public static final Block CHISELED_GRANITE_BRICKS = new Block(
+		BlockBehaviour.Properties.ofFullCopy(GRANITE)
+			.strength(1.5F)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.STONE)
+	);
+
 	public static void registerBB() {
 
 
@@ -609,6 +799,35 @@ public class RegisterBlocks {
 		//Tuff
 		registerBlockAfter(Items.TUFF_BRICKS,"cracked_tuff_bricks", CRACKED_TUFF_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
 
+		//Diorite
+		registerBlockAfter(Items.DIORITE_WALL,"chiseled_diorite", CHISELED_DIORITE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(Items.POLISHED_DIORITE_SLAB,"polished_diorite_wall", POLISHED_DIORITE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_DIORITE_WALL,"diorite_bricks", DIORITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DIORITE_BRICKS,"cracked_diorite_bricks", CRACKED_DIORITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CRACKED_DIORITE_BRICKS,"diorite_bricks_stairs", DIORITE_BRICKS_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DIORITE_BRICKS_STAIRS,"diorite_bricks_slab", DIORITE_BRICKS_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DIORITE_BRICKS_SLAB,"diorite_bricks_wall", DIORITE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(DIORITE_BRICKS_WALL,"chiseled_diorite_bricks", CHISELED_DIORITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+
+        //Andesite
+		registerBlockAfter(Items.ANDESITE_WALL,"chiseled_andesite", CHISELED_ANDESITE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(Items.POLISHED_ANDESITE_SLAB,"polished_andesite_wall", POLISHED_ANDESITE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_ANDESITE_WALL,"andesite_bricks", ANDESITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(ANDESITE_BRICKS,"cracked_andesite_bricks", CRACKED_ANDESITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CRACKED_ANDESITE_BRICKS,"andesite_bricks_stairs", ANDESITE_BRICKS_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(ANDESITE_BRICKS_STAIRS,"andesite_bricks_slab", ANDESITE_BRICKS_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(ANDESITE_BRICKS_SLAB,"andesite_bricks_wall", ANDESITE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(ANDESITE_BRICKS_WALL,"chiseled_andesite_bricks", CHISELED_ANDESITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+
+		//Granite
+		registerBlockAfter(Items.GRANITE_WALL,"chiseled_granite", CHISELED_GRANITE, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(Items.POLISHED_GRANITE_SLAB,"polished_granite_wall", POLISHED_GRANITE_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(POLISHED_GRANITE_WALL,"granite_bricks", GRANITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(GRANITE_BRICKS,"cracked_granite_bricks", CRACKED_GRANITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(CRACKED_GRANITE_BRICKS,"granite_bricks_stairs", GRANITE_BRICKS_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(GRANITE_BRICKS_STAIRS,"granite_bricks_slab", GRANITE_BRICKS_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(GRANITE_BRICKS_SLAB,"granite_bricks_wall", GRANITE_BRICKS_WALL, CreativeModeTabs.BUILDING_BLOCKS);
+		registerBlockAfter(GRANITE_BRICKS_WALL,"chiseled_granite_bricks", CHISELED_GRANITE_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
 
 		//Calcite
 		FrozenCreativeTabs.addAfter(Items.REINFORCED_DEEPSLATE, Items.CALCITE, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, CreativeModeTabs.BUILDING_BLOCKS);
@@ -679,9 +898,7 @@ public class RegisterBlocks {
 	}
 
 
-
 	public static void registerBlocks() {
-		VerseSharedConstants.logWithModId("Registering Blocks for", VerseSharedConstants.UNSTABLE_LOGGING);
 
 		registerBB();
 
@@ -689,7 +906,7 @@ public class RegisterBlocks {
 
 
 	private static void registerFlammability() {
-		VerseSharedConstants.logWithModId("Registering Flammability for", VerseSharedConstants.UNSTABLE_LOGGING);
+
 		var flammableBlockRegistry = FlammableBlockRegistry.getDefaultInstance();
 
 		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC, 5, 20);
@@ -755,7 +972,7 @@ public class RegisterBlocks {
 	}
 
 	private static void registerFuels() {
-		VerseSharedConstants.logWithModId("Registering Fuels for", VerseSharedConstants.UNSTABLE_LOGGING);
+
 		FuelRegistry registry = FuelRegistry.INSTANCE;
 
 		registry.add(ACACIA_MOSAIC.asItem(), 300);
@@ -802,6 +1019,15 @@ public class RegisterBlocks {
 		registerFuels();
 		registerStrippable();
 		registerFlammability();
+
+		var sign = (FabricBlockEntityType) BlockEntityType.SIGN;
+		var hangingSign = (FabricBlockEntityType) BlockEntityType.HANGING_SIGN;
+
+		sign.addSupportedBlock(AZALEA_SIGN);
+		sign.addSupportedBlock(AZALEA_WALL_SIGN);
+
+		hangingSign.addSupportedBlock(AZALEA_HANGING_SIGN);
+		hangingSign.addSupportedBlock(AZALEA_WALL_HANGING_SIGN);
 	}
 
 	private static void registerBlock(String path, Block block) {

@@ -60,7 +60,6 @@ public class RegisterItems {
 	public static final Item SWORD_POTTERY_SHERD = new Item(new Item.Properties());
 
 
-
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
 	}
