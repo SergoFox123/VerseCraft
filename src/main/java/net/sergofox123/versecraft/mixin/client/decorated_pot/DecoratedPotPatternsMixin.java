@@ -13,7 +13,7 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.vercecraft.mixin.client.decorated_pot;
+package net.sergofox123.versecraft.mixin.client.decorated_pot;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
@@ -23,9 +23,9 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.entity.DecoratedPotPattern;
 import net.minecraft.world.level.block.entity.DecoratedPotPatterns;
-import net.sergofox123.vercecraft.VerseCraftClient;
-import net.sergofox123.vercecraft.VerseSharedConstants;
-import net.sergofox123.vercecraft.registry.RegisterItems;
+import net.sergofox123.versecraft.VerseCraftClient;
+import net.sergofox123.versecraft.VerseSharedConstants;
+import net.sergofox123.versecraft.registry.RegisterItems;
 import org.jetbrains.annotations.Contract;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

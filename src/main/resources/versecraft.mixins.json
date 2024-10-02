@@ -1,12 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8.5",
-  "package": "net.sergofox123.vercecraft.mixin",
+  "package": "net.sergofox123.versecraft.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "entity.boat.BoatDropsMixin",
-    "entity.boat.BoatTypeMixin",
-    "entity.boat.ChestBoatDropsMixin",
+    "common.entity.boat.BoatDropsMixin",
+    "common.entity.boat.BoatTypeMixin",
+    "common.entity.boat.ChestBoatDropsMixin",
     "common.decorated_pot.DecoratedPotBlockEntityMixin"
   ],
   "client": [

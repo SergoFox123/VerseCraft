@@ -13,13 +13,13 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.vercecraft.misc;
+package net.sergofox123.versecraft.misc;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.frozenblock.lib.feature_flag.api.FrozenFeatureFlags;
 import net.minecraft.core.RegistrySetBuilder;
-import net.sergofox123.vercecraft.VerseSharedConstants;
+import net.sergofox123.versecraft.VerseSharedConstants;
 import org.jetbrains.annotations.NotNull;
 
 public final class VerseCraftDataGenerator implements DataGeneratorEntrypoint {

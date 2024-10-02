@@ -13,12 +13,12 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.vercecraft.mixin.entity.boat;
+package net.sergofox123.versecraft.mixin.common.entity.boat;
 
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
-import net.sergofox123.vercecraft.BoatTypeVerse;
-import net.sergofox123.vercecraft.registry.RegisterItems;
+import net.sergofox123.versecraft.BoatTypeVerse;
+import net.sergofox123.versecraft.registry.RegisterItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

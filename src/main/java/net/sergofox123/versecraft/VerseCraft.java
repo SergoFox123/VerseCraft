@@ -13,16 +13,16 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.vercecraft;
+package net.sergofox123.versecraft;
 
 import java.util.ArrayList;
 import net.fabricmc.loader.api.ModContainer;
 import net.frozenblock.lib.entrypoint.api.FrozenModInitializer;
 import net.frozenblock.lib.mobcategory.api.entrypoint.FrozenMobCategoryEntrypoint;
 import net.frozenblock.lib.mobcategory.impl.FrozenMobCategory;
-import net.sergofox123.vercecraft.registry.RegisterBlocks;
+import net.sergofox123.versecraft.registry.RegisterBlocks;
 
-import net.sergofox123.vercecraft.registry.RegisterItems;
+import net.sergofox123.versecraft.registry.RegisterItems;
 import org.jetbrains.annotations.NotNull;
 
 public final class VerseCraft extends FrozenModInitializer implements FrozenMobCategoryEntrypoint {

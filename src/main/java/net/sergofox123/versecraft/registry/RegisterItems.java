@@ -13,7 +13,7 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.vercecraft.registry;
+package net.sergofox123.versecraft.registry;
 
 import net.frozenblock.lib.item.api.FrozenCreativeTabs;
 import net.frozenblock.lib.shadow.org.jetbrains.annotations.NotNull;
@@ -30,8 +30,8 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
-import net.sergofox123.vercecraft.BoatTypeVerse;
-import net.sergofox123.vercecraft.VerseSharedConstants;
+import net.sergofox123.versecraft.BoatTypeVerse;
+import net.sergofox123.versecraft.VerseSharedConstants;
 
 public class RegisterItems {
 

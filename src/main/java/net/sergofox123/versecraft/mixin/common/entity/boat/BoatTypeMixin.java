@@ -13,14 +13,14 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.vercecraft.mixin.entity.boat;
+package net.sergofox123.versecraft.mixin.common.entity.boat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.block.Block;
-import net.sergofox123.vercecraft.BoatTypeVerse;
-import net.sergofox123.vercecraft.registry.RegisterBlocks;
+import net.sergofox123.versecraft.BoatTypeVerse;
+import net.sergofox123.versecraft.registry.RegisterBlocks;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

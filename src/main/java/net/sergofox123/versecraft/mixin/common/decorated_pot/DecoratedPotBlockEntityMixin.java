@@ -13,11 +13,11 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.vercecraft.mixin.common.decorated_pot;
+package net.sergofox123.versecraft.mixin.common.decorated_pot;
 
 
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
-import net.sergofox123.vercecraft.impl.DecoratedPotBlockEntityInterface;
+import net.sergofox123.versecraft.impl.DecoratedPotBlockEntityInterface;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;

@@ -13,7 +13,7 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.vercecraft.mixin.client.decorated_pot;
+package net.sergofox123.versecraft.mixin.client.decorated_pot;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -34,8 +34,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
 import net.minecraft.world.level.block.entity.DecoratedPotPatterns;
-import net.sergofox123.vercecraft.VerseCraftClient;
-import net.sergofox123.vercecraft.impl.DecoratedPotBlockEntityInterface;
+import net.sergofox123.versecraft.VerseCraftClient;
+import net.sergofox123.versecraft.impl.DecoratedPotBlockEntityInterface;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
