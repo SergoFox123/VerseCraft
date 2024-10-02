@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "vercecraft:block/polished_dripstone",
-    "side": "vercecraft:block/polished_dripstone",
-    "top": "vercecraft:block/polished_dripstone"
-  }
-}

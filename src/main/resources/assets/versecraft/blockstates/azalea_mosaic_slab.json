@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "versecraft:block/azalea_mosaic_slab"
+    },
+    "type=double": {
+      "model": "versecraft:block/azalea_mosaic"
+    },
+    "type=top": {
+      "model": "versecraft:block/azalea_mosaic_slab_top"
+    }
+  }
+}

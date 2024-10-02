@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "versecraft:block/dripstone_bricks",
+    "side": "versecraft:block/dripstone_bricks",
+    "top": "versecraft:block/dripstone_bricks"
+  }
+}

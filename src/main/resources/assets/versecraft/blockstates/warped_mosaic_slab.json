@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "versecraft:block/warped_mosaic_slab"
+    },
+    "type=double": {
+      "model": "versecraft:block/warped_mosaic"
+    },
+    "type=top": {
+      "model": "versecraft:block/warped_mosaic_slab_top"
+    }
+  }
+}

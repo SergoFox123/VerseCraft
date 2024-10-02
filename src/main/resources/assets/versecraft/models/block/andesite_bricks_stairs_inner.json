@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "versecraft:block/andesite_bricks",
+    "side": "versecraft:block/andesite_bricks",
+    "top": "versecraft:block/andesite_bricks"
+  }
+}

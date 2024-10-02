@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "vercecraft:block/mangrove_mosaic",
-    "side": "vercecraft:block/mangrove_mosaic",
-    "top": "vercecraft:block/mangrove_mosaic"
-  }
-}
