@@ -1,7 +1,7 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "versecraft:polished_andesite"
+    "item": "minecraft:polished_andesite"
   },
   "result": {
     "count": 1,
