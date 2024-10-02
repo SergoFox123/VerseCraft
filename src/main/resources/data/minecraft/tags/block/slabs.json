@@ -12,15 +12,16 @@
     "versecraft:spruce_mosaic_slab",
     "versecraft:warped_mosaic_slab",
 
-    "versecraft:diorite_bricks_slab",
-
-
     "versecraft:calcite_slab",
     "versecraft:polished_calcite_slab",
     "versecraft:calcite_bricks_slab",
 
     "versecraft:dripstone_slab",
     "versecraft:polished_dripstone_slab",
-    "versecraft:dripstone_bricks_slab"
+    "versecraft:dripstone_bricks_slab",
+
+    "versecraft:diorite_bricks_slab",
+    "versecraft:granite_bricks_slab",
+    "versecraft:andesite_bricks_slab"
   ]
 }

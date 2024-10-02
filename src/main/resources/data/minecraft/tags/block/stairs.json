@@ -17,9 +17,12 @@
     "versecraft:calcite_bricks_stairs",
 
     "versecraft:diorite_bricks_stairs",
+    "versecraft:andesite_bricks_stairs",
+    "versecraft:granite_bricks_stairs",
 
     "versecraft:dripstone_stairs",
     "versecraft:polished_dripstone_stairs",
     "versecraft:dripstone_bricks_stairs"
+
   ]
 }

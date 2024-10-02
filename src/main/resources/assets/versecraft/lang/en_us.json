@@ -80,6 +80,23 @@
   "block.versecraft.diorite_bricks_wall": "Diorite Bricks Wall",
   "block.versecraft.chiseled_diorite_bricks": "Chiseled Diorite Bricks",
 
+  "block.versecraft.chiseled_andesite": "Chiseled Andesite",
+  "block.versecraft.polished_andesite_wall": "Polished Andesite Wall",
+  "block.versecraft.andesite_bricks": "Andesite Bricks",
+  "block.versecraft.cracked_andesite_bricks": "Cracked Andesite Bricks",
+  "block.versecraft.andesite_bricks_stairs": "Andesite Bricks Stairs",
+  "block.versecraft.andesite_bricks_slab": "Andesite Bricks Slab",
+  "block.versecraft.andesite_bricks_wall": "Andesite Bricks Wall",
+  "block.versecraft.chiseled_andesite_bricks": "Chiseled Andesite Bricks",
+
+  "block.versecraft.chiseled_granite": "Chiseled Granite",
+  "block.versecraft.polished_granite_wall": "Polished Granite Wall",
+  "block.versecraft.granite_bricks": "Granite Bricks",
+  "block.versecraft.cracked_granite_bricks": "Cracked Granite Bricks",
+  "block.versecraft.granite_bricks_stairs": "Granite Bricks Stairs",
+  "block.versecraft.granite_bricks_slab": "Granite Bricks Slab",
+  "block.versecraft.granite_bricks_wall": "Granite Bricks Wall",
+  "block.versecraft.chiseled_granite_bricks": "Chiseled Granite Bricks",
 
   "block.versecraft.calcite_stairs": "Calcite Stairs",
   "block.versecraft.calcite_slab": "Calcite Slab",
