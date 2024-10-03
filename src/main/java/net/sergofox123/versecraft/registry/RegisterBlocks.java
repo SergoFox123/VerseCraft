@@ -896,6 +896,9 @@ public class RegisterBlocks {
 		registerBlock("azalea_wall_sign", AZALEA_WALL_SIGN);
 		registerBlock("azalea_hanging_sign", AZALEA_HANGING_SIGN);
 		registerBlock("azalea_wall_hanging_sign", AZALEA_WALL_HANGING_SIGN);
+
+		//Natural
+		registerBlockAfter(Items.ACACIA_LOG,"azalea_log", AZALEA_LOG, CreativeModeTabs.NATURAL_BLOCKS);
 	}
 
 
