@@ -33,6 +33,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -50,6 +51,8 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.TallFlowerBlock;
+import net.minecraft.world.level.block.TorchflowerCropBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -57,7 +60,9 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.sergofox123.versecraft.VerseSharedConstants;
+import net.sergofox123.versecraft.block.IceflowerCropBlock;
 import static net.minecraft.world.level.block.Blocks.*;
 
 
@@ -744,6 +749,29 @@ public class RegisterBlocks {
 			.sound(SoundType.STONE)
 	);
 
+	//Plants
+
+	public static final FlowerBlock ICEFLOWER = new FlowerBlock(
+		MobEffects.SATURATION,
+		0.0F,
+		BlockBehaviour.Properties.ofFullCopy(TORCHFLOWER)
+			.mapColor(MapColor.PLANT)
+	); 	//Placeholder code
+
+
+
+	public static final Block POTTED_ICEFLOWER = Blocks.flowerPot(ICEFLOWER);
+
+	public static final Block ICEFLOWER_CROP = new IceflowerCropBlock(
+		BlockBehaviour.Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.randomTicks()
+			.instabreak()
+			.sound(SoundType.CROP)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
 	public static void registerBB() {
 
 
@@ -899,6 +927,12 @@ public class RegisterBlocks {
 
 		//Natural
 		registerBlockAfter(Items.ACACIA_LOG,"azalea_log", AZALEA_LOG, CreativeModeTabs.NATURAL_BLOCKS);
+
+		//Plants
+
+		registerBlockAfter(Items.PITCHER_PLANT,"iceflower", ICEFLOWER, CreativeModeTabs.NATURAL_BLOCKS);
+		registerBlock("iceflower_crop", ICEFLOWER_CROP);
+		registerBlock("potted_iceflower", POTTED_ICEFLOWER);
 	}
 
 

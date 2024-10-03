@@ -29,6 +29,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.SignItem;
@@ -65,6 +66,8 @@ public class RegisterItems {
 
 	public static final Item SWORD_POTTERY_SHERD = new Item(new Item.Properties());
 
+	public static final Item ICEFLOWER_SEEDS = new ItemNameBlockItem(RegisterBlocks.ICEFLOWER_CROP, new Item.Properties()
+	);
 
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
@@ -91,6 +94,7 @@ public class RegisterItems {
 		registerItemAfter(PILLAGER_POTTERY_SHERD, PORTAL_POTTERY_SHERD, "portal_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 		registerItemAfter(PORTAL_POTTERY_SHERD, SWORD_POTTERY_SHERD, "sword_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 
+		registerItemAfter(Items.TORCHFLOWER_SEEDS, ICEFLOWER_SEEDS, "iceflower_seeds", CreativeModeTabs.NATURAL_BLOCKS);
 	}
 
 	@SafeVarargs
