@@ -131,8 +131,8 @@
   "block.versecraft.dripstone_bricks_wall": "Ограда из натёчного кирпича",
   "block.versecraft.chiseled_dripstone_bricks": "Резные натёчные кирпичи",
 
-  "block.versecraft.iceflower": "Ледяной цветок",
-  "block.versecraft.iceflower_crop": "Ледяной цветок посажен",
-  "block.versecraft.potted_iceflower": "Горшечный ледяной цветок",
-  "item.versecraft.iceflower_seeds": "Семена ледяного цветка"
+  "block.versecraft.iceflower": "Ледянок",
+  "block.versecraft.iceflower_crop": "Ледянок посажен",
+  "block.versecraft.potted_iceflower": "Горшечный ледянок",
+  "item.versecraft.iceflower_seeds": "Семена ледянока"
 }
