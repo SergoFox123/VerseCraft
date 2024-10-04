@@ -51,8 +51,6 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.TallFlowerBlock;
-import net.minecraft.world.level.block.TorchflowerCropBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -758,8 +756,6 @@ public class RegisterBlocks {
 			.mapColor(MapColor.PLANT)
 	); 	//Placeholder code
 
-
-
 	public static final Block POTTED_ICEFLOWER = Blocks.flowerPot(ICEFLOWER);
 
 	public static final Block ICEFLOWER_CROP = new IceflowerCropBlock(
@@ -933,6 +929,7 @@ public class RegisterBlocks {
 		registerBlockAfter(Items.PITCHER_PLANT,"iceflower", ICEFLOWER, CreativeModeTabs.NATURAL_BLOCKS);
 		registerBlock("iceflower_crop", ICEFLOWER_CROP);
 		registerBlock("potted_iceflower", POTTED_ICEFLOWER);
+
 	}
 
 
