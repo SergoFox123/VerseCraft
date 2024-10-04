@@ -60,6 +60,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.sergofox123.versecraft.VerseSharedConstants;
+import net.sergofox123.versecraft.block.BlueRoseCropBlock;
 import net.sergofox123.versecraft.block.IceflowerCropBlock;
 import static net.minecraft.world.level.block.Blocks.*;
 
@@ -756,8 +757,6 @@ public class RegisterBlocks {
 			.mapColor(MapColor.PLANT)
 	); 	//Placeholder code
 
-	public static final Block POTTED_ICEFLOWER = Blocks.flowerPot(ICEFLOWER);
-
 	public static final Block ICEFLOWER_CROP = new IceflowerCropBlock(
 		BlockBehaviour.Properties.of()
 			.mapColor(MapColor.PLANT)
@@ -767,6 +766,27 @@ public class RegisterBlocks {
 			.sound(SoundType.CROP)
 			.pushReaction(PushReaction.DESTROY)
 	);
+
+	public static final Block POTTED_ICEFLOWER = Blocks.flowerPot(ICEFLOWER);
+
+	public static final FlowerBlock BLUE_ROSE = new FlowerBlock(
+		MobEffects.SATURATION,
+		0.0F,
+		BlockBehaviour.Properties.ofFullCopy(TORCHFLOWER)
+			.mapColor(MapColor.PLANT)
+	); 	//Placeholder code
+
+	public static final Block BLUE_ROSE_CROP = new BlueRoseCropBlock(
+		BlockBehaviour.Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.randomTicks()
+			.instabreak()
+			.sound(SoundType.CROP)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block POTTED_BLUE_ROSE = Blocks.flowerPot(BLUE_ROSE);
 
 	public static void registerBB() {
 
@@ -926,9 +946,13 @@ public class RegisterBlocks {
 
 		//Plants
 
-		registerBlockAfter(Items.PITCHER_PLANT,"iceflower", ICEFLOWER, CreativeModeTabs.NATURAL_BLOCKS);
+		registerBlockAfter(Items.TORCHFLOWER,"iceflower", ICEFLOWER, CreativeModeTabs.NATURAL_BLOCKS);
 		registerBlock("iceflower_crop", ICEFLOWER_CROP);
 		registerBlock("potted_iceflower", POTTED_ICEFLOWER);
+
+		registerBlockBefore(ICEFLOWER,"blue_rose", BLUE_ROSE, CreativeModeTabs.NATURAL_BLOCKS);
+		registerBlock("blue_rose_crop", BLUE_ROSE_CROP);
+		registerBlock("potted_blue_rose", POTTED_BLUE_ROSE);
 
 	}
 

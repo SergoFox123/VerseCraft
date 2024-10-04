@@ -15,6 +15,10 @@
         {
           "type": "minecraft:item",
           "name": "versecraft:iceflower_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "versecraft:blue_rose_seeds"
         }
       ],
       "rolls": 1.0

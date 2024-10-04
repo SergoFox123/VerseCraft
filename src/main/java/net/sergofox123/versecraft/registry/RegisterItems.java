@@ -69,6 +69,9 @@ public class RegisterItems {
 	public static final Item ICEFLOWER_SEEDS = new ItemNameBlockItem(RegisterBlocks.ICEFLOWER_CROP, new Item.Properties()
 	);
 
+	public static final Item BLUE_ROSE_SEEDS = new ItemNameBlockItem(RegisterBlocks.BLUE_ROSE_CROP, new Item.Properties()
+	);
+
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
 	}
@@ -95,6 +98,8 @@ public class RegisterItems {
 		registerItemAfter(PORTAL_POTTERY_SHERD, SWORD_POTTERY_SHERD, "sword_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 
 		registerItemAfter(Items.TORCHFLOWER_SEEDS, ICEFLOWER_SEEDS, "iceflower_seeds", CreativeModeTabs.NATURAL_BLOCKS);
+		registerItemAfter(ICEFLOWER_SEEDS, BLUE_ROSE_SEEDS, "blue_rose_seeds", CreativeModeTabs.NATURAL_BLOCKS);
+
 	}
 
 	@SafeVarargs
