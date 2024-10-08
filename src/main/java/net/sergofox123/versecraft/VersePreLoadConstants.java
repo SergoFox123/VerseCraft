@@ -19,7 +19,7 @@ import java.nio.file.Path;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-public class VerseCraftPreLoadConstants {
+public class VersePreLoadConstants {
 	public static final String MOD_ID = "versecraft";
 
 	@Contract(pure = true)
