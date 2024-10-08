@@ -62,7 +62,5 @@ public final class VerseCraftClient implements ClientModInitializer {
 		renderLayerRegistry.putBlock(RegisterBlocks.POTTED_BLUE_ROSE, RenderType.cutout());
 		renderLayerRegistry.putBlock(RegisterBlocks.BLUE_ROSE_CROP, RenderType.cutout());
 
-		renderLayerRegistry.putBlock(RegisterBlocks.BUTTERCUP, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.POTTED_BUTTERCUP, RenderType.cutout());
 	}
 }
