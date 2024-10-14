@@ -1,0 +1,104 @@
+package net.sergofox123.versecraft.datagen;
+
+import java.util.Arrays;
+import java.util.List;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import net.frozenblock.lib.worldgen.feature.api.FrozenConfiguredFeatureUtils;
+import net.frozenblock.lib.worldgen.feature.api.FrozenFeatureUtils;
+import net.frozenblock.lib.worldgen.feature.api.FrozenPlacementUtils;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.sergofox123.versecraft.VerseSharedConstants;
+import net.sergofox123.versecraft.world.feature.configured.VerseTreeConfigured;
+import net.sergofox123.versecraft.world.feature.placed.VersePlacedFeatures;
+import net.sergofox123.versecraft.world.feature.placed.VerseTreePlaced;
+
+public final class VerseFeatureBootstrap {
+
+	public static void bootstrapConfigured(BootstrapContext<ConfiguredFeature<?, ?>> entries) {
+		final var configuredFeatures = entries.lookup(Registries.CONFIGURED_FEATURE);
+		final var placedFeatures = entries.lookup(Registries.PLACED_FEATURE);
+
+		FrozenFeatureUtils.BOOTSTRAP_CONTEXT = (BootstrapContext) entries;
+
+		VerseTreeConfigured.registerTreeConfigured();;
+	}
+
+	public static void bootstrapPlaced(BootstrapContext<PlacedFeature> entries) {
+		final var configuredFeatures = entries.lookup(Registries.CONFIGURED_FEATURE);
+		final var placedFeatures = entries.lookup(Registries.PLACED_FEATURE);
+
+		FrozenFeatureUtils.BOOTSTRAP_CONTEXT = (BootstrapContext) entries;
+
+		VerseTreePlaced.registerTreePlaced();
+		VersePlacedFeatures.registerPlacedFeatures(entries);
+	}
+
+	public static void bootstrap(FabricDynamicRegistryProvider.Entries entries) {
+		final var configuredFeatures = asLookup(entries.getLookup(Registries.CONFIGURED_FEATURE));
+		final var placedFeatures = asLookup(entries.placedFeatures());
+		final var biomes = asLookup(entries.getLookup(Registries.BIOME));
+		final var noises = asLookup(entries.getLookup(Registries.NOISE));
+		final var processorLists = asLookup(entries.getLookup(Registries.PROCESSOR_LIST));
+		final var templatePools = asLookup(entries.getLookup(Registries.TEMPLATE_POOL));
+		final var structures = asLookup(entries.getLookup(Registries.STRUCTURE));
+		final var structureSets = asLookup(entries.getLookup(Registries.STRUCTURE_SET));
+
+		VerseSharedConstants.log("Adding finalized configured features to datagen", true);
+		entries.addAll(configuredFeatures);
+		VerseSharedConstants.log("Adding finalized placed features to datagen", true);
+		entries.addAll(placedFeatures);
+		VerseSharedConstants.log("Adding finalized biomes to datagen", true);
+		entries.addAll(biomes);
+		VerseSharedConstants.log("Adding finalized noises to datagen", true);
+		entries.addAll(noises);
+		VerseSharedConstants.log("Adding finalized processor lists to datagen", true);
+		entries.addAll(processorLists);
+		VerseSharedConstants.log("Adding finalized template pools to datagen", true);
+		entries.addAll(templatePools);
+		VerseSharedConstants.log("Adding finalized structures to datagen", true);
+		entries.addAll(structures);
+		VerseSharedConstants.log("Adding finalized structure sets to datagen", true);
+		entries.addAll(structureSets);
+	}
+
+	/**
+	 * @param configuredResourceKey MUST BE A VANILLA CONFIGURED FEATURE
+	 */
+	public static Holder<PlacedFeature> register(BootstrapContext<PlacedFeature> entries, ResourceKey<PlacedFeature> resourceKey, ResourceKey<ConfiguredFeature<?, ?>> configuredResourceKey, PlacementModifier... modifiers) {
+		return register(entries, resourceKey, configuredResourceKey, Arrays.asList(modifiers));
+	}
+
+	/**
+	 * @param configuredResourceKey MUST BE A VANILLA CONFIGURED FEATURE
+	 */
+	public static Holder<PlacedFeature> register(BootstrapContext<PlacedFeature> entries, ResourceKey<PlacedFeature> resourceKey, ResourceKey<ConfiguredFeature<?, ?>> configuredResourceKey, List<PlacementModifier> modifiers) {
+		return FrozenPlacementUtils.register(entries, resourceKey, entries.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configuredResourceKey), modifiers);
+	}
+
+
+	public static Holder<PlacedFeature> register(BootstrapContext<PlacedFeature> entries, ResourceKey<PlacedFeature> resourceKey, Holder<ConfiguredFeature<?, ?>> configuredHolder, PlacementModifier... modifiers) {
+		return register(entries, resourceKey, configuredHolder, Arrays.asList(modifiers));
+	}
+
+	private static Holder<PlacedFeature> register(BootstrapContext<PlacedFeature> entries, ResourceKey<PlacedFeature> resourceKey, Holder<ConfiguredFeature<?, ?>> configuredHolder, List<PlacementModifier> modifiers) {
+		return FrozenPlacementUtils.register(entries, resourceKey, configuredHolder, modifiers);
+	}
+
+	private static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<?, ?>> register(BootstrapContext<ConfiguredFeature<?, ?>> entries, ResourceKey<ConfiguredFeature<?, ?>> resourceKey, F feature, FC featureConfiguration) {
+		return FrozenConfiguredFeatureUtils.register(entries, resourceKey, feature, featureConfiguration);
+	}
+
+	public static <T> HolderLookup.RegistryLookup<T> asLookup(HolderGetter<T> getter) {
+		return (HolderLookup.RegistryLookup<T>) getter;
+	}
+}

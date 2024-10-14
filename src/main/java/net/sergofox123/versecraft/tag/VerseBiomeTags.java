@@ -21,7 +21,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.sergofox123.versecraft.VerseSharedConstants;
 import org.jetbrains.annotations.NotNull;
 
-public class VerseCraftBiomeTags {
+public class VerseBiomeTags {
 
 	public static final TagKey<Biome> HAS_CRYPTIC_CRYPT = bind("has_structure/cryptic_crypt");
 
