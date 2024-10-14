@@ -79,9 +79,6 @@ public class RegisterItems {
 	//Food
 	public static final Item CHERRY = new Item(new Item.Properties().food(RegisterFood.CHERRY));
 
-	public static final Item RAW_HOGLIN_MEAT = new Item(new Item.Properties().food(RegisterFood.RAW_HOGLIN_MEAT));
-	public static final Item COOKED_HOGLIN_MEAT = new Item(new Item.Properties().food(RegisterFood.COOKED_HOGLIN_MEAT));
-
 
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
