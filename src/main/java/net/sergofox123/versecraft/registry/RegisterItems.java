@@ -42,7 +42,7 @@ import net.sergofox123.versecraft.VerseSharedConstants;
 
 public class RegisterItems {
 
-	//Azalea
+	//Azalea sings
 	public static final SignItem AZALEA_SIGN = new SignItem(new Item.Properties().stacksTo(16),
 		RegisterBlocks.AZALEA_SIGN, RegisterBlocks.AZALEA_WALL_SIGN
 	);
@@ -51,6 +51,7 @@ public class RegisterItems {
 		new Item.Properties().stacksTo(16)
 	);
 
+	//Boat
 	public static final BoatItem AZALEA_BOAT = new BoatItem(false, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
 	public static final BoatItem AZALEA_CHEST_BOAT = new BoatItem(true, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
 
@@ -66,11 +67,21 @@ public class RegisterItems {
 
 	public static final Item SWORD_POTTERY_SHERD = new Item(new Item.Properties());
 
+
+	//Seeds
 	public static final Item ICEFLOWER_SEEDS = new ItemNameBlockItem(RegisterBlocks.ICEFLOWER_CROP, new Item.Properties()
 	);
 
 	public static final Item BLUE_ROSE_SEEDS = new ItemNameBlockItem(RegisterBlocks.BLUE_ROSE_CROP, new Item.Properties()
 	);
+
+
+	//Food
+	public static final Item CHERRY = new Item(new Item.Properties().food(RegisterFood.CHERRY));
+
+	public static final Item RAW_HOGLIN_MEAT = new Item(new Item.Properties().food(RegisterFood.RAW_HOGLIN_MEAT));
+	public static final Item COOKED_HOGLIN_MEAT = new Item(new Item.Properties().food(RegisterFood.COOKED_HOGLIN_MEAT));
+
 
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
@@ -84,6 +95,8 @@ public class RegisterItems {
 	}
 
 	public static void registerItems() {
+		registerItemAfter(Items.CHORUS_FRUIT, CHERRY, "cherry", CreativeModeTabs.FOOD_AND_DRINKS);
+
 
 		registerItemAfter(Items.ACACIA_CHEST_BOAT, AZALEA_BOAT, "azalea_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
 		registerItemAfter(AZALEA_BOAT, AZALEA_CHEST_BOAT, "azalea_chest_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
