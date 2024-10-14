@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.sergofox123.versecraft.VerseSharedConstants;
+import net.sergofox123.versecraft.world.feature.configured.VerseConfiguredFeatures;
 import net.sergofox123.versecraft.world.feature.configured.VerseTreeConfigured;
 import net.sergofox123.versecraft.world.feature.placed.VersePlacedFeatures;
 import net.sergofox123.versecraft.world.feature.placed.VerseTreePlaced;
@@ -30,7 +31,8 @@ public final class VerseFeatureBootstrap {
 
 		FrozenFeatureUtils.BOOTSTRAP_CONTEXT = (BootstrapContext) entries;
 
-		VerseTreeConfigured.registerTreeConfigured();;
+		VerseTreeConfigured.registerTreeConfigured();
+		VerseConfiguredFeatures.registerConfiguredFeatures(entries);
 	}
 
 	public static void bootstrapPlaced(BootstrapContext<PlacedFeature> entries) {

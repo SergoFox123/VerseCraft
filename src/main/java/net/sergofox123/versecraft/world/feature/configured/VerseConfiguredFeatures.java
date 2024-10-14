@@ -42,4 +42,14 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import org.jetbrains.annotations.NotNull;
 
 public class VerseConfiguredFeatures {
+
+
+	private VerseConfiguredFeatures() {
+		throw new UnsupportedOperationException("WilderConfiguredFeatures contains only static declarations.");
+	}
+
+	public static void registerConfiguredFeatures(@NotNull BootstrapContext<ConfiguredFeature<?, ?>> entries) {
+		var configuredFeatures = entries.lookup(Registries.CONFIGURED_FEATURE);
+		var placedFeatures = entries.lookup(Registries.PLACED_FEATURE);
+	}
 }
