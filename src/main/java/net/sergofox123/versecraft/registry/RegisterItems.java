@@ -112,8 +112,4 @@ public class RegisterItems {
 		SherdRegistry.register(item, VerseSharedConstants.id(name.replace("sherd", "pattern")));
 		return item;
 	}
-
-	public static Function<Properties, Item> createBlockItemWithCustomItemName(Block block) {
-		return properties -> new BlockItem(block, properties.useItemDescriptionPrefix());
-	}
 }

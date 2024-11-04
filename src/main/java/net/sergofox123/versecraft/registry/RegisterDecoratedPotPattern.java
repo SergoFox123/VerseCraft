@@ -30,6 +30,5 @@ public class RegisterDecoratedPotPattern implements DecoratedPotPatternRegistryE
 			location
 		);
 	}
-
 }
 
