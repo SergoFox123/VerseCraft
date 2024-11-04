@@ -23,6 +23,8 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.entity.DecoratedPotPattern;
+import net.sergofox123.versecraft.client.BlockRenderLayers;
+import net.sergofox123.versecraft.client.ModelLayers;
 import net.sergofox123.versecraft.registry.RegisterBlocks;
 
 @Environment(EnvType.CLIENT)
@@ -32,12 +34,8 @@ public final class VerseCraftClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 
-		BlockRenderLayerMap renderLayerRegistry = BlockRenderLayerMap.INSTANCE;
-
-		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_DOOR, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, RenderType.cutout());
+		ModelLayers.init();
+		BlockRenderLayers.init();
 
 	}
-
-
 }
