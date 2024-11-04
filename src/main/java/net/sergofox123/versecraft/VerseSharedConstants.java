@@ -44,84 +44,66 @@ public class VerseSharedConstants {
 	public static boolean UNSTABLE_LOGGING = FabricLoader.getInstance().isDevelopmentEnvironment();
 
 	// LOGGING
-	public static void log(String string, boolean shouldLog) {
+	public static void log(String message, boolean shouldLog) {
 		if (shouldLog) {
-			LOGGER.info(string);
+			LOGGER.info(message);
 		}
 	}
 
-	public static void log(Entity entity, String string, boolean shouldLog) {
+	public static void logWithModId(String message, boolean shouldLog) {
 		if (shouldLog) {
-			LOGGER.info(entity.toString() + " : " + string + " : " + entity.position());
+			LOGGER.info(message + " " + MOD_ID);
 		}
 	}
 
-	public static void log(Block block, String string, boolean shouldLog) {
+	public static void warn(String message, boolean shouldLog) {
 		if (shouldLog) {
-			LOGGER.info(block.toString() + " : " + string + " : ");
+			LOGGER.warn(message);
 		}
 	}
 
-	public static void log(Block block, BlockPos pos, String string, boolean shouldLog) {
+	public static void error(String message, boolean shouldLog) {
 		if (shouldLog) {
-			LOGGER.info(block.toString() + " : " + string + " : " + pos);
+			LOGGER.error(message);
 		}
 	}
 
-	public static void logMod(String string, boolean shouldLog) {
-		if (shouldLog) {
-			LOGGER.info(string + " " + MOD_ID);
+	public static void printStackTrace(String message, boolean shouldPrint) {
+		if (shouldPrint) {
+			LOGGER.error(message, new Throwable(message).fillInStackTrace());
 		}
 	}
 
-	public static void startMeasuring(@NotNull Object object) {
-		long started = System.nanoTime();
-		String name = object.getClass().getName();
-		LOGGER.info("Started measuring {}", name.substring(name.lastIndexOf(".") + 1));
-		INSTANT_MAP.put(object, started);
-	}
-
-	public static void stopMeasuring(Object object) {
-		if (INSTANT_MAP.containsKey(object)) {
-			String name = object.getClass().getName();
-			LOGGER.info("{} took {} nanoseconds", name.substring(name.lastIndexOf(".") + 1), System.nanoTime() - INSTANT_MAP.get(object));
-			INSTANT_MAP.remove(object);
-		}
-	}
-
-	@Contract("_ -> new")
-	public static @NotNull ResourceLocation id(String path) {
+	@NotNull
+	public static ResourceLocation id(@NotNull String path) {
 		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}
 
-	@Contract("_ -> new")
-	public static @NotNull ResourceLocation vanillaId(String path) {
+	@NotNull
+	public static ResourceLocation vanillaId(@NotNull String path) {
 		return ResourceLocation.withDefaultNamespace(path);
 	}
 
 	@NotNull
 	public static String string(@NotNull String path) {
-		return VerseSharedConstants.id(path).toString();
+		return id(path).toString();
 	}
 
-	@Contract(pure = true)
-	public static @NotNull String safeString(String path) {
+	public static String safeString(String path) {
 		return MOD_ID + "_" + path;
 	}
 
 	/**
 	 * @return A text component for use in a Config GUI
 	 */
-	@Contract(value = "_ -> new", pure = true)
-	public static @NotNull Component text(String key) {
+	public static Component text(String key) {
 		return Component.translatable("option." + MOD_ID + "." + key);
 	}
 
 	/**
 	 * @return A tooltip component for use in a Config GUI
 	 */
-	@Contract(value = "_ -> new", pure = true)
-	public static @NotNull Component tooltip(String key) {
+	public static Component tooltip(String key) {
 		return Component.translatable("tooltip." + MOD_ID + "." + key);
 	}
 }
