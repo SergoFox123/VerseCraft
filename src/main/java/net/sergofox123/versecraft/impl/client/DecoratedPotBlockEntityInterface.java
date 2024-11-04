@@ -13,7 +13,7 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft.impl;
+package net.sergofox123.versecraft.impl.client;
 
 public interface DecoratedPotBlockEntityInterface {
 	boolean verseCraft$isWobbleFlipped();

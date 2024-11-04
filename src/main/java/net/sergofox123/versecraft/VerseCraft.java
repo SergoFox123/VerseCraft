@@ -39,6 +39,7 @@ public final class VerseCraft extends FrozenModInitializer implements FrozenMobC
 
 		RegisterBlocks.registerBlocks();
 		RegisterItems.init();
+		RegisterEntityTypes.init();
 		RegisterCreativeInventorySorting.init();
 		RegisterBlocks.registerBlockProperties();
 

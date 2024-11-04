@@ -871,8 +871,6 @@ public class RegisterBlocks {
 	}
 
 	private static void registerFuels() {
-		VerseSharedConstants.logWithModId("Registering Fuels for", VerseSharedConstants.UNSTABLE_LOGGING);
-
 
 		FuelRegistryEvents.BUILD.register((builder, context) -> {
 			builder.add(RegisterItems.AZALEA_BOAT, 1200);

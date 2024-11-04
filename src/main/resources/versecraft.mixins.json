@@ -5,9 +5,11 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "datafix.boat.BoatSplitFixMixin",
-    "datafix.boat.V4067Mixin"
+    "datafix.boat.V4067Mixin",
+    "common.decorated_pot.DecoratedPotBlockEntityMixin"
   ],
   "client": [
+    "client.decorated_pot.DecoratedPotRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

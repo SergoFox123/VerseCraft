@@ -185,6 +185,17 @@ public class RegisterCreativeInventorySorting {
 		addAfterInBuildingBlocks(RegisterBlocks.DRIPSTONE_BRICKS_SLAB, RegisterBlocks.DRIPSTONE_BRICKS_WALL);
 		addAfterInBuildingBlocks(RegisterBlocks.DRIPSTONE_BRICKS_WALL, RegisterBlocks.CHISELED_DRIPSTONE_BRICKS);
 		addAfterInBuildingBlocks(RegisterBlocks.DRIPSTONE_BRICKS_STAIRS, RegisterBlocks.CRACKED_DRIPSTONE_BRICKS);
+
+
+		//ITEMS
+
+		addAfterInIngredients(Items.BURN_POTTERY_SHERD, RegisterItems.DRAGON_POTTERY_SHERD);
+		addAfterInIngredients(RegisterItems.DRAGON_POTTERY_SHERD, RegisterItems.EGG_POTTERY_SHERD);
+		addAfterInIngredients(RegisterItems.EGG_POTTERY_SHERD, RegisterItems.PILLAGER_POTTERY_SHERD);
+		addAfterInIngredients(RegisterItems.PILLAGER_POTTERY_SHERD, RegisterItems.PORTAL_POTTERY_SHERD);
+		addAfterInIngredients(RegisterItems.PORTAL_POTTERY_SHERD, RegisterItems.SWORD_POTTERY_SHERD);
+
+
 	}
 
 

@@ -40,7 +40,7 @@ public class RegisterEntityTypes {
 	// BOATS
 
 	public static final EntityType<Boat> AZALEA_BOAT = register(
-		"cypress_boat",
+		"azalea_boat",
 		EntityType.Builder.of(EntityType.boatFactory(() -> RegisterItems.AZALEA_BOAT), MobCategory.MISC)
 			.noLootTable()
 			.sized(1.375F, 0.5625F)
@@ -49,7 +49,7 @@ public class RegisterEntityTypes {
 	);
 
 	public static final EntityType<ChestBoat> AZALEA_CHEST_BOAT = register(
-		"cypress_chest_boat",
+		"azalea_chest_boat",
 		EntityType.Builder.of(EntityType.chestBoatFactory(() -> RegisterItems.AZALEA_CHEST_BOAT), MobCategory.MISC)
 			.noLootTable()
 			.sized(1.375F, 0.5625F)
@@ -57,9 +57,10 @@ public class RegisterEntityTypes {
 			.clientTrackingRange(10)
 	);
 
-	static {
-		VerseSharedConstants.logWithModId("Registering Entities for", VerseSharedConstants.UNSTABLE_LOGGING);
+	public static void init() {
+
 	}
+
 
 	private static <T extends Entity> @NotNull EntityType<T> register(String string, EntityType.@NotNull Builder<T> builder) {
 		ResourceKey<EntityType<?>> resourceKey = ResourceKey.create(Registries.ENTITY_TYPE, VerseSharedConstants.id(string));

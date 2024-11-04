@@ -59,13 +59,48 @@ public class RegisterItems {
 			.stacksTo(1)
 	);
 
+    //Pottery Sherd
+
+	public static final Item DRAGON_POTTERY_SHERD = registerSherd("dragon_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
+
+	public static final Item EGG_POTTERY_SHERD = registerSherd("egg_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
+
+	public static final Item PILLAGER_POTTERY_SHERD = registerSherd("pillager_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
+
+	public static final Item PORTAL_POTTERY_SHERD = registerSherd("portal_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
+
+	public static final Item SWORD_POTTERY_SHERD = registerSherd("sword_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
 
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
 	}
 
 	public static void init() {
-
 	}
 
 	private static @NotNull <T extends Item> T register(String name, @NotNull Function<Properties, Item> function, Item.@NotNull Properties properties) {
