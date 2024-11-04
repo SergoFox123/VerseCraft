@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "versecraft:azalea_mosaic"
-    }
+    "#": "versecraft:azalea_mosaic"
   },
   "pattern": [
     "###"

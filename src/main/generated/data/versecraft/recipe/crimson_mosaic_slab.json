@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "versecraft:crimson_mosaic"
-    }
+    "#": "versecraft:crimson_mosaic"
   },
   "pattern": [
     "###"
