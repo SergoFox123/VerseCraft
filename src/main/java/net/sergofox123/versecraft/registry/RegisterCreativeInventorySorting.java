@@ -65,6 +65,11 @@ public class RegisterCreativeInventorySorting {
 		addAfterInBuildingBlocks(Items.ACACIA_STAIRS, RegisterBlocks.ACACIA_MOSAIC_STAIRS);
 		addAfterInBuildingBlocks(Items.ACACIA_SLAB, RegisterBlocks.ACACIA_MOSAIC_SLAB);
 
+		//Azalea Mosaic
+		addAfterInBuildingBlocks(RegisterBlocks.AZALEA_PLANKS, RegisterBlocks.AZALEA_MOSAIC);
+		addAfterInBuildingBlocks(RegisterBlocks.AZALEA_STAIRS, RegisterBlocks.AZALEA_MOSAIC_STAIRS);
+		addAfterInBuildingBlocks(RegisterBlocks.AZALEA_SLAB, RegisterBlocks.AZALEA_MOSAIC_SLAB);
+
 		//Birch Mosaic
 		addAfterInBuildingBlocks(Items.BIRCH_PLANKS, RegisterBlocks.BIRCH_MOSAIC);
 		addAfterInBuildingBlocks(Items.BIRCH_STAIRS, RegisterBlocks.BIRCH_MOSAIC_STAIRS);

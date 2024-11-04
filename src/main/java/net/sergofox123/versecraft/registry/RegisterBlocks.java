@@ -214,6 +214,23 @@ public class RegisterBlocks {
 		.recipeUnlockedBy("has_planks")
 		.getFamily();
 
+	//Acacia Mosaic
+
+	public static final Block ACACIA_MOSAIC = register("acacia_mosaic",
+		Block::new,
+		Properties.ofFullCopy(ACACIA_PLANKS)
+	);
+
+	public static final StairBlock ACACIA_MOSAIC_STAIRS = register("acacia_mosaic_stairs",
+		properties -> new StairBlock(ACACIA_PLANKS.defaultBlockState(), properties),
+		Properties.ofFullCopy(ACACIA_STAIRS)
+	);
+
+	public static final SlabBlock ACACIA_MOSAIC_SLAB = register("acacia_mosaic_slab",
+		SlabBlock::new,
+		Properties.ofFullCopy(ACACIA_SLAB)
+	);
+
 	//Azalea Mosaic
 
 	public static final Block AZALEA_MOSAIC = register("azalea_mosaic",
@@ -231,23 +248,6 @@ public class RegisterBlocks {
 		SlabBlock::new,
 		Properties.ofFullCopy(AZALEA_SLAB)
 			.mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	//Acacia Mosaic
-
-	public static final Block ACACIA_MOSAIC = register("acacia_mosaic",
-		Block::new,
-		Properties.ofFullCopy(ACACIA_PLANKS)
-	);
-
-	public static final StairBlock ACACIA_MOSAIC_STAIRS = register("acacia_mosaic_stairs",
-		properties -> new StairBlock(ACACIA_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(ACACIA_STAIRS)
-	);
-
-	public static final SlabBlock ACACIA_MOSAIC_SLAB = register("acacia_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(ACACIA_SLAB)
 	);
 
 	//Birch Mosaic
