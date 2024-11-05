@@ -24,14 +24,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.Block;
-import net.sergofox123.versecraft.VerseCraftPreLoadConstants;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class VerseSharedConstants {
-	public static final String MOD_ID = VerseCraftPreLoadConstants.MOD_ID;
+	public static final String MOD_ID = VersePreLoadConstants.MOD_ID;
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final ModContainer MOD_CONTAINER = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow();
 	// MEASURING

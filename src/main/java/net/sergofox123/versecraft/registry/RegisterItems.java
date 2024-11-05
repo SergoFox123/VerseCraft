@@ -16,14 +16,11 @@
 package net.sergofox123.versecraft.registry;
 
 import net.frozenblock.lib.item.api.FrozenCreativeTabs;
+import net.frozenblock.lib.item.api.sherd.SherdRegistry;
 import net.frozenblock.lib.shadow.org.jetbrains.annotations.NotNull;
-import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -31,13 +28,12 @@ import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.material.Fluids;
 import net.sergofox123.versecraft.BoatTypeVerse;
+import net.sergofox123.versecraft.VerseFeatureFlags;
 import net.sergofox123.versecraft.VerseSharedConstants;
 
 public class RegisterItems {
@@ -57,15 +53,15 @@ public class RegisterItems {
 
 	//Pottery Sherd
 
-	public static final Item DRAGON_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item DRAGON_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
-	public static final Item EGG_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item EGG_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
-	public static final Item PILLAGER_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item PILLAGER_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
-	public static final Item PORTAL_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item PORTAL_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
-	public static final Item SWORD_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item SWORD_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
 
 	//Seeds
@@ -101,14 +97,14 @@ public class RegisterItems {
 
 	public static void init() {
 
-		registerItemAfter(Items.BURN_POTTERY_SHERD, DRAGON_POTTERY_SHERD, "dragon_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(DRAGON_POTTERY_SHERD, EGG_POTTERY_SHERD, "egg_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(EGG_POTTERY_SHERD, PILLAGER_POTTERY_SHERD, "pillager_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(PILLAGER_POTTERY_SHERD, PORTAL_POTTERY_SHERD, "portal_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(PORTAL_POTTERY_SHERD, SWORD_POTTERY_SHERD, "sword_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(Items.BURN_POTTERY_SHERD, DRAGON_POTTERY_SHERD, "dragon_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(DRAGON_POTTERY_SHERD, EGG_POTTERY_SHERD, "egg_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(EGG_POTTERY_SHERD, PILLAGER_POTTERY_SHERD, "pillager_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(PILLAGER_POTTERY_SHERD, PORTAL_POTTERY_SHERD, "portal_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(PORTAL_POTTERY_SHERD, SWORD_POTTERY_SHERD, "sword_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 
-		registerItemAfter(Items.TORCHFLOWER_SEEDS, ICEFLOWER_SEEDS, "iceflower_seeds", CreativeModeTabs.NATURAL_BLOCKS);
-		registerItemAfter(ICEFLOWER_SEEDS, BLUE_ROSE_SEEDS, "blue_rose_seeds", CreativeModeTabs.NATURAL_BLOCKS);
+		registerSherdAfter(Items.TORCHFLOWER_SEEDS, ICEFLOWER_SEEDS, "iceflower_seeds", CreativeModeTabs.NATURAL_BLOCKS);
+		registerSherdAfter(ICEFLOWER_SEEDS, BLUE_ROSE_SEEDS, "blue_rose_seeds", CreativeModeTabs.NATURAL_BLOCKS);
 
 	}
 
@@ -140,13 +136,43 @@ public class RegisterItems {
 		FrozenCreativeTabs.addAfter(comparedItem, item, tabVisibility, tabs);
 	}
 
-	private static void actualRegister(@NotNull Item item, @NotNull String path) {
+	private static boolean actualRegister(@NotNull Item item, @NotNull String path) {
 		if (BuiltInRegistries.ITEM.getOptional(VerseSharedConstants.id(path)).isEmpty()) {
 			Registry.register(BuiltInRegistries.ITEM, VerseSharedConstants.id(path), item);
+			return true;
 		}
+		return false;
 	}
 
 	private static <S extends RecipeSerializer<T>, T extends Recipe<?>> @NotNull S registerSerializer(String key, S recipeSerializer) {
 		return Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, VerseSharedConstants.id(key), recipeSerializer);
+	}
+
+	@SafeVarargs
+	private static void registerSherdBefore(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull ResourceKey<CreativeModeTab>... tabs) {
+		registerSherdBefore(comparedItem, item, path, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
+	}
+
+	@SafeVarargs
+	private static void registerSherdBefore(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull CreativeModeTab.TabVisibility tabVisibility, @NotNull ResourceKey<CreativeModeTab>... tabs) {
+		actualRegisterSherd(item, path);
+		FrozenCreativeTabs.addBefore(comparedItem, item, tabVisibility, tabs);
+	}
+
+	@SafeVarargs
+	private static void registerSherdAfter(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull ResourceKey<CreativeModeTab>... tabs) {
+		registerSherdAfter(comparedItem, item, path, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
+	}
+
+	@SafeVarargs
+	private static void registerSherdAfter(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull CreativeModeTab.TabVisibility tabVisibility, @NotNull ResourceKey<CreativeModeTab>... tabs) {
+		actualRegisterSherd(item, path);
+		FrozenCreativeTabs.addAfter(comparedItem, item, tabVisibility, tabs);
+	}
+
+	private static void actualRegisterSherd(@NotNull Item item, @NotNull String path) {
+		if (actualRegister(item, path)) {
+			SherdRegistry.register(item, VerseSharedConstants.id(path.replace("sherd", "pattern")));
+		}
 	}
 }
