@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "versecraft:polished_calcite"
-    }
+    "#": "versecraft:polished_calcite"
   },
   "pattern": [
     "#  ",

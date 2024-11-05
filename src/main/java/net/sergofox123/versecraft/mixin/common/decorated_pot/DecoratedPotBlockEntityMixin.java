@@ -15,9 +15,8 @@
 
 package net.sergofox123.versecraft.mixin.common.decorated_pot;
 
-
+import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
-import net.sergofox123.versecraft.impl.DecoratedPotBlockEntityInterface;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;

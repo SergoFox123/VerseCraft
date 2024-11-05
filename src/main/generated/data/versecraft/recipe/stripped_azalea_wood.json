@@ -3,9 +3,7 @@
   "category": "building",
   "group": "bark",
   "key": {
-    "#": {
-      "item": "versecraft:stripped_azalea_log"
-    }
+    "#": "versecraft:stripped_azalea_log"
   },
   "pattern": [
     "##",

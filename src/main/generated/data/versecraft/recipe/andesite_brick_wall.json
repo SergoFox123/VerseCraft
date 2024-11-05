@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "versecraft:andesite_bricks"
-    }
+    "#": "versecraft:andesite_bricks"
   },
   "pattern": [
     "###",

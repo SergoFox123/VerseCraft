@@ -1,17 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "building",
   "key": {
-    "#": {
-      "item": "minecraft:warped_slab"
-    }
+    "#": "versecraft:warped_mosaic"
   },
   "pattern": [
-    "#",
-    "#"
+    "#  ",
+    "## ",
+    "###"
   ],
   "result": {
-    "count": 1,
-    "id": "versecraft:warped_mosaic"
+    "count": 4,
+    "id": "versecraft:warped_mosaic_stairs"
   }
 }

@@ -19,30 +19,16 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
-import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import java.util.Objects;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.DecoratedPotRenderer;
-import net.minecraft.client.resources.model.Material;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
-import net.minecraft.world.level.block.entity.DecoratedPotPatterns;
-import net.sergofox123.versecraft.VerseCraftClient;
-import net.sergofox123.versecraft.impl.DecoratedPotBlockEntityInterface;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
 import org.joml.Quaternionf;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -59,9 +45,9 @@ public class DecoratedPotRendererMixin {
 			ordinal = 0
 		)
 	)
-	public void verseCraft$isWobbleFlipped(
+	public void verseCraft$prepareIsFlipped(
 		DecoratedPotBlockEntity decoratedPotBlockEntity, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo info,
-		@Share("verseCraft$isWobbleFlipped") LocalBooleanRef isFlipped
+		@Share("verseCraft$isFlipped") LocalBooleanRef isFlipped
 	) {
 		isFlipped.set(decoratedPotBlockEntity instanceof DecoratedPotBlockEntityInterface decoratedPotBlockEntityInterface
 			&& decoratedPotBlockEntityInterface.verseCraft$isWobbleFlipped()
@@ -75,9 +61,9 @@ public class DecoratedPotRendererMixin {
 			target = "Lcom/mojang/math/Axis;rotation(F)Lorg/joml/Quaternionf;"
 		)
 	)
-	public Quaternionf trailierTales$flipWobble(
+	public Quaternionf verseCraft$flipWobble(
 		Axis instance, float v, Operation<Quaternionf> original,
-		@Share("trailierTales$isFlipped") LocalBooleanRef isFlipped
+		@Share("verseCraft$isFlipped") LocalBooleanRef isFlipped
 	) {
 		return original.call(instance, v * (isFlipped.get() ? -1 : 1F));
 	}

@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "versecraft:diorite_bricks"
-  },
+  "ingredient": "versecraft:diorite_bricks",
   "result": {
     "id": "versecraft:cracked_diorite_bricks"
   }

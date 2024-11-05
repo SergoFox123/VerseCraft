@@ -13,27 +13,37 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft.mixin.common.entity.boat;
+package net.sergofox123.versecraft.mixin.datafix.boat;
 
-import net.minecraft.world.entity.vehicle.ChestBoat;
-import net.minecraft.world.item.Item;
-import net.sergofox123.versecraft.BoatTypeVerse;
-import net.sergofox123.versecraft.registry.RegisterItems;
+import net.minecraft.util.datafix.fixes.BoatSplitFix;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(ChestBoat.class)
-public final class ChestBoatDropsMixin {
+@Mixin(BoatSplitFix.class)
+public class BoatSplitFixMixin {
 
-	//CREDIT TO nyuppo/fabric-boat-example ON GITHUB
-
-	@Inject(method = "getDropItem", at = @At("RETURN"), cancellable = true)
-	public void verseCraft$getModdedChestBoats(CallbackInfoReturnable<Item> info) {
-		var boat = ChestBoat.class.cast(this);
-		if (boat.getVariant() == BoatTypeVerse.AZALEA) {
-			info.setReturnValue(RegisterItems.AZALEA_CHEST_BOAT);
+	@Inject(
+		method = "mapVariantToNormalBoat",
+		at = @At("HEAD"),
+		cancellable = true
+	)
+	private static void verseCraft$mapVariantToNormalBoat(String string, CallbackInfoReturnable<String> info) {
+		if (string.equals("versecraftazalea")) {
+			info.setReturnValue("versecraft:azalea_boat");
 		}
 	}
+
+	@Inject(
+		method = "mapVariantToChestBoat",
+		at = @At("HEAD"),
+		cancellable = true
+	)
+	private static void verseCraft$mapVariantToChestBoat(String string, CallbackInfoReturnable<String> info) {
+		if (string.equals("versecraftazalea")) {
+			info.setReturnValue("versecraft:azalea_chest_boat");
+		}
+	}
+
 }

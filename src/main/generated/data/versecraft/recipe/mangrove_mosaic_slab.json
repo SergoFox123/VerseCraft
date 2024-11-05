@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "versecraft:mangrove_mosaic"
-    }
+    "#": "versecraft:mangrove_mosaic"
   },
   "pattern": [
     "###"

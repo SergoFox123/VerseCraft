@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "versecraft:granite_bricks"
-    }
+    "#": "versecraft:granite_bricks"
   },
   "pattern": [
     "###",

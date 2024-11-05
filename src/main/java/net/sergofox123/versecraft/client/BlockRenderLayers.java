@@ -13,17 +13,22 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft;
+package net.sergofox123.versecraft.client;
 
-import net.minecraft.world.entity.vehicle.Boat;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.minecraft.client.renderer.RenderType;
+import net.sergofox123.versecraft.registry.RegisterBlocks;
 
-public final class BoatTypeVerse {
+@Environment(EnvType.CLIENT)
+public class BlockRenderLayers {
 
-	public static Boat.Type AZALEA;
+	public static void init() {
+		BlockRenderLayerMap renderLayerRegistry = BlockRenderLayerMap.INSTANCE;
 
+		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_DOOR, RenderType.cutout());
+		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, RenderType.cutout());
 
-	static {
-		Boat.Type.values();
 	}
-
 }

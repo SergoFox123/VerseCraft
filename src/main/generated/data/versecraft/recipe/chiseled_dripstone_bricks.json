@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "versecraft:dripstone_bricks_slab"
-    }
+    "#": "versecraft:dripstone_bricks_slab"
   },
   "pattern": [
     "#",

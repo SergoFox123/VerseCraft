@@ -15,119 +15,101 @@
 
 package net.sergofox123.versecraft.registry;
 
-import net.frozenblock.lib.item.api.FrozenCreativeTabs;
-import net.frozenblock.lib.shadow.org.jetbrains.annotations.NotNull;
-import net.minecraft.client.resources.sounds.Sound;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
+import java.util.function.Function;
+import net.frozenblock.lib.item.api.sherd.SherdRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BoatItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.MobBucketItem;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SignItem;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.material.Fluids;
-import net.sergofox123.versecraft.BoatTypeVerse;
+import net.minecraft.world.item.SmithingTemplateItem;
+import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.level.block.Block;
+import net.sergofox123.versecraft.VerseFeatureFlags;
 import net.sergofox123.versecraft.VerseSharedConstants;
+import org.jetbrains.annotations.NotNull;
+import static net.minecraft.world.item.Items.registerBlock;
+
 
 public class RegisterItems {
 
 	//Azalea
-	public static final SignItem AZALEA_SIGN = new SignItem(new Item.Properties().stacksTo(16),
-		RegisterBlocks.AZALEA_SIGN, RegisterBlocks.AZALEA_WALL_SIGN
+	public static final Item AZALEA_SIGN = registerBlock(RegisterBlocks.AZALEA_SIGN,
+		(block, properties) -> new SignItem(block, RegisterBlocks.AZALEA_WALL_SIGN, properties),
+		new Item.Properties().stacksTo(16)
 	);
-
-	public static final HangingSignItem AZALEA_HANGING_SIGN = new HangingSignItem(RegisterBlocks.AZALEA_HANGING_SIGN, RegisterBlocks.AZALEA_WALL_HANGING_SIGN,
+	public static final Item AZALEA_HANGING_SIGN = registerBlock(RegisterBlocks.AZALEA_HANGING_SIGN,
+		(block, properties) -> new HangingSignItem(block, RegisterBlocks.AZALEA_WALL_HANGING_SIGN, properties),
 		new Item.Properties().stacksTo(16)
 	);
 
-	public static final BoatItem AZALEA_BOAT = new BoatItem(false, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
-	public static final BoatItem AZALEA_CHEST_BOAT = new BoatItem(true, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
+	public static final BoatItem AZALEA_BOAT = register("azalea_boat",
+		properties -> new BoatItem(RegisterEntityTypes.AZALEA_BOAT, properties),
+		new Item.Properties()
+			.stacksTo(1)
+	);
+	public static final BoatItem AZALEA_CHEST_BOAT = register("azalea_chest_boat",
+		properties -> new BoatItem(RegisterEntityTypes.AZALEA_CHEST_BOAT, properties),
+		new Item.Properties()
+			.stacksTo(1)
+	);
 
-	//Pottery Sherd
+    //Pottery Sherd
 
-	public static final Item DRAGON_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item DRAGON_POTTERY_SHERD = registerSherd("dragon_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
 
-	public static final Item EGG_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item EGG_POTTERY_SHERD = registerSherd("egg_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
 
-	public static final Item PILLAGER_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item PILLAGER_POTTERY_SHERD = registerSherd("pillager_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
 
-	public static final Item PORTAL_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item PORTAL_POTTERY_SHERD = registerSherd("portal_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
 
-	public static final Item SWORD_POTTERY_SHERD = new Item(new Item.Properties());
-
+	public static final Item SWORD_POTTERY_SHERD = registerSherd("sword_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
 
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
 	}
 
-	public static void registerBlockItems() {
-
-		registerItemAfter(Items.ACACIA_HANGING_SIGN, AZALEA_SIGN, "azalea_sign", CreativeModeTabs.FUNCTIONAL_BLOCKS);
-		registerItemAfter(AZALEA_SIGN, AZALEA_HANGING_SIGN, "azalea_hanging_sign", CreativeModeTabs.FUNCTIONAL_BLOCKS);
-
-	}
-
-	public static void registerItems() {
-
-		registerItemAfter(Items.ACACIA_CHEST_BOAT, AZALEA_BOAT, "azalea_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
-		registerItemAfter(AZALEA_BOAT, AZALEA_CHEST_BOAT, "azalea_chest_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
-	}
-
 	public static void init() {
-
-		registerItemAfter(Items.BURN_POTTERY_SHERD, DRAGON_POTTERY_SHERD, "dragon_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(DRAGON_POTTERY_SHERD, EGG_POTTERY_SHERD, "egg_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(EGG_POTTERY_SHERD, PILLAGER_POTTERY_SHERD, "pillager_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(PILLAGER_POTTERY_SHERD, PORTAL_POTTERY_SHERD, "portal_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(PORTAL_POTTERY_SHERD, SWORD_POTTERY_SHERD, "sword_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-
 	}
 
-	@SafeVarargs
-	private static void registerItem(@NotNull Item item, @NotNull String path, @NotNull ResourceKey<CreativeModeTab>... tabs) {
-		actualRegister(item, path);
-		FrozenCreativeTabs.add(item, tabs);
+	private static @NotNull <T extends Item> T register(String name, @NotNull Function<Properties, Item> function, Item.@NotNull Properties properties) {
+		return (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
 	}
 
-	@SafeVarargs
-	private static void registerItemBefore(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull ResourceKey<CreativeModeTab>... tabs) {
-		registerItemBefore(comparedItem, item, path, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
-	}
-
-	@SafeVarargs
-	private static void registerItemBefore(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull CreativeModeTab.TabVisibility tabVisibility, @NotNull ResourceKey<CreativeModeTab>... tabs) {
-		actualRegister(item, path);
-		FrozenCreativeTabs.addBefore(comparedItem, item, tabVisibility, tabs);
-	}
-
-	@SafeVarargs
-	private static void registerItemAfter(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull ResourceKey<CreativeModeTab>... tabs) {
-		registerItemAfter(comparedItem, item, path, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
-	}
-
-	@SafeVarargs
-	private static void registerItemAfter(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull CreativeModeTab.TabVisibility tabVisibility, @NotNull ResourceKey<CreativeModeTab>... tabs) {
-		actualRegister(item, path);
-		FrozenCreativeTabs.addAfter(comparedItem, item, tabVisibility, tabs);
-	}
-
-	private static void actualRegister(@NotNull Item item, @NotNull String path) {
-		if (BuiltInRegistries.ITEM.getOptional(VerseSharedConstants.id(path)).isEmpty()) {
-			Registry.register(BuiltInRegistries.ITEM, VerseSharedConstants.id(path), item);
-		}
-	}
-
-	private static <S extends RecipeSerializer<T>, T extends Recipe<?>> @NotNull S registerSerializer(String key, S recipeSerializer) {
-		return Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, VerseSharedConstants.id(key), recipeSerializer);
+	private static @NotNull <T extends Item> T registerSherd(String name, @NotNull Function<Properties, Item> function, Item.@NotNull Properties properties) {
+		T item = (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
+		SherdRegistry.register(item, VerseSharedConstants.id(name.replace("sherd", "pattern")));
+		return item;
 	}
 }
