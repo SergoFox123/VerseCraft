@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "versecraft:granite_bricks"
-  },
+  "ingredient": "versecraft:granite_bricks",
   "result": {
     "id": "versecraft:cracked_granite_bricks"
   }

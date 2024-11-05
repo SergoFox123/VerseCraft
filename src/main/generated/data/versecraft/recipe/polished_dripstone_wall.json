@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "versecraft:polished_dripstone"
-    }
+    "#": "versecraft:polished_dripstone"
   },
   "pattern": [
     "###",

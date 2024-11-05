@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "versecraft:polished_calcite"
-  },
+  "ingredient": "versecraft:polished_calcite",
   "result": {
     "count": 1,
     "id": "versecraft:calcite_bricks_stairs"
