@@ -32,7 +32,7 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
-import net.sergofox123.versecraft.BoatTypeVerse;
+import net.sergofox123.versecraft.impl.entity.VerseBoatType;
 import net.sergofox123.versecraft.VerseFeatureFlags;
 import net.sergofox123.versecraft.VerseSharedConstants;
 
@@ -48,8 +48,8 @@ public class RegisterItems {
 	);
 
 	//Boat
-	public static final BoatItem AZALEA_BOAT = new BoatItem(false, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
-	public static final BoatItem AZALEA_CHEST_BOAT = new BoatItem(true, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
+	public static final BoatItem AZALEA_BOAT = new BoatItem(false, VerseBoatType.AZALEA, new Item.Properties().stacksTo(1));
+	public static final BoatItem AZALEA_CHEST_BOAT = new BoatItem(true, VerseBoatType.AZALEA, new Item.Properties().stacksTo(1));
 
 	//Pottery Sherd
 

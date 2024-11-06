@@ -13,11 +13,11 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft;
+package net.sergofox123.versecraft.impl.entity;
 
 import net.minecraft.world.entity.vehicle.Boat;
 
-public final class BoatTypeVerse {
+public final class VerseBoatType {
 
 	public static Boat.Type AZALEA;
 

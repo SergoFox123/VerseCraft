@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.block.Block;
-import net.sergofox123.versecraft.BoatTypeVerse;
+import net.sergofox123.versecraft.impl.entity.VerseBoatType;
 import net.sergofox123.versecraft.registry.RegisterBlocks;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Final;
@@ -57,7 +57,7 @@ public class BoatTypeMixin {
 		var last = types.get(types.size() - 1);
 
 		var azalea = verseCraft$newType("AZALEA", last.ordinal() + 1, RegisterBlocks.AZALEA_PLANKS, "azalea");
-		BoatTypeVerse.AZALEA = azalea;
+		VerseBoatType.AZALEA = azalea;
 		types.add(azalea);
 
 		$VALUES = types.toArray(new Boat.Type[0]);

@@ -22,8 +22,6 @@ import net.minecraft.world.food.FoodProperties;
 public class RegisterFood {
 
 	public static final FoodProperties CHERRY = new FoodProperties.Builder().nutrition(3).saturationModifier(1.0F).build();
-	public static final FoodProperties RAW_HOGLIN_MEAT = new FoodProperties.Builder().nutrition(3).saturationModifier(1.0F).build();
-	public static final FoodProperties COOKED_HOGLIN_MEAT = new FoodProperties.Builder().nutrition(10).saturationModifier(13.0F).build();
 
 
 	private RegisterFood() {

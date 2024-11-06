@@ -129,22 +129,6 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "raw_hoglin_meat": {
-      "conditions": {
-        "item": {
-          "items": "versecraft:raw_hoglin_meat"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "cooked_hoglin_meat": {
-      "conditions": {
-        "item": {
-          "items": "versecraft:cooked_hoglin_meat"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "cooked_rabbit": {
       "conditions": {
         "item": {

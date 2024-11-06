@@ -17,7 +17,7 @@ package net.sergofox123.versecraft.mixin.common.entity.boat;
 
 import net.minecraft.world.entity.vehicle.ChestBoat;
 import net.minecraft.world.item.Item;
-import net.sergofox123.versecraft.BoatTypeVerse;
+import net.sergofox123.versecraft.impl.entity.VerseBoatType;
 import net.sergofox123.versecraft.registry.RegisterItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -32,7 +32,7 @@ public final class ChestBoatDropsMixin {
 	@Inject(method = "getDropItem", at = @At("RETURN"), cancellable = true)
 	public void verseCraft$getModdedChestBoats(CallbackInfoReturnable<Item> info) {
 		var boat = ChestBoat.class.cast(this);
-		if (boat.getVariant() == BoatTypeVerse.AZALEA) {
+		if (boat.getVariant() == VerseBoatType.AZALEA) {
 			info.setReturnValue(RegisterItems.AZALEA_CHEST_BOAT);
 		}
 	}
