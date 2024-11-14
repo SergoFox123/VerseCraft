@@ -141,5 +141,21 @@
   "block.versecraft.blue_rose": "Синяя роза",
   "block.versecraft.blue_rose_crop": "Синяя роза посажена",
   "block.versecraft.potted_blue_rose": "Горшечная синяя роза",
-  "item.versecraft.blue_rose_seeds": "Семена синей розы"
+  "item.versecraft.blue_rose_seeds": "Семена синей розы",
+
+
+  "painting.versecraft.banner.title": "Баннер",
+  "painting.versecraft.banner.author": "Зозозроб",
+
+  "painting.versecraft.creebet.title": "Крибет",
+  "painting.versecraft.creebet.author": "Зозозроб",
+
+  "painting.versecraft.fighters.title": "Бойцы",
+  "painting.versecraft.fighters.author": "Зозозроб",
+
+  "painting.versecraft.graham.title": "Грэм",
+  "painting.versecraft.graham.author": "Зозозроб",
+
+  "painting.versecraft.match.title": "Матч",
+  "painting.versecraft.match.author": "Зозозроб"
 }
