@@ -46,6 +46,7 @@ val archives_base_name: String by project
 val fabric_api_version: String by project
 val frozenlib_version: String by project
 
+
 val modmenu_version: String by project
 val cloth_config_version: String by project
 
