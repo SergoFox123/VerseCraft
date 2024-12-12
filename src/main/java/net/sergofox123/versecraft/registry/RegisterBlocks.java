@@ -889,6 +889,42 @@ public class RegisterBlocks {
 			builder.add(AZALEA_FENCE.asItem(), 300);
 			builder.add(RegisterItems.AZALEA_SIGN, 300);
 			builder.add(RegisterItems.AZALEA_HANGING_SIGN, 800);
+
+			builder.add(AZALEA_MOSAIC.asItem(), 300);
+			builder.add(AZALEA_MOSAIC_SLAB.asItem(), 150);
+			builder.add(AZALEA_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(ACACIA_MOSAIC.asItem(), 300);
+			builder.add(ACACIA_MOSAIC_SLAB.asItem(), 150);
+			builder.add(ACACIA_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(BIRCH_MOSAIC.asItem(), 300);
+			builder.add(BIRCH_MOSAIC_SLAB.asItem(), 150);
+			builder.add(BIRCH_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(CHERRY_MOSAIC.asItem(), 300);
+			builder.add(CHERRY_MOSAIC_SLAB.asItem(), 150);
+			builder.add(CHERRY_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(DARK_OAK_MOSAIC.asItem(), 300);
+			builder.add(DARK_OAK_MOSAIC_SLAB.asItem(), 150);
+			builder.add(DARK_OAK_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(JUNGLE_MOSAIC.asItem(), 300);
+			builder.add(JUNGLE_MOSAIC_SLAB.asItem(), 150);
+			builder.add(JUNGLE_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(MANGROVE_MOSAIC.asItem(), 300);
+			builder.add(MANGROVE_MOSAIC_SLAB.asItem(), 150);
+			builder.add(MANGROVE_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(OAK_MOSAIC.asItem(), 300);
+			builder.add(OAK_MOSAIC_SLAB.asItem(), 150);
+			builder.add(OAK_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(SPRUCE_MOSAIC.asItem(), 300);
+			builder.add(SPRUCE_MOSAIC_SLAB.asItem(), 150);
+			builder.add(SPRUCE_MOSAIC_STAIRS.asItem(), 300);
 		});
 	}
 
