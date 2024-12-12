@@ -16,13 +16,13 @@
 package net.sergofox123.versecraft.registry;
 
 import net.frozenblock.lib.item.impl.sherd.DecoratedPotPatternRegistryEntrypoint;
-import net.frozenblock.lib.shadow.org.jetbrains.annotations.NotNull;
+import net.sergofox123.versecraft.VerseSharedConstants;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.DecoratedPotPattern;
-import net.sergofox123.versecraft.VerseSharedConstants;
+import org.jetbrains.annotations.NotNull;
 
 public class RegisterDecoratedPotPattern implements DecoratedPotPatternRegistryEntrypoint {
 
