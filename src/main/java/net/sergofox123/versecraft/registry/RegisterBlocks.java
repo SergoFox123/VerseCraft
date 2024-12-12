@@ -386,6 +386,23 @@ public class RegisterBlocks {
 		Properties.ofFullCopy(SPRUCE_SLAB)
 	);
 
+	//Pale Oak
+
+	public static final Block PALE_OAK_MOSAIC = register("pale_oak_mosaic",
+		Block::new,
+		Properties.ofFullCopy(PALE_OAK_PLANKS)
+	);
+
+	public static final StairBlock PALE_OAK_MOSAIC_STAIRS = register("pale_oak_mosaic_stairs",
+		properties -> new StairBlock(PALE_OAK_PLANKS.defaultBlockState(), properties),
+		Properties.ofFullCopy(PALE_OAK_STAIRS)
+	);
+
+	public static final SlabBlock PALE_OAK_MOSAIC_SLAB = register("pale_oak_mosaic_slab",
+		SlabBlock::new,
+		Properties.ofFullCopy(PALE_OAK_SLAB)
+	);
+
 	//Warped
 
 	public static final Block WARPED_MOSAIC = register("warped_mosaic",
@@ -843,6 +860,10 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC_STAIRS, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC_SLAB, 5, 20);
+
+		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_STAIRS, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_SLAB, 5, 20);
 
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_LOG, 5, 5);
 		flammableBlockRegistry.add(RegisterBlocks.STRIPPED_AZALEA_LOG, 5, 5);
