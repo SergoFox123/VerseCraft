@@ -28,7 +28,6 @@ public class RegisterDecoratedPotPattern implements DecoratedPotPatternRegistryE
 
 	@Override
 	public void bootstrap(Registry<DecoratedPotPattern> registry) {
-
 		register(registry, "dragon");
 		register(registry, "egg");
 		register(registry, "pillager");
