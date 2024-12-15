@@ -205,7 +205,8 @@ public class RegisterCreativeInventorySorting {
 		addAfterInIngredients(RegisterItems.PILLAGER_POTTERY_SHERD, RegisterItems.PORTAL_POTTERY_SHERD);
 		addAfterInIngredients(RegisterItems.PORTAL_POTTERY_SHERD, RegisterItems.SWORD_POTTERY_SHERD);
 
-
+		//Food
+		addAfterInFoodAndDrinks(Items.CHORUS_FRUIT, RegisterItems.CHERRY);
 	}
 
 

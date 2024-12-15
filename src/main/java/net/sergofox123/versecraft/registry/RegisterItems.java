@@ -17,6 +17,7 @@ package net.sergofox123.versecraft.registry;
 
 import java.util.function.Function;
 import net.frozenblock.lib.item.api.sherd.SherdRegistry;
+import net.minecraft.client.renderer.item.properties.select.ItemBlockState;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
@@ -34,6 +35,7 @@ import net.sergofox123.versecraft.VerseFeatureFlags;
 import net.sergofox123.versecraft.VerseSharedConstants;
 import org.jetbrains.annotations.NotNull;
 import static net.minecraft.world.item.Items.registerBlock;
+import static net.minecraft.world.item.Items.registerItem;
 
 
 public class RegisterItems {
@@ -96,6 +98,9 @@ public class RegisterItems {
 			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
 	);
 
+	//Food
+	public static final Item CHERRY = register("cherry", Item::new, new Item.Properties().food(RegisterFood.CHERRY));
+
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
 	}
@@ -103,7 +108,7 @@ public class RegisterItems {
 	public static void init() {
 	}
 
-	private static @NotNull <T extends Item> T register(String name, @NotNull Function<Properties, Item> function, Item.@NotNull Properties properties) {
+	private static @NotNull <T extends Item> T register(String name, @NotNull Function<Item.Properties, Item> function, Item.@NotNull Properties properties) {
 		return (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
 	}
 
