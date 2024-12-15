@@ -17,7 +17,6 @@ package net.sergofox123.versecraft.registry;
 
 import java.util.function.Function;
 import net.frozenblock.lib.item.api.sherd.SherdRegistry;
-import net.minecraft.client.renderer.item.properties.select.ItemBlockState;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
@@ -71,6 +70,13 @@ public class RegisterItems {
 	);
 
 	public static final Item EGG_POTTERY_SHERD = registerSherd("egg_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
+
+	public static final Item EYE_POTTERY_SHERD = registerSherd("eye_pottery_sherd",
 		Item::new,
 		new Properties()
 			.rarity(Rarity.UNCOMMON)
