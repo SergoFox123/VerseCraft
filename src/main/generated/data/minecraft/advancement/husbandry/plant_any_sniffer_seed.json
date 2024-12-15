@@ -33,6 +33,17 @@
         ]
       },
       "trigger": "minecraft:placed_block"
+    },
+    "iceflower": {
+      "conditions": {
+        "location": [
+          {
+            "block": "versecraft:iceflower_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
     }
   },
   "display": {
@@ -52,7 +63,8 @@
     [
       "torchflower",
       "pitcher_pod",
-      "blue_rose"
+      "blue_rose",
+      "iceflower"
     ]
   ],
   "sends_telemetry_event": true
