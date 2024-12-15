@@ -132,5 +132,15 @@
   "block.versecraft.dripstone_bricks_stairs": "Dripstone Bricks Stairs",
   "block.versecraft.dripstone_bricks_slab": "Dripstone Bricks Slab",
   "block.versecraft.dripstone_bricks_wall": "Dripstone Bricks Wall",
-  "block.versecraft.chiseled_dripstone_bricks": "Chiseled Dripstone Bricks"
+  "block.versecraft.chiseled_dripstone_bricks": "Chiseled Dripstone Bricks",
+
+  "block.versecraft.iceflower": "Iceflower",
+  "block.versecraft.iceflower_crop": "Iceflower Crop",
+  "block.versecraft.potted_iceflower": "Potted Iceflower",
+  "item.versecraft.iceflower_seeds": "Iceflower Seeds",
+
+  "block.versecraft.blue_rose": "Blue Rose",
+  "block.versecraft.blue_rose_crop": "Blue Rose Crop",
+  "block.versecraft.potted_blue_rose": "Potted Blue Rose",
+  "item.versecraft.blue_rose_seeds": "Blue Rose Seeds"
 }

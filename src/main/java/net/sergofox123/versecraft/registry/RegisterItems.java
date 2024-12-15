@@ -101,6 +101,13 @@ public class RegisterItems {
 	//Food
 	public static final Item CHERRY = register("cherry", Item::new, new Item.Properties().food(RegisterFood.CHERRY));
 
+	//Seeds
+
+	public static final Item BLUE_ROSE_SEEDS = register("blue_rose_seeds",
+		createBlockItemWithCustomItemName(RegisterBlocks.BLUE_ROSE_CROP),
+		new Properties()
+	);
+
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
 	}
@@ -116,5 +123,9 @@ public class RegisterItems {
 		T item = (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
 		SherdRegistry.register(item, VerseSharedConstants.id(name.replace("sherd", "pattern")));
 		return item;
+	}
+
+	public static Function<Properties, Item> createBlockItemWithCustomItemName(Block block) {
+		return properties -> new BlockItem(block, properties.useItemDescriptionPrefix());
 	}
 }
