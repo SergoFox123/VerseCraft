@@ -108,6 +108,11 @@ public class RegisterItems {
 		new Properties()
 	);
 
+	public static final Item ICEFLOWER_SEEDS = register("iceflower_seeds",
+		createBlockItemWithCustomItemName(RegisterBlocks.ICEFLOWER_CROP),
+		new Properties()
+	);
+
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
 	}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "versecraft:block/iceflower_crop_stage0"
+    },
+    "age=1": {
+      "model": "versecraft:block/iceflower_crop_stage1"
+    }
+  }
+}

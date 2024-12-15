@@ -212,6 +212,9 @@ public class RegisterCreativeInventorySorting {
 		addAfterInNaturalBlocks(Items.PITCHER_PLANT, RegisterBlocks.BLUE_ROSE);
 		addAfterInNaturalBlocks(Items.PITCHER_POD, RegisterItems.BLUE_ROSE_SEEDS);
 
+
+		addAfterInNaturalBlocks(Items.TORCHFLOWER, RegisterBlocks.ICEFLOWER);
+		addAfterInNaturalBlocks(Items.TORCHFLOWER_SEEDS, RegisterItems.ICEFLOWER_SEEDS);
 	}
 
 
