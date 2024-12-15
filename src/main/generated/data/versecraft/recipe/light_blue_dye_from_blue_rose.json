@@ -3,12 +3,10 @@
   "category": "misc",
   "group": "light_blue_dye",
   "ingredients": [
-    {
-      "item": "versecraft:blue_rose"
-    }
+    "versecraft:blue_rose"
   ],
   "result": {
-    "count": 1,
+    "count": 2,
     "id": "minecraft:light_blue_dye"
   }
 }
