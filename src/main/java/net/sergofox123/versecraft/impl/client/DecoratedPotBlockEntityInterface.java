@@ -17,5 +17,4 @@ package net.sergofox123.versecraft.impl.client;
 
 public interface DecoratedPotBlockEntityInterface {
 	boolean verseCraft$isWobbleFlipped();
-
 }
