@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "light_blue_dye",
+  "group": "cyan_dye",
   "ingredients": [
     {
       "item": "versecraft:blue_rose"
@@ -9,6 +9,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "minecraft:light_blue_dye"
+    "id": "minecraft:cyan_dye"
   }
 }
