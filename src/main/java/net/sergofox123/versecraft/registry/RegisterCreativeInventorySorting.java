@@ -210,12 +210,12 @@ public class RegisterCreativeInventorySorting {
 		addAfterInFoodAndDrinks(Items.CHORUS_FRUIT, RegisterItems.CHERRY);
 
 		//Plants
-		addAfterInNaturalBlocks(Items.PITCHER_PLANT, RegisterBlocks.BLUE_ROSE);
-		addAfterInNaturalBlocks(Items.PITCHER_POD, RegisterItems.BLUE_ROSE_SEEDS);
-
-
 		addAfterInNaturalBlocks(Items.TORCHFLOWER, RegisterBlocks.ICEFLOWER);
 		addAfterInNaturalBlocks(Items.TORCHFLOWER_SEEDS, RegisterItems.ICEFLOWER_SEEDS);
+
+		addAfterInNaturalBlocks(RegisterBlocks.ICEFLOWER, RegisterBlocks.BLUE_ROSE);
+		addAfterInNaturalBlocks(Items.PITCHER_POD, RegisterItems.BLUE_ROSE_SEEDS);
+
 	}
 
 
