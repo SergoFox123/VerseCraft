@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "versecraft:block/iceflower_crop_stage0"
+  }
+}

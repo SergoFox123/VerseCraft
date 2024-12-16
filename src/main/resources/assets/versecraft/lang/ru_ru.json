@@ -23,6 +23,9 @@
   "item.versecraft.pillager_pottery_sherd": "Глиняный черепок «Разбойник»",
   "item.versecraft.portal_pottery_sherd": "Глиняный черепок «Портал»",
   "item.versecraft.sword_pottery_sherd": "Глиняный черепок «Меч»",
+  "item.versecraft.eye_pottery_sherd": "Глиняный черепок «Глаз»",
+
+  "item.versecraft.cherry": "Вишня",
 
   "block.versecraft.acacia_mosaic": "Акациевая мозаика",
   "block.versecraft.acacia_mosaic_stairs": "Ступеньки из акациевой мозаики",
@@ -129,5 +132,31 @@
   "block.versecraft.dripstone_bricks_stairs": "Ступеньки из натёчного кирпича",
   "block.versecraft.dripstone_bricks_slab": "Плита из натёчного кирпича",
   "block.versecraft.dripstone_bricks_wall": "Ограда из натёчного кирпича",
-  "block.versecraft.chiseled_dripstone_bricks": "Резные натёчные кирпичи"
+  "block.versecraft.chiseled_dripstone_bricks": "Резные натёчные кирпичи",
+
+  "block.versecraft.iceflower": "Ледянок",
+  "block.versecraft.iceflower_crop": "Ледянок посажен",
+  "block.versecraft.potted_iceflower": "Горшечный ледянок",
+  "item.versecraft.iceflower_seeds": "Семена ледянока",
+
+  "block.versecraft.blue_rose": "Синяя роза",
+  "block.versecraft.blue_rose_crop": "Синяя роза посажена",
+  "block.versecraft.potted_blue_rose": "Горшечная синяя роза",
+  "item.versecraft.blue_rose_seeds": "Семена синей розы",
+
+
+  "painting.versecraft.banner.title": "Баннер",
+  "painting.versecraft.banner.author": "Зозозроб",
+
+  "painting.versecraft.creebet.title": "Крибет",
+  "painting.versecraft.creebet.author": "Зозозроб",
+
+  "painting.versecraft.fighters.title": "Бойцы",
+  "painting.versecraft.fighters.author": "Зозозроб",
+
+  "painting.versecraft.graham.title": "Грэм",
+  "painting.versecraft.graham.author": "Зозозроб",
+
+  "painting.versecraft.match.title": "Матч",
+  "painting.versecraft.match.author": "Зозозроб"
 }

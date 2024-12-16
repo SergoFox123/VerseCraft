@@ -16,6 +16,7 @@
 package net.sergofox123.versecraft.registry;
 
 import net.frozenblock.lib.item.api.FrozenCreativeTabs;
+import net.frozenblock.lib.item.api.sherd.SherdRegistry;
 import net.frozenblock.lib.shadow.org.jetbrains.annotations.NotNull;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -25,17 +26,19 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
-import net.sergofox123.versecraft.BoatTypeVerse;
+import net.sergofox123.versecraft.impl.entity.VerseBoatType;
+import net.sergofox123.versecraft.VerseFeatureFlags;
 import net.sergofox123.versecraft.VerseSharedConstants;
 
 public class RegisterItems {
 
-	//Azalea
+	//Azalea sings
 	public static final SignItem AZALEA_SIGN = new SignItem(new Item.Properties().stacksTo(16),
 		RegisterBlocks.AZALEA_SIGN, RegisterBlocks.AZALEA_WALL_SIGN
 	);
@@ -44,21 +47,36 @@ public class RegisterItems {
 		new Item.Properties().stacksTo(16)
 	);
 
-	public static final BoatItem AZALEA_BOAT = new BoatItem(false, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
-	public static final BoatItem AZALEA_CHEST_BOAT = new BoatItem(true, BoatTypeVerse.AZALEA, new Item.Properties().stacksTo(1));
+	//Boat
+	public static final BoatItem AZALEA_BOAT = new BoatItem(false, VerseBoatType.AZALEA, new Item.Properties().stacksTo(1));
+	public static final BoatItem AZALEA_CHEST_BOAT = new BoatItem(true, VerseBoatType.AZALEA, new Item.Properties().stacksTo(1));
 
 	//Pottery Sherd
 
-	public static final Item DRAGON_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item DRAGON_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
-	public static final Item EGG_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item EGG_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
-	public static final Item PILLAGER_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item EYE_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
-	public static final Item PORTAL_POTTERY_SHERD = new Item(new Item.Properties());
 
-	public static final Item SWORD_POTTERY_SHERD = new Item(new Item.Properties());
+	public static final Item PILLAGER_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
+	public static final Item PORTAL_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
+
+	public static final Item SWORD_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
+
+
+	//Seeds
+	public static final Item ICEFLOWER_SEEDS = new ItemNameBlockItem(RegisterBlocks.ICEFLOWER_CROP, new Item.Properties()
+	);
+
+	public static final Item BLUE_ROSE_SEEDS = new ItemNameBlockItem(RegisterBlocks.BLUE_ROSE_CROP, new Item.Properties()
+	);
+
+
+	//Food
+	public static final Item CHERRY = new Item(new Item.Properties().food(RegisterFood.CHERRY));
 
 
 	private RegisterItems() {
@@ -73,6 +91,8 @@ public class RegisterItems {
 	}
 
 	public static void registerItems() {
+		registerItemAfter(Items.CHORUS_FRUIT, CHERRY, "cherry", CreativeModeTabs.FOOD_AND_DRINKS);
+
 
 		registerItemAfter(Items.ACACIA_CHEST_BOAT, AZALEA_BOAT, "azalea_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
 		registerItemAfter(AZALEA_BOAT, AZALEA_CHEST_BOAT, "azalea_chest_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
@@ -80,11 +100,15 @@ public class RegisterItems {
 
 	public static void init() {
 
-		registerItemAfter(Items.BURN_POTTERY_SHERD, DRAGON_POTTERY_SHERD, "dragon_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(DRAGON_POTTERY_SHERD, EGG_POTTERY_SHERD, "egg_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(EGG_POTTERY_SHERD, PILLAGER_POTTERY_SHERD, "pillager_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(PILLAGER_POTTERY_SHERD, PORTAL_POTTERY_SHERD, "portal_pottery_sherd", CreativeModeTabs.INGREDIENTS);
-		registerItemAfter(PORTAL_POTTERY_SHERD, SWORD_POTTERY_SHERD, "sword_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(Items.BURN_POTTERY_SHERD, DRAGON_POTTERY_SHERD, "dragon_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(DRAGON_POTTERY_SHERD, EGG_POTTERY_SHERD, "egg_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(EGG_POTTERY_SHERD, PILLAGER_POTTERY_SHERD, "pillager_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdBefore(EGG_POTTERY_SHERD, EYE_POTTERY_SHERD, "eye_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(PILLAGER_POTTERY_SHERD, PORTAL_POTTERY_SHERD, "portal_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdAfter(PORTAL_POTTERY_SHERD, SWORD_POTTERY_SHERD, "sword_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+
+		registerItemAfter(Items.TORCHFLOWER_SEEDS, ICEFLOWER_SEEDS, "iceflower_seeds", CreativeModeTabs.NATURAL_BLOCKS);
+		registerItemAfter(Items.PITCHER_POD, BLUE_ROSE_SEEDS, "blue_rose_seeds", CreativeModeTabs.NATURAL_BLOCKS);
 
 	}
 
@@ -116,13 +140,43 @@ public class RegisterItems {
 		FrozenCreativeTabs.addAfter(comparedItem, item, tabVisibility, tabs);
 	}
 
-	private static void actualRegister(@NotNull Item item, @NotNull String path) {
+	private static boolean actualRegister(@NotNull Item item, @NotNull String path) {
 		if (BuiltInRegistries.ITEM.getOptional(VerseSharedConstants.id(path)).isEmpty()) {
 			Registry.register(BuiltInRegistries.ITEM, VerseSharedConstants.id(path), item);
+			return true;
 		}
+		return false;
 	}
 
 	private static <S extends RecipeSerializer<T>, T extends Recipe<?>> @NotNull S registerSerializer(String key, S recipeSerializer) {
 		return Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, VerseSharedConstants.id(key), recipeSerializer);
+	}
+
+	@SafeVarargs
+	private static void registerSherdBefore(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull ResourceKey<CreativeModeTab>... tabs) {
+		registerSherdBefore(comparedItem, item, path, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
+	}
+
+	@SafeVarargs
+	private static void registerSherdBefore(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull CreativeModeTab.TabVisibility tabVisibility, @NotNull ResourceKey<CreativeModeTab>... tabs) {
+		actualRegisterSherd(item, path);
+		FrozenCreativeTabs.addBefore(comparedItem, item, tabVisibility, tabs);
+	}
+
+	@SafeVarargs
+	private static void registerSherdAfter(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull ResourceKey<CreativeModeTab>... tabs) {
+		registerSherdAfter(comparedItem, item, path, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
+	}
+
+	@SafeVarargs
+	private static void registerSherdAfter(@NotNull ItemLike comparedItem, @NotNull Item item, @NotNull String path, @NotNull CreativeModeTab.TabVisibility tabVisibility, @NotNull ResourceKey<CreativeModeTab>... tabs) {
+		actualRegisterSherd(item, path);
+		FrozenCreativeTabs.addAfter(comparedItem, item, tabVisibility, tabs);
+	}
+
+	private static void actualRegisterSherd(@NotNull Item item, @NotNull String path) {
+		if (actualRegister(item, path)) {
+			SherdRegistry.register(item, VerseSharedConstants.id(path.replace("sherd", "pattern")));
+		}
 	}
 }

@@ -19,49 +19,23 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
-import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import java.util.Objects;
-import net.minecraft.client.model.geom.ModelPart;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.DecoratedPotRenderer;
-import net.minecraft.client.resources.model.Material;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
-import net.minecraft.world.level.block.entity.DecoratedPotPatterns;
-import net.sergofox123.versecraft.VerseCraftClient;
 import net.sergofox123.versecraft.impl.DecoratedPotBlockEntityInterface;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@Environment(EnvType.CLIENT)
 @Mixin(DecoratedPotRenderer.class)
 public class DecoratedPotRendererMixin {
-	@Unique
-	private static final Material verseCraft$BLANK_MATERIAL = Objects.requireNonNull(Sheets.getDecoratedPotMaterial(VerseCraftClient.BLANK_DECORATED));
-
-	@Unique
-	private boolean verseCraft$isMisMatched;
-
-	@Inject(
-		method = "render(Lnet/minecraft/world/level/block/entity/DecoratedPotBlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V",
-		at = @At("HEAD")
-	)
-	public void verseCraft$render(
-		DecoratedPotBlockEntity decoratedPotBlockEntity, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo info
-	) {
-		this.verseCraft$setupMisMatched(decoratedPotBlockEntity);
-	}
 
 	@Inject(
 		method = "render(Lnet/minecraft/world/level/block/entity/DecoratedPotBlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V",
@@ -75,7 +49,9 @@ public class DecoratedPotRendererMixin {
 		DecoratedPotBlockEntity decoratedPotBlockEntity, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo info,
 		@Share("verseCraft$isFlipped") LocalBooleanRef isFlipped
 	) {
-		isFlipped.set(((DecoratedPotBlockEntityInterface)decoratedPotBlockEntity).verseCraft$isWobbleFlipped());
+		isFlipped.set(decoratedPotBlockEntity instanceof DecoratedPotBlockEntityInterface decoratedPotBlockEntityInterface
+			&& decoratedPotBlockEntityInterface.verseCraft$isWobbleFlipped()
+		);
 	}
 
 	@WrapOperation(
@@ -91,60 +67,5 @@ public class DecoratedPotRendererMixin {
 	) {
 		return original.call(instance, v * (isFlipped.get() ? -1 : 1F));
 	}
-
-	@Unique
-	private void verseCraft$setupMisMatched(@NotNull DecoratedPotBlockEntity decoratedPotBlockEntity) {
-		boolean hasBlank = false;
-		boolean hasDecorated = false;
-		for (Item item : decoratedPotBlockEntity.getDecorations().ordered().stream().toList()) {
-			if (
-				Sheets.getDecoratedPotMaterial(DecoratedPotPatterns.getPatternFromItem(Items.BRICK)) ==
-					Sheets.getDecoratedPotMaterial(DecoratedPotPatterns.getPatternFromItem(item))
-			) {
-				hasBlank = true;
-			} else {
-				hasDecorated = true;
-			}
-		}
-		this.verseCraft$isMisMatched = hasBlank && hasDecorated;
-	}
-
-	@Inject(
-		method = "renderSide",
-		at = @At(
-			value = "INVOKE",
-			target = "Lnet/minecraft/client/model/geom/ModelPart;render(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;II)V",
-			shift = At.Shift.BEFORE
-		)
-	)
-	private void verseCraft$renderSide(
-		ModelPart modelPart, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, @Nullable Material material, CallbackInfo info,
-		@Share("verseCraft$newPattern") LocalBooleanRef newPattern, @Share("verseCraft$blankVertexConsumer") LocalRef<VertexConsumer> blankVertexConsumer
-	) {
-		if (material == Sheets.getDecoratedPotMaterial(DecoratedPotPatterns.getPatternFromItem(Items.BRICK)) && this.verseCraft$isMisMatched) {
-			newPattern.set(true);
-			blankVertexConsumer.set(verseCraft$BLANK_MATERIAL.buffer(multiBufferSource, RenderType::entitySolid));
-		}
-	}
-
-	@WrapOperation(
-		method = "renderSide",
-		at = @At(
-			value = "INVOKE",
-			target = "Lnet/minecraft/client/model/geom/ModelPart;render(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;II)V"
-		)
-	)
-	private void verseCraft$renderSideFix(
-		ModelPart instance, PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, Operation<Void> original,
-		@Share("verseCraft$newPattern") LocalBooleanRef newPattern, @Share("verseCraft$blankVertexConsumer") LocalRef<VertexConsumer> blankVertexConsumer
-	) {
-		original.call(
-			instance,
-			poseStack,
-			newPattern.get() ? blankVertexConsumer.get() : vertexConsumer,
-			i,
-			j
-		);
-	}
-
 }
+

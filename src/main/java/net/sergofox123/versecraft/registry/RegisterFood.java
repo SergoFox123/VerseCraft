@@ -13,17 +13,18 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft;
+package net.sergofox123.versecraft.registry;
 
-import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 
-public final class BoatTypeVerse {
+public class RegisterFood {
 
-	public static Boat.Type AZALEA;
+	public static final FoodProperties CHERRY = new FoodProperties.Builder().nutrition(3).saturationModifier(1.0F).build();
 
 
-	static {
-		Boat.Type.values();
+	private RegisterFood() {
+		throw new UnsupportedOperationException("RegisterFood contains only static declarations.");
 	}
-
 }
