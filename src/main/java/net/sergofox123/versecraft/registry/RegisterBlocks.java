@@ -33,6 +33,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -41,6 +42,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -57,7 +59,10 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.sergofox123.versecraft.VerseSharedConstants;
+import net.sergofox123.versecraft.block.BlueRoseCropBlock;
+import net.sergofox123.versecraft.block.IceflowerCropBlock;
 import static net.minecraft.world.level.block.Blocks.*;
 
 
@@ -744,6 +749,46 @@ public class RegisterBlocks {
 			.sound(SoundType.STONE)
 	);
 
+	//Plants
+
+	public static final FlowerBlock ICEFLOWER = new FlowerBlock(
+		MobEffects.SATURATION,
+		0.0F,
+		BlockBehaviour.Properties.ofFullCopy(TORCHFLOWER)
+			.mapColor(MapColor.PLANT)
+	); 	//Placeholder code
+
+	public static final Block ICEFLOWER_CROP = new IceflowerCropBlock(
+		BlockBehaviour.Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.randomTicks()
+			.instabreak()
+			.sound(SoundType.CROP)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block POTTED_ICEFLOWER = Blocks.flowerPot(ICEFLOWER);
+
+	public static final FlowerBlock BLUE_ROSE = new FlowerBlock(
+		MobEffects.SATURATION,
+		0.0F,
+		BlockBehaviour.Properties.ofFullCopy(TORCHFLOWER)
+			.mapColor(MapColor.PLANT)
+	); 	//Placeholder code
+
+	public static final Block BLUE_ROSE_CROP = new BlueRoseCropBlock(
+		BlockBehaviour.Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.randomTicks()
+			.instabreak()
+			.sound(SoundType.CROP)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block POTTED_BLUE_ROSE = Blocks.flowerPot(BLUE_ROSE);
+
 	public static void registerBB() {
 
 
@@ -899,6 +944,17 @@ public class RegisterBlocks {
 
 		//Natural
 		registerBlockAfter(Items.ACACIA_LOG,"azalea_log", AZALEA_LOG, CreativeModeTabs.NATURAL_BLOCKS);
+
+		//Plants
+
+		registerBlockAfter(Items.TORCHFLOWER,"iceflower", ICEFLOWER, CreativeModeTabs.NATURAL_BLOCKS);
+		registerBlock("iceflower_crop", ICEFLOWER_CROP);
+		registerBlock("potted_iceflower", POTTED_ICEFLOWER);
+
+		registerBlockBefore(ICEFLOWER,"blue_rose", BLUE_ROSE, CreativeModeTabs.NATURAL_BLOCKS);
+		registerBlock("blue_rose_crop", BLUE_ROSE_CROP);
+		registerBlock("potted_blue_rose", POTTED_BLUE_ROSE);
+
 	}
 
 
@@ -968,6 +1024,9 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_STAIRS, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_SLAB, 5, 20);
+
+		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
+		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
 	}
 
 	private static void registerStrippable() {
@@ -1014,6 +1073,9 @@ public class RegisterBlocks {
 		registry.add(SPRUCE_MOSAIC.asItem(), 300);
 		registry.add(SPRUCE_MOSAIC_SLAB.asItem(), 150);
 		registry.add(SPRUCE_MOSAIC_STAIRS.asItem(), 300);
+
+		registry.add(BLUE_ROSE.asItem(), 150);
+		registry.add(ICEFLOWER.asItem(), 150);
 	}
 
 
