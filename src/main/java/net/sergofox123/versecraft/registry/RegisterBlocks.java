@@ -910,6 +910,9 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WALL_SIGN, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_HANGING_SIGN, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WALL_HANGING_SIGN, 5, 20);
+
+		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
+		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
 	}
 
 	private static void registerStrippable() {
@@ -976,6 +979,10 @@ public class RegisterBlocks {
 			builder.add(PALE_OAK_MOSAIC.asItem(), 300);
 			builder.add(PALE_OAK_MOSAIC_SLAB.asItem(), 150);
 			builder.add(PALE_OAK_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(BLUE_ROSE.asItem(), 150);
+			builder.add(ICEFLOWER.asItem(), 150);
+
 		});
 	}
 
