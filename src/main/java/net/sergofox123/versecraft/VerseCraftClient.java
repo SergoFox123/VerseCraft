@@ -37,5 +37,15 @@ public final class VerseCraftClient implements ClientModInitializer {
 		ModelLayers.init();
 		BlockRenderLayers.init();
 
+		BlockRenderLayerMap renderLayerRegistry = BlockRenderLayerMap.INSTANCE;
+
+		//Plants
+		renderLayerRegistry.putBlock(RegisterBlocks.BLUE_ROSE, RenderType.cutout());
+		renderLayerRegistry.putBlock(RegisterBlocks.BLUE_ROSE_CROP, RenderType.cutout());
+		renderLayerRegistry.putBlock(RegisterBlocks.POTTED_BLUE_ROSE, RenderType.cutout());
+
+		renderLayerRegistry.putBlock(RegisterBlocks.ICEFLOWER, RenderType.cutout());
+		renderLayerRegistry.putBlock(RegisterBlocks.ICEFLOWER_CROP, RenderType.cutout());
+		renderLayerRegistry.putBlock(RegisterBlocks.POTTED_ICEFLOWER, RenderType.cutout());
 	}
 }

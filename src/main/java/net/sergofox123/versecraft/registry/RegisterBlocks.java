@@ -88,6 +88,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.Vec3;
 import net.sergofox123.versecraft.VerseSharedConstants;
+import net.sergofox123.versecraft.block.BlueRoseCropBlock;
+import net.sergofox123.versecraft.block.IceflowerCropBlock;
 import org.jetbrains.annotations.NotNull;
 import static net.minecraft.world.level.block.Blocks.*;
 import static net.minecraft.world.level.block.Blocks.WARPED_STAIRS;
@@ -815,6 +817,63 @@ public class RegisterBlocks {
 			.strength(1.5f)
 			.requiresCorrectToolForDrops()
 			.sound(SoundType.STONE));
+
+
+	//Plants
+
+	public static final Block BLUE_ROSE = register("blue_rose",
+		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
+		Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.instabreak()
+			.sound(SoundType.GRASS)
+			.offsetType(BlockBehaviour.OffsetType.XZ)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block BLUE_ROSE_CROP = register("blue_rose_crop",
+		BlueRoseCropBlock::new,
+		Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.randomTicks()
+			.instabreak()
+			.sound(SoundType.CROP)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block POTTED_BLUE_ROSE = register("potted_blue_rose",
+		properties -> new FlowerPotBlock(BLUE_ROSE, properties),
+		Blocks.flowerPotProperties()
+	);
+
+	public static final Block ICEFLOWER = register("iceflower",
+		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
+		Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.instabreak()
+			.sound(SoundType.GRASS)
+			.offsetType(BlockBehaviour.OffsetType.XZ)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block ICEFLOWER_CROP = register("iceflower_crop",
+		IceflowerCropBlock::new,
+		Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.randomTicks()
+			.instabreak()
+			.sound(SoundType.CROP)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block POTTED_ICEFLOWER = register("potted_iceflower",
+		properties -> new FlowerPotBlock(BLUE_ROSE, properties),
+		Blocks.flowerPotProperties()
+	);
 
 
 	public static void registerBlocks() {
