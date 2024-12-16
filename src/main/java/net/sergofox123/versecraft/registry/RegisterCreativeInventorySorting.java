@@ -197,14 +197,24 @@ public class RegisterCreativeInventorySorting {
 		addAfterInBuildingBlocks(RegisterBlocks.DRIPSTONE_BRICKS_STAIRS, RegisterBlocks.CRACKED_DRIPSTONE_BRICKS);
 
 
-		//ITEMS
+		//Sherds
 
 		addAfterInIngredients(Items.BURN_POTTERY_SHERD, RegisterItems.DRAGON_POTTERY_SHERD);
 		addAfterInIngredients(RegisterItems.DRAGON_POTTERY_SHERD, RegisterItems.EGG_POTTERY_SHERD);
 		addAfterInIngredients(RegisterItems.EGG_POTTERY_SHERD, RegisterItems.PILLAGER_POTTERY_SHERD);
 		addAfterInIngredients(RegisterItems.PILLAGER_POTTERY_SHERD, RegisterItems.PORTAL_POTTERY_SHERD);
 		addAfterInIngredients(RegisterItems.PORTAL_POTTERY_SHERD, RegisterItems.SWORD_POTTERY_SHERD);
+		addBeforeInIngredients(RegisterItems.EGG_POTTERY_SHERD, RegisterItems.EYE_POTTERY_SHERD);
 
+		//Food
+		addAfterInFoodAndDrinks(Items.CHORUS_FRUIT, RegisterItems.CHERRY);
+
+		//Plants
+		addAfterInNaturalBlocks(Items.TORCHFLOWER, RegisterBlocks.ICEFLOWER);
+		addAfterInNaturalBlocks(Items.TORCHFLOWER_SEEDS, RegisterItems.ICEFLOWER_SEEDS);
+
+		addAfterInNaturalBlocks(RegisterBlocks.ICEFLOWER, RegisterBlocks.BLUE_ROSE);
+		addAfterInNaturalBlocks(Items.PITCHER_POD, RegisterItems.BLUE_ROSE_SEEDS);
 
 	}
 

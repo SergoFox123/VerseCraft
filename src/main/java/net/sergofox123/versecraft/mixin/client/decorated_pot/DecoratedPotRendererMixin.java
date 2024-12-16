@@ -23,10 +23,10 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.DecoratedPotRenderer;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
-import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
 import org.joml.Quaternionf;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -67,5 +67,4 @@ public class DecoratedPotRendererMixin {
 	) {
 		return original.call(instance, v * (isFlipped.get() ? -1 : 1F));
 	}
-
 }
