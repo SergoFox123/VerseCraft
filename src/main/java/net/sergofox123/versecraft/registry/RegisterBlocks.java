@@ -1076,6 +1076,9 @@ public class RegisterBlocks {
 		registry.add(SPRUCE_MOSAIC.asItem(), 300);
 		registry.add(SPRUCE_MOSAIC_SLAB.asItem(), 150);
 		registry.add(SPRUCE_MOSAIC_STAIRS.asItem(), 300);
+
+		registry.add(BLUE_ROSE.asItem(), 150);
+		registry.add(ICEFLOWER.asItem(), 150);
 	}
 
 
