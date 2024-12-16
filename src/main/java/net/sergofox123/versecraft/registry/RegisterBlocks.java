@@ -386,6 +386,24 @@ public class RegisterBlocks {
 		Properties.ofFullCopy(SPRUCE_SLAB)
 	);
 
+	//Pale Oak
+
+	public static final Block PALE_OAK_MOSAIC = register("pale_oak_mosaic",
+		Block::new,
+		Properties.ofFullCopy(PALE_OAK_PLANKS)
+			.requiredFeatures(FeatureFlags.WINTER_DROP)
+	);
+	public static final StairBlock PALE_OAK_MOSAIC_STAIRS = register("pale_oak_mosaic_stairs",
+		properties -> new StairBlock(PALE_OAK_PLANKS.defaultBlockState(), properties),
+		Properties.ofFullCopy(PALE_OAK_STAIRS)
+			.requiredFeatures(FeatureFlags.WINTER_DROP)
+	);
+	public static final SlabBlock PALE_OAK_MOSAIC_SLAB = register("pale_oak_mosaic_slab",
+		SlabBlock::new,
+		Properties.ofFullCopy(PALE_OAK_SLAB)
+			.requiredFeatures(FeatureFlags.WINTER_DROP)
+	);
+
 	//Warped
 
 	public static final Block WARPED_MOSAIC = register("warped_mosaic",
@@ -812,6 +830,10 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC_STAIRS, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC_SLAB, 5, 20);
 
+		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_STAIRS, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_SLAB, 5, 20);
+
 		flammableBlockRegistry.add(RegisterBlocks.BIRCH_MOSAIC, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.BIRCH_MOSAIC_STAIRS, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.BIRCH_MOSAIC_SLAB, 5, 20);
@@ -844,6 +866,10 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC_STAIRS, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC_SLAB, 5, 20);
 
+		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_STAIRS, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_SLAB, 5, 20);
+
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_LOG, 5, 5);
 		flammableBlockRegistry.add(RegisterBlocks.STRIPPED_AZALEA_LOG, 5, 5);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WOOD, 5, 5);
@@ -859,10 +885,6 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WALL_SIGN, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_HANGING_SIGN, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WALL_HANGING_SIGN, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_SLAB, 5, 20);
 	}
 
 	private static void registerStrippable() {
@@ -925,6 +947,10 @@ public class RegisterBlocks {
 			builder.add(SPRUCE_MOSAIC.asItem(), 300);
 			builder.add(SPRUCE_MOSAIC_SLAB.asItem(), 150);
 			builder.add(SPRUCE_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(PALE_OAK_MOSAIC.asItem(), 300);
+			builder.add(PALE_OAK_MOSAIC_SLAB.asItem(), 150);
+			builder.add(PALE_OAK_MOSAIC_STAIRS.asItem(), 300);
 		});
 	}
 
