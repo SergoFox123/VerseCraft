@@ -23,6 +23,7 @@
   "item.versecraft.pillager_pottery_sherd": "Pillager Pottery Sherd",
   "item.versecraft.portal_pottery_sherd": "Portal Pottery Sherd",
   "item.versecraft.sword_pottery_sherd": "Sword Pottery Sherd",
+  "item.versecraft.eye_pottery_sherd": "Eye Pottery Sherd",
 
   "item.versecraft.cherry": "Cherry",
 
@@ -143,20 +144,5 @@
   "block.versecraft.blue_rose": "Blue Rose",
   "block.versecraft.blue_rose_crop": "Blue Rose Crop",
   "block.versecraft.potted_blue_rose": "Potted Blue Rose",
-  "item.versecraft.blue_rose_seeds": "Blue Rose Seeds",
-
-  "painting.versecraft.banner.title": "Banner",
-  "painting.versecraft.banner.author": "Zozozrob",
-
-  "painting.versecraft.creebet.title": "Creebet",
-  "painting.versecraft.creebet.author": "Zozozrob",
-
-  "painting.versecraft.fighters.title": "Fighters",
-  "painting.versecraft.fighters.author": "Zozozrob",
-
-  "painting.versecraft.graham.title": "Graham",
-  "painting.versecraft.graham.author": "Zozozrob",
-
-  "painting.versecraft.match.title": "Match",
-  "painting.versecraft.match.author": "Zozozrob"
+  "item.versecraft.blue_rose_seeds": "Blue Rose Seeds"
 }

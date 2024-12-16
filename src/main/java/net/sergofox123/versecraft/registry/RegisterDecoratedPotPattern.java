@@ -30,6 +30,7 @@ public class RegisterDecoratedPotPattern implements DecoratedPotPatternRegistryE
 	public void bootstrap(Registry<DecoratedPotPattern> registry) {
 		register(registry, "dragon");
 		register(registry, "egg");
+		register(registry, "eye");
 		register(registry, "pillager");
 		register(registry, "portal");
 		register(registry, "sword");

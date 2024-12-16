@@ -57,6 +57,9 @@ public class RegisterItems {
 
 	public static final Item EGG_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
+	public static final Item EYE_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
+
+
 	public static final Item PILLAGER_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
 	public static final Item PORTAL_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
@@ -100,11 +103,12 @@ public class RegisterItems {
 		registerSherdAfter(Items.BURN_POTTERY_SHERD, DRAGON_POTTERY_SHERD, "dragon_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 		registerSherdAfter(DRAGON_POTTERY_SHERD, EGG_POTTERY_SHERD, "egg_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 		registerSherdAfter(EGG_POTTERY_SHERD, PILLAGER_POTTERY_SHERD, "pillager_pottery_sherd", CreativeModeTabs.INGREDIENTS);
+		registerSherdBefore(EGG_POTTERY_SHERD, EYE_POTTERY_SHERD, "eye_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 		registerSherdAfter(PILLAGER_POTTERY_SHERD, PORTAL_POTTERY_SHERD, "portal_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 		registerSherdAfter(PORTAL_POTTERY_SHERD, SWORD_POTTERY_SHERD, "sword_pottery_sherd", CreativeModeTabs.INGREDIENTS);
 
-		registerSherdAfter(Items.TORCHFLOWER_SEEDS, ICEFLOWER_SEEDS, "iceflower_seeds", CreativeModeTabs.NATURAL_BLOCKS);
-		registerSherdAfter(ICEFLOWER_SEEDS, BLUE_ROSE_SEEDS, "blue_rose_seeds", CreativeModeTabs.NATURAL_BLOCKS);
+		registerItemAfter(Items.TORCHFLOWER_SEEDS, ICEFLOWER_SEEDS, "iceflower_seeds", CreativeModeTabs.NATURAL_BLOCKS);
+		registerItemAfter(Items.PITCHER_POD, BLUE_ROSE_SEEDS, "blue_rose_seeds", CreativeModeTabs.NATURAL_BLOCKS);
 
 	}
 

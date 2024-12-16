@@ -792,15 +792,6 @@ public class RegisterBlocks {
 
 	public static final Block POTTED_BLUE_ROSE = Blocks.flowerPot(BLUE_ROSE);
 
-	public static final FlowerBlock BUTTERCUP = new FlowerBlock(
-		MobEffects.SATURATION,
-		0.0F,
-		BlockBehaviour.Properties.ofFullCopy(DANDELION)
-			.mapColor(MapColor.PLANT)
-	); 	//Placeholder code
-
-	public static final Block POTTED_BUTTERCUP = Blocks.flowerPot(BUTTERCUP);
-
 	public static void registerBB() {
 
 
@@ -967,10 +958,6 @@ public class RegisterBlocks {
 		registerBlock("blue_rose_crop", BLUE_ROSE_CROP);
 		registerBlock("potted_blue_rose", POTTED_BLUE_ROSE);
 
-		registerBlockAfter(Items.BLUE_ORCHID,"buttercup", BUTTERCUP, CreativeModeTabs.NATURAL_BLOCKS);
-		registerBlock("potted_buttercup", POTTED_BUTTERCUP);
-
-
 	}
 
 
@@ -1043,8 +1030,6 @@ public class RegisterBlocks {
 
 		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
 		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
-		flammableBlockRegistry.add(RegisterBlocks.BUTTERCUP, 100, 60);
-
 	}
 
 	private static void registerStrippable() {
