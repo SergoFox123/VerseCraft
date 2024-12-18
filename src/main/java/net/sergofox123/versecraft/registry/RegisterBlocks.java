@@ -871,7 +871,7 @@ public class RegisterBlocks {
 	);
 
 	public static final Block POTTED_ICEFLOWER = register("potted_iceflower",
-		properties -> new FlowerPotBlock(BLUE_ROSE, properties),
+		properties -> new FlowerPotBlock(ICEFLOWER, properties),
 		Blocks.flowerPotProperties()
 	);
 
