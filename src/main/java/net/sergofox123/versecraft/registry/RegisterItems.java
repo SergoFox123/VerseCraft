@@ -34,6 +34,7 @@ import net.sergofox123.versecraft.VerseFeatureFlags;
 import net.sergofox123.versecraft.VerseSharedConstants;
 import org.jetbrains.annotations.NotNull;
 import static net.minecraft.world.item.Items.registerBlock;
+import static net.minecraft.world.item.Items.registerItem;
 
 
 public class RegisterItems {
@@ -75,6 +76,13 @@ public class RegisterItems {
 			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
 	);
 
+	public static final Item EYE_POTTERY_SHERD = registerSherd("eye_pottery_sherd",
+		Item::new,
+		new Properties()
+			.rarity(Rarity.UNCOMMON)
+			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
+	);
+
 	public static final Item PILLAGER_POTTERY_SHERD = registerSherd("pillager_pottery_sherd",
 		Item::new,
 		new Properties()
@@ -96,6 +104,21 @@ public class RegisterItems {
 			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
 	);
 
+	//Food
+	public static final Item CHERRY = register("cherry", Item::new, new Item.Properties().food(RegisterFood.CHERRY));
+
+	//Seeds
+
+	public static final Item BLUE_ROSE_SEEDS = register("blue_rose_seeds",
+		createBlockItemWithCustomItemName(RegisterBlocks.BLUE_ROSE_CROP),
+		new Properties()
+	);
+
+	public static final Item ICEFLOWER_SEEDS = register("iceflower_seeds",
+		createBlockItemWithCustomItemName(RegisterBlocks.ICEFLOWER_CROP),
+		new Properties()
+	);
+
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
 	}
@@ -103,7 +126,7 @@ public class RegisterItems {
 	public static void init() {
 	}
 
-	private static @NotNull <T extends Item> T register(String name, @NotNull Function<Properties, Item> function, Item.@NotNull Properties properties) {
+	private static @NotNull <T extends Item> T register(String name, @NotNull Function<Item.Properties, Item> function, Item.@NotNull Properties properties) {
 		return (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
 	}
 
@@ -111,5 +134,9 @@ public class RegisterItems {
 		T item = (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
 		SherdRegistry.register(item, VerseSharedConstants.id(name.replace("sherd", "pattern")));
 		return item;
+	}
+
+	public static Function<Properties, Item> createBlockItemWithCustomItemName(Block block) {
+		return properties -> new BlockItem(block, properties.useItemDescriptionPrefix());
 	}
 }

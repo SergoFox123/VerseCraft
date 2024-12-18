@@ -17,14 +17,14 @@
 
   "item.versecraft.azalea_chest_boat": "Азалиевая грузовая лодка",
   "item.versecraft.azalea_boat": "Азалиевая лодка",
-  "entity.versecraft.azalea_boat": "Азалиевая лодка",
-  "entity.versecraft.azalea_chest_boat": "Азалиевая грузовая лодка",
 
   "item.versecraft.dragon_pottery_sherd": "Глиняный черепок «Дракон»",
   "item.versecraft.egg_pottery_sherd": "Глиняный черепок «Яйцо»",
   "item.versecraft.pillager_pottery_sherd": "Глиняный черепок «Разбойник»",
   "item.versecraft.portal_pottery_sherd": "Глиняный черепок «Портал»",
   "item.versecraft.sword_pottery_sherd": "Глиняный черепок «Меч»",
+
+  "item.versecraft.cherry": "Вишня",
 
   "block.versecraft.acacia_mosaic": "Акациевая мозаика",
   "block.versecraft.acacia_mosaic_stairs": "Ступеньки из акациевой мозаики",
@@ -65,6 +65,10 @@
   "block.versecraft.spruce_mosaic": "Еловая мозаика",
   "block.versecraft.spruce_mosaic_stairs": "Ступеньки из еловой мозаики",
   "block.versecraft.spruce_mosaic_slab": "Плита из еловой мозаики",
+
+  "block.versecraft.pale_oak_mosaic": "Бледно дубовая мозаика",
+  "block.versecraft.pale_oak_mosaic_stairs": "Ступеньки из бледно дубовой мозаики",
+  "block.versecraft.pale_oak_mosaic_slab": "Плита из бледно дубовой мозаики",
 
   "block.versecraft.warped_mosaic": "Искажённая мозаика",
   "block.versecraft.warped_mosaic_stairs": "Ступеньки из искажённой мозаики",
@@ -131,5 +135,15 @@
   "block.versecraft.dripstone_bricks_stairs": "Ступеньки из натёчного кирпича",
   "block.versecraft.dripstone_bricks_slab": "Плита из натёчного кирпича",
   "block.versecraft.dripstone_bricks_wall": "Ограда из натёчного кирпича",
-  "block.versecraft.chiseled_dripstone_bricks": "Резные натёчные кирпичи"
+  "block.versecraft.chiseled_dripstone_bricks": "Резные натёчные кирпичи",
+
+  "block.versecraft.iceflower": "Ледянок",
+  "block.versecraft.iceflower_crop": "Ледянок посажен",
+  "block.versecraft.potted_iceflower": "Горшечный ледянок",
+  "item.versecraft.iceflower_seeds": "Семена ледянока",
+
+  "block.versecraft.blue_rose": "Синяя роза",
+  "block.versecraft.blue_rose_crop": "Синяя роза посажена",
+  "block.versecraft.potted_blue_rose": "Горшечная синяя роза",
+  "item.versecraft.blue_rose_seeds": "Семена синей розы"
 }

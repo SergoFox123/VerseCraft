@@ -15,80 +15,52 @@
 
 package net.sergofox123.versecraft.registry;
 
-import java.util.Optional;
 import java.util.function.Function;
-import java.util.function.Supplier;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
-import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
-import net.frozenblock.lib.item.api.bonemeal.BonemealBehaviors;
-import net.frozenblock.lib.storage.api.NoInteractionStorage;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.core.dispenser.BlockSource;
-import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
-import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
-import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
-import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.phys.Vec3;
 import net.sergofox123.versecraft.VerseSharedConstants;
-import org.jetbrains.annotations.NotNull;
+import net.sergofox123.versecraft.block.BlueRoseCropBlock;
+import net.sergofox123.versecraft.block.IceflowerCropBlock;
 import static net.minecraft.world.level.block.Blocks.*;
 import static net.minecraft.world.level.block.Blocks.WARPED_STAIRS;
 
@@ -384,6 +356,23 @@ public class RegisterBlocks {
 	public static final SlabBlock SPRUCE_MOSAIC_SLAB = register("spruce_mosaic_slab",
 		SlabBlock::new,
 		Properties.ofFullCopy(SPRUCE_SLAB)
+	);
+
+	//Pale Oak
+
+	public static final Block PALE_OAK_MOSAIC = register("pale_oak_mosaic",
+		Block::new,
+		Properties.ofFullCopy(PALE_OAK_PLANKS)
+	);
+
+	public static final StairBlock PALE_OAK_MOSAIC_STAIRS = register("pale_oak_mosaic_stairs",
+		properties -> new StairBlock(PALE_OAK_PLANKS.defaultBlockState(), properties),
+		Properties.ofFullCopy(PALE_OAK_STAIRS)
+	);
+
+	public static final SlabBlock PALE_OAK_MOSAIC_SLAB = register("pale_oak_mosaic_slab",
+		SlabBlock::new,
+		Properties.ofFullCopy(PALE_OAK_SLAB)
 	);
 
 	//Warped
@@ -798,11 +787,65 @@ public class RegisterBlocks {
 			.requiresCorrectToolForDrops()
 			.sound(SoundType.STONE));
 
+	//Plants
+
+	public static final Block BLUE_ROSE = register("blue_rose",
+		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
+		Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.instabreak()
+			.sound(SoundType.GRASS)
+			.offsetType(BlockBehaviour.OffsetType.XZ)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block BLUE_ROSE_CROP = register("blue_rose_crop",
+		BlueRoseCropBlock::new,
+		Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.randomTicks()
+			.instabreak()
+			.sound(SoundType.CROP)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block POTTED_BLUE_ROSE = register("potted_blue_rose",
+		properties -> new FlowerPotBlock(BLUE_ROSE, properties),
+		Blocks.flowerPotProperties()
+	);
+
+	public static final Block ICEFLOWER = register("iceflower",
+		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
+		Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.instabreak()
+			.sound(SoundType.GRASS)
+			.offsetType(BlockBehaviour.OffsetType.XZ)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block ICEFLOWER_CROP = register("iceflower_crop",
+		IceflowerCropBlock::new,
+		Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.randomTicks()
+			.instabreak()
+			.sound(SoundType.CROP)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block POTTED_ICEFLOWER = register("potted_iceflower",
+		properties -> new FlowerPotBlock(ICEFLOWER, properties),
+		Blocks.flowerPotProperties()
+	);
 
 	public static void registerBlocks() {
 
 	}
-
 
 	private static void registerFlammability() {
 
@@ -811,6 +854,10 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC_STAIRS, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC_SLAB, 5, 20);
+
+		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_STAIRS, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_SLAB, 5, 20);
 
 		flammableBlockRegistry.add(RegisterBlocks.BIRCH_MOSAIC, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.BIRCH_MOSAIC_STAIRS, 5, 20);
@@ -844,6 +891,10 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC_STAIRS, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC_SLAB, 5, 20);
 
+		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_STAIRS, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_SLAB, 5, 20);
+
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_LOG, 5, 5);
 		flammableBlockRegistry.add(RegisterBlocks.STRIPPED_AZALEA_LOG, 5, 5);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WOOD, 5, 5);
@@ -860,9 +911,8 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_HANGING_SIGN, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WALL_HANGING_SIGN, 5, 20);
 
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_SLAB, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
+		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
 	}
 
 	private static void registerStrippable() {
@@ -889,6 +939,50 @@ public class RegisterBlocks {
 			builder.add(AZALEA_FENCE.asItem(), 300);
 			builder.add(RegisterItems.AZALEA_SIGN, 300);
 			builder.add(RegisterItems.AZALEA_HANGING_SIGN, 800);
+
+			builder.add(AZALEA_MOSAIC.asItem(), 300);
+			builder.add(AZALEA_MOSAIC_SLAB.asItem(), 150);
+			builder.add(AZALEA_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(ACACIA_MOSAIC.asItem(), 300);
+			builder.add(ACACIA_MOSAIC_SLAB.asItem(), 150);
+			builder.add(ACACIA_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(BIRCH_MOSAIC.asItem(), 300);
+			builder.add(BIRCH_MOSAIC_SLAB.asItem(), 150);
+			builder.add(BIRCH_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(CHERRY_MOSAIC.asItem(), 300);
+			builder.add(CHERRY_MOSAIC_SLAB.asItem(), 150);
+			builder.add(CHERRY_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(DARK_OAK_MOSAIC.asItem(), 300);
+			builder.add(DARK_OAK_MOSAIC_SLAB.asItem(), 150);
+			builder.add(DARK_OAK_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(JUNGLE_MOSAIC.asItem(), 300);
+			builder.add(JUNGLE_MOSAIC_SLAB.asItem(), 150);
+			builder.add(JUNGLE_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(MANGROVE_MOSAIC.asItem(), 300);
+			builder.add(MANGROVE_MOSAIC_SLAB.asItem(), 150);
+			builder.add(MANGROVE_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(OAK_MOSAIC.asItem(), 300);
+			builder.add(OAK_MOSAIC_SLAB.asItem(), 150);
+			builder.add(OAK_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(SPRUCE_MOSAIC.asItem(), 300);
+			builder.add(SPRUCE_MOSAIC_SLAB.asItem(), 150);
+			builder.add(SPRUCE_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(PALE_OAK_MOSAIC.asItem(), 300);
+			builder.add(PALE_OAK_MOSAIC_SLAB.asItem(), 150);
+			builder.add(PALE_OAK_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(BLUE_ROSE.asItem(), 150);
+			builder.add(ICEFLOWER.asItem(), 150);
+
 		});
 	}
 
