@@ -29,6 +29,7 @@ public class VerseFeatureFlags {
 	public static final FeatureFlag FEATURE_FLAG = FrozenBools.IS_DATAGEN ? VERSE_CRAFT : FeatureFlags.VANILLA;
 
 
+
 	public static void init() {
 	}
 }

@@ -59,7 +59,6 @@ public class RegisterItems {
 
 	public static final Item EYE_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
-
 	public static final Item PILLAGER_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
 
 	public static final Item PORTAL_POTTERY_SHERD = new Item(new Item.Properties().requiredFeatures(VerseFeatureFlags.FEATURE_FLAG));
