@@ -1,0 +1,148 @@
+{
+  "block.versecraft.azalea_log": "杜鹃原木",
+  "block.versecraft.azalea_wood": "杜鹃木",
+  "block.versecraft.stripped_azalea_log": "去皮杜鹃原木",
+  "block.versecraft.stripped_azalea_wood": "去皮杜鹃木",
+  "block.versecraft.azalea_planks": "杜鹃木板",
+  "block.versecraft.azalea_stairs": "杜鹃木楼梯",
+  "block.versecraft.azalea_slab": "杜鹃木台阶",
+  "block.versecraft.azalea_fence": "杜鹃木栅栏",
+  "block.versecraft.azalea_fence_gate": "杜鹃木栅栏门",
+  "block.versecraft.azalea_door": "杜鹃木门",
+  "block.versecraft.azalea_trapdoor": "杜鹃木活板门",
+  "block.versecraft.azalea_pressure_plate": "杜鹃木压力板",
+  "block.versecraft.azalea_button": "杜鹃木按钮",
+  "block.versecraft.azalea_hanging_sign": "悬挂式杜鹃木告示牌",
+  "block.versecraft.azalea_sign": "杜鹃木告示牌",
+
+  "item.versecraft.azalea_chest_boat": "杜鹃木运输船",
+  "item.versecraft.azalea_boat": "杜鹃木船",
+
+  "item.versecraft.dragon_pottery_sherd": "龙形纹样陶片",
+  "item.versecraft.egg_pottery_sherd": "蛋形纹样陶片",
+  "item.versecraft.pillager_pottery_sherd": "掠夺者纹样陶片",
+  "item.versecraft.portal_pottery_sherd": "传送门纹样陶片",
+  "item.versecraft.sword_pottery_sherd": "剑形纹样陶片",
+  "item.versecraft.eye_pottery_sherd": "眼睛纹样陶片",
+
+  "item.versecraft.cherry": "樱桃",
+
+
+  "block.versecraft.acacia_mosaic": "杜鹃木马赛克",
+  "block.versecraft.acacia_mosaic_stairs": "杜鹃木马赛克楼梯",
+  "block.versecraft.acacia_mosaic_slab": "杜鹃木马赛克台阶",
+
+  "block.versecraft.azalea_mosaic": "杜鹃木马赛克",
+  "block.versecraft.azalea_mosaic_stairs": "杜鹃木马赛克楼梯",
+  "block.versecraft.azalea_mosaic_slab": "杜鹃木马赛克台阶",
+
+  "block.versecraft.birch_mosaic": "白桦木马赛克",
+  "block.versecraft.birch_mosaic_stairs": "白桦木马赛克楼梯",
+  "block.versecraft.birch_mosaic_slab": "白桦木马赛克台阶",
+
+  "block.versecraft.cherry_mosaic": "樱花木马赛克",
+  "block.versecraft.cherry_mosaic_stairs": "樱花木马赛克楼梯",
+  "block.versecraft.cherry_mosaic_slab": "樱花木马赛克台阶",
+
+  "block.versecraft.crimson_mosaic": "绯红马赛克",
+  "block.versecraft.crimson_mosaic_stairs": "绯红马赛克楼梯",
+  "block.versecraft.crimson_mosaic_slab": "绯红马赛克台阶",
+
+  "block.versecraft.dark_oak_mosaic": "深色橡木马赛克",
+  "block.versecraft.dark_oak_mosaic_stairs": "深色橡木马赛克楼梯",
+  "block.versecraft.dark_oak_mosaic_slab": "深色橡木马赛克台阶",
+
+  "block.versecraft.jungle_mosaic": "丛林木马赛克",
+  "block.versecraft.jungle_mosaic_stairs": "丛林木马赛克楼梯",
+  "block.versecraft.jungle_mosaic_slab": "丛林木马赛克台阶",
+
+  "block.versecraft.mangrove_mosaic": "红树木马赛克",
+  "block.versecraft.mangrove_mosaic_stairs": "红树木马赛克楼梯",
+  "block.versecraft.mangrove_mosaic_slab": "红树木马赛克台阶",
+
+  "block.versecraft.oak_mosaic": "橡木马赛克",
+  "block.versecraft.oak_mosaic_stairs": "橡木马赛克楼梯",
+  "block.versecraft.oak_mosaic_slab": "橡木马赛克台阶",
+
+  "block.versecraft.spruce_mosaic": "云杉木马赛克",
+  "block.versecraft.spruce_mosaic_stairs": "云杉木马赛克楼梯",
+  "block.versecraft.spruce_mosaic_slab": "云杉木马赛克台阶",
+
+  "block.versecraft.warped_mosaic": "诡异木马赛克",
+  "block.versecraft.warped_mosaic_stairs": "诡异木马赛克楼梯",
+  "block.versecraft.warped_mosaic_slab": "诡异木马赛克台阶",
+
+  "block.versecraft.cracked_tuff_bricks": "裂纹凝灰岩砖",
+
+
+  "block.versecraft.chiseled_diorite": "雕纹闪长岩",
+  "block.versecraft.polished_diorite_wall": "磨制闪长岩墙",
+  "block.versecraft.diorite_bricks": "闪长岩砖",
+  "block.versecraft.cracked_diorite_bricks": "裂纹闪长岩砖",
+  "block.versecraft.diorite_bricks_stairs": "闪长岩砖楼梯",
+  "block.versecraft.diorite_bricks_slab": "闪长岩砖台阶",
+  "block.versecraft.diorite_bricks_wall": "闪长岩砖墙",
+  "block.versecraft.chiseled_diorite_bricks": "雕纹闪长岩砖",
+
+  "block.versecraft.chiseled_andesite": "雕纹安山岩",
+  "block.versecraft.polished_andesite_wall": "磨制安山岩墙",
+  "block.versecraft.andesite_bricks": "安山岩砖",
+  "block.versecraft.cracked_andesite_bricks": "裂纹安山岩砖",
+  "block.versecraft.andesite_bricks_stairs": "安山岩砖楼梯",
+  "block.versecraft.andesite_bricks_slab": "安山岩砖台阶",
+  "block.versecraft.andesite_bricks_wall": "安山岩砖墙",
+  "block.versecraft.chiseled_andesite_bricks": "雕纹安山岩砖",
+
+  "block.versecraft.chiseled_granite": "雕纹花岗岩",
+  "block.versecraft.polished_granite_wall": "磨制花岗岩墙",
+  "block.versecraft.granite_bricks": "花岗岩砖",
+  "block.versecraft.cracked_granite_bricks": "裂纹花岗岩砖",
+  "block.versecraft.granite_bricks_stairs": "花岗岩砖楼梯",
+  "block.versecraft.granite_bricks_slab": "花岗岩砖台阶",
+  "block.versecraft.granite_bricks_wall": "花岗岩砖墙",
+  "block.versecraft.chiseled_granite_bricks": "雕纹花岗岩砖",
+
+  "block.versecraft.calcite_stairs": "方解石楼梯",
+  "block.versecraft.calcite_slab": "方解石台阶",
+  "block.versecraft.calcite_wall": "方解石墙",
+
+  "block.versecraft.polished_calcite": "磨制方解石",
+  "block.versecraft.polished_calcite_stairs": "磨制方解石楼梯",
+  "block.versecraft.polished_calcite_slab": "磨制方解石台阶",
+  "block.versecraft.polished_calcite_wall": "磨制方解石墙",
+  "block.versecraft.chiseled_calcite": "雕纹方解石",
+
+  "block.versecraft.calcite_bricks": "方解石砖",
+  "block.versecraft.cracked_calcite_bricks": "裂纹方解石砖",
+  "block.versecraft.calcite_bricks_stairs": "方解石砖楼梯",
+  "block.versecraft.calcite_bricks_slab": "方解石砖台阶",
+  "block.versecraft.calcite_bricks_wall": "方解石砖墙",
+  "block.versecraft.chiseled_calcite_bricks": "雕纹方解石砖",
+
+  "block.versecraft.dripstone_stairs": "滴水石楼梯",
+  "block.versecraft.dripstone_slab": "滴水石台阶",
+  "block.versecraft.dripstone_wall": "滴水石墙",
+
+  "block.versecraft.polished_dripstone": "磨制滴水石",
+  "block.versecraft.polished_dripstone_stairs": "磨制滴水石楼梯",
+  "block.versecraft.polished_dripstone_slab": "磨制滴水石台阶",
+  "block.versecraft.polished_dripstone_wall": "磨制滴水石墙",
+  "block.versecraft.chiseled_dripstone": "雕纹滴水石",
+
+  "block.versecraft.dripstone_bricks": "滴水石砖",
+  "block.versecraft.cracked_dripstone_bricks": "裂纹滴水石砖",
+  "block.versecraft.dripstone_bricks_stairs": "滴水石砖楼梯",
+  "block.versecraft.dripstone_bricks_slab": "滴水石砖台阶",
+  "block.versecraft.dripstone_bricks_wall": "滴水石砖墙",
+  "block.versecraft.chiseled_dripstone_bricks": "雕纹滴水石砖",
+
+  "block.versecraft.iceflower": "冰花",
+  "block.versecraft.iceflower_crop": "冰花植株",
+  "block.versecraft.potted_iceflower": "冰花盆栽",
+  "item.versecraft.iceflower_seeds": "冰花种子",
+
+  "block.versecraft.blue_rose": "蓝玫瑰",
+  "block.versecraft.blue_rose_crop": "蓝玫瑰植株",
+  "block.versecraft.potted_blue_rose": "蓝玫瑰盆栽",
+  "item.versecraft.blue_rose_seeds": "蓝玫瑰种子"
+}
