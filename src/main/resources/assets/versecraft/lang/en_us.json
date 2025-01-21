@@ -79,7 +79,6 @@
 
   "block.versecraft.cracked_tuff_bricks": "Cracked Tuff Bricks",
 
-
   "block.versecraft.chiseled_diorite": "Chiseled Diorite",
   "block.versecraft.polished_diorite_wall": "Polished Diorite Wall",
   "block.versecraft.diorite_bricks": "Diorite Bricks",
@@ -149,20 +148,5 @@
   "block.versecraft.blue_rose": "Blue Rose",
   "block.versecraft.blue_rose_crop": "Blue Rose Crop",
   "block.versecraft.potted_blue_rose": "Potted Blue Rose",
-  "item.versecraft.blue_rose_seeds": "Blue Rose Seeds",
-
-  "painting.versecraft.banner.title": "Banner",
-  "painting.versecraft.banner.author": "Zozozrob",
-
-  "painting.versecraft.creebet.title": "Creebet",
-  "painting.versecraft.creebet.author": "Zozozrob",
-
-  "painting.versecraft.fighters.title": "Fighters",
-  "painting.versecraft.fighters.author": "Zozozrob",
-
-  "painting.versecraft.graham.title": "Graham",
-  "painting.versecraft.graham.author": "Zozozrob",
-
-  "painting.versecraft.match.title": "Match",
-  "painting.versecraft.match.author": "Zozozrob"
+  "item.versecraft.blue_rose_seeds": "Blue Rose Seeds"
 }
