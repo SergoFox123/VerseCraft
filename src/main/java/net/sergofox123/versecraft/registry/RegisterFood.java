@@ -23,6 +23,8 @@ public class RegisterFood {
 
 	public static final FoodProperties CHERRY = new FoodProperties.Builder().nutrition(3).saturationModifier(1.0F).build();
 
+	public static final FoodProperties CRYSTALLIZED_HONEY = new FoodProperties.Builder().nutrition(5).saturationModifier(3.0F).build();
+
 	private RegisterFood() {
 		throw new UnsupportedOperationException("RegisterFood contains only static declarations.");
 	}
