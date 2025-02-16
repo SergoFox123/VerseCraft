@@ -209,12 +209,19 @@ public class RegisterCreativeInventorySorting {
 		//Food
 		addAfterInFoodAndDrinks(Items.CHORUS_FRUIT, RegisterItems.CHERRY);
 		addAfterInFoodAndDrinks(RegisterItems.CHERRY, RegisterItems.CRYSTALLIZED_HONEY);
+
 		//Plants
 		addAfterInNaturalBlocks(Items.TORCHFLOWER, RegisterBlocks.ICEFLOWER);
 		addAfterInNaturalBlocks(Items.TORCHFLOWER_SEEDS, RegisterItems.ICEFLOWER_SEEDS);
 
 		addAfterInNaturalBlocks(RegisterBlocks.ICEFLOWER, RegisterBlocks.BLUE_ROSE);
 		addAfterInNaturalBlocks(Items.PITCHER_POD, RegisterItems.BLUE_ROSE_SEEDS);
+
+		addAfterInNaturalBlocks(Items.SHORT_GRASS, RegisterBlocks.SHORT_MYCELIUM_GRASS);
+		addAfterInNaturalBlocks(Items.TALL_GRASS, RegisterBlocks.TALL_MYCELIUM_GRASS);
+		addAfterInNaturalBlocks(Items.PINK_PETALS, RegisterBlocks.POP_FLOWER);
+		addAfterInNaturalBlocks(RegisterBlocks.POP_FLOWER, RegisterBlocks.GLOWSHROOM);
+
 
 	}
 

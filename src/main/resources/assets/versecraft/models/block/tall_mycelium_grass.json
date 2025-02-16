@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "versecraft:block/tall_mycelium_grass"
+  }
+}

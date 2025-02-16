@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flower_pot_cross_emissive",
+  "textures": {
+    "cross_emissive": "versecraft:block/pop_flower_emissive",
+    "plant": "versecraft:block/pop_flower"
+  }
+}

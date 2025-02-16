@@ -36,6 +36,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.FlowerBlock;
@@ -47,6 +48,7 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.TallGrassBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
@@ -60,6 +62,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.sergofox123.versecraft.VerseSharedConstants;
 import net.sergofox123.versecraft.block.BlueRoseCropBlock;
+import net.sergofox123.versecraft.block.GlowshroomBlock;
 import net.sergofox123.versecraft.block.IceflowerCropBlock;
 import static net.minecraft.world.level.block.Blocks.*;
 import static net.minecraft.world.level.block.Blocks.WARPED_STAIRS;
@@ -843,6 +846,57 @@ public class RegisterBlocks {
 		Blocks.flowerPotProperties()
 	);
 
+	public static final TallGrassBlock SHORT_MYCELIUM_GRASS = register("short_mycelium_grass",
+		TallGrassBlock::new,
+		Properties.ofFullCopy(SHORT_GRASS)
+			.mapColor(MapColor.PLANT)
+			.replaceable()
+			.noOcclusion()
+			.instabreak()
+			.sound(SoundType.GRASS)
+			.offsetType(BlockBehaviour.OffsetType.XZ)
+			.ignitedByLava()
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final TallGrassBlock TALL_MYCELIUM_GRASS = register("tall_mycelium_grass",
+		TallGrassBlock::new,
+		Properties.ofFullCopy(TALL_GRASS)
+			.mapColor(MapColor.PLANT)
+			.replaceable()
+			.noOcclusion()
+			.instabreak()
+			.sound(SoundType.GRASS)
+			.offsetType(BlockBehaviour.OffsetType.XZ)
+			.ignitedByLava()
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block POP_FLOWER = register("pop_flower",
+		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
+		Properties.of()
+			.mapColor(MapColor.PLANT)
+			.noCollission()
+			.instabreak()
+			.sound(SoundType.GRASS)
+			.offsetType(BlockBehaviour.OffsetType.XZ)
+			.pushReaction(PushReaction.DESTROY)
+	);
+
+	public static final Block POTTED_POP_FLOWER = register("potted_pop_flower",
+		properties -> new FlowerPotBlock(POP_FLOWER, properties),
+		Blocks.flowerPotProperties()
+	);
+
+	public static final Block GLOWSHROOM = register("glowshroom",
+		GlowshroomBlock::new,
+		Properties.ofFullCopy(DEAD_BUSH)
+			.mapColor(MapColor.COLOR_YELLOW)
+			.sound(SoundType.FUNGUS)
+			.offsetType(BlockBehaviour.OffsetType.XZ)
+			.lightLevel(state -> 6)
+	);
+
 	public static void registerBlocks() {
 
 	}
@@ -913,6 +967,10 @@ public class RegisterBlocks {
 
 		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
 		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
+
+		flammableBlockRegistry.add(RegisterBlocks.TALL_MYCELIUM_GRASS, 100, 60);
+		flammableBlockRegistry.add(RegisterBlocks.SHORT_MYCELIUM_GRASS, 100, 60);
+		flammableBlockRegistry.add(RegisterBlocks.POP_FLOWER, 100, 60);
 	}
 
 	private static void registerStrippable() {

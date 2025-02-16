@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross_emissive",
+  "textures": {
+    "cross": "versecraft:block/pop_flower",
+    "cross_emissive": "versecraft:block/pop_flower_emissive"
+  }
+}

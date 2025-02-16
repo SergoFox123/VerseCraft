@@ -148,5 +148,12 @@
   "block.versecraft.blue_rose": "Blue Rose",
   "block.versecraft.blue_rose_crop": "Blue Rose Crop",
   "block.versecraft.potted_blue_rose": "Potted Blue Rose",
-  "item.versecraft.blue_rose_seeds": "Blue Rose Seeds"
+  "item.versecraft.blue_rose_seeds": "Blue Rose Seeds",
+
+  "block.versecraft.short_mycelium_grass": "Short Mycelium Grass",
+  "block.versecraft.tall_mycelium_grass": "Tall Mycelium Grass",
+  "block.versecraft.tall_mycelium_grass": "Tall Mycelium Grass",
+  "block.versecraft.pop_flower": "Pop Flower",
+  "block.versecraft.glowshroom": "Glowshroom"
+
 }
