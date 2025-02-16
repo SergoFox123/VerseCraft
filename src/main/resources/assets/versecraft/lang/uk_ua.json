@@ -147,5 +147,11 @@
   "block.versecraft.blue_rose": "Блакитна троянда",
   "block.versecraft.blue_rose_crop": "Блакитна троянда посаджена",
   "block.versecraft.potted_blue_rose": "Блакитна троянда в горщику",
-  "item.versecraft.blue_rose_seeds": "Насіння блакитної троянди"
+  "item.versecraft.blue_rose_seeds": "Насіння блакитної троянди",
+
+  "block.versecraft.short_mycelium_grass": "Низька грибнича трава ",
+  "block.versecraft.tall_mycelium_grass": "Висока грибнича трава ",
+
+  "block.versecraft.pop_flower": "Поп квітка",
+  "block.versecraft.glowshroom": "Світиться гриби"
 }
