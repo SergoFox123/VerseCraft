@@ -17,7 +17,6 @@ package net.sergofox123.versecraft.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.frozenblock.lib.entity.api.spawnplacement.FrozenSpawnPlacementTypes;
-import net.frozenblock.lib.mobcategory.api.FrozenMobCategories;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

@@ -50,6 +50,12 @@ public class VerseSharedConstants {
 		}
 	}
 
+	public static void logWithModId(String message, boolean shouldLog) {
+		if (shouldLog) {
+			LOGGER.info(message + " " + MOD_ID);
+		}
+	}
+
 	public static void log(Entity entity, String string, boolean shouldLog) {
 		if (shouldLog) {
 			LOGGER.info(entity.toString() + " : " + string + " : " + entity.position());
