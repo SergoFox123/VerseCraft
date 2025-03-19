@@ -18,12 +18,11 @@ package net.sergofox123.versecraft;
 import java.util.ArrayList;
 import net.fabricmc.loader.api.ModContainer;
 import net.frozenblock.lib.FrozenBools;
+import net.frozenblock.lib.entity.api.category.entrypoint.FrozenMobCategoryEntrypoint;
+import net.frozenblock.lib.entity.impl.category.FrozenMobCategory;
 import net.frozenblock.lib.entrypoint.api.FrozenModInitializer;
-import net.frozenblock.lib.feature_flag.api.FrozenFeatureFlags;
-import net.frozenblock.lib.mobcategory.api.entrypoint.FrozenMobCategoryEntrypoint;
-import net.frozenblock.lib.mobcategory.impl.FrozenMobCategory;
+import net.frozenblock.lib.feature_flag.api.FeatureFlagApi;
 import net.sergofox123.versecraft.registry.RegisterBlocks;
-
 import net.sergofox123.versecraft.registry.RegisterCreativeInventorySorting;
 import net.sergofox123.versecraft.registry.RegisterEntityTypes;
 import net.sergofox123.versecraft.registry.RegisterItems;
@@ -39,7 +38,7 @@ public final class VerseCraft extends FrozenModInitializer implements FrozenMobC
 	public void onInitialize(String modId, ModContainer container) {
 		if (FrozenBools.IS_DATAGEN) {
 			VerseFeatureFlags.init();
-			FrozenFeatureFlags.rebuild();
+			FeatureFlagApi.rebuild();
 		}
 
 		RegisterBlocks.registerBlocks();
@@ -51,8 +50,7 @@ public final class VerseCraft extends FrozenModInitializer implements FrozenMobC
 	}
 
 	@Override
-	public void newCategories(@NotNull ArrayList<FrozenMobCategory> context) {
-
+	public void newCategories(ArrayList<FrozenMobCategory> arrayList) {
 
 	}
 }

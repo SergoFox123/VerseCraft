@@ -18,9 +18,13 @@ package net.sergofox123.versecraft;
 import java.nio.file.Path;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class VerseCraftPreLoadConstants {
+	public static final String PROJECT_ID = "VerseCraft";
 	public static final String MOD_ID = "versecraft";
+	public static final Logger LOGGER = LoggerFactory.getLogger(PROJECT_ID);
 
 	@Contract(pure = true)
 	public static @NotNull Path configPath(String name, boolean json5) {
