@@ -1,0 +1,151 @@
+{
+  "block.versecraft.azalea_log": "Азалієва колода",
+  "block.versecraft.azalea_wood": "Азалієва деревина",
+  "block.versecraft.stripped_azalea_log": "Обтесана азалієва колода",
+  "block.versecraft.stripped_azalea_wood": "Обтесана азалієва деревина",
+  "block.versecraft.azalea_planks": "Азалієві дошки",
+  "block.versecraft.azalea_stairs": "Азалієві сходи",
+  "block.versecraft.azalea_slab": "Азалієва плита",
+  "block.versecraft.azalea_fence": "Азалієвий паркан",
+  "block.versecraft.azalea_fence_gate": "Азалієва хвіртка",
+  "block.versecraft.azalea_door": "Азалієві двері",
+  "block.versecraft.azalea_trapdoor": "Азалієвий люк",
+  "block.versecraft.azalea_pressure_plate": "Азалієва натискна плита",
+  "block.versecraft.azalea_button": "Азалієва кнопка",
+  "block.versecraft.azalea_hanging_sign": "Азалієва вивіска",
+  "block.versecraft.azalea_sign": "Азалієва табличка",
+
+  "item.versecraft.azalea_chest_boat": "Азалієвий човен зі скринею",
+  "item.versecraft.azalea_boat": "Азалієвий човен",
+
+  "item.versecraft.dragon_pottery_sherd": "Гончарний черепок «Дракон»",
+  "item.versecraft.egg_pottery_sherd": "Гончарний черепок «Яйце»",
+  "item.versecraft.eye_pottery_sherd": "Гончарний черепок «Око»",
+  "item.versecraft.pillager_pottery_sherd": "Гончарний черепок «Розбійник»",
+  "item.versecraft.portal_pottery_sherd": "Гончарний черепок «Портал»",
+  "item.versecraft.sword_pottery_sherd": "Гончарний черепок «Меч»",
+
+  "item.versecraft.cherry": "Вишня",
+
+  "block.versecraft.acacia_mosaic": "Акацієва мозаїка",
+  "block.versecraft.acacia_mosaic_stairs": "Сходи з акацієвої мозаїки",
+  "block.versecraft.acacia_mosaic_slab": "Плита з акацієвої мозаїки",
+
+  "block.versecraft.azalea_mosaic": "Азалієва мозаїка",
+  "block.versecraft.azalea_mosaic_stairs": "Сходи з азалієвої мозаїки",
+  "block.versecraft.azalea_mosaic_slab": "Плита з азалієвої мозаїки",
+
+  "block.versecraft.birch_mosaic": "Березова мозаїка",
+  "block.versecraft.birch_mosaic_stairs": "Сходи з березової мозаїки",
+  "block.versecraft.birch_mosaic_slab": "Плита з березової мозаїки",
+
+  "block.versecraft.cherry_mosaic": "Вишнева мозаїка",
+  "block.versecraft.cherry_mosaic_stairs": "Сходи з вишневої мозаїки",
+  "block.versecraft.cherry_mosaic_slab": "Плита з вишневої мозаїки",
+
+  "block.versecraft.crimson_mosaic": "Багряна мозаїка",
+  "block.versecraft.crimson_mosaic_stairs": "Сходи з багряної мозаїки",
+  "block.versecraft.crimson_mosaic_slab": "Плита з багряної мозаїки",
+
+  "block.versecraft.dark_oak_mosaic": "Темно-дубова мозаїка",
+  "block.versecraft.dark_oak_mosaic_stairs": "Сходи з темно-дубової мозаїки",
+  "block.versecraft.dark_oak_mosaic_slab": "Плита з темно-дубової мозаїки",
+
+  "block.versecraft.jungle_mosaic": "Тропічна мозаїка",
+  "block.versecraft.jungle_mosaic_stairs": "Сходи з тропічної мозаїки",
+  "block.versecraft.jungle_mosaic_slab": "Плита з тропічної мозаїки",
+
+  "block.versecraft.mangrove_mosaic": "Мангрова мозаїка",
+  "block.versecraft.mangrove_mosaic_stairs": "Сходи з мангрової мозаїки",
+  "block.versecraft.mangrove_mosaic_slab": "Плита з мангрової мозаїки",
+
+  "block.versecraft.oak_mosaic": "Дубова мозаїка",
+  "block.versecraft.oak_mosaic_stairs": "Сходи з дубової мозаїки",
+  "block.versecraft.oak_mosaic_slab": "Плита з дубової мозаїки",
+
+  "block.versecraft.spruce_mosaic": "Смерекова мозаїка",
+  "block.versecraft.spruce_mosaic_stairs": "Сходи з смерекової мозаїки",
+  "block.versecraft.spruce_mosaic_slab": "Плита з смерекової мозаїки",
+
+  "block.versecraft.pale_oak_mosaic": "Блідо-дубова мозаїка",
+  "block.versecraft.pale_oak_mosaic_stairs": "Сходи з блідо-дубової мозаїки",
+  "block.versecraft.pale_oak_mosaic_slab": "Плита з блідо-дубової мозаїки",
+
+  "block.versecraft.warped_mosaic": "Химерна мозаїка",
+  "block.versecraft.warped_mosaic_stairs": "Сходи з химерної мозаїки",
+  "block.versecraft.warped_mosaic_slab": "Плита з химерної мозаїки",
+
+  "block.versecraft.cracked_tuff_bricks": "Тріснута туфова цегла",
+
+
+  "block.versecraft.chiseled_diorite": "Різьблений діорит",
+  "block.versecraft.polished_diorite_wall": "Стіна з полірованого діориту",
+  "block.versecraft.diorite_bricks": "Діоритова цегла",
+  "block.versecraft.cracked_diorite_bricks": "Тріснута діоритова цегла",
+  "block.versecraft.diorite_bricks_stairs": "Сходи з діоритової цегли",
+  "block.versecraft.diorite_bricks_slab": "Плита з діоритової цегли",
+  "block.versecraft.diorite_bricks_wall": "Стіна з діоритової цегли",
+  "block.versecraft.chiseled_diorite_bricks": "Різьблена діоритова цегла",
+
+  "block.versecraft.chiseled_andesite": "Різьблений андезит",
+  "block.versecraft.polished_andesite_wall": "Стіна з полірованого андезиту",
+  "block.versecraft.andesite_bricks": "Андезитова цегла",
+  "block.versecraft.cracked_andesite_bricks": "Тріснута андезитова цегла",
+  "block.versecraft.andesite_bricks_stairs": "Сходи з андезитової цегли",
+  "block.versecraft.andesite_bricks_slab": "Плита з андезитової цегли",
+  "block.versecraft.andesite_bricks_wall": "Стіна з андезитової цегли",
+  "block.versecraft.chiseled_andesite_bricks": "Різьблена андезитова цегла",
+
+  "block.versecraft.chiseled_granite": "Різьблений граніт",
+  "block.versecraft.polished_granite_wall": "Стіна з полірованого граніту",
+  "block.versecraft.granite_bricks": "Гранітова цегла",
+  "block.versecraft.cracked_granite_bricks": "Тріснута гранітова цегла",
+  "block.versecraft.granite_bricks_stairs": "Сходи з гранітової цегли",
+  "block.versecraft.granite_bricks_slab": "Плита з гранітової цегли",
+  "block.versecraft.granite_bricks_wall": "Стіна з гранітової цегли",
+  "block.versecraft.chiseled_granite_bricks": "Різьблена гранітова цегла",
+
+  "block.versecraft.calcite_stairs": "Кальцитові сходи",
+  "block.versecraft.calcite_slab": "Кальцитова плита",
+  "block.versecraft.calcite_wall": "Кальцитова стіна",
+
+  "block.versecraft.polished_calcite": "Полірований кальцит",
+  "block.versecraft.polished_calcite_stairs": "Сходи з полірованого кальциту",
+  "block.versecraft.polished_calcite_slab": "Плита з полірованого кальциту",
+  "block.versecraft.polished_calcite_wall": "Стіна з полірованого кальциту",
+  "block.versecraft.chiseled_calcite": "Різьблений кальцит",
+
+  "block.versecraft.calcite_bricks": "Кальцитова цегла",
+  "block.versecraft.cracked_calcite_bricks": "Тріснута кальцитова цегла",
+  "block.versecraft.calcite_bricks_stairs": "Сходи з кальцитової цегли",
+  "block.versecraft.calcite_bricks_slab": "Плита з кальцитової цегли",
+  "block.versecraft.calcite_bricks_wall": "Стіна з кальцитової цегли",
+  "block.versecraft.chiseled_calcite_bricks": "Різьблена кальцитова цегла",
+
+  "block.versecraft.dripstone_stairs": "Сталактитові сходи",
+  "block.versecraft.dripstone_slab": "Сталактитова плита",
+  "block.versecraft.dripstone_wall": "Сталактитова стіна",
+
+  "block.versecraft.polished_dripstone": "Полірований сталактит",
+  "block.versecraft.polished_dripstone_stairs": "Сходи з полірованого сталактиту",
+  "block.versecraft.polished_dripstone_slab": "Плита з полірованого сталактиту",
+  "block.versecraft.polished_dripstone_wall": "Стіна з полірованого сталактиту",
+  "block.versecraft.chiseled_dripstone": "Різьблений сталактит",
+
+  "block.versecraft.dripstone_bricks": "Сталактитова цегла",
+  "block.versecraft.cracked_dripstone_bricks": "Тріснута сталактитова цегла",
+  "block.versecraft.dripstone_bricks_stairs": "Сходи з сталактитової цегли",
+  "block.versecraft.dripstone_bricks_slab": "Плита з сталактитової цегли",
+  "block.versecraft.dripstone_bricks_wall": "Стіна з сталактитової цегли",
+  "block.versecraft.chiseled_dripstone_bricks": "Різьблена сталактитова цегла",
+
+  "block.versecraft.iceflower": "Крижана квітка",
+  "block.versecraft.iceflower_crop": "Крижана квітка посаджена",
+  "block.versecraft.potted_iceflower": "Крижана квітка в горщику",
+  "item.versecraft.iceflower_seeds": "Насіння крижаної квітки",
+
+  "block.versecraft.blue_rose": "Блакитна троянда",
+  "block.versecraft.blue_rose_crop": "Блакитна троянда посаджена",
+  "block.versecraft.potted_blue_rose": "Блакитна троянда в горщику",
+  "item.versecraft.blue_rose_seeds": "Насіння блакитної троянди"
+}
