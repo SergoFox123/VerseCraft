@@ -29,9 +29,6 @@ public class GlowshroomBlock extends BushBlock {
 	public static final MapCodec<GlowshroomBlock> CODEC = simpleCodec(GlowshroomBlock::new);
 	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
 
-	public MapCodec<GlowshroomBlock> codec() {
-		return CODEC;
-	}
 
 	public GlowshroomBlock(BlockBehaviour.Properties properties) {
 		super(properties);
