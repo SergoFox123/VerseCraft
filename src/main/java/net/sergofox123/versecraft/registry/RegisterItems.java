@@ -78,7 +78,6 @@ public class RegisterItems {
 	//Food
 	public static final Item CHERRY = new Item(new Item.Properties().food(RegisterFood.CHERRY));
 
-	public static final Item CRYSTALLIZED_HONEY  = new Item(new Item.Properties().food(RegisterFood.CRYSTALLIZED_HONEY));
 
 
 	private RegisterItems() {
@@ -94,7 +93,7 @@ public class RegisterItems {
 
 	public static void registerItems() {
 		registerItemAfter(Items.CHORUS_FRUIT, CHERRY, "cherry", CreativeModeTabs.FOOD_AND_DRINKS);
-		registerItemAfter(CHERRY, CRYSTALLIZED_HONEY, "crystallized_honey", CreativeModeTabs.FOOD_AND_DRINKS);
+
 
 		registerItemAfter(Items.ACACIA_CHEST_BOAT, AZALEA_BOAT, "azalea_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
 		registerItemAfter(AZALEA_BOAT, AZALEA_CHEST_BOAT, "azalea_chest_boat", CreativeModeTabs.TOOLS_AND_UTILITIES);
