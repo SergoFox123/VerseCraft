@@ -107,8 +107,6 @@ public class RegisterItems {
 	//Food
 	public static final Item CHERRY = register("cherry", Item::new, new Item.Properties().food(RegisterFood.CHERRY));
 
-	public static final Item CRYSTALLIZED_HONEY = register("crystallized_honey", Item::new, new Item.Properties().food(RegisterFood.CRYSTALLIZED_HONEY));
-
 	//Seeds
 
 	public static final Item BLUE_ROSE_SEEDS = register("blue_rose_seeds",

@@ -209,7 +209,6 @@ public class RegisterCreativeInventorySorting {
 		//Food
 		addAfterInFoodAndDrinks(Items.CHORUS_FRUIT, RegisterItems.CHERRY);
 
-		addAfterInFoodAndDrinks(RegisterItems.CHERRY, RegisterItems.CRYSTALLIZED_HONEY);
 
 		//Plants
 		addAfterInNaturalBlocks(Items.TORCHFLOWER, RegisterBlocks.ICEFLOWER);
