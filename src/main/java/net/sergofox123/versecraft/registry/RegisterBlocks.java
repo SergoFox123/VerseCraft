@@ -39,15 +39,19 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.FireflyBushBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.ShortDryGrassBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.TallDryGrassBlock;
+import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.TallGrassBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
@@ -64,6 +68,8 @@ import net.sergofox123.versecraft.VerseSharedConstants;
 import net.sergofox123.versecraft.block.BlueRoseCropBlock;
 import net.sergofox123.versecraft.block.GlowshroomBlock;
 import net.sergofox123.versecraft.block.IceflowerCropBlock;
+import net.sergofox123.versecraft.block.ShortMyceliumGrass;
+import net.sergofox123.versecraft.block.TallMyceliumGrass;
 import static net.minecraft.world.level.block.Blocks.*;
 import static net.minecraft.world.level.block.Blocks.WARPED_STAIRS;
 
@@ -846,9 +852,9 @@ public class RegisterBlocks {
 		Blocks.flowerPotProperties()
 	);
 
-	public static final TallGrassBlock SHORT_MYCELIUM_GRASS = register("short_mycelium_grass",
-		TallGrassBlock::new,
-		Properties.ofFullCopy(SHORT_GRASS)
+	public static final ShortMyceliumGrass SHORT_MYCELIUM_GRASS = register("short_mycelium_grass",
+		ShortMyceliumGrass::new,
+		Properties.ofFullCopy(SHORT_DRY_GRASS)
 			.mapColor(MapColor.PLANT)
 			.replaceable()
 			.noOcclusion()
@@ -859,9 +865,9 @@ public class RegisterBlocks {
 			.pushReaction(PushReaction.DESTROY)
 	);
 
-	public static final TallGrassBlock TALL_MYCELIUM_GRASS = register("tall_mycelium_grass",
-		TallGrassBlock::new,
-		Properties.ofFullCopy(TALL_GRASS)
+	public static final TallMyceliumGrass TALL_MYCELIUM_GRASS = register("tall_mycelium_grass",
+		TallMyceliumGrass::new,
+		Properties.ofFullCopy(TALL_DRY_GRASS)
 			.mapColor(MapColor.PLANT)
 			.replaceable()
 			.noOcclusion()
@@ -888,9 +894,9 @@ public class RegisterBlocks {
 		Blocks.flowerPotProperties()
 	);
 
-	public static final Block GLOWSHROOM = register("glowshroom",
-		GlowshroomBlock::new,
-		Properties.ofFullCopy(DEAD_BUSH)
+	public static final FireflyBushBlock GLOWSHROOM = register("glowshroom",
+		FireflyBushBlock::new,
+		Properties.ofFullCopy(FIREFLY_BUSH)
 			.mapColor(MapColor.COLOR_YELLOW)
 			.sound(SoundType.FUNGUS)
 			.offsetType(BlockBehaviour.OffsetType.XZ)
