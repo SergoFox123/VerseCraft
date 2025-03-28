@@ -38,14 +38,14 @@ import net.sergofox123.versecraft.registry.RegisterBlocks;
 import net.sergofox123.versecraft.registry.RegisterItems;
 
 public class IceflowerCropBlock extends CropBlock {
-	public static final MapCodec<net.minecraft.world.level.block.TorchflowerCropBlock> CODEC = simpleCodec(net.minecraft.world.level.block.TorchflowerCropBlock::new);
+	public static final MapCodec<IceflowerCropBlock> CODEC = simpleCodec(IceflowerCropBlock::new);
 	public static final int MAX_AGE = 2;
 	public static final IntegerProperty AGE;
 	private static final float AABB_OFFSET = 3.0F;
 	private static final VoxelShape[] SHAPE_BY_AGE;
 	private static final int BONEMEAL_INCREASE = 1;
 
-	public MapCodec<net.minecraft.world.level.block.TorchflowerCropBlock> codec() {
+	public MapCodec<IceflowerCropBlock> codec() {
 		return CODEC;
 	}
 
