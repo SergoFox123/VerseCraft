@@ -37,6 +37,9 @@ public class ModelLayers {
 	public static final ModelLayerLocation AZALEA_BOAT = new ModelLayerLocation(VerseSharedConstants.id("boat/azalea"), "main");
 	public static final ModelLayerLocation AZALEA_CHEST_BOAT = new ModelLayerLocation(VerseSharedConstants.id("chest_boat/azalea"), "main");
 
+	public static final ModelLayerLocation PALM_BOAT = new ModelLayerLocation(VerseSharedConstants.id("boat/palm"), "main");
+	public static final ModelLayerLocation PALM_CHEST_BOAT = new ModelLayerLocation(VerseSharedConstants.id("chest_boat/palm"), "main");
+
 
 	public static void init() {
 
@@ -44,11 +47,16 @@ public class ModelLayers {
 		EntityRendererRegistry.register(RegisterEntityTypes.AZALEA_BOAT, context -> new BoatRenderer(context, AZALEA_BOAT));
 		EntityRendererRegistry.register(RegisterEntityTypes.AZALEA_CHEST_BOAT, context -> new BoatRenderer(context, AZALEA_CHEST_BOAT));
 
+		EntityRendererRegistry.register(RegisterEntityTypes.PALM_BOAT, context -> new BoatRenderer(context, PALM_BOAT));
+		EntityRendererRegistry.register(RegisterEntityTypes.PALM_CHEST_BOAT, context -> new BoatRenderer(context, PALM_CHEST_BOAT));
+
 		LayerDefinition boat = BoatModel.createBoatModel();
 		LayerDefinition chestBoat = BoatModel.createChestBoatModel();
 
 		EntityModelLayerRegistry.registerModelLayer(AZALEA_BOAT, () -> boat);
 		EntityModelLayerRegistry.registerModelLayer(AZALEA_CHEST_BOAT, () -> chestBoat);
 
+		EntityModelLayerRegistry.registerModelLayer(PALM_BOAT, () -> boat);
+		EntityModelLayerRegistry.registerModelLayer(PALM_CHEST_BOAT, () -> chestBoat);
 	}
 }

@@ -36,7 +36,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.FireflyBushBlock;
@@ -44,15 +43,11 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.ShortDryGrassBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
-import net.minecraft.world.level.block.TallDryGrassBlock;
-import net.minecraft.world.level.block.TallFlowerBlock;
-import net.minecraft.world.level.block.TallGrassBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
@@ -66,7 +61,6 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.sergofox123.versecraft.VerseSharedConstants;
 import net.sergofox123.versecraft.block.BlueRoseCropBlock;
-import net.sergofox123.versecraft.block.GlowshroomBlock;
 import net.sergofox123.versecraft.block.IceflowerCropBlock;
 import net.sergofox123.versecraft.block.ShortMyceliumGrass;
 import net.sergofox123.versecraft.block.TallMyceliumGrass;
@@ -78,107 +72,226 @@ public class RegisterBlocks {
 
 	public static final BlockSetType AZALEA_SET = BlockSetTypeBuilder.copyOf(BlockSetType.CHERRY).register(VerseSharedConstants.id("azalea"));
 	public static final WoodType AZALEA_WOOD_TYPE = WoodTypeBuilder.copyOf(WoodType.CHERRY).register(VerseSharedConstants.id("azalea"), AZALEA_SET);
+	public static final BlockSetType PALM_SET = BlockSetTypeBuilder.copyOf(BlockSetType.OAK).register(VerseSharedConstants.id("palm"));
+	public static final WoodType PALM_WOOD_TYPE = WoodTypeBuilder.copyOf(WoodType.OAK).register(VerseSharedConstants.id("palm"), PALM_SET);
+
 
 	private static final MapColor AZALEA_PLANKS_COLOR = MapColor.TERRACOTTA_WHITE;
-
 	private static final MapColor AZALEA_BARK_COLOR = MapColor.TERRACOTTA_WHITE;
+	private static final MapColor PALM_PLANKS_COLOR = MapColor.TERRACOTTA_YELLOW;
+	private static final MapColor PALM_BARK_COLOR = MapColor.TERRACOTTA_YELLOW;
 
+	//Log
 	public static final Block AZALEA_LOG = register("azalea_log",
 		RotatedPillarBlock::new,
 		Blocks.logProperties(AZALEA_PLANKS_COLOR, AZALEA_BARK_COLOR, SoundType.CHERRY_WOOD)
 	);
 
+	public static final Block PALM_LOG = register("palm_log",
+		RotatedPillarBlock::new,
+		Blocks.logProperties(PALM_PLANKS_COLOR, PALM_BARK_COLOR, SoundType.WOOD)
+	);
+
+	//Stripped Log
 	public static final Block STRIPPED_AZALEA_LOG = register("stripped_azalea_log",
 		RotatedPillarBlock::new,
 		Blocks.logProperties(AZALEA_PLANKS_COLOR, AZALEA_PLANKS_COLOR, SoundType.CHERRY_WOOD)
 	);
 
+	public static final Block STRIPPED_PALM_LOG = register("stripped_palm_log",
+		RotatedPillarBlock::new,
+		Blocks.logProperties(PALM_PLANKS_COLOR, PALM_PLANKS_COLOR, SoundType.WOOD)
+	);
+
+	//Wood
 	public static final RotatedPillarBlock AZALEA_WOOD = register("azalea_wood",
 		RotatedPillarBlock::new,
 		Properties.ofFullCopy(Blocks.CHERRY_WOOD)
 			.mapColor(AZALEA_BARK_COLOR)
 	);
 
+	public static final RotatedPillarBlock PALM_WOOD = register("palm_wood",
+		RotatedPillarBlock::new,
+		Properties.ofFullCopy(OAK_WOOD)
+			.mapColor(PALM_BARK_COLOR)
+	);
+
+	//Stripped Wood
 	public static final RotatedPillarBlock STRIPPED_AZALEA_WOOD = register("stripped_azalea_wood",
 		RotatedPillarBlock::new,
 		Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
+	public static final RotatedPillarBlock STRIPPED_PALM_WOOD = register("stripped_palm_wood",
+		RotatedPillarBlock::new,
+		Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	//Planks
 	public static final Block AZALEA_PLANKS = register("azalea_planks",
 		Block::new,
 		Properties.ofFullCopy(Blocks.CHERRY_PLANKS)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
+	public static final Block PALM_PLANKS = register("palm_planks",
+		Block::new,
+		Properties.ofFullCopy(Blocks.OAK_PLANKS)
+			.mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	//Planks stairs
 	public static final StairBlock AZALEA_STAIRS = register("azalea_stairs",
 		properties -> new StairBlock(AZALEA_PLANKS.defaultBlockState(), properties),
 		Properties.ofFullCopy(CHERRY_STAIRS)
 	);
 
+	public static final StairBlock PALM_STAIRS = register("palm_stairs",
+		properties -> new StairBlock(PALM_PLANKS.defaultBlockState(), properties),
+		Properties.ofFullCopy(OAK_STAIRS)
+	);
+
+	//Planks slab
 	public static final Block AZALEA_SLAB = register("azalea_slab",
 		SlabBlock::new,
 		Properties.ofFullCopy(Blocks.CHERRY_SLAB)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
+	public static final Block PALM_SLAB = register("palm_slab",
+		SlabBlock::new,
+		Properties.ofFullCopy(Blocks.OAK_SLAB)
+			.mapColor(PALM_PLANKS_COLOR)
+	);
+
+	//Wood Fence
 	public static final FenceBlock AZALEA_FENCE = register("azalea_fence",
 		FenceBlock::new,
 		Properties.ofFullCopy(Blocks.CHERRY_FENCE)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
+	public static final FenceBlock PALM_FENCE = register("palm_fence",
+		FenceBlock::new,
+		Properties.ofFullCopy(Blocks.OAK_FENCE)
+			.mapColor(PALM_PLANKS_COLOR)
+	);
+
+	//Wood Fence Gate
 	public static final Block AZALEA_FENCE_GATE = register("azalea_fence_gate",
 		properties -> new FenceGateBlock(AZALEA_WOOD_TYPE, properties),
-		Properties.ofFullCopy(Blocks.OAK_FENCE_GATE)
+		Properties.ofFullCopy(Blocks.CHERRY_FENCE_GATE)
 			.mapColor(AZALEA_PLANKS_COLOR)
 	);
 
+	public static final Block PALM_FENCE_GATE = register("palm_fence_gate",
+		properties -> new FenceGateBlock(AZALEA_WOOD_TYPE, properties),
+		Properties.ofFullCopy(Blocks.OAK_FENCE_GATE)
+			.mapColor(PALM_PLANKS_COLOR)
+	);
+
+	//Wooden Doors
 	public static final DoorBlock AZALEA_DOOR = register("azalea_door",
 		properties -> new DoorBlock(AZALEA_SET, properties),
 		Properties.ofFullCopy(Blocks.CHERRY_DOOR).mapColor(AZALEA_PLANKS_COLOR)
 	);
 
+	public static final DoorBlock PALM_DOOR = register("palm_door",
+		properties -> new DoorBlock(PALM_SET, properties),
+		Properties.ofFullCopy(Blocks.OAK_DOOR).mapColor(PALM_PLANKS_COLOR)
+	);
+
+	//Wooden Trapdoors
 	public static final TrapDoorBlock AZALEA_TRAPDOOR = register("azalea_trapdoor",
 		properties -> new TrapDoorBlock(AZALEA_SET, properties),
 		Properties.ofFullCopy(Blocks.CHERRY_TRAPDOOR).mapColor(AZALEA_PLANKS_COLOR)
 	);
 
+	public static final TrapDoorBlock PALM_TRAPDOOR = register("palm_trapdoor",
+		properties -> new TrapDoorBlock(PALM_SET, properties),
+		Properties.ofFullCopy(Blocks.OAK_TRAPDOOR).mapColor(PALM_PLANKS_COLOR)
+	);
+
+	//Wooden PressurePlate
 	public static final PressurePlateBlock AZALEA_PRESSURE_PLATE = register("azalea_pressure_plate",
 		properties -> new PressurePlateBlock(AZALEA_SET, properties),
 		Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).mapColor(AZALEA_PLANKS_COLOR)
 	);
 
+	public static final PressurePlateBlock PALM_PRESSURE_PLATE = register("palm_pressure_plate",
+		properties -> new PressurePlateBlock(PALM_SET, properties),
+		Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).mapColor(PALM_PLANKS_COLOR)
+	);
+
+	//Wooden button
 	public static final Block AZALEA_BUTTON = register("azalea_button",
 		properties -> new ButtonBlock(AZALEA_SET, 30, properties),
 		Blocks.buttonProperties()
 	);
 
+	public static final Block PALM_BUTTON = register("palm_button",
+		properties -> new ButtonBlock(PALM_SET, 30, properties),
+		Blocks.buttonProperties()
+	);
+
+	//Wooden Sign
 	public static final SignBlock AZALEA_SIGN = registerWithoutItem("azalea_sign",
 		properties -> new StandingSignBlock(AZALEA_WOOD_TYPE, properties),
-		BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)
+		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor())
+	);
+
+	public static final SignBlock PALM_SIGN = registerWithoutItem("palm_sign",
+		properties -> new StandingSignBlock(PALM_WOOD_TYPE, properties),
+		Properties.ofFullCopy(Blocks.OAK_SIGN)
+			.mapColor(PALM_LOG.defaultMapColor())
 	);
 
 	public static final SignBlock AZALEA_WALL_SIGN = registerWithoutItem("azalea_wall_sign",
 		properties -> new WallSignBlock(AZALEA_WOOD_TYPE, properties),
-		Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)
+		Properties.ofFullCopy(Blocks.CHERRY_WALL_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor())
 			.overrideDescription(AZALEA_SIGN.getDescriptionId())
 			.overrideLootTable(AZALEA_SIGN.getLootTable())
 	);
 
+	public static final SignBlock PALM_WALL_SIGN = registerWithoutItem("palm_wall_sign",
+		properties -> new WallSignBlock(PALM_WOOD_TYPE, properties),
+		Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)
+			.mapColor(PALM_LOG.defaultMapColor())
+			.overrideDescription(PALM_SIGN.getDescriptionId())
+			.overrideLootTable(PALM_SIGN.getLootTable())
+	);
+
+	//Wooden hanging sing
 	public static final CeilingHangingSignBlock AZALEA_HANGING_SIGN = registerWithoutItem("azalea_hanging_sign",
 		properties -> new CeilingHangingSignBlock(AZALEA_WOOD_TYPE, properties),
 		Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor())
 	);
+
+	public static final CeilingHangingSignBlock PALM_HANGING_SIGN = registerWithoutItem("palm_hanging_sign",
+		properties -> new CeilingHangingSignBlock(PALM_WOOD_TYPE, properties),
+		Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)
+			.mapColor(PALM_LOG.defaultMapColor())
+	);
+
 	public static final WallHangingSignBlock AZALEA_WALL_HANGING_SIGN = registerWithoutItem("azalea_wall_hanging_sign",
 		properties -> new WallHangingSignBlock(AZALEA_WOOD_TYPE, properties),
-		Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)
+		Properties.ofFullCopy(Blocks.CHERRY_WALL_HANGING_SIGN)
 			.mapColor(AZALEA_LOG.defaultMapColor())
 			.overrideDescription(AZALEA_HANGING_SIGN.getDescriptionId())
 			.overrideLootTable(AZALEA_HANGING_SIGN.getLootTable())
+	);
+
+	public static final WallHangingSignBlock PALM_WALL_HANGING_SIGN = registerWithoutItem("palm_wall_hanging_sign",
+		properties -> new WallHangingSignBlock(PALM_WOOD_TYPE, properties),
+		Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)
+			.mapColor(PALM_LOG.defaultMapColor())
+			.overrideDescription(PALM_HANGING_SIGN.getDescriptionId())
+			.overrideLootTable(PALM_HANGING_SIGN.getLootTable())
 	);
 
 	public static final BlockFamily AZALEA = BlockFamilies.familyBuilder(AZALEA_PLANKS)
@@ -191,6 +304,20 @@ public class RegisterBlocks {
 		.sign(AZALEA_SIGN, AZALEA_WALL_SIGN)
 		.door(AZALEA_DOOR)
 		.trapdoor(AZALEA_TRAPDOOR)
+		.recipeGroupPrefix("wooden")
+		.recipeUnlockedBy("has_planks")
+		.getFamily();
+
+	public static final BlockFamily PALM = BlockFamilies.familyBuilder(PALM_PLANKS)
+		.button(PALM_BUTTON)
+		.slab(PALM_SLAB)
+		.stairs(PALM_STAIRS)
+		.fence(PALM_FENCE)
+		.fenceGate(PALM_FENCE_GATE)
+		.pressurePlate(PALM_PRESSURE_PLATE)
+		.sign(AZALEA_SIGN, AZALEA_WALL_SIGN)
+		.door(PALM_DOOR)
+		.trapdoor(PALM_TRAPDOOR)
 		.recipeGroupPrefix("wooden")
 		.recipeUnlockedBy("has_planks")
 		.getFamily();
@@ -982,6 +1109,9 @@ public class RegisterBlocks {
 	private static void registerStrippable() {
 		StrippableBlockRegistry.register(AZALEA_LOG, STRIPPED_AZALEA_LOG);
 		StrippableBlockRegistry.register(AZALEA_WOOD, STRIPPED_AZALEA_WOOD);
+
+		StrippableBlockRegistry.register(PALM_LOG, STRIPPED_PALM_LOG);
+		StrippableBlockRegistry.register(PALM_WOOD, STRIPPED_PALM_WOOD);
 	}
 
 	private static void registerFuels() {
@@ -1064,8 +1194,15 @@ public class RegisterBlocks {
 		sign.addSupportedBlock(AZALEA_SIGN);
 		sign.addSupportedBlock(AZALEA_WALL_SIGN);
 
+		sign.addSupportedBlock(PALM_SIGN);
+		sign.addSupportedBlock(PALM_WALL_SIGN);
+
+
 		hangingSign.addSupportedBlock(AZALEA_HANGING_SIGN);
 		hangingSign.addSupportedBlock(AZALEA_WALL_HANGING_SIGN);
+
+		hangingSign.addSupportedBlock(PALM_HANGING_SIGN);
+		hangingSign.addSupportedBlock(PALM_WALL_HANGING_SIGN);
 	}
 
 	private RegisterBlocks() {

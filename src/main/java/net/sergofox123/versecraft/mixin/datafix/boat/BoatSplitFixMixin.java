@@ -30,8 +30,8 @@ public class BoatSplitFixMixin {
 		cancellable = true
 	)
 	private static void verseCraft$mapVariantToNormalBoat(String string, CallbackInfoReturnable<String> info) {
-		if (string.equals("versecraftazalea")) {
-			info.setReturnValue("versecraft:azalea_boat");
+		switch (string) {
+			case "versecraftazalea" -> info.setReturnValue("versecraft:azalea_boat");
 		}
 	}
 
@@ -41,9 +41,8 @@ public class BoatSplitFixMixin {
 		cancellable = true
 	)
 	private static void verseCraft$mapVariantToChestBoat(String string, CallbackInfoReturnable<String> info) {
-		if (string.equals("versecraftazalea")) {
-			info.setReturnValue("versecraft:azalea_chest_boat");
+		switch (string) {
+			case "versecraftazalea" -> info.setReturnValue("versecraft:azalea_chest_boat");
 		}
 	}
-
 }

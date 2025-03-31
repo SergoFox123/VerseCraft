@@ -60,6 +60,34 @@ public class RegisterCreativeInventorySorting {
 		addAfterInFunctionalBlocks(Items.ACACIA_HANGING_SIGN, RegisterItems.AZALEA_SIGN);
 		addAfterInFunctionalBlocks(RegisterItems.AZALEA_SIGN, RegisterItems.AZALEA_HANGING_SIGN);
 
+
+		// PALM (BUILDING BLOCKS)
+		addAfterInBuildingBlocks(Items.JUNGLE_BUTTON, RegisterBlocks.PALM_LOG);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_LOG, RegisterBlocks.PALM_WOOD);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_WOOD, RegisterBlocks.STRIPPED_PALM_LOG);
+		addAfterInBuildingBlocks(RegisterBlocks.STRIPPED_PALM_LOG, RegisterBlocks.STRIPPED_PALM_WOOD);
+		addAfterInBuildingBlocks(RegisterBlocks.STRIPPED_PALM_WOOD, RegisterBlocks.PALM_PLANKS);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_PLANKS, RegisterBlocks.PALM_STAIRS);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_STAIRS, RegisterBlocks.PALM_SLAB);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_SLAB, RegisterBlocks.PALM_FENCE);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_FENCE, RegisterBlocks.PALM_FENCE_GATE);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_FENCE_GATE, RegisterBlocks.PALM_DOOR);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_DOOR, RegisterBlocks.PALM_TRAPDOOR);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_TRAPDOOR, RegisterBlocks.PALM_PRESSURE_PLATE);
+		addAfterInBuildingBlocks(RegisterBlocks.PALM_PRESSURE_PLATE, RegisterBlocks.PALM_BUTTON);
+
+		// PALM (NATURAL BLOCKS)
+		addAfterInNaturalBlocks(Items.JUNGLE_LOG, RegisterBlocks.PALM_LOG);
+
+		// PALM (TOOLS AND UTILITIES)
+		addAfterInToolsAndUtilities(Items.JUNGLE_CHEST_BOAT, RegisterItems.PALM_BOAT);
+		addAfterInToolsAndUtilities(RegisterItems.PALM_BOAT, RegisterItems.PALM_CHEST_BOAT);
+
+		// PALM (FUNCTIONAL BLOCKS)
+		addAfterInFunctionalBlocks(Items.ACACIA_HANGING_SIGN, RegisterItems.PALM_SIGN);
+		addAfterInFunctionalBlocks(RegisterItems.PALM_SIGN, RegisterItems.PALM_HANGING_SIGN);
+
+
 		//Acacia Mosaic
 		addAfterInBuildingBlocks(Items.ACACIA_PLANKS, RegisterBlocks.ACACIA_MOSAIC);
 		addAfterInBuildingBlocks(Items.ACACIA_STAIRS, RegisterBlocks.ACACIA_MOSAIC_STAIRS);

@@ -30,5 +30,8 @@ public class BlockRenderLayers {
 		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_DOOR, RenderType.cutout());
 		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, RenderType.cutout());
 
+		renderLayerRegistry.putBlock(RegisterBlocks.PALM_DOOR, RenderType.cutout());
+		renderLayerRegistry.putBlock(RegisterBlocks.PALM_TRAPDOOR, RenderType.cutout());
+
 	}
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "versecraft:block/palm_slab"
+    },
+    "type=double": {
+      "model": "versecraft:block/palm_planks"
+    },
+    "type=top": {
+      "model": "versecraft:block/palm_slab_top"
+    }
+  }
+}

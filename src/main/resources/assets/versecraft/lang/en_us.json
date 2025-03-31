@@ -21,6 +21,29 @@
   "entity.versecraft.azalea_boat": "Azalea Boat",
   "entity.versecraft.azalea_chest_boat": "Azalea Boat with Chest",
 
+  "block.versecraft.palm_log": "Palm Log",
+  "block.versecraft.palm_wood": "Palm Wood",
+  "block.versecraft.stripped_palm_log": "Stripped Palm Log",
+  "block.versecraft.stripped_palm_wood": "Stripped Palm Wood",
+  "block.versecraft.palm_planks": "Palm Planks",
+  "block.versecraft.palm_stairs": "Palm Stairs",
+  "block.versecraft.palm_slab": "Palm Slab",
+  "block.versecraft.palm_fence": "Palm Fence",
+  "block.versecraft.palm_fence_gate": "Palm Fence Gate",
+  "block.versecraft.palm_door": "Palm Door",
+  "block.versecraft.palm_trapdoor": "Palm Trapdoor",
+  "block.versecraft.palm_pressure_plate": "Palm Pressure Plate",
+  "block.versecraft.palm_button": "Palm Button",
+  "block.versecraft.palm_sign": "Palm Sign",
+  "block.versecraft.palm_hanging_sign": "Palm Hanging Sign",
+
+  "item.versecraft.palm_boat": "Palm Boat",
+  "item.versecraft.palm_chest_boat": "Palm Chest Boat",
+
+  "entity.versecraft.palm_boat": "Palm Boat",
+  "entity.versecraft.palm_chest_boat": "Palm Boat with Chest",
+
+
   "item.versecraft.dragon_pottery_sherd": "Dragon Pottery Sherd",
   "item.versecraft.egg_pottery_sherd": "Egg Pottery Sherd",
   "item.versecraft.eye_pottery_sherd": "Eye Pottery Sherd",
