@@ -1112,6 +1112,7 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.PALM_FENCE_GATE, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.PALM_PRESSURE_PLATE, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.PALM_BUTTON, 5, 20);
+		flammableBlockRegistry.add(PALM_LEAVES, 30, 60);
 
 		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
 		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
@@ -1148,6 +1149,24 @@ public class RegisterBlocks {
 			builder.add(AZALEA_FENCE.asItem(), 300);
 			builder.add(RegisterItems.AZALEA_SIGN, 300);
 			builder.add(RegisterItems.AZALEA_HANGING_SIGN, 800);
+
+			builder.add(RegisterItems.PALM_BOAT, 1200);
+			builder.add(RegisterItems.PALM_CHEST_BOAT, 1200);
+			builder.add(PALM_LOG.asItem(), 300);
+			builder.add(STRIPPED_PALM_LOG.asItem(), 300);
+			builder.add(PALM_WOOD.asItem(), 300);
+			builder.add(STRIPPED_PALM_WOOD.asItem(), 300);
+			builder.add(PALM_PLANKS.asItem(), 300);
+			builder.add(PALM_SLAB.asItem(), 150);
+			builder.add(PALM_STAIRS.asItem(), 300);
+			builder.add(PALM_PRESSURE_PLATE.asItem(), 300);
+			builder.add(PALM_BUTTON.asItem(), 100);
+			builder.add(PALM_TRAPDOOR.asItem(), 300);
+			builder.add(PALM_FENCE_GATE.asItem(), 300);
+			builder.add(PALM_FENCE.asItem(), 300);
+			builder.add(RegisterItems.PALM_SIGN, 300);
+			builder.add(RegisterItems.PALM_HANGING_SIGN, 800);
+
 
 			builder.add(AZALEA_MOSAIC.asItem(), 300);
 			builder.add(AZALEA_MOSAIC_SLAB.asItem(), 150);
