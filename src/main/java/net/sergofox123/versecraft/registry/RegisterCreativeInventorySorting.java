@@ -78,6 +78,8 @@ public class RegisterCreativeInventorySorting {
 
 		// PALM (NATURAL BLOCKS)
 		addAfterInNaturalBlocks(Items.JUNGLE_LOG, RegisterBlocks.PALM_LOG);
+		addAfterInNaturalBlocks(Items.JUNGLE_LEAVES, RegisterBlocks.PALM_LEAVES);
+
 
 		// PALM (TOOLS AND UTILITIES)
 		addAfterInToolsAndUtilities(Items.JUNGLE_CHEST_BOAT, RegisterItems.PALM_BOAT);
