@@ -1100,10 +1100,6 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_FENCE_GATE, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_PRESSURE_PLATE, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_BUTTON, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_SIGN, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WALL_SIGN, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_HANGING_SIGN, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WALL_HANGING_SIGN, 5, 20);
 
 		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
 		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
