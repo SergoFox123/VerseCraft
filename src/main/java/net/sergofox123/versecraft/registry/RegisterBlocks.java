@@ -1101,6 +1101,18 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_PRESSURE_PLATE, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_BUTTON, 5, 20);
 
+		flammableBlockRegistry.add(RegisterBlocks.PALM_LOG, 5, 5);
+		flammableBlockRegistry.add(RegisterBlocks.STRIPPED_PALM_LOG, 5, 5);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_WOOD, 5, 5);
+		flammableBlockRegistry.add(RegisterBlocks.STRIPPED_PALM_WOOD, 5, 5);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_PLANKS, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_STAIRS, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_FENCE, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_SLAB, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_FENCE_GATE, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_PRESSURE_PLATE, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_BUTTON, 5, 20);
+
 		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
 		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
 
