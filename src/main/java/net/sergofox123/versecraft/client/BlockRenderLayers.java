@@ -32,6 +32,5 @@ public class BlockRenderLayers {
 
 		renderLayerRegistry.putBlock(RegisterBlocks.PALM_DOOR, RenderType.cutout());
 		renderLayerRegistry.putBlock(RegisterBlocks.PALM_TRAPDOOR, RenderType.cutout());
-
 	}
 }

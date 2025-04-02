@@ -19,16 +19,11 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.block.entity.DecoratedPotPattern;
+import net.sergofox123.versecraft.client.BlockTints;
 import net.sergofox123.versecraft.client.BlockRenderLayers;
 import net.sergofox123.versecraft.client.ModelLayers;
 import net.sergofox123.versecraft.registry.RegisterBlocks;
-import java.util.Objects;
 
 @Environment(EnvType.CLIENT)
 public final class VerseCraftClient implements ClientModInitializer {
@@ -39,7 +34,7 @@ public final class VerseCraftClient implements ClientModInitializer {
 
 		ModelLayers.init();
 		BlockRenderLayers.init();
-
+		BlockTints.applyTints();
 		BlockRenderLayerMap renderLayerRegistry = BlockRenderLayerMap.INSTANCE;
 
 		//Plants
@@ -58,5 +53,6 @@ public final class VerseCraftClient implements ClientModInitializer {
 		renderLayerRegistry.putBlock(RegisterBlocks.POTTED_POP_FLOWER, RenderType.cutout());
 		renderLayerRegistry.putBlock(RegisterBlocks.GLOWSHROOM, RenderType.cutout());
 
+		renderLayerRegistry.putBlock(RegisterBlocks.PALM_LEAVES, RenderType.cutoutMipped());
 	}
 }

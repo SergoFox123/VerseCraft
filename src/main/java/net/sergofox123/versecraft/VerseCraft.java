@@ -26,7 +26,6 @@ import net.sergofox123.versecraft.registry.RegisterBlocks;
 import net.sergofox123.versecraft.registry.RegisterCreativeInventorySorting;
 import net.sergofox123.versecraft.registry.RegisterEntityTypes;
 import net.sergofox123.versecraft.registry.RegisterItems;
-import org.jetbrains.annotations.NotNull;
 
 public final class VerseCraft extends FrozenModInitializer implements FrozenMobCategoryEntrypoint {
 
@@ -43,10 +42,10 @@ public final class VerseCraft extends FrozenModInitializer implements FrozenMobC
 
 		RegisterBlocks.registerBlocks();
 		RegisterItems.init();
+		RegisterItems.registerItems();
 		RegisterEntityTypes.init();
 		RegisterCreativeInventorySorting.init();
 		RegisterBlocks.registerBlockProperties();
-
 	}
 
 	@Override

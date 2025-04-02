@@ -17,6 +17,7 @@ package net.sergofox123.versecraft.registry;
 
 import java.util.function.Function;
 import net.frozenblock.lib.item.api.sherd.SherdRegistry;
+import net.minecraft.core.dispenser.BoatDispenseItemBehavior;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
@@ -30,6 +31,7 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.sergofox123.versecraft.VerseFeatureFlags;
 import net.sergofox123.versecraft.VerseSharedConstants;
 import org.jetbrains.annotations.NotNull;
@@ -140,6 +142,17 @@ public class RegisterItems {
 		createBlockItemWithCustomItemName(RegisterBlocks.ICEFLOWER_CROP),
 		new Properties()
 	);
+
+	public static void registerItems() {
+		registerDispenses();
+	}
+
+	private static void registerDispenses() {
+		DispenserBlock.registerBehavior(AZALEA_BOAT, new BoatDispenseItemBehavior(RegisterEntityTypes.PALM_BOAT));
+		DispenserBlock.registerBehavior(AZALEA_CHEST_BOAT, new BoatDispenseItemBehavior(RegisterEntityTypes.PALM_CHEST_BOAT));
+		DispenserBlock.registerBehavior(PALM_BOAT, new BoatDispenseItemBehavior(RegisterEntityTypes.PALM_BOAT));
+		DispenserBlock.registerBehavior(PALM_CHEST_BOAT, new BoatDispenseItemBehavior(RegisterEntityTypes.PALM_CHEST_BOAT));
+	}
 
 	private RegisterItems() {
 		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");

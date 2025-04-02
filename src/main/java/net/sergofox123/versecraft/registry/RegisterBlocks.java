@@ -35,6 +35,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
+import net.minecraft.world.level.block.DecoratedPotBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -48,6 +49,7 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.TintedParticleLeavesBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
@@ -321,6 +323,11 @@ public class RegisterBlocks {
 		.recipeGroupPrefix("wooden")
 		.recipeUnlockedBy("has_planks")
 		.getFamily();
+
+	public static final Block PALM_LEAVES = register("palm_leaves",
+		properties -> new TintedParticleLeavesBlock(0.01F, properties),
+		Blocks.leavesProperties(SoundType.GRASS)
+	);
 
 	//Acacia Mosaic
 
