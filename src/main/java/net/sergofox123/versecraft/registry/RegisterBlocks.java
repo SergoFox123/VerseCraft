@@ -518,6 +518,23 @@ public class RegisterBlocks {
 		Properties.ofFullCopy(PALE_OAK_SLAB)
 	);
 
+	//Palm
+
+	public static final Block PALM_MOSAIC = register("palm_mosaic",
+		Block::new,
+		Properties.ofFullCopy(PALM_PLANKS)
+	);
+
+	public static final StairBlock PALM_MOSAIC_STAIRS = register("palm_mosaic_stairs",
+		properties -> new StairBlock(PALM_PLANKS.defaultBlockState(), properties),
+		Properties.ofFullCopy(PALM_STAIRS)
+	);
+
+	public static final SlabBlock PALM_MOSAIC_SLAB = register("palm_mosaic_slab",
+		SlabBlock::new,
+		Properties.ofFullCopy(PALM_SLAB)
+	);
+
 	//Warped
 
 	public static final Block WARPED_MOSAIC = register("warped_mosaic",
@@ -1089,6 +1106,10 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_STAIRS, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_SLAB, 5, 20);
 
+		flammableBlockRegistry.add(RegisterBlocks.PALM_MOSAIC, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_MOSAIC_STAIRS, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.PALM_MOSAIC_SLAB, 5, 20);
+
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_LOG, 5, 5);
 		flammableBlockRegistry.add(RegisterBlocks.STRIPPED_AZALEA_LOG, 5, 5);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WOOD, 5, 5);
@@ -1109,6 +1130,7 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.PALM_SLAB, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.PALM_FENCE_GATE, 5, 20);
 		flammableBlockRegistry.add(PALM_LEAVES, 30, 60);
+
 
 		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
 		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
@@ -1203,6 +1225,10 @@ public class RegisterBlocks {
 			builder.add(PALE_OAK_MOSAIC.asItem(), 300);
 			builder.add(PALE_OAK_MOSAIC_SLAB.asItem(), 150);
 			builder.add(PALE_OAK_MOSAIC_STAIRS.asItem(), 300);
+
+			builder.add(PALM_MOSAIC.asItem(), 300);
+			builder.add(PALM_MOSAIC_SLAB.asItem(), 150);
+			builder.add(PALM_MOSAIC_STAIRS.asItem(), 300);
 
 			builder.add(BLUE_ROSE.asItem(), 150);
 			builder.add(ICEFLOWER.asItem(), 150);
