@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "versecraft:block/palm_crown_top",
+    "side": "versecraft:block/palm_crown"
+  }
+}

@@ -329,6 +329,13 @@ public class RegisterBlocks {
 		Blocks.leavesProperties(SoundType.GRASS)
 	);
 
+	public static final Block PALM_CROWN = register("palm_crown",
+		RotatedPillarBlock::new,
+		Properties.ofFullCopy(ANDESITE)
+			.strength(1.0f)
+			.requiresCorrectToolForDrops()
+			.sound(SoundType.WOOD));
+
 	//Acacia Mosaic
 
 	public static final Block ACACIA_MOSAIC = register("acacia_mosaic",
@@ -1130,6 +1137,7 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.PALM_SLAB, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.PALM_FENCE_GATE, 5, 20);
 		flammableBlockRegistry.add(PALM_LEAVES, 30, 60);
+		flammableBlockRegistry.add(PALM_CROWN, 30, 60);
 
 
 		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
@@ -1184,6 +1192,7 @@ public class RegisterBlocks {
 			builder.add(PALM_FENCE.asItem(), 300);
 			builder.add(RegisterItems.PALM_SIGN, 300);
 			builder.add(RegisterItems.PALM_HANGING_SIGN, 800);
+			builder.add(PALM_CROWN, 150);
 
 
 			builder.add(AZALEA_MOSAIC.asItem(), 300);

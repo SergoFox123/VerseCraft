@@ -62,7 +62,7 @@ public class RegisterCreativeInventorySorting {
 
 
 		// PALM (BUILDING BLOCKS)
-		addAfterInBuildingBlocks(Items.JUNGLE_BUTTON, RegisterBlocks.PALM_LOG);
+		addAfterInBuildingBlocks(Items.PALE_OAK_BUTTON, RegisterBlocks.PALM_LOG);
 		addAfterInBuildingBlocks(RegisterBlocks.PALM_LOG, RegisterBlocks.PALM_WOOD);
 		addAfterInBuildingBlocks(RegisterBlocks.PALM_WOOD, RegisterBlocks.STRIPPED_PALM_LOG);
 		addAfterInBuildingBlocks(RegisterBlocks.STRIPPED_PALM_LOG, RegisterBlocks.STRIPPED_PALM_WOOD);
@@ -77,16 +77,17 @@ public class RegisterCreativeInventorySorting {
 		addAfterInBuildingBlocks(RegisterBlocks.PALM_PRESSURE_PLATE, RegisterBlocks.PALM_BUTTON);
 
 		// PALM (NATURAL BLOCKS)
-		addAfterInNaturalBlocks(Items.JUNGLE_LOG, RegisterBlocks.PALM_LOG);
-		addAfterInNaturalBlocks(Items.JUNGLE_LEAVES, RegisterBlocks.PALM_LEAVES);
+		addAfterInNaturalBlocks(Items.PALE_OAK_LOG, RegisterBlocks.PALM_LOG);
+		addAfterInNaturalBlocks(RegisterBlocks.PALM_LOG, RegisterBlocks.PALM_CROWN);
+		addAfterInNaturalBlocks(Items.PALE_OAK_LEAVES, RegisterBlocks.PALM_LEAVES);
 
 
 		// PALM (TOOLS AND UTILITIES)
-		addAfterInToolsAndUtilities(Items.JUNGLE_CHEST_BOAT, RegisterItems.PALM_BOAT);
+		addAfterInToolsAndUtilities(Items.PALE_OAK_CHEST_BOAT, RegisterItems.PALM_BOAT);
 		addAfterInToolsAndUtilities(RegisterItems.PALM_BOAT, RegisterItems.PALM_CHEST_BOAT);
 
 		// PALM (FUNCTIONAL BLOCKS)
-		addAfterInFunctionalBlocks(Items.ACACIA_HANGING_SIGN, RegisterItems.PALM_SIGN);
+		addAfterInFunctionalBlocks(Items.PALE_OAK_HANGING_SIGN, RegisterItems.PALM_SIGN);
 		addAfterInFunctionalBlocks(RegisterItems.PALM_SIGN, RegisterItems.PALM_HANGING_SIGN);
 
 
