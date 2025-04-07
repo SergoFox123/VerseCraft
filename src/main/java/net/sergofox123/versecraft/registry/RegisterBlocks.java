@@ -16,9 +16,11 @@
 package net.sergofox123.versecraft.registry;
 
 import java.util.function.Function;
+import net.fabricmc.fabric.api.block.v1.FabricBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -44,6 +46,7 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -55,10 +58,12 @@ import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.sergofox123.versecraft.VerseSharedConstants;
@@ -335,6 +340,15 @@ public class RegisterBlocks {
 			.strength(1.0f)
 			.requiresCorrectToolForDrops()
 			.sound(SoundType.WOOD));
+
+	public static final Block PALM_SAPLING = register("palm_sapling", properties -> new  SaplingBlock(TreeGrower.OAK, properties),
+		Properties.ofFullCopy(Blocks.BIRCH_SAPLING)
+	);
+
+	public static final Block POTTED_PALM_SAPLING = registerWithoutItem("potted_palm_sapling",
+		properties -> new FlowerPotBlock(PALM_SAPLING, properties),
+		Blocks.flowerPotProperties()
+	);
 
 	//Acacia Mosaic
 
@@ -1193,7 +1207,7 @@ public class RegisterBlocks {
 			builder.add(RegisterItems.PALM_SIGN, 300);
 			builder.add(RegisterItems.PALM_HANGING_SIGN, 800);
 			builder.add(PALM_CROWN, 150);
-
+			builder.add(PALM_SAPLING.asItem(), 100);
 
 			builder.add(AZALEA_MOSAIC.asItem(), 300);
 			builder.add(AZALEA_MOSAIC_SLAB.asItem(), 150);
@@ -1245,13 +1259,29 @@ public class RegisterBlocks {
 		});
 	}
 
+	private static void registerComposting() {
 
+		CompostingChanceRegistry.INSTANCE.add(GLOWSHROOM, 0.65F);
+		CompostingChanceRegistry.INSTANCE.add(BLUE_ROSE, 0.65F);
+		CompostingChanceRegistry.INSTANCE.add(ICEFLOWER, 0.65F);
+		CompostingChanceRegistry.INSTANCE.add(POP_FLOWER, 0.65F);
+		CompostingChanceRegistry.INSTANCE.add(SHORT_MYCELIUM_GRASS, 0.65F);
+		CompostingChanceRegistry.INSTANCE.add(TALL_MYCELIUM_GRASS, 0.65F);
+		CompostingChanceRegistry.INSTANCE.add(RegisterItems.CHERRY, 0.65F);
+
+
+		CompostingChanceRegistry.INSTANCE.add(PALM_LEAVES, 0.3F);
+		CompostingChanceRegistry.INSTANCE.add(PALM_SAPLING, 0.3F);
+		CompostingChanceRegistry.INSTANCE.add(PALM_CROWN, 0.65F);
+
+	}
 
 	public static void registerBlockProperties() {
 
 		registerFuels();
 		registerStrippable();
 		registerFlammability();
+		registerComposting();
 
 		var sign = (FabricBlockEntityType) BlockEntityType.SIGN;
 		var hangingSign = (FabricBlockEntityType) BlockEntityType.HANGING_SIGN;

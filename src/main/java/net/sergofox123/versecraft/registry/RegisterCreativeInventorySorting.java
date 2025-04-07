@@ -80,6 +80,7 @@ public class RegisterCreativeInventorySorting {
 		addAfterInNaturalBlocks(Items.PALE_OAK_LOG, RegisterBlocks.PALM_LOG);
 		addAfterInNaturalBlocks(RegisterBlocks.PALM_LOG, RegisterBlocks.PALM_CROWN);
 		addAfterInNaturalBlocks(Items.PALE_OAK_LEAVES, RegisterBlocks.PALM_LEAVES);
+		addAfterInNaturalBlocks(Items.PALE_OAK_SAPLING, RegisterBlocks.PALM_SAPLING);
 
 
 		// PALM (TOOLS AND UTILITIES)
