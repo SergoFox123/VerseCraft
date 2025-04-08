@@ -13,11 +13,10 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft.world.feature;
+package net.sergofox123.versecraft.worldgen.features;
 
 import java.util.List;
 import net.frozenblock.lib.worldgen.feature.api.FrozenLibPlacedFeature;
-import net.frozenblock.lib.worldgen.feature.api.placementmodifier.NoisePlacementFilter;
 import net.sergofox123.versecraft.VerseSharedConstants;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;

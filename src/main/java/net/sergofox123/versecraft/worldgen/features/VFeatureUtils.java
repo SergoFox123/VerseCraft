@@ -13,7 +13,7 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft.world.feature;
+package net.sergofox123.versecraft.worldgen.features;
 
 import net.frozenblock.lib.worldgen.feature.api.FrozenLibConfiguredFeature;
 import net.sergofox123.versecraft.VerseSharedConstants;
