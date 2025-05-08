@@ -1,16 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "misc",
   "key": {
-    "#": "versecraft:spruce_mosaic"
+    "#": "minecraft:spruce_slab"
   },
   "pattern": [
-    "#  ",
-    "## ",
-    "###"
+    "#",
+    "#"
   ],
   "result": {
-    "count": 4,
-    "id": "versecraft:spruce_mosaic_stairs"
+    "count": 1,
+    "id": "versecraft:spruce_mosaic"
   }
 }
