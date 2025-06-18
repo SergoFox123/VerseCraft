@@ -23,11 +23,11 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.DecoratedPotRenderer;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
 import net.minecraft.world.phys.Vec3;
+import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
 import org.joml.Quaternionf;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -47,7 +47,7 @@ public class DecoratedPotRendererMixin {
 		)
 	)
 	public void verseCraft$prepareIsFlipped(
-		DecoratedPotBlockEntity decoratedPotBlockEntity, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, Vec3 cameraPos, CallbackInfo info,
+		DecoratedPotBlockEntity decoratedPotBlockEntity, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, Vec3 v, CallbackInfo info,
 		@Share("verseCraft$isFlipped") LocalBooleanRef isFlipped
 	) {
 		isFlipped.set(decoratedPotBlockEntity instanceof DecoratedPotBlockEntityInterface decoratedPotBlockEntityInterface
@@ -68,5 +68,4 @@ public class DecoratedPotRendererMixin {
 	) {
 		return original.call(instance, v * (isFlipped.get() ? -1 : 1F));
 	}
-
 }

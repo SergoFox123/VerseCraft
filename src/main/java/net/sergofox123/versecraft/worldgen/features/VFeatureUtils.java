@@ -16,11 +16,10 @@
 package net.sergofox123.versecraft.worldgen.features;
 
 import net.frozenblock.lib.worldgen.feature.api.FrozenLibConfiguredFeature;
-import net.sergofox123.versecraft.VerseSharedConstants;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.sergofox123.versecraft.VerseSharedConstants;
 import org.jetbrains.annotations.NotNull;
 
 public class VFeatureUtils {
@@ -30,20 +29,20 @@ public class VFeatureUtils {
 	}
 
 	@NotNull
-	public static FrozenLibConfiguredFeature<NoneFeatureConfiguration, ConfiguredFeature<NoneFeatureConfiguration, ?>> register(@NotNull String id, @NotNull Feature<NoneFeatureConfiguration> feature) {
+	public static FrozenLibConfiguredFeature<NoneFeatureConfiguration> register(@NotNull String id, @NotNull Feature<NoneFeatureConfiguration> feature) {
 		return register(id, feature, FeatureConfiguration.NONE);
 	}
 
 	@NotNull
-	public static <FC extends FeatureConfiguration, F extends Feature<FC>> FrozenLibConfiguredFeature<FC, ConfiguredFeature<FC, ?>> register(@NotNull String id, F feature, @NotNull FC config) {
+	public static <FC extends FeatureConfiguration, F extends Feature<FC>> FrozenLibConfiguredFeature<FC> register(@NotNull String id, F feature, @NotNull FC config) {
 		var key = VerseSharedConstants.id(id);
-		FrozenLibConfiguredFeature<FC, ConfiguredFeature<FC, ?>> frozen = new FrozenLibConfiguredFeature<>(key);
+		FrozenLibConfiguredFeature<FC> frozen = new FrozenLibConfiguredFeature<>(key);
 		frozen.makeAndSetHolder(feature, config);
 		return frozen;
 	}
 
 	@NotNull
-	public static <FC extends FeatureConfiguration, F extends Feature<FC>> FrozenLibConfiguredFeature<FC, ConfiguredFeature<FC, ?>> register(@NotNull String id) {
+	public static <FC extends FeatureConfiguration, F extends Feature<FC>> FrozenLibConfiguredFeature<FC> register(@NotNull String id) {
 		var key = VerseSharedConstants.id(id);
 		return new FrozenLibConfiguredFeature<>(key);
 	}

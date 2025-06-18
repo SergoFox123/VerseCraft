@@ -17,20 +17,18 @@ package net.sergofox123.versecraft.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.renderer.RenderType;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.sergofox123.versecraft.registry.RegisterBlocks;
 
 @Environment(EnvType.CLIENT)
 public class BlockRenderLayers {
 
 	public static void init() {
-		BlockRenderLayerMap renderLayerRegistry = BlockRenderLayerMap.INSTANCE;
+		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_DOOR, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 
-		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_DOOR, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, RenderType.cutout());
-
-		renderLayerRegistry.putBlock(RegisterBlocks.PALM_DOOR, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.PALM_TRAPDOOR, RenderType.cutout());
+		BlockRenderLayerMap.putBlock(RegisterBlocks.PALM_DOOR, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.PALM_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 	}
 }

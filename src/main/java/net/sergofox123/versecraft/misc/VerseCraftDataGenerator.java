@@ -18,8 +18,6 @@ package net.sergofox123.versecraft.misc;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.frozenblock.lib.feature_flag.api.FeatureFlagApi;
-import net.minecraft.core.RegistrySetBuilder;
-import net.sergofox123.versecraft.VerseSharedConstants;
 import org.jetbrains.annotations.NotNull;
 
 public final class VerseCraftDataGenerator implements DataGeneratorEntrypoint {
@@ -28,7 +26,5 @@ public final class VerseCraftDataGenerator implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(@NotNull FabricDataGenerator dataGenerator) {
 		FeatureFlagApi.rebuild();
 		final FabricDataGenerator.Pack pack = dataGenerator.createPack();
-
-
 	}
 }
