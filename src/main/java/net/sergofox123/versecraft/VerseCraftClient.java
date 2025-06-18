@@ -18,10 +18,10 @@ package net.sergofox123.versecraft;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.renderer.RenderType;
-import net.sergofox123.versecraft.client.BlockTints;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.sergofox123.versecraft.client.BlockRenderLayers;
+import net.sergofox123.versecraft.client.BlockTints;
 import net.sergofox123.versecraft.client.ModelLayers;
 import net.sergofox123.versecraft.registry.RegisterBlocks;
 
@@ -35,28 +35,27 @@ public final class VerseCraftClient implements ClientModInitializer {
 		ModelLayers.init();
 		BlockRenderLayers.init();
 		BlockTints.applyTints();
-		BlockRenderLayerMap renderLayerRegistry = BlockRenderLayerMap.INSTANCE;
 
 		//Plants
-		renderLayerRegistry.putBlock(RegisterBlocks.BLUE_ROSE, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.BLUE_ROSE_CROP, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.POTTED_BLUE_ROSE, RenderType.cutout());
+		BlockRenderLayerMap.putBlock(RegisterBlocks.BLUE_ROSE, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.BLUE_ROSE_CROP, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.POTTED_BLUE_ROSE, ChunkSectionLayer.CUTOUT);
 
-		renderLayerRegistry.putBlock(RegisterBlocks.ICEFLOWER, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.ICEFLOWER_CROP, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.POTTED_ICEFLOWER, RenderType.cutout());
+		BlockRenderLayerMap.putBlock(RegisterBlocks.ICEFLOWER, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.ICEFLOWER_CROP, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.POTTED_ICEFLOWER, ChunkSectionLayer.CUTOUT);
 
-		renderLayerRegistry.putBlock(RegisterBlocks.SHORT_MYCELIUM_GRASS, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.TALL_MYCELIUM_GRASS, RenderType.cutout());
+		BlockRenderLayerMap.putBlock(RegisterBlocks.SHORT_MYCELIUM_GRASS, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.TALL_MYCELIUM_GRASS, ChunkSectionLayer.CUTOUT);
 
-		renderLayerRegistry.putBlock(RegisterBlocks.POP_FLOWER, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.POTTED_POP_FLOWER, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.GLOWSHROOM, RenderType.cutout());
+		BlockRenderLayerMap.putBlock(RegisterBlocks.POP_FLOWER, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.POTTED_POP_FLOWER, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.GLOWSHROOM, ChunkSectionLayer.CUTOUT);
 
-		renderLayerRegistry.putBlock(RegisterBlocks.PALM_LEAVES, RenderType.cutoutMipped());
+		BlockRenderLayerMap.putBlock(RegisterBlocks.PALM_LEAVES, ChunkSectionLayer.CUTOUT);
 
-		renderLayerRegistry.putBlock(RegisterBlocks.PALM_SAPLING, RenderType.cutout());
-		renderLayerRegistry.putBlock(RegisterBlocks.POTTED_PALM_SAPLING, RenderType.cutout());
+		BlockRenderLayerMap.putBlock(RegisterBlocks.PALM_SAPLING, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.POTTED_PALM_SAPLING, ChunkSectionLayer.CUTOUT);
 
 	}
 }

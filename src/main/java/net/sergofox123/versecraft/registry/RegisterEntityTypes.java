@@ -15,8 +15,6 @@
 
 package net.sergofox123.versecraft.registry;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.frozenblock.lib.entity.api.spawnplacement.FrozenSpawnPlacementTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -24,13 +22,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.ChestBoat;
-import net.minecraft.world.level.levelgen.Heightmap;
-import org.jetbrains.annotations.NotNull;
-
 import net.sergofox123.versecraft.VerseSharedConstants;
 import org.jetbrains.annotations.NotNull;
 
