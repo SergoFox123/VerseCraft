@@ -68,5 +68,4 @@ public class DecoratedPotRendererMixin {
 	) {
 		return original.call(instance, v * (isFlipped.get() ? -1 : 1F));
 	}
-
 }

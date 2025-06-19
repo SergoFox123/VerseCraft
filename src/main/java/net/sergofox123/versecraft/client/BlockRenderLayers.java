@@ -30,6 +30,7 @@ public class BlockRenderLayers {
 		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_DOOR, ChunkSectionLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 
+
 		BlockRenderLayerMap.putBlock(RegisterBlocks.PALM_DOOR, ChunkSectionLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(RegisterBlocks.PALM_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 	}
