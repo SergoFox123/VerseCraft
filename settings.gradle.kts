@@ -27,8 +27,7 @@ pluginManagement {
 
 rootProject.name = "VerseCraft"
 
-localRepository("FrozenLib", "maven.modrinth:frozenlib", true, true)
-
+localRepository("FrozenLib", "maven.modrinth:frozenlib", true, false)
 
 fun localRepository(repo: String, dependencySub: String, kotlin: Boolean, enabled: Boolean) {
     if (!enabled) return

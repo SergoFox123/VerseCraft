@@ -46,8 +46,10 @@ val archives_base_name: String by project
 val fabric_api_version: String by project
 val frozenlib_version: String by project
 
+
 val modmenu_version: String by project
 val cloth_config_version: String by project
+
 
 val sodium_version: String by project
 val run_sodium: String by project
@@ -78,7 +80,7 @@ loom {
     accessWidenerPath.set(file("src/main/resources/$mod_id.accesswidener"))
     interfaceInjection {
         // When enabled, injected interfaces from dependencies will be applied.
-        enableDependencyInterfaceInjection.set(false)
+        enableDependencyInterfaceInjection.set(true)
     }
 }
 
@@ -203,6 +205,8 @@ dependencies {
     } else
         modApi("maven.modrinth:frozenlib:$frozenlib_version")?.let { include(it) }
 
+
+
     // Mod Menu
     modCompileOnly("com.terraformersmc:modmenu:$modmenu_version")
 
@@ -215,9 +219,6 @@ dependencies {
     // Sodium
     if (shouldRunSodium)
         modImplementation("maven.modrinth:sodium:${sodium_version}")
-
-    // WorldEdit
-    modCompileOnly("maven.modrinth:worldedit:7.3.4-beta-01")
 
     "datagenImplementation"(sourceSets.main.get().output)
 }
