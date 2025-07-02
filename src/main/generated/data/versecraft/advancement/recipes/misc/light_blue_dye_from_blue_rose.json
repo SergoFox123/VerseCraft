@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "versecraft:cyan_dye_from_blue_rose"
+        "recipe": "versecraft:light_blue_dye_from_blue_rose"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "versecraft:cyan_dye_from_blue_rose"
+      "versecraft:light_blue_dye_from_blue_rose"
     ]
   }
 }
