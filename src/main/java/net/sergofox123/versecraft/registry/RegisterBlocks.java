@@ -1252,10 +1252,6 @@ public class RegisterBlocks {
 			builder.add(PALM_MOSAIC.asItem(), 300);
 			builder.add(PALM_MOSAIC_SLAB.asItem(), 150);
 			builder.add(PALM_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(BLUE_ROSE.asItem(), 150);
-			builder.add(ICEFLOWER.asItem(), 150);
-
 		});
 	}
 
