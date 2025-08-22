@@ -7,7 +7,7 @@ https://www.curseforge.com/minecraft/mc-mods/versecraft
 
 https://modrinth.com/mod/versecraft
 
-The code to implement some of the ideas I wanted to implement was taken from Wilder Wild and TrailierTales by the FrozenBlock team.
+The code to implement some of the ideas I wanted to implement was taken from WilderWild and TrailierTales by the FrozenBlock team.
 
 https://github.com/FrozenBlock
 
