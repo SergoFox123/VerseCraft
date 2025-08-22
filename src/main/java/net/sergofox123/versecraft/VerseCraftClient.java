@@ -19,10 +19,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
-import net.sergofox123.versecraft.client.BlockTints;
-import net.sergofox123.versecraft.client.BlockRenderLayers;
 import net.sergofox123.versecraft.client.ModelLayers;
 import net.sergofox123.versecraft.registry.RegisterBlocks;
 
@@ -34,8 +31,6 @@ public final class VerseCraftClient implements ClientModInitializer {
 	public void onInitializeClient() {
 
 		ModelLayers.init();
-		BlockRenderLayers.init();
-		BlockTints.applyTints();
 
 		//Plants
 		BlockRenderLayerMap.putBlock(RegisterBlocks.BLUE_ROSE, ChunkSectionLayer.CUTOUT);
@@ -53,10 +48,10 @@ public final class VerseCraftClient implements ClientModInitializer {
 		BlockRenderLayerMap.putBlock(RegisterBlocks.POTTED_POP_FLOWER, ChunkSectionLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(RegisterBlocks.GLOWSHROOM, ChunkSectionLayer.CUTOUT);
 
-		BlockRenderLayerMap.putBlock(RegisterBlocks.PALM_LEAVES, ChunkSectionLayer.CUTOUT);
 
-		BlockRenderLayerMap.putBlock(RegisterBlocks.PALM_SAPLING, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(RegisterBlocks.POTTED_PALM_SAPLING, ChunkSectionLayer.CUTOUT);
+		//Blocks
 
+		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_DOOR, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 	}
 }

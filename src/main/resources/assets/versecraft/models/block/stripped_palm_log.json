@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "versecraft:block/stripped_palm_log_top",
-    "side": "versecraft:block/stripped_palm_log"
-  }
-}

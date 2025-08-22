@@ -43,11 +43,9 @@ public abstract class V4067Mixin {
 	public Map<String, Supplier<TypeTemplate>> verseCraft$registerEntities(V4067 instance, Schema schema, Operation<Map<String, Supplier<TypeTemplate>>> original) {
 		Map<String, Supplier<TypeTemplate>> map = original.call(instance, schema);
 		schema.registerSimple(map, "versecraft:azalea_boat");
-		schema.registerSimple(map, "versecraft:palm_boat");
 
 
 		this.registerChestBoat(map, "versecraft:azalea_chest_boat");
-		this.registerChestBoat(map, "versecraft:palm_chest_boat");
 
 		return map;
 	}

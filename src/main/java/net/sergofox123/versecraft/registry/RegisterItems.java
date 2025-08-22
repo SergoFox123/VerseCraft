@@ -62,27 +62,7 @@ public class RegisterItems {
 			.stacksTo(1)
 	);
 
-	//Palm
-	public static final Item PALM_SIGN = registerBlock(RegisterBlocks.PALM_SIGN,
-		(block, properties) -> new SignItem(block, RegisterBlocks.PALM_WALL_SIGN, properties),
-		new Item.Properties().stacksTo(16)
-	);
 
-	public static final Item PALM_HANGING_SIGN = registerBlock(RegisterBlocks.PALM_HANGING_SIGN,
-		(block, properties) -> new HangingSignItem(block, RegisterBlocks.PALM_WALL_HANGING_SIGN, properties),
-		new Item.Properties().stacksTo(16)
-	);
-
-	public static final BoatItem PALM_BOAT = register("palm_boat",
-		properties -> new BoatItem(RegisterEntityTypes.PALM_BOAT, properties),
-		new Item.Properties()
-			.stacksTo(1)
-	);
-	public static final BoatItem PALM_CHEST_BOAT = register("palm_chest_boat",
-		properties -> new BoatItem(RegisterEntityTypes.PALM_CHEST_BOAT, properties),
-		new Item.Properties()
-			.stacksTo(1)
-	);
 
     //Pottery Sherd
 
@@ -148,10 +128,7 @@ public class RegisterItems {
 	}
 
 	private static void registerDispenses() {
-		DispenserBlock.registerBehavior(AZALEA_BOAT, new BoatDispenseItemBehavior(RegisterEntityTypes.PALM_BOAT));
-		DispenserBlock.registerBehavior(AZALEA_CHEST_BOAT, new BoatDispenseItemBehavior(RegisterEntityTypes.PALM_CHEST_BOAT));
-		DispenserBlock.registerBehavior(PALM_BOAT, new BoatDispenseItemBehavior(RegisterEntityTypes.PALM_BOAT));
-		DispenserBlock.registerBehavior(PALM_CHEST_BOAT, new BoatDispenseItemBehavior(RegisterEntityTypes.PALM_CHEST_BOAT));
+
 	}
 
 	private RegisterItems() {
