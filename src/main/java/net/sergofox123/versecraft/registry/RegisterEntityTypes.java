@@ -56,24 +56,6 @@ public class RegisterEntityTypes {
 			.clientTrackingRange(10)
 	);
 
-	public static final EntityType<Boat> PALM_BOAT = register(
-		"palm_boat",
-		EntityType.Builder.of(EntityType.boatFactory(() -> RegisterItems.PALM_BOAT), MobCategory.MISC)
-			.noLootTable()
-			.sized(1.375F, 0.5625F)
-			.eyeHeight(0.5625F)
-			.clientTrackingRange(10)
-	);
-
-	public static final EntityType<ChestBoat> PALM_CHEST_BOAT = register(
-		"palm_chest_boat",
-		EntityType.Builder.of(EntityType.chestBoatFactory(() -> RegisterItems.PALM_CHEST_BOAT), MobCategory.MISC)
-			.noLootTable()
-			.sized(1.375F, 0.5625F)
-			.eyeHeight(0.5625F)
-			.clientTrackingRange(10)
-	);
-
 	public static void init() {
 
 	}
