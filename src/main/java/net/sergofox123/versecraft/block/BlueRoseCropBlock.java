@@ -36,15 +36,20 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sergofox123.versecraft.registry.RegisterBlocks;
 import net.sergofox123.versecraft.registry.RegisterItems;
+import org.jetbrains.annotations.NotNull;
 
 public class BlueRoseCropBlock extends CropBlock {
 	public static final MapCodec<BlueRoseCropBlock> CODEC = simpleCodec(BlueRoseCropBlock::new);
 	public static final int MAX_AGE = 2;
-	public static final IntegerProperty AGE;
-	private static final float AABB_OFFSET = 3.0F;
-	private static final VoxelShape[] SHAPE_BY_AGE;
+	public static final IntegerProperty AGE = BlockStateProperties.AGE_1;
+	private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+		Block.box(5D, 0D, 5D, 11D, 6D, 11D),
+		Block.box(5D, 0D, 5D, 11D, 10D, 11D)
+	};
 	private static final int BONEMEAL_INCREASE = 1;
 
+	@Override
+	@NotNull
 	public MapCodec<BlueRoseCropBlock> codec() {
 		return CODEC;
 	}
@@ -53,43 +58,47 @@ public class BlueRoseCropBlock extends CropBlock {
 		super(settings);
 	}
 
-	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(new Property[]{AGE});
+	@Override
+	protected void createBlockStateDefinition(@NotNull StateDefinition.Builder<Block, BlockState> builder) {
+		builder.add(AGE);
 	}
 
-	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+	@Override
+	@NotNull
+	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return SHAPE_BY_AGE[this.getAge(state)];
 	}
 
+	@Override
+	@NotNull
 	protected IntegerProperty getAgeProperty() {
 		return AGE;
 	}
 
+	@Override
 	public int getMaxAge() {
-		return 2;
+		return MAX_AGE;
 	}
 
+	@Override
+	@NotNull
 	protected ItemLike getBaseSeedId() {
 		return RegisterItems.BLUE_ROSE_SEEDS;
 	}
 
+	@Override
+	@NotNull
 	public BlockState getStateForAge(int age) {
-		return age == 2 ? RegisterBlocks.BLUE_ROSE.defaultBlockState() : super.getStateForAge(age);
+		return age == MAX_AGE ? RegisterBlocks.BLUE_ROSE.defaultBlockState() : super.getStateForAge(age);
 	}
 
-	public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
-		if (random.nextInt(3) != 0) {
-			super.randomTick(state, world, pos, random);
-		}
-
+	@Override
+	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, @NotNull RandomSource random) {
+		if (random.nextInt(3) != 0) super.randomTick(state, level, pos, random);
 	}
 
-	protected int getBonemealAgeIncrease(Level world) {
-		return 1;
-	}
-
-	static {
-		AGE = BlockStateProperties.AGE_1;
-		SHAPE_BY_AGE = new VoxelShape[]{Block.box(5.0, 0.0, 5.0, 11.0, 6.0, 11.0), Block.box(5.0, 0.0, 5.0, 11.0, 10.0, 11.0)};
+	@Override
+	protected int getBonemealAgeIncrease(Level level) {
+		return BONEMEAL_INCREASE;
 	}
 }
