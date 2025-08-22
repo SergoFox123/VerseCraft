@@ -1,7 +1,7 @@
 # VerseCraft
 
 
-VerseCraft adds mosaics to each type of tree that is in the game and with each update new blocks will be added
+VerseCraft is a mod that adds new blocks, new plants, and more. It's a great addition to the vanilla game.
 
 https://www.curseforge.com/minecraft/mc-mods/versecraft
 
