@@ -18,7 +18,7 @@ buildscript {
 }
 
 plugins {
-    id("fabric-loom") version("+")
+    id("fabric-loom") version("1.11-SNAPSHOT")
     id("org.quiltmc.gradle.licenser") version("+")
     id("org.ajoberstar.grgit") version("+")
     id("com.modrinth.minotaur") version("+")
@@ -45,7 +45,6 @@ val archives_base_name: String by project
 
 val fabric_api_version: String by project
 val frozenlib_version: String by project
-
 
 val modmenu_version: String by project
 val cloth_config_version: String by project
@@ -201,8 +200,6 @@ dependencies {
     } else
         modApi("maven.modrinth:frozenlib:$frozenlib_version")?.let { include(it) }
 
-
-
     // Mod Menu
     modCompileOnly("com.terraformersmc:modmenu:$modmenu_version")
 
@@ -212,9 +209,14 @@ dependencies {
         exclude(group = "com.terraformersmc")
     }
 
+
+
     // Sodium
     if (shouldRunSodium)
         modImplementation("maven.modrinth:sodium:${sodium_version}")
+
+    // WorldEdit
+    modCompileOnly("maven.modrinth:worldedit:7.3.4-beta-01")
 
     "datagenImplementation"(sourceSets.main.get().output)
 }

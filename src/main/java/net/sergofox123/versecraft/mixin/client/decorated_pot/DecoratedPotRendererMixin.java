@@ -17,17 +17,18 @@ package net.sergofox123.versecraft.mixin.client.decorated_pot;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import com.llamalad7.mixinextras.sugar.Share;
-import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
-import com.mojang.blaze3d.vertex.PoseStack;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.math.Axis;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.renderer.blockentity.state.DecoratedPotRenderState;
+import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.DecoratedPotRenderer;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
 import net.minecraft.world.phys.Vec3;
+import net.sergofox123.versecraft.impl.client.DecoratedPotRenderStateInterface;
 import org.joml.Quaternionf;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -39,24 +40,24 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class DecoratedPotRendererMixin {
 
 	@Inject(
-		method = "render(Lnet/minecraft/world/level/block/entity/DecoratedPotBlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;IILnet/minecraft/world/phys/Vec3;)V",
-		at = @At(
-			value = "FIELD",
-			target = "Lnet/minecraft/world/level/block/entity/DecoratedPotBlockEntity$WobbleStyle;duration:I",
-			ordinal = 0
-		)
+		method = "extractRenderState(Lnet/minecraft/world/level/block/entity/DecoratedPotBlockEntity;Lnet/minecraft/client/renderer/blockentity/state/DecoratedPotRenderState;FLnet/minecraft/world/phys/Vec3;Lnet/minecraft/client/renderer/feature/ModelFeatureRenderer$CrumblingOverlay;)V",
+		at = @At("TAIL")
 	)
-	public void verseCraft$prepareIsFlipped(
-		DecoratedPotBlockEntity decoratedPotBlockEntity, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, Vec3 cameraPos, CallbackInfo info,
-		@Share("verseCraft$isFlipped") LocalBooleanRef isFlipped
+	public void verseCraft$setIsFlipped(
+		DecoratedPotBlockEntity decoratedPot,
+		DecoratedPotRenderState renderState,
+		float partialTick,
+		Vec3 cameraPos,
+		ModelFeatureRenderer.CrumblingOverlay crumblingOverlay,
+		CallbackInfo info
 	) {
-		isFlipped.set(decoratedPotBlockEntity instanceof DecoratedPotBlockEntityInterface decoratedPotBlockEntityInterface
-			&& decoratedPotBlockEntityInterface.verseCraft$isWobbleFlipped()
-		);
+		if (!(decoratedPot instanceof DecoratedPotBlockEntityInterface potInterface)) return;
+		if (!(renderState instanceof DecoratedPotRenderStateInterface stateInterface)) return;
+		stateInterface.verseCraft$setWobbleFlipped(potInterface.verseCraft$isWobbleFlipped());
 	}
 
 	@WrapOperation(
-		method = "render(Lnet/minecraft/world/level/block/entity/DecoratedPotBlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;IILnet/minecraft/world/phys/Vec3;)V",
+		method = "submit(Lnet/minecraft/client/renderer/blockentity/state/DecoratedPotRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V",
 		at = @At(
 			value = "INVOKE",
 			target = "Lcom/mojang/math/Axis;rotation(F)Lorg/joml/Quaternionf;"
@@ -64,8 +65,11 @@ public class DecoratedPotRendererMixin {
 	)
 	public Quaternionf verseCraft$flipWobble(
 		Axis instance, float v, Operation<Quaternionf> original,
-		@Share("verseCraft$isFlipped") LocalBooleanRef isFlipped
+		@Local(argsOnly = true) DecoratedPotRenderState renderState
 	) {
-		return original.call(instance, v * (isFlipped.get() ? -1 : 1F));
+		float multiplier = 1F;
+		if (renderState instanceof DecoratedPotRenderStateInterface stateInterface) multiplier = stateInterface.verseCraft$isWobbleFlipped() ? -1F : 1F;
+		return original.call(instance, v * multiplier);
 	}
+
 }

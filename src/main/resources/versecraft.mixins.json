@@ -9,7 +9,8 @@
     "common.decorated_pot.DecoratedPotBlockEntityMixin"
   ],
   "client": [
-    "client.decorated_pot.DecoratedPotRendererMixin"
+    "client.decorated_pot.DecoratedPotRendererMixin",
+    "client.decorated_pot.DecoratedPotRenderStateMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -818,7 +818,7 @@ public class RegisterBlocks {
 		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
+			.noCollision()
 			.instabreak()
 			.sound(SoundType.GRASS)
 			.offsetType(BlockBehaviour.OffsetType.XZ)
@@ -829,7 +829,6 @@ public class RegisterBlocks {
 		BlueRoseCropBlock::new,
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
 			.randomTicks()
 			.instabreak()
 			.sound(SoundType.CROP)
@@ -845,7 +844,7 @@ public class RegisterBlocks {
 		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
+			.noCollision()
 			.instabreak()
 			.sound(SoundType.GRASS)
 			.offsetType(BlockBehaviour.OffsetType.XZ)
@@ -856,7 +855,6 @@ public class RegisterBlocks {
 		IceflowerCropBlock::new,
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
 			.randomTicks()
 			.instabreak()
 			.sound(SoundType.CROP)
@@ -876,8 +874,8 @@ public class RegisterBlocks {
 			.noOcclusion()
 			.instabreak()
 			.sound(SoundType.GRASS)
-			.offsetType(BlockBehaviour.OffsetType.XZ)
 			.ignitedByLava()
+			.offsetType(BlockBehaviour.OffsetType.XZ)
 			.pushReaction(PushReaction.DESTROY)
 	);
 
@@ -889,8 +887,8 @@ public class RegisterBlocks {
 			.noOcclusion()
 			.instabreak()
 			.sound(SoundType.GRASS)
-			.offsetType(BlockBehaviour.OffsetType.XZ)
 			.ignitedByLava()
+			.offsetType(BlockBehaviour.OffsetType.XZ)
 			.pushReaction(PushReaction.DESTROY)
 	);
 
@@ -898,7 +896,7 @@ public class RegisterBlocks {
 		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
+			.noCollision()
 			.instabreak()
 			.sound(SoundType.GRASS)
 			.offsetType(BlockBehaviour.OffsetType.XZ)
