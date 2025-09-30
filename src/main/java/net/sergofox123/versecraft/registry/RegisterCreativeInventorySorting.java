@@ -59,6 +59,8 @@ public class RegisterCreativeInventorySorting {
 		// AZALEA (FUNCTIONAL BLOCKS)
 		addAfterInFunctionalBlocks(Items.ACACIA_HANGING_SIGN, RegisterItems.AZALEA_SIGN);
 		addAfterInFunctionalBlocks(RegisterItems.AZALEA_SIGN, RegisterItems.AZALEA_HANGING_SIGN);
+		addAfterInFunctionalBlocks(Items.ACACIA_SHELF, RegisterBlocks.AZALEA_SHELF);
+
 
 		//Acacia Mosaic
 		addAfterInBuildingBlocks(Items.ACACIA_PLANKS, RegisterBlocks.ACACIA_MOSAIC);

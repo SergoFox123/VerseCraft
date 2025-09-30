@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_left",
+  "textures": {
+    "all": "versecraft:block/azalea_shelf",
+    "particle": "versecraft:block/stripped_azalea_log"
+  }
+}
