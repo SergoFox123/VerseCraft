@@ -14,6 +14,8 @@
   "block.versecraft.azalea_button": "杜鹃木按钮",
   "block.versecraft.azalea_hanging_sign": "悬挂式杜鹃木告示牌",
   "block.versecraft.azalea_sign": "杜鹃木告示牌",
+  "block.versecraft.azalea_shelf": "杜鵑花架",
+
 
   "item.versecraft.azalea_chest_boat": "杜鹃木运输船",
   "item.versecraft.azalea_boat": "杜鹃木船",
@@ -29,7 +31,6 @@
   "item.versecraft.eye_pottery_sherd": "眼睛纹样陶片",
 
   "item.versecraft.cherry": "樱桃",
-
 
   "block.versecraft.acacia_mosaic": "杜鹃木马赛克",
   "block.versecraft.acacia_mosaic_stairs": "杜鹃木马赛克楼梯",
@@ -71,12 +72,15 @@
   "block.versecraft.spruce_mosaic_stairs": "云杉木马赛克楼梯",
   "block.versecraft.spruce_mosaic_slab": "云杉木马赛克台阶",
 
+  "block.versecraft.pale_oak_mosaic": "淺橡木馬賽克",
+  "block.versecraft.pale_oak_mosaic_stairs": "淺橡木馬賽克樓梯",
+  "block.versecraft.pale_oak_mosaic_slab": "淺橡木馬賽克板",
+
   "block.versecraft.warped_mosaic": "诡异木马赛克",
   "block.versecraft.warped_mosaic_stairs": "诡异木马赛克楼梯",
   "block.versecraft.warped_mosaic_slab": "诡异木马赛克台阶",
 
   "block.versecraft.cracked_tuff_bricks": "裂纹凝灰岩砖",
-
 
   "block.versecraft.chiseled_diorite": "雕纹闪长岩",
   "block.versecraft.polished_diorite_wall": "磨制闪长岩墙",
@@ -147,5 +151,10 @@
   "block.versecraft.blue_rose": "蓝玫瑰",
   "block.versecraft.blue_rose_crop": "蓝玫瑰植株",
   "block.versecraft.potted_blue_rose": "蓝玫瑰盆栽",
-  "item.versecraft.blue_rose_seeds": "蓝玫瑰种子"
+  "item.versecraft.blue_rose_seeds": "蓝玫瑰种子",
+
+  "block.versecraft.short_mycelium_grass": "短菌絲草",
+  "block.versecraft.tall_mycelium_grass": "高大的菌絲草",
+  "block.versecraft.pop_flower": "流行花",
+  "block.versecraft.glowshroom": "螢光菇"
 }
