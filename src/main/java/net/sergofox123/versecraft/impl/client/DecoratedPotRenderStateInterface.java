@@ -13,21 +13,9 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft.tag;
+package net.sergofox123.versecraft.impl.client;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.biome.Biome;
-import net.sergofox123.versecraft.VerseSharedConstants;
-import org.jetbrains.annotations.NotNull;
-
-public class VerseCraftBiomeTags {
-
-	public static final TagKey<Biome> HAS_CRYPTIC_CRYPT = bind("has_structure/cryptic_crypt");
-
-	@NotNull
-	private static TagKey<Biome> bind(@NotNull String path) {
-		return TagKey.create(Registries.BIOME, VerseSharedConstants.id(path));
-	}
+public interface DecoratedPotRenderStateInterface {
+	void verseCraft$setWobbleFlipped(boolean flipped);
+	boolean verseCraft$isWobbleFlipped();
 }
-

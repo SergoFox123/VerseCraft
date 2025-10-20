@@ -15,8 +15,8 @@
 
 package net.sergofox123.versecraft.registry;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
-import net.fabricmc.fabric.api.block.v1.FabricBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
@@ -25,6 +25,7 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
@@ -32,12 +33,14 @@ import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
-import net.minecraft.world.level.block.DecoratedPotBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -47,23 +50,22 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.ShelfBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
-import net.minecraft.world.level.block.TintedParticleLeavesBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.sergofox123.versecraft.VerseSharedConstants;
@@ -107,6 +109,18 @@ public class RegisterBlocks {
 		RotatedPillarBlock::new,
 		Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD)
 			.mapColor(AZALEA_PLANKS_COLOR)
+	);
+
+	//Azalea Shelf
+	public static final Block AZALEA_SHELF = register(
+		"azalea_shelf",
+		ShelfBlock::new,
+		BlockBehaviour.Properties.of()
+			.mapColor(MapColor.WOOD)
+			.instrument(NoteBlockInstrument.BASS)
+			.sound(SoundType.SHELF)
+			.ignitedByLava()
+			.strength(2F, 3F)
 	);
 
 	//Planks
@@ -818,7 +832,7 @@ public class RegisterBlocks {
 		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
+			.noCollision()
 			.instabreak()
 			.sound(SoundType.GRASS)
 			.offsetType(BlockBehaviour.OffsetType.XZ)
@@ -829,7 +843,6 @@ public class RegisterBlocks {
 		BlueRoseCropBlock::new,
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
 			.randomTicks()
 			.instabreak()
 			.sound(SoundType.CROP)
@@ -845,7 +858,7 @@ public class RegisterBlocks {
 		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
+			.noCollision()
 			.instabreak()
 			.sound(SoundType.GRASS)
 			.offsetType(BlockBehaviour.OffsetType.XZ)
@@ -856,7 +869,6 @@ public class RegisterBlocks {
 		IceflowerCropBlock::new,
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
 			.randomTicks()
 			.instabreak()
 			.sound(SoundType.CROP)
@@ -876,8 +888,8 @@ public class RegisterBlocks {
 			.noOcclusion()
 			.instabreak()
 			.sound(SoundType.GRASS)
-			.offsetType(BlockBehaviour.OffsetType.XZ)
 			.ignitedByLava()
+			.offsetType(BlockBehaviour.OffsetType.XZ)
 			.pushReaction(PushReaction.DESTROY)
 	);
 
@@ -889,8 +901,8 @@ public class RegisterBlocks {
 			.noOcclusion()
 			.instabreak()
 			.sound(SoundType.GRASS)
-			.offsetType(BlockBehaviour.OffsetType.XZ)
 			.ignitedByLava()
+			.offsetType(BlockBehaviour.OffsetType.XZ)
 			.pushReaction(PushReaction.DESTROY)
 	);
 
@@ -898,7 +910,7 @@ public class RegisterBlocks {
 		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
 		Properties.of()
 			.mapColor(MapColor.PLANT)
-			.noCollission()
+			.noCollision()
 			.instabreak()
 			.sound(SoundType.GRASS)
 			.offsetType(BlockBehaviour.OffsetType.XZ)
@@ -920,7 +932,13 @@ public class RegisterBlocks {
 	);
 
 	public static void registerBlocks() {
+	}
 
+	private static void registerBlockItem(Block block) {
+		BiFunction<Block, Item.Properties, Item> itemSupplier = BlockItem::new;
+		if (block instanceof ShelfBlock)
+			itemSupplier = (shelfBlock, properties) -> new BlockItem(shelfBlock, properties.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
+		Items.registerBlock(block, itemSupplier);
 	}
 
 	private static void registerFlammability() {
@@ -980,6 +998,7 @@ public class RegisterBlocks {
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_FENCE, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_SLAB, 5, 20);
 		flammableBlockRegistry.add(RegisterBlocks.AZALEA_FENCE_GATE, 5, 20);
+		flammableBlockRegistry.add(RegisterBlocks.AZALEA_SHELF, 30, 20);
 
 
 		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
@@ -1077,27 +1096,24 @@ public class RegisterBlocks {
 
 		var sign = (FabricBlockEntityType) BlockEntityType.SIGN;
 		var hangingSign = (FabricBlockEntityType) BlockEntityType.HANGING_SIGN;
+		var shelf = (FabricBlockEntityType) BlockEntityType.SHELF;
 
 		sign.addSupportedBlock(AZALEA_SIGN);
 		sign.addSupportedBlock(AZALEA_WALL_SIGN);
 
 		hangingSign.addSupportedBlock(AZALEA_HANGING_SIGN);
 		hangingSign.addSupportedBlock(AZALEA_WALL_HANGING_SIGN);
+
+		shelf.addSupportedBlock(AZALEA_SHELF);
 	}
 
 	private RegisterBlocks() {
-		throw new UnsupportedOperationException("WWBlocks contains only static declarations.");
+		throw new UnsupportedOperationException("Blocks contains only static declarations.");
 	}
 
 	private static <T extends Block> T registerWithoutItem(String path, Function<Properties, T> block, Properties properties) {
 		ResourceLocation id = VerseSharedConstants.id(path);
 		return doRegister(id, makeBlock(block, properties, id));
-	}
-
-	private static <T extends Block> T register(String path, Function<Properties, T> block, Properties properties) {
-		T registered = registerWithoutItem(path, block, properties);
-		Items.registerBlock(registered);
-		return registered;
 	}
 
 	private static <T extends Block> T doRegister(ResourceLocation id, T block) {
@@ -1109,5 +1125,11 @@ public class RegisterBlocks {
 
 	private static <T extends Block> T makeBlock(Function<Properties, T> function, Properties properties, ResourceLocation id) {
 		return function.apply(properties.setId(ResourceKey.create(Registries.BLOCK, id)));
+	}
+
+	private static <T extends Block> T register(String path, Function<Properties, T> block, Properties properties) {
+		T registered = registerWithoutItem(path, block, properties);
+		registerBlockItem(registered);
+		return registered;
 	}
 }

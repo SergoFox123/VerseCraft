@@ -50,7 +50,6 @@ public final class VerseCraftClient implements ClientModInitializer {
 
 
 		//Blocks
-
 		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_DOOR, ChunkSectionLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 	}
