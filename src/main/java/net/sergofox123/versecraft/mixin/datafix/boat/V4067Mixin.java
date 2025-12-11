@@ -12,6 +12,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
+
 package net.sergofox123.versecraft.mixin.datafix.boat;
 
 import com.llamalad7.mixinextras.sugar.Local;
