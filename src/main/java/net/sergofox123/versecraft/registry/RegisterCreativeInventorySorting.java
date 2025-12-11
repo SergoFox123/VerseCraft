@@ -222,8 +222,6 @@ public class RegisterCreativeInventorySorting {
 		addAfterInNaturalBlocks(Items.TALL_GRASS, RegisterBlocks.TALL_MYCELIUM_GRASS);
 		addAfterInNaturalBlocks(Items.PINK_PETALS, RegisterBlocks.POP_FLOWER);
 		addAfterInNaturalBlocks(RegisterBlocks.POP_FLOWER, RegisterBlocks.GLOWSHROOM);
-
-
 	}
 
 

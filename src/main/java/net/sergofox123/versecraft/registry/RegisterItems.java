@@ -62,46 +62,44 @@ public class RegisterItems {
 			.stacksTo(1)
 	);
 
-
-
     //Pottery Sherd
 
-	public static final Item DRAGON_POTTERY_SHERD = registerSherd("dragon_pottery_sherd",
+	public static final Item DRAGON_POTTERY_SHERD = registerSherd("dragon",
 		Item::new,
 		new Properties()
 			.rarity(Rarity.UNCOMMON)
 			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
 	);
 
-	public static final Item EGG_POTTERY_SHERD = registerSherd("egg_pottery_sherd",
+	public static final Item EGG_POTTERY_SHERD = registerSherd("egg",
 		Item::new,
 		new Properties()
 			.rarity(Rarity.UNCOMMON)
 			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
 	);
 
-	public static final Item EYE_POTTERY_SHERD = registerSherd("eye_pottery_sherd",
+	public static final Item EYE_POTTERY_SHERD = registerSherd("eye",
 		Item::new,
 		new Properties()
 			.rarity(Rarity.UNCOMMON)
 			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
 	);
 
-	public static final Item PILLAGER_POTTERY_SHERD = registerSherd("pillager_pottery_sherd",
+	public static final Item PILLAGER_POTTERY_SHERD = registerSherd("pillager",
 		Item::new,
 		new Properties()
 			.rarity(Rarity.UNCOMMON)
 			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
 	);
 
-	public static final Item PORTAL_POTTERY_SHERD = registerSherd("portal_pottery_sherd",
+	public static final Item PORTAL_POTTERY_SHERD = registerSherd("portal",
 		Item::new,
 		new Properties()
 			.rarity(Rarity.UNCOMMON)
 			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
 	);
 
-	public static final Item SWORD_POTTERY_SHERD = registerSherd("sword_pottery_sherd",
+	public static final Item SWORD_POTTERY_SHERD = registerSherd("sword",
 		Item::new,
 		new Properties()
 			.rarity(Rarity.UNCOMMON)
@@ -138,13 +136,13 @@ public class RegisterItems {
 	public static void init() {
 	}
 
-	private static @NotNull <T extends Item> T register(String name, @NotNull Function<Item.Properties, Item> function, Item.@NotNull Properties properties) {
+	private static <T extends Item> T register(String name, Function<Properties, Item> function, Item.Properties properties) {
 		return (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
 	}
 
-	private static @NotNull <T extends Item> T registerSherd(String name, @NotNull Function<Properties, Item> function, Item.@NotNull Properties properties) {
-		T item = (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
-		SherdRegistry.register(item, VerseSharedConstants.id(name.replace("sherd", "pattern")));
+	private static <T extends Item> T registerSherd(String name, Function<Properties, Item> function, Item.Properties properties) {
+		final T item = (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name + "_pottery_sherd")), function, properties);
+		SherdRegistry.register(item, VerseSharedConstants.id(name));
 		return item;
 	}
 
