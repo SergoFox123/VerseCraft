@@ -27,7 +27,6 @@ plugins {
     idea
     `java-library`
     java
-    checkstyle
 }
 
 val githubActions: Boolean = System.getenv("GITHUB_ACTIONS") == "true"
@@ -193,12 +192,11 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:$loader_version")
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_api_version")
 
-    // FrozenLib
     if (local_frozenlib) {
         api(project(":FrozenLib", configuration = "namedElements"))
-        modCompileOnly(project(":FrozenLib"))
+        modCompileOnly(project(":FrozenLib"))?.let { include(it) }
     } else
-        modApi("maven.modrinth:frozenlib:$frozenlib_version")
+        modApi("maven.modrinth:frozenlib:$frozenlib_version")?.let { include(it) }
 
     // Mod Menu
     modCompileOnly("com.terraformersmc:modmenu:$modmenu_version")

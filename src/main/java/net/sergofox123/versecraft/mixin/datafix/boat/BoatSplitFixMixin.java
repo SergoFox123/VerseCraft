@@ -24,27 +24,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BoatSplitFix.class)
 public class BoatSplitFixMixin {
 
-	@Inject(
-		method = "mapVariantToNormalBoat",
-		at = @At("HEAD"),
-		cancellable = true
-	)
-
+	@Inject(method = "mapVariantToNormalBoat", at = @At("HEAD"), cancellable = true)
 	private static void verseCraft$mapVariantToNormalBoat(String string, CallbackInfoReturnable<String> info) {
 		switch (string) {
 			case "versecraftazalea" -> info.setReturnValue("versecraft:azalea_boat");
 		}
 	}
 
-	@Inject(
-		method = "mapVariantToChestBoat",
-		at = @At("HEAD"),
-		cancellable = true
-	)
-
+	@Inject(method = "mapVariantToChestBoat", at = @At("HEAD"), cancellable = true)
 	private static void verseCraft$mapVariantToChestBoat(String string, CallbackInfoReturnable<String> info) {
 		switch (string) {
 			case "versecraftazalea" -> info.setReturnValue("versecraft:azalea_chest_boat");
 		}
 	}
+
 }
