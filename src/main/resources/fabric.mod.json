@@ -49,7 +49,9 @@
     "cloth-config": "*",
     "modmenu": "*"
   },
-  "frozenlib_registry": {
-    "mod_protocol": $protocol_version
+  "custom": {
+    "frozenlib_registry": {
+      "mod_protocol": $protocol_version
+    }
   }
 }
