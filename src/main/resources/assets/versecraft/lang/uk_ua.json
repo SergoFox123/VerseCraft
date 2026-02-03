@@ -156,9 +156,9 @@
 
   "block.versecraft.short_mycelium_grass": "Низька грибнича трава ",
   "block.versecraft.tall_mycelium_grass": "Висока грибнича трава ",
-
   "block.versecraft.pop_flower": "Скачуща квітка",
-  "block.versecraft.potted_pop_flower": "Скачуща квітка в горщику",
+  "block.versecraft.glowshroom": "Світиться гриби",
 
-  "block.versecraft.glowshroom": "Світиться гриби"
+  "block.versecraft.copper_jack_o_lantern": "Мідний лихтар Джека",
+  "block.versecraft.soul_jack_o_lantern": "Лихтар Джека душ"
 }

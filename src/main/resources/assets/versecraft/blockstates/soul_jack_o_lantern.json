@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "versecraft:block/soul_jack_o_lantern",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "versecraft:block/soul_jack_o_lantern"
+    },
+    "facing=south": {
+      "model": "versecraft:block/soul_jack_o_lantern",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "versecraft:block/soul_jack_o_lantern",
+      "y": 270
+    }
+  }
+}

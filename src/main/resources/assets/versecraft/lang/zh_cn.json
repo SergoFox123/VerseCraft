@@ -156,5 +156,8 @@
   "block.versecraft.short_mycelium_grass": "短菌絲草",
   "block.versecraft.tall_mycelium_grass": "高大的菌絲草",
   "block.versecraft.pop_flower": "流行花",
-  "block.versecraft.glowshroom": "螢光菇"
+  "block.versecraft.glowshroom": "螢光菇",
+
+  "block.versecraft.copper_jack_o_lantern": "铜制南瓜灯",
+  "block.versecraft.soul_jack_o_lantern": "灵魂南瓜灯"
 }

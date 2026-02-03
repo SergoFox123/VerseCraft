@@ -156,5 +156,8 @@
   "block.versecraft.short_mycelium_grass": "Short Mycelium Grass",
   "block.versecraft.tall_mycelium_grass": "Tall Mycelium Grass",
   "block.versecraft.pop_flower": "Pop Flower",
-  "block.versecraft.glowshroom": "Glowshroom"
+  "block.versecraft.glowshroom": "Glowshroom",
+
+  "block.versecraft.copper_jack_o_lantern": "Copper Jack o'Lantern",
+  "block.versecraft.soul_jack_o_lantern": "Soul Jack o'Lantern"
 }

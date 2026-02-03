@@ -40,6 +40,7 @@ import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
@@ -49,7 +50,6 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.ShelfBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.SlabBlock;
@@ -930,6 +930,22 @@ public class RegisterBlocks {
 			.offsetType(BlockBehaviour.OffsetType.XZ)
 			.lightLevel(state -> 6)
 	);
+
+	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern",
+		CarvedPumpkinBlock::new,
+		Properties.ofFullCopy(JACK_O_LANTERN)
+			.mapColor(MapColor.COLOR_ORANGE)
+			.strength(1.0F).sound(SoundType.WOOD)
+			.lightLevel(state -> 10)
+			.pushReaction(PushReaction.DESTROY));
+
+	public static final Block COPPER_JACK_O_LANTERN = register("copper_jack_o_lantern",
+		CarvedPumpkinBlock::new,
+		Properties.ofFullCopy(JACK_O_LANTERN)
+			.mapColor(MapColor.COLOR_ORANGE)
+			.strength(1.0F).sound(SoundType.WOOD)
+			.lightLevel(state -> 14)
+			.pushReaction(PushReaction.DESTROY));
 
 	public static void registerBlocks() {
 	}
