@@ -30,8 +30,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -40,6 +40,7 @@ import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
@@ -49,7 +50,6 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.ShelfBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.SlabBlock;
@@ -931,6 +931,22 @@ public class RegisterBlocks {
 			.lightLevel(state -> 6)
 	);
 
+	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern",
+		CarvedPumpkinBlock::new,
+		Properties.ofFullCopy(JACK_O_LANTERN)
+			.mapColor(MapColor.COLOR_ORANGE)
+			.strength(1.0F).sound(SoundType.WOOD)
+			.lightLevel(state -> 10)
+			.pushReaction(PushReaction.DESTROY));
+
+	public static final Block COPPER_JACK_O_LANTERN = register("copper_jack_o_lantern",
+		CarvedPumpkinBlock::new,
+		Properties.ofFullCopy(JACK_O_LANTERN)
+			.mapColor(MapColor.COLOR_ORANGE)
+			.strength(1.0F).sound(SoundType.WOOD)
+			.lightLevel(state -> 14)
+			.pushReaction(PushReaction.DESTROY));
+
 	public static void registerBlocks() {
 	}
 
@@ -1112,19 +1128,8 @@ public class RegisterBlocks {
 	}
 
 	private static <T extends Block> T registerWithoutItem(String path, Function<Properties, T> block, Properties properties) {
-		ResourceLocation id = VerseSharedConstants.id(path);
+		Identifier id = VerseSharedConstants.id(path);
 		return doRegister(id, makeBlock(block, properties, id));
-	}
-
-	private static <T extends Block> T doRegister(ResourceLocation id, T block) {
-		if (BuiltInRegistries.BLOCK.getOptional(id).isEmpty()) {
-			return Registry.register(BuiltInRegistries.BLOCK, id, block);
-		}
-		throw new IllegalArgumentException("Block with id " + id + " is already in the block registry.");
-	}
-
-	private static <T extends Block> T makeBlock(Function<Properties, T> function, Properties properties, ResourceLocation id) {
-		return function.apply(properties.setId(ResourceKey.create(Registries.BLOCK, id)));
 	}
 
 	private static <T extends Block> T register(String path, Function<Properties, T> block, Properties properties) {
@@ -1132,4 +1137,16 @@ public class RegisterBlocks {
 		registerBlockItem(registered);
 		return registered;
 	}
+
+	private static <T extends Block> T doRegister(Identifier id, T block) {
+		if (BuiltInRegistries.BLOCK.getOptional(id).isEmpty()) {
+			return Registry.register(BuiltInRegistries.BLOCK, id, block);
+		}
+		throw new IllegalArgumentException("Block with id " + id + " is already in the block registry.");
+	}
+
+	private static <T extends Block> T makeBlock(Function<Properties, T> function, Properties properties, Identifier id) {
+		return function.apply(properties.setId(ResourceKey.create(Registries.BLOCK, id)));
+	}
+
 }

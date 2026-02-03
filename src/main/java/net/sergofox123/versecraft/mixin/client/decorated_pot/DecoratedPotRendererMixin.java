@@ -21,13 +21,12 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.math.Axis;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.renderer.blockentity.DecoratedPotRenderer;
 import net.minecraft.client.renderer.blockentity.state.DecoratedPotRenderState;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
-import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.DecoratedPotRenderer;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
 import net.minecraft.world.phys.Vec3;
+import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
 import net.sergofox123.versecraft.impl.client.DecoratedPotRenderStateInterface;
 import org.joml.Quaternionf;
 import org.spongepowered.asm.mixin.Mixin;
@@ -63,7 +62,7 @@ public class DecoratedPotRendererMixin {
 			target = "Lcom/mojang/math/Axis;rotation(F)Lorg/joml/Quaternionf;"
 		)
 	)
-	public Quaternionf verseCraft$flipWobble(
+	public Quaternionf trailierTales$flipWobble(
 		Axis instance, float v, Operation<Quaternionf> original,
 		@Local(argsOnly = true) DecoratedPotRenderState renderState
 	) {

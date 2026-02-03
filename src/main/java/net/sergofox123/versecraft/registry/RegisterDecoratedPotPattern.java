@@ -20,9 +20,7 @@ import net.sergofox123.versecraft.VerseSharedConstants;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.DecoratedPotPattern;
-import org.jetbrains.annotations.NotNull;
 
 public class RegisterDecoratedPotPattern implements DecoratedPotPatternRegistryEntrypoint {
 
@@ -34,15 +32,13 @@ public class RegisterDecoratedPotPattern implements DecoratedPotPatternRegistryE
 		register(registry, "pillager");
 		register(registry, "portal");
 		register(registry, "sword");
-
 	}
 
-	public static void register(@NotNull Registry<DecoratedPotPattern> registry, String sherdName) {
-		ResourceLocation location = VerseSharedConstants.id(sherdName + "_pottery_pattern");
+	private static void register(Registry<DecoratedPotPattern> registry, String sherdName) {
 		DecoratedPotPatternRegistryEntrypoint.register(
 			registry,
-			ResourceKey.create(Registries.DECORATED_POT_PATTERN, location),
-			location
+			ResourceKey.create(Registries.DECORATED_POT_PATTERN, VerseSharedConstants.id(sherdName)),
+			VerseSharedConstants.id(sherdName + "_pottery_pattern")
 		);
 	}
 }

@@ -15,28 +15,27 @@
 
 package net.sergofox123.versecraft.registry;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.frozenblock.lib.entity.api.spawnplacement.FrozenSpawnPlacementTypes;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.Util;
+import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.entity.vehicle.ChestBoat;
-import net.minecraft.world.level.levelgen.Heightmap;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.world.entity.vehicle.boat.Boat;
+import net.minecraft.world.entity.vehicle.boat.ChestBoat;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import net.sergofox123.versecraft.VerseSharedConstants;
-import org.jetbrains.annotations.NotNull;
+import java.util.Set;
 
 public class RegisterEntityTypes {
 
-	// BOATS
 
 	public static final EntityType<Boat> AZALEA_BOAT = register(
 		"azalea_boat",
@@ -60,7 +59,7 @@ public class RegisterEntityTypes {
 
 	}
 
-	private static <T extends Entity> @NotNull EntityType<T> register(String string, EntityType.@NotNull Builder<T> builder) {
+	private static <T extends Entity> EntityType<T> register(String string, EntityType.Builder<T> builder) {
 		ResourceKey<EntityType<?>> resourceKey = ResourceKey.create(Registries.ENTITY_TYPE, VerseSharedConstants.id(string));
 		return Registry.register(BuiltInRegistries.ENTITY_TYPE, resourceKey, builder.build(resourceKey));
 	}

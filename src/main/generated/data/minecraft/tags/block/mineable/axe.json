@@ -52,6 +52,10 @@
 
     "versecraft:warped_mosaic",
     "versecraft:warped_mosaic_stairs",
-    "versecraft:warped_mosaic_slab"
+    "versecraft:warped_mosaic_slab",
+
+    "versecraft:soul_jack_o_lantern",
+    "versecraft:copper_jack_o_lantern"
+
   ]
 }

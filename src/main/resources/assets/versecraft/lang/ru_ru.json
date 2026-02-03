@@ -156,5 +156,8 @@
   "block.versecraft.short_mycelium_grass": "Низкая мицеливая трава ",
   "block.versecraft.tall_mycelium_grass": "Высокая мицеливая трава",
   "block.versecraft.pop_flower": "Скачущий цветок",
-  "block.versecraft.glowshroom": "Светящийся грибы"
+  "block.versecraft.glowshroom": "Светящийся грибы",
+
+  "block.versecraft.copper_jack_o_lantern": "Медный светильник джека",
+  "block.versecraft.soul_jack_o_lantern": "Светильник джека душ"
 }
