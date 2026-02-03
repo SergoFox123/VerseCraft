@@ -194,9 +194,10 @@ dependencies {
 
     if (local_frozenlib) {
         api(project(":FrozenLib", configuration = "namedElements"))
-        modCompileOnly(project(":FrozenLib"))?.let { include(it) }
-    } else
+        include(project(":FrozenLib"))
+    } else {
         modApi("maven.modrinth:frozenlib:$frozenlib_version")?.let { include(it) }
+    }
 
     // Mod Menu
     modCompileOnly("com.terraformersmc:modmenu:$modmenu_version")
