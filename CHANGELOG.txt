@@ -2,6 +2,5 @@ Changelog
 
 Put changelog here:
 -----------------
-- Added new Azalea Shelf
-- Update textures for Dragon,Eye,Egg,Sword,Portal pottery pattern
-- Update to 1.21.10
+- Added the Copper Jack-o'Lantern and the Soul Jack-o'Lantern
+- Update to 1.21.11
