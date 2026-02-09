@@ -62,7 +62,7 @@ public class DecoratedPotRendererMixin {
 			target = "Lcom/mojang/math/Axis;rotation(F)Lorg/joml/Quaternionf;"
 		)
 	)
-	public Quaternionf trailierTales$flipWobble(
+	public Quaternionf versecraft$flipWobble(
 		Axis instance, float v, Operation<Quaternionf> original,
 		@Local(argsOnly = true) DecoratedPotRenderState renderState
 	) {
