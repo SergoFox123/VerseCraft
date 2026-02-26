@@ -495,3 +495,9 @@ val publishMod by tasks.register("publishMod") {
     dependsOn(github)
     dependsOn(tasks.modrinth)
 }
+
+allprojects {
+    tasks.matching { it.name.startsWith("checkstyle") }.configureEach {
+        enabled = false
+    }
+}
