@@ -38,7 +38,7 @@
   "mixins": [
     "versecraft.mixins.json"
   ],
-  "accessWidener": "versecraft.accesswidener",
+  "accessWidener": "versecraft.classtweaker",
   "depends": {
     "frozenlib": "${frozenlib_version}",
     "fabric-api": "${fabric_api_version}",

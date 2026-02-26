@@ -46,7 +46,7 @@ public class DecoratedPotRendererMixin {
 		DecoratedPotBlockEntity decoratedPot,
 		DecoratedPotRenderState renderState,
 		float partialTick,
-		Vec3 cameraPos,
+		Vec3 cameraPosition,
 		ModelFeatureRenderer.CrumblingOverlay crumblingOverlay,
 		CallbackInfo info
 	) {
@@ -62,7 +62,7 @@ public class DecoratedPotRendererMixin {
 			target = "Lcom/mojang/math/Axis;rotation(F)Lorg/joml/Quaternionf;"
 		)
 	)
-	public Quaternionf versecraft$flipWobble(
+	public Quaternionf trailierTales$flipWobble(
 		Axis instance, float v, Operation<Quaternionf> original,
 		@Local(argsOnly = true) DecoratedPotRenderState renderState
 	) {

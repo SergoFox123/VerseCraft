@@ -18,7 +18,7 @@ buildscript {
 }
 
 plugins {
-    id("fabric-loom") version("1.14-SNAPSHOT")
+    id("net.fabricmc.fabric-loom") version("1.15-SNAPSHOT")
     id("org.quiltmc.gradle.licenser") version("+")
     id("org.ajoberstar.grgit") version("+")
     id("com.modrinth.minotaur") version("+")
@@ -27,6 +27,7 @@ plugins {
     idea
     `java-library`
     java
+    checkstyle
 }
 
 val githubActions: Boolean = System.getenv("GITHUB_ACTIONS") == "true"
@@ -71,7 +72,7 @@ val datagen by sourceSets.registering {
 loom {
     runtimeOnlyLog4j.set(true)
 
-    accessWidenerPath.set(file("src/main/resources/$mod_id.accesswidener"))
+    accessWidenerPath.set(file("src/main/resources/$mod_id.classtweaker"))
     interfaceInjection {
         // When enabled, injected interfaces from dependencies will be applied.
         enableDependencyInterfaceInjection.set(true)
@@ -120,19 +121,14 @@ loom {
     }
 }
 
-val includeModImplementation by configurations.creating
 val includeImplementation by configurations.creating
 
 configurations {
     include {
         extendsFrom(includeImplementation)
-        extendsFrom(includeModImplementation)
     }
     implementation {
         extendsFrom(includeImplementation)
-    }
-    modImplementation {
-        extendsFrom(includeModImplementation)
     }
 }
 
@@ -181,36 +177,22 @@ repositories {
 dependencies {
     // To change the versions, see the gradle.properties file
     minecraft("com.mojang:minecraft:$minecraft_version")
-    mappings(loom.layered {
-        // please annoy treetrain if this doesnt work
-        //mappings("org.quiltmc:quilt-mappings:$quilt_mappings:intermediary-v2")
-        //parchment("org.parchmentmc.data:parchment-$parchment_mappings@zip")
-        officialMojangMappings {
-            nameSyntheticMembers = false
-        }
-    })
-    modImplementation("net.fabricmc:fabric-loader:$loader_version")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_api_version")
+    implementation("net.fabricmc:fabric-loader:$loader_version")
+    implementation("net.fabricmc.fabric-api:fabric-api:$fabric_api_version")
 
-    if (local_frozenlib) {
-        api(project(":FrozenLib", configuration = "namedElements"))
-        include(project(":FrozenLib"))
-    } else {
-        modApi("maven.modrinth:frozenlib:$frozenlib_version")?.let { include(it) }
-    }
-
-    // Mod Menu
-    modCompileOnly("com.terraformersmc:modmenu:$modmenu_version")
+    // FrozenLib
+    api("maven.modrinth:frozenlib:$frozenlib_version")
 
     // Cloth Config
-    modCompileOnly("me.shedaniel.cloth:cloth-config-fabric:$cloth_config_version") {
+    compileOnly("me.shedaniel.cloth:cloth-config-fabric:$cloth_config_version") {
         exclude(group = "net.fabricmc.fabric-api")
         exclude(group = "com.terraformersmc")
     }
 
     // Sodium
     if (shouldRunSodium)
-        modImplementation("maven.modrinth:sodium:${sodium_version}")
+        runtimeOnly("maven.modrinth:sodium:${sodium_version}")
+
 
     "datagenImplementation"(sourceSets.main.get().output)
 }
@@ -221,7 +203,7 @@ tasks {
             "mod_id" to mod_id,
             "version" to version,
             "protocol_version" to protocol_version,
-            "minecraft_version" to "~1.21-",
+            "minecraft_version" to "~26.1-",
 
             "fabric_api_version" to ">=$fabric_api_version",
             "frozenlib_version" to ">=${frozenlib_version.split('-').firstOrNull()}-"
@@ -236,6 +218,7 @@ tasks {
                 "**/lang/*.json",
                 "**/.cache/*",
                 "**/*.accesswidener",
+                "**/*.classtweaker",
                 "**/*.nbt",
                 "**/*.png",
                 "**/*.ogg",
@@ -269,8 +252,8 @@ tasks {
 
     withType(JavaCompile::class) {
         options.encoding = "UTF-8"
-        // Minecraft 1.20.5 (24w14a) upwards uses Java 21.
-        options.release.set(21)
+        // Minecraft 26.1 (26.1-snapshot-1) upwards uses Java 25.
+        options.release.set(25)
         options.isFork = true
         options.isIncremental = true
     }
@@ -285,13 +268,13 @@ val test: Task by tasks
 val runClient: Task by tasks
 val runDatagen: Task by tasks
 
-val remapJar: Task by tasks
-val sourcesJar: Task by tasks
-val javadocJar: Task by tasks
+val jar: Jar by tasks
+val sourcesJar: Jar by tasks
+val javadocJar: Jar by tasks
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
 
     // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
     // if it is present.
@@ -443,12 +426,12 @@ modrinth {
     versionName.set(display_name)
     versionType.set(release_type)
     changelog.set(changelog_text)
-    uploadFile.set(remapJar)
+    uploadFile.set(jar)
     gameVersions.set(listOf(minecraft_version))
     loaders.set(listOf("fabric", "quilt"))
     additionalFiles.set(
         listOf(
-            //tasks.remapSourcesJar.get(),
+            //sourcesJar,
             //javadocJar
         )
     )
@@ -456,13 +439,12 @@ modrinth {
         required.project("fabric-api")
         required.project("frozenlib")
         optional.project("cloth-config")
-        optional.project("modmenu")
     }
 }
 
 
 val github by tasks.register("github") {
-    dependsOn(remapJar)
+    dependsOn(jar)
     dependsOn(sourcesJar)
     dependsOn(javadocJar)
 
@@ -484,8 +466,8 @@ val github by tasks.register("github") {
         releaseBuilder.prerelease(release_type != "release")
 
         val ghRelease = releaseBuilder.create()
-        ghRelease.uploadAsset(tasks.remapJar.get().archiveFile.get().asFile, "application/java-archive")
-        ghRelease.uploadAsset(tasks.remapSourcesJar.get().archiveFile.get().asFile, "application/java-archive")
+        ghRelease.uploadAsset(jar.archiveFile.get().asFile, "application/java-archive")
+        ghRelease.uploadAsset(sourcesJar.archiveFile.get().asFile, "application/java-archive")
         ghRelease.uploadAsset(javadocJar.outputs.files.singleFile, "application/java-archive")
     }
 }

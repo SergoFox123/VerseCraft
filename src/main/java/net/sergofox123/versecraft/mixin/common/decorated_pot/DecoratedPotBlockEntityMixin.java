@@ -36,7 +36,7 @@ public class DecoratedPotBlockEntityMixin implements DecoratedPotBlockEntityInte
 			target = "Lnet/minecraft/world/level/Level;getGameTime()J"
 		)
 	)
-	public void verseCraft$flipWobble(int i, int j, CallbackInfoReturnable<Boolean> cir) {
+	public void verseCraft$flipWobble(int event, int data, CallbackInfoReturnable<Boolean> info) {
 		this.verseCraft$flipWobble = !this.verseCraft$flipWobble;
 	}
 

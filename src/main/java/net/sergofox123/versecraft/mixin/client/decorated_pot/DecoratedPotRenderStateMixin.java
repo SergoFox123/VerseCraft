@@ -17,8 +17,8 @@ package net.sergofox123.versecraft.mixin.client.decorated_pot;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.sergofox123.versecraft.impl.client.DecoratedPotRenderStateInterface;
 import net.minecraft.client.renderer.blockentity.state.DecoratedPotRenderState;
+import net.sergofox123.versecraft.impl.client.DecoratedPotRenderStateInterface;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
