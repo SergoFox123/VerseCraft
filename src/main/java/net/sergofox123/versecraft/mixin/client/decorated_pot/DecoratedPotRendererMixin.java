@@ -56,13 +56,14 @@ public class DecoratedPotRendererMixin {
 	}
 
 	@WrapOperation(
-		method = "submit(Lnet/minecraft/client/renderer/blockentity/state/DecoratedPotRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V",
+		method = "submit(Lnet/minecraft/client/renderer/blockentity/state/DecoratedPotRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V",
 		at = @At(
 			value = "INVOKE",
 			target = "Lcom/mojang/math/Axis;rotation(F)Lorg/joml/Quaternionf;"
 		)
 	)
-	public Quaternionf trailierTales$flipWobble(
+
+	public Quaternionf verseCraft$flipWobble(
 		Axis instance, float v, Operation<Quaternionf> original,
 		@Local(argsOnly = true) DecoratedPotRenderState renderState
 	) {
