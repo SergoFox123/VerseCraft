@@ -19,6 +19,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.sergofox123.versecraft.client.ModelLayers;
+import net.sergofox123.versecraft.client.RenderStateDataKeys;
 
 @Environment(EnvType.CLIENT)
 public final class VerseCraftClient implements ClientModInitializer {
@@ -28,6 +29,7 @@ public final class VerseCraftClient implements ClientModInitializer {
 	public void onInitializeClient() {
 
 		ModelLayers.init();
+		RenderStateDataKeys.init();
 
 	}
 }

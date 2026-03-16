@@ -1,18 +1,3 @@
-/*
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, see <https://www.gnu.org/licenses/>.
- */
-
 package net.sergofox123.versecraft.mixin.client.decorated_pot;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -26,8 +11,8 @@ import net.minecraft.client.renderer.blockentity.state.DecoratedPotRenderState;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
 import net.minecraft.world.phys.Vec3;
+import net.sergofox123.versecraft.client.RenderStateDataKeys;
 import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
-import net.sergofox123.versecraft.impl.client.DecoratedPotRenderStateInterface;
 import org.joml.Quaternionf;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -51,8 +36,7 @@ public class DecoratedPotRendererMixin {
 		CallbackInfo info
 	) {
 		if (!(decoratedPot instanceof DecoratedPotBlockEntityInterface potInterface)) return;
-		if (!(renderState instanceof DecoratedPotRenderStateInterface stateInterface)) return;
-		stateInterface.verseCraft$setWobbleFlipped(potInterface.verseCraft$isWobbleFlipped());
+		renderState.setData(RenderStateDataKeys.DECORATED_POT_WOBBLE_FLIPPED, potInterface.verseCraft$isWobbleFlipped());
 	}
 
 	@WrapOperation(
@@ -62,13 +46,11 @@ public class DecoratedPotRendererMixin {
 			target = "Lcom/mojang/math/Axis;rotation(F)Lorg/joml/Quaternionf;"
 		)
 	)
-
 	public Quaternionf verseCraft$flipWobble(
 		Axis instance, float v, Operation<Quaternionf> original,
 		@Local(argsOnly = true) DecoratedPotRenderState renderState
 	) {
-		float multiplier = 1F;
-		if (renderState instanceof DecoratedPotRenderStateInterface stateInterface) multiplier = stateInterface.verseCraft$isWobbleFlipped() ? -1F : 1F;
+		final float multiplier = renderState.getDataOrDefault(RenderStateDataKeys.DECORATED_POT_WOBBLE_FLIPPED, false) ? -1F : 1F;
 		return original.call(instance, v * multiplier);
 	}
 
