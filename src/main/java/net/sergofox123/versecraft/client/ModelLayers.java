@@ -15,20 +15,12 @@
 
 package net.sergofox123.versecraft.client;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-
+import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.object.boat.BoatModel;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.entity.NoopRenderer;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.sergofox123.versecraft.VerseSharedConstants;
 import net.sergofox123.versecraft.registry.RegisterEntityTypes;
 
@@ -46,8 +38,8 @@ public class ModelLayers {
 		final LayerDefinition boat = BoatModel.createBoatModel();
 		final LayerDefinition chestBoat = BoatModel.createChestBoatModel();
 
-		EntityModelLayerRegistry.registerModelLayer(AZALEA_BOAT, () -> boat);
-		EntityModelLayerRegistry.registerModelLayer(AZALEA_CHEST_BOAT, () -> chestBoat);
+		ModelLayerRegistry.registerModelLayer(AZALEA_BOAT, () -> boat);
+		ModelLayerRegistry.registerModelLayer(AZALEA_CHEST_BOAT, () -> chestBoat);
 
 	}
 }

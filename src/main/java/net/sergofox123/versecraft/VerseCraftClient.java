@@ -18,10 +18,8 @@ package net.sergofox123.versecraft;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.sergofox123.versecraft.client.ModelLayers;
-import net.sergofox123.versecraft.registry.RegisterBlocks;
+import net.sergofox123.versecraft.client.RenderStateDataKeys;
 
 @Environment(EnvType.CLIENT)
 public final class VerseCraftClient implements ClientModInitializer {
@@ -31,26 +29,7 @@ public final class VerseCraftClient implements ClientModInitializer {
 	public void onInitializeClient() {
 
 		ModelLayers.init();
+		RenderStateDataKeys.init();
 
-		//Plants
-		BlockRenderLayerMap.putBlock(RegisterBlocks.BLUE_ROSE, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(RegisterBlocks.BLUE_ROSE_CROP, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(RegisterBlocks.POTTED_BLUE_ROSE, ChunkSectionLayer.CUTOUT);
-
-		BlockRenderLayerMap.putBlock(RegisterBlocks.ICEFLOWER, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(RegisterBlocks.ICEFLOWER_CROP, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(RegisterBlocks.POTTED_ICEFLOWER, ChunkSectionLayer.CUTOUT);
-
-		BlockRenderLayerMap.putBlock(RegisterBlocks.SHORT_MYCELIUM_GRASS, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(RegisterBlocks.TALL_MYCELIUM_GRASS, ChunkSectionLayer.CUTOUT);
-
-		BlockRenderLayerMap.putBlock(RegisterBlocks.POP_FLOWER, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(RegisterBlocks.POTTED_POP_FLOWER, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(RegisterBlocks.GLOWSHROOM, ChunkSectionLayer.CUTOUT);
-
-
-		//Blocks
-		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_DOOR, ChunkSectionLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(RegisterBlocks.AZALEA_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 	}
 }

@@ -15,7 +15,6 @@
 
 package net.sergofox123.versecraft.mixin.common.decorated_pot;
 
-
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
 import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
 import org.spongepowered.asm.mixin.Mixin;
@@ -36,7 +35,7 @@ public class DecoratedPotBlockEntityMixin implements DecoratedPotBlockEntityInte
 			target = "Lnet/minecraft/world/level/Level;getGameTime()J"
 		)
 	)
-	public void verseCraft$flipWobble(int i, int j, CallbackInfoReturnable<Boolean> cir) {
+	public void verseCraft$flipWobble(int event, int data, CallbackInfoReturnable<Boolean> info) {
 		this.verseCraft$flipWobble = !this.verseCraft$flipWobble;
 	}
 

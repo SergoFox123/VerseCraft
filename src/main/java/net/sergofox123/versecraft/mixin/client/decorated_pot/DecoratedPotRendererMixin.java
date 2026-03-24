@@ -26,8 +26,8 @@ import net.minecraft.client.renderer.blockentity.state.DecoratedPotRenderState;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
 import net.minecraft.world.phys.Vec3;
+import net.sergofox123.versecraft.client.RenderStateDataKeys;
 import net.sergofox123.versecraft.impl.client.DecoratedPotBlockEntityInterface;
-import net.sergofox123.versecraft.impl.client.DecoratedPotRenderStateInterface;
 import org.joml.Quaternionf;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -46,28 +46,26 @@ public class DecoratedPotRendererMixin {
 		DecoratedPotBlockEntity decoratedPot,
 		DecoratedPotRenderState renderState,
 		float partialTick,
-		Vec3 cameraPos,
+		Vec3 cameraPosition,
 		ModelFeatureRenderer.CrumblingOverlay crumblingOverlay,
 		CallbackInfo info
 	) {
 		if (!(decoratedPot instanceof DecoratedPotBlockEntityInterface potInterface)) return;
-		if (!(renderState instanceof DecoratedPotRenderStateInterface stateInterface)) return;
-		stateInterface.verseCraft$setWobbleFlipped(potInterface.verseCraft$isWobbleFlipped());
+		renderState.setData(RenderStateDataKeys.DECORATED_POT_WOBBLE_FLIPPED, potInterface.verseCraft$isWobbleFlipped());
 	}
 
 	@WrapOperation(
-		method = "submit(Lnet/minecraft/client/renderer/blockentity/state/DecoratedPotRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V",
+		method = "submit(Lnet/minecraft/client/renderer/blockentity/state/DecoratedPotRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V",
 		at = @At(
 			value = "INVOKE",
 			target = "Lcom/mojang/math/Axis;rotation(F)Lorg/joml/Quaternionf;"
 		)
 	)
-	public Quaternionf versecraft$flipWobble(
+	public Quaternionf verseCraft$flipWobble(
 		Axis instance, float v, Operation<Quaternionf> original,
 		@Local(argsOnly = true) DecoratedPotRenderState renderState
 	) {
-		float multiplier = 1F;
-		if (renderState instanceof DecoratedPotRenderStateInterface stateInterface) multiplier = stateInterface.verseCraft$isWobbleFlipped() ? -1F : 1F;
+		final float multiplier = renderState.getDataOrDefault(RenderStateDataKeys.DECORATED_POT_WOBBLE_FLIPPED, false) ? -1F : 1F;
 		return original.call(instance, v * multiplier);
 	}
 

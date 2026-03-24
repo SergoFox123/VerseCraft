@@ -20,9 +20,9 @@ import java.util.function.Function;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.CompostableRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
+import net.fabricmc.fabric.api.registry.FuelValueEvents;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
@@ -1032,7 +1032,7 @@ public class RegisterBlocks {
 
 	private static void registerFuels() {
 
-		FuelRegistryEvents.BUILD.register((builder, context) -> {
+		FuelValueEvents.BUILD.register((builder, context) -> {
 			builder.add(RegisterItems.AZALEA_BOAT, 1200);
 			builder.add(RegisterItems.AZALEA_CHEST_BOAT, 1200);
 			builder.add(AZALEA_LOG.asItem(), 300);
@@ -1094,13 +1094,13 @@ public class RegisterBlocks {
 
 	private static void registerComposting() {
 
-		CompostingChanceRegistry.INSTANCE.add(GLOWSHROOM, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(BLUE_ROSE, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(ICEFLOWER, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(POP_FLOWER, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(SHORT_MYCELIUM_GRASS, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(TALL_MYCELIUM_GRASS, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(RegisterItems.CHERRY, 0.65F);
+		CompostableRegistry.INSTANCE.add(GLOWSHROOM, 0.65F);
+		CompostableRegistry.INSTANCE.add(BLUE_ROSE, 0.65F);
+		CompostableRegistry.INSTANCE.add(ICEFLOWER, 0.65F);
+		CompostableRegistry.INSTANCE.add(POP_FLOWER, 0.65F);
+		CompostableRegistry.INSTANCE.add(SHORT_MYCELIUM_GRASS, 0.65F);
+		CompostableRegistry.INSTANCE.add(TALL_MYCELIUM_GRASS, 0.65F);
+		CompostableRegistry.INSTANCE.add(RegisterItems.CHERRY, 0.65F);
 	}
 
 	public static void registerBlockProperties() {
@@ -1114,13 +1114,13 @@ public class RegisterBlocks {
 		var hangingSign = (FabricBlockEntityType) BlockEntityType.HANGING_SIGN;
 		var shelf = (FabricBlockEntityType) BlockEntityType.SHELF;
 
-		sign.addSupportedBlock(AZALEA_SIGN);
-		sign.addSupportedBlock(AZALEA_WALL_SIGN);
+		sign.addValidBlock(AZALEA_SIGN);
+		sign.addValidBlock(AZALEA_WALL_SIGN);
 
-		hangingSign.addSupportedBlock(AZALEA_HANGING_SIGN);
-		hangingSign.addSupportedBlock(AZALEA_WALL_HANGING_SIGN);
+		hangingSign.addValidBlock(AZALEA_HANGING_SIGN);
+		hangingSign.addValidBlock(AZALEA_WALL_HANGING_SIGN);
 
-		shelf.addSupportedBlock(AZALEA_SHELF);
+		shelf.addValidBlock(AZALEA_SHELF);
 	}
 
 	private RegisterBlocks() {

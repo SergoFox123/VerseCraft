@@ -13,9 +13,17 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-package net.sergofox123.versecraft.impl.client;
+package net.sergofox123.versecraft.client;
 
-public interface DecoratedPotRenderStateInterface {
-	void verseCraft$setWobbleFlipped(boolean flipped);
-	boolean verseCraft$isWobbleFlipped();
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
+
+@Environment(EnvType.CLIENT)
+public class RenderStateDataKeys {
+
+	public static final RenderStateDataKey<Boolean> DECORATED_POT_WOBBLE_FLIPPED = RenderStateDataKey.create();
+
+	public static void init() {
+	}
 }

@@ -15,24 +15,29 @@
 
 package net.sergofox123.versecraft.registry;
 
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.CommonLifecycleEvents;
 import net.frozenblock.lib.item.api.FrozenCreativeTabs;
-import net.frozenblock.lib.item.api.ItemBlockStateTagUtils;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Instrument;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
-import org.jetbrains.annotations.NotNull;
 
 public class RegisterCreativeInventorySorting {
 
+	private static boolean hasRun = false;
+
+
 	public static void init() {
+		CommonLifecycleEvents.TAGS_LOADED.register((registryAccess, client) -> {
+			if (hasRun) return;
+			run();
+			hasRun = true;
+		});
+	}
+
+
+	public static void run() {
 
 		// AZALEA (BUILDING BLOCKS)
 		addAfterInBuildingBlocks(Items.ACACIA_BUTTON, RegisterBlocks.AZALEA_LOG);
@@ -156,7 +161,7 @@ public class RegisterCreativeInventorySorting {
 		addAfterInBuildingBlocks(RegisterBlocks.GRANITE_BRICKS_WALL, RegisterBlocks.CHISELED_GRANITE_BRICKS);
 
 		//Calcite
-		FrozenCreativeTabs.addAfter(Items.REINFORCED_DEEPSLATE, Items.CALCITE, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, CreativeModeTabs.BUILDING_BLOCKS);
+		FrozenCreativeTabs.insertAfter(Items.REINFORCED_DEEPSLATE, Items.CALCITE, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, CreativeModeTabs.BUILDING_BLOCKS);
 		addAfterInBuildingBlocks(Items.CALCITE, RegisterBlocks.CALCITE_STAIRS);
 		addAfterInBuildingBlocks(RegisterBlocks.CALCITE_STAIRS, RegisterBlocks.CALCITE_SLAB);
 		addAfterInBuildingBlocks(RegisterBlocks.CALCITE_SLAB, RegisterBlocks.CALCITE_WALL);
@@ -177,7 +182,7 @@ public class RegisterCreativeInventorySorting {
 		addAfterInBuildingBlocks(RegisterBlocks.CALCITE_BRICKS_STAIRS, RegisterBlocks.CRACKED_CALCITE_BRICKS);
 
 		//Dripstone
-		FrozenCreativeTabs.addAfter(Items.CHISELED_TUFF_BRICKS, Items.DRIPSTONE_BLOCK, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, CreativeModeTabs.BUILDING_BLOCKS);
+		FrozenCreativeTabs.insertAfter(Items.CHISELED_TUFF_BRICKS, Items.DRIPSTONE_BLOCK, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, CreativeModeTabs.BUILDING_BLOCKS);
 		addAfterInBuildingBlocks(Items.DRIPSTONE_BLOCK, RegisterBlocks.DRIPSTONE_STAIRS);
 		addAfterInBuildingBlocks(RegisterBlocks.DRIPSTONE_STAIRS, RegisterBlocks.DRIPSTONE_SLAB);
 		addAfterInBuildingBlocks(RegisterBlocks.DRIPSTONE_SLAB, RegisterBlocks.DRIPSTONE_WALL);
@@ -231,82 +236,79 @@ public class RegisterCreativeInventorySorting {
 
 
 
+	private static void addInBuildingBlocks(ItemLike item) {
+		FrozenCreativeTabs.insert(item, CreativeModeTabs.BUILDING_BLOCKS);
+	}
+
 	private static void addBeforeInBuildingBlocks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addBefore(comparedItem, item, CreativeModeTabs.BUILDING_BLOCKS);
+		FrozenCreativeTabs.insertBefore(comparedItem, item, CreativeModeTabs.BUILDING_BLOCKS);
 	}
 
 	private static void addAfterInBuildingBlocks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.BUILDING_BLOCKS);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.BUILDING_BLOCKS);
 	}
 
 	private static void addBeforeInNaturalBlocks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addBefore(comparedItem, item, CreativeModeTabs.NATURAL_BLOCKS);
+		FrozenCreativeTabs.insertBefore(comparedItem, item, CreativeModeTabs.NATURAL_BLOCKS);
 	}
 
 	private static void addAfterInNaturalBlocks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.NATURAL_BLOCKS);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.NATURAL_BLOCKS);
 	}
 
 	private static void addAfterInBuildingAndNaturalBlocks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.BUILDING_BLOCKS, CreativeModeTabs.NATURAL_BLOCKS);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.BUILDING_BLOCKS, CreativeModeTabs.NATURAL_BLOCKS);
 	}
 
 	private static void addAfterInNaturalAndFunctionalBlocks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.NATURAL_BLOCKS, CreativeModeTabs.FUNCTIONAL_BLOCKS);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.NATURAL_BLOCKS, CreativeModeTabs.FUNCTIONAL_BLOCKS);
 	}
 
 	private static void addAfterInFunctionalBlocks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.FUNCTIONAL_BLOCKS);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.FUNCTIONAL_BLOCKS);
 	}
 
 	private static void addBeforeInRedstoneBlocks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addBefore(comparedItem, item, CreativeModeTabs.REDSTONE_BLOCKS);
+		FrozenCreativeTabs.insertBefore(comparedItem, item, CreativeModeTabs.REDSTONE_BLOCKS);
 	}
 
 	private static void addInToolsAndUtilities(ItemLike item) {
-		FrozenCreativeTabs.add(item, CreativeModeTabs.TOOLS_AND_UTILITIES);
+		FrozenCreativeTabs.insert(item, CreativeModeTabs.TOOLS_AND_UTILITIES);
+	}
+
+	private static void addBeforeInToolsAndUtilities(ItemLike comparedItem, ItemLike item) {
+		FrozenCreativeTabs.insertBefore(comparedItem, item, CreativeModeTabs.TOOLS_AND_UTILITIES);
 	}
 
 	private static void addAfterInToolsAndUtilities(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.TOOLS_AND_UTILITIES);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.TOOLS_AND_UTILITIES);
 	}
 
 	private static void addBeforeInIngredients(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addBefore(comparedItem, item, CreativeModeTabs.INGREDIENTS);
+		FrozenCreativeTabs.insertBefore(comparedItem, item, CreativeModeTabs.INGREDIENTS);
 	}
 
 	private static void addAfterInIngredients(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.INGREDIENTS);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.INGREDIENTS);
 	}
 
-
 	private static void addBeforeInFoodAndDrinks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addBefore(comparedItem, item, CreativeModeTabs.FOOD_AND_DRINKS);
+		FrozenCreativeTabs.insertBefore(comparedItem, item, CreativeModeTabs.FOOD_AND_DRINKS);
 	}
 
 	private static void addAfterInFoodAndDrinks(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.FOOD_AND_DRINKS);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.FOOD_AND_DRINKS);
 	}
 
 	private static void addAfterInCombat(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.COMBAT);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.COMBAT);
 	}
 
 	private static void addBeforeInSpawnEggs(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addBefore(comparedItem, item, CreativeModeTabs.SPAWN_EGGS);
+		FrozenCreativeTabs.insertBefore(comparedItem, item, CreativeModeTabs.SPAWN_EGGS);
 	}
 
 	private static void addAfterInSpawnEggs(ItemLike comparedItem, ItemLike item) {
-		FrozenCreativeTabs.addAfter(comparedItem, item, CreativeModeTabs.SPAWN_EGGS);
-	}
-
-	@SafeVarargs
-	private static void addInstrumentBefore(
-		@NotNull Item comparedItem,
-		@NotNull Item instrument,
-		@NotNull TagKey<Instrument> tagKey,
-		@NotNull ResourceKey<CreativeModeTab>... tabs
-	) {
-		FrozenCreativeTabs.addInstrumentBefore(comparedItem, instrument, tagKey, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
+		FrozenCreativeTabs.insertAfter(comparedItem, item, CreativeModeTabs.SPAWN_EGGS);
 	}
 }

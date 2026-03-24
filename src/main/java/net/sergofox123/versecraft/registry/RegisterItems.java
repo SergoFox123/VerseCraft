@@ -17,7 +17,6 @@ package net.sergofox123.versecraft.registry;
 
 import java.util.function.Function;
 import net.frozenblock.lib.item.api.sherd.SherdRegistry;
-import net.minecraft.core.dispenser.BoatDispenseItemBehavior;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
@@ -28,16 +27,10 @@ import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SignItem;
-import net.minecraft.world.item.SmithingTemplateItem;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DispenserBlock;
 import net.sergofox123.versecraft.VerseFeatureFlags;
 import net.sergofox123.versecraft.VerseSharedConstants;
-import org.jetbrains.annotations.NotNull;
 import static net.minecraft.world.item.Items.registerBlock;
-import static net.minecraft.world.item.Items.registerItem;
-
 
 public class RegisterItems {
 
