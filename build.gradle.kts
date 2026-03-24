@@ -188,6 +188,7 @@ dependencies {
 
     // FrozenLib
     api("maven.modrinth:frozenlib:$frozenlib_version")
+    include("maven.modrinth:frozenlib:$frozenlib_version")
 
     // Cloth Config
     compileOnly("me.shedaniel.cloth:cloth-config-fabric:$cloth_config_version") {
