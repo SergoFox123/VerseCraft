@@ -79,6 +79,12 @@ loom {
     }
 }
 
+checkstyle {
+    configFile = rootProject.file("checkstyle.xml")
+    toolVersion = "10.20.2"
+    isIgnoreFailures = true
+}
+
 sourceSets {
     main {
         resources {
