@@ -34,10 +34,17 @@ public class RegisterWorldgen {
 	private static final ResourceKey<PlacedFeature> GLOWSHROOM_PLACED = ResourceKey.create(Registries.PLACED_FEATURE, VerseSharedConstants.id("glowshroom_placed"));
 
 	public static void init() {
+		//Feature Biome
 		BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.MUSHROOM_FIELDS), GenerationStep.Decoration.VEGETAL_DECORATION, POP_FLOWER_PLACED);
 		BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.MUSHROOM_FIELDS), GenerationStep.Decoration.VEGETAL_DECORATION, SHORT_MYCELIUM_GRASS_PLACED);
 		BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.MUSHROOM_FIELDS), GenerationStep.Decoration.VEGETAL_DECORATION, TALL_MYCELIUM_GRASS_PLACED);
 		BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.MUSHROOM_FIELDS), GenerationStep.Decoration.VEGETAL_DECORATION, GLOWSHROOM_PLACED);
+
+		//Mob spawn
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(Biomes.SAVANNA),MobCategory.CREATURE,EntityType.LLAMA,8,1,4);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(Biomes.WINDSWEPT_SAVANNA),MobCategory.CREATURE,EntityType.LLAMA,8,1,4);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(Biomes.SPARSE_JUNGLE),MobCategory.CREATURE,EntityType.PARROT,40,1,2);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(Biomes.SPARSE_JUNGLE),MobCategory.CREATURE,EntityType.OCELOT,30,1,2);
 	}
 
 	private RegisterWorldgen() {
