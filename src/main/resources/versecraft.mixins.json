@@ -4,6 +4,7 @@
   "package": "net.sergofox123.versecraft.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "common.block.MyceliumBlockMixin",
     "datafix.boat.BoatSplitFixMixin",
     "datafix.boat.V4067Mixin",
     "common.decorated_pot.DecoratedPotBlockEntityMixin"
