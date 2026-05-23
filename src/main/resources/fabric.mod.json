@@ -3,7 +3,7 @@
   "id": "${mod_id}",
   "version": "${version}",
   "name": "VerseCraft",
-  "description": "Adding block, features and etc....",
+  "description": "VerseCraft expands vanilla Minecraft with new decorative blocks, plants, food, and small details — all designed to fit seamlessly into the original game style.",
   "authors": [
     "SergoFox",
     "Zozozrob"
