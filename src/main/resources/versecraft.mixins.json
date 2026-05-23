@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8.5",
-  "package": "net.sergofox123.versecraft.mixin",
+  "package": "net.sergofoox.versecraft.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "common.block.MyceliumBlockMixin",
