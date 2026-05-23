@@ -66,7 +66,6 @@ public class RegisterCreativeInventorySorting {
 		addAfterInFunctionalBlocks(RegisterItems.AZALEA_SIGN, RegisterItems.AZALEA_HANGING_SIGN);
 		addAfterInFunctionalBlocks(Items.ACACIA_SHELF, RegisterBlocks.AZALEA_SHELF);
 
-
 		//Acacia Mosaic
 		addAfterInBuildingBlocks(Items.ACACIA_PLANKS, RegisterBlocks.ACACIA_MOSAIC);
 		addAfterInBuildingBlocks(Items.ACACIA_STAIRS, RegisterBlocks.ACACIA_MOSAIC_STAIRS);
@@ -230,7 +229,7 @@ public class RegisterCreativeInventorySorting {
 
 		addAfterInNaturalBlocks(Blocks.JACK_O_LANTERN, RegisterBlocks.SOUL_JACK_O_LANTERN);
 		addAfterInNaturalBlocks(RegisterBlocks.SOUL_JACK_O_LANTERN, RegisterBlocks.COPPER_JACK_O_LANTERN);
-
+		addAfterInFunctionalBlocks(Items.CAMPFIRE, RegisterBlocks.COPPER_CAMPFIRE);
 
 	}
 

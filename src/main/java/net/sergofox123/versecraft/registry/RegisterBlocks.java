@@ -41,6 +41,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
+import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
@@ -947,6 +948,12 @@ public class RegisterBlocks {
 			.lightLevel(state -> 14)
 			.pushReaction(PushReaction.DESTROY));
 
+	public static final CampfireBlock COPPER_CAMPFIRE = register("copper_campfire",
+		properties -> new CampfireBlock(true, 1, properties),
+		Properties.ofFullCopy(CAMPFIRE)
+			.mapColor(MapColor.COLOR_ORANGE)
+	);
+
 	public static void registerBlocks() {
 	}
 
@@ -1019,7 +1026,6 @@ public class RegisterBlocks {
 
 		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
 		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
-
 		flammableBlockRegistry.add(RegisterBlocks.TALL_MYCELIUM_GRASS, 100, 60);
 		flammableBlockRegistry.add(RegisterBlocks.SHORT_MYCELIUM_GRASS, 100, 60);
 		flammableBlockRegistry.add(RegisterBlocks.POP_FLOWER, 100, 60);
@@ -1113,6 +1119,7 @@ public class RegisterBlocks {
 		var sign = (FabricBlockEntityType) BlockEntityType.SIGN;
 		var hangingSign = (FabricBlockEntityType) BlockEntityType.HANGING_SIGN;
 		var shelf = (FabricBlockEntityType) BlockEntityType.SHELF;
+		var campfire = (FabricBlockEntityType) BlockEntityType.CAMPFIRE;
 
 		sign.addValidBlock(AZALEA_SIGN);
 		sign.addValidBlock(AZALEA_WALL_SIGN);
@@ -1121,6 +1128,8 @@ public class RegisterBlocks {
 		hangingSign.addValidBlock(AZALEA_WALL_HANGING_SIGN);
 
 		shelf.addValidBlock(AZALEA_SHELF);
+
+		campfire.addValidBlock(COPPER_CAMPFIRE);
 	}
 
 	private RegisterBlocks() {
