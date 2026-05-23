@@ -20,19 +20,19 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.sergofox123.versecraft.VerseCraft"
+      "net.sergofoox.versecraft.VerseCraft"
     ],
     "client": [
-      "net.sergofox123.versecraft.VerseCraftClient"
+      "net.sergofoox.versecraft.VerseCraftClient"
     ],
     "frozenlib:mob_categories": [
-      "net.sergofox123.versecraft.VerseCraft"
+      "net.sergofoox.versecraft.VerseCraft"
     ],
     "frozenlib:decorated_pot_patterns": [
-      "net.sergofox123.versecraft.registry.RegisterDecoratedPotPattern"
+      "net.sergofoox.versecraft.registry.RegisterDecoratedPotPattern"
     ],
     "fabric-datagen": [
-      "net.sergofox123.versecraft.misc.VerseCraftDataGenerator"
+      "net.sergofoox.versecraft.misc.VerseCraftDataGenerator"
     ]
   },
   "mixins": [
