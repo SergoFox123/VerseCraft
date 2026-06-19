@@ -16,13 +16,24 @@
 package net.sergofoox.versecraft.registry;
 
 import net.frozenblock.lib.item.impl.sherd.DecoratedPotPatternRegistryEntrypoint;
+import net.minecraft.world.item.Item;
 import net.sergofoox.versecraft.VerseSharedConstants;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.entity.DecoratedPotPattern;
+import net.sergofoox.versecraft.misc.ItemImp;
+import java.util.function.BiConsumer;
 
 public class RegisterDecoratedPotPattern implements DecoratedPotPatternRegistryEntrypoint {
+
+	public static final ResourceKey<DecoratedPotPattern> DRAGON = create("dragon");
+	public static final ResourceKey<DecoratedPotPattern> EGG = create("egg");
+	public static final ResourceKey<DecoratedPotPattern> EYE = create("eye");
+	public static final ResourceKey<DecoratedPotPattern> PILLAGER = create("pillager");
+	public static final ResourceKey<DecoratedPotPattern> PORTAL = create("portal");
+	public static final ResourceKey<DecoratedPotPattern> SWORD = create("sword");
+
 
 	@Override
 	public void bootstrap(Registry<DecoratedPotPattern> registry) {
@@ -34,6 +45,16 @@ public class RegisterDecoratedPotPattern implements DecoratedPotPatternRegistryE
 		register(registry, "sword");
 	}
 
+	@Override
+	public void itemToPatternMappings(BiConsumer<ResourceKey<Item>, ResourceKey<DecoratedPotPattern>> biConsumer) {
+		biConsumer.accept(ItemImp.DRAGON_POTTERY_SHERD, DRAGON);
+		biConsumer.accept(ItemImp.EGG_POTTERY_SHERD, EGG);
+		biConsumer.accept(ItemImp.EYE_POTTERY_SHERD, EYE);
+		biConsumer.accept(ItemImp.PILLAGER_POTTERY_SHERD, PILLAGER);
+		biConsumer.accept(ItemImp.PORTAL_POTTERY_SHERD, PORTAL);
+		biConsumer.accept(ItemImp.SWORD_POTTERY_SHERD, SWORD);
+	}
+
 	private static void register(Registry<DecoratedPotPattern> registry, String sherdName) {
 		DecoratedPotPatternRegistryEntrypoint.register(
 			registry,
@@ -41,5 +62,8 @@ public class RegisterDecoratedPotPattern implements DecoratedPotPatternRegistryE
 			VerseSharedConstants.id(sherdName + "_pottery_pattern")
 		);
 	}
-}
 
+	private static ResourceKey<DecoratedPotPattern> create(String id) {
+		return ResourceKey.create(Registries.DECORATED_POT_PATTERN, VerseSharedConstants.id(id));
+	}
+}

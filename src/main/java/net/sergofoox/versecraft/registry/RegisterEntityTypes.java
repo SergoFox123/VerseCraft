@@ -21,6 +21,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.vehicle.boat.Boat;
 import net.minecraft.world.entity.vehicle.boat.ChestBoat;
@@ -31,7 +32,7 @@ public class RegisterEntityTypes {
 
 	public static final EntityType<Boat> AZALEA_BOAT = register(
 		"azalea_boat",
-		EntityType.Builder.of(EntityType.boatFactory(() -> RegisterItems.AZALEA_BOAT), MobCategory.MISC)
+		EntityType.Builder.of(EntityTypes.boatFactory(() -> RegisterItems.AZALEA_BOAT), MobCategory.MISC)
 			.noLootTable()
 			.sized(1.375F, 0.5625F)
 			.eyeHeight(0.5625F)
@@ -40,7 +41,7 @@ public class RegisterEntityTypes {
 
 	public static final EntityType<ChestBoat> AZALEA_CHEST_BOAT = register(
 		"azalea_chest_boat",
-		EntityType.Builder.of(EntityType.chestBoatFactory(() -> RegisterItems.AZALEA_CHEST_BOAT), MobCategory.MISC)
+		EntityType.Builder.of(EntityTypes.chestBoatFactory(() -> RegisterItems.AZALEA_CHEST_BOAT), MobCategory.MISC)
 			.noLootTable()
 			.sized(1.375F, 0.5625F)
 			.eyeHeight(0.5625F)

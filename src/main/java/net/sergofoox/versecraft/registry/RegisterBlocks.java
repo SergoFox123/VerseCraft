@@ -30,10 +30,12 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ItemContainerContents;
@@ -57,11 +59,13 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -957,13 +961,6 @@ public class RegisterBlocks {
 	public static void registerBlocks() {
 	}
 
-	private static void registerBlockItem(Block block) {
-		BiFunction<Block, Item.Properties, Item> itemSupplier = BlockItem::new;
-		if (block instanceof ShelfBlock)
-			itemSupplier = (shelfBlock, properties) -> new BlockItem(shelfBlock, properties.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
-		Items.registerBlock(block, itemSupplier);
-	}
-
 	private static void registerFlammability() {
 
 		var flammableBlockRegistry = FlammableBlockRegistry.getDefaultInstance();
@@ -1116,10 +1113,10 @@ public class RegisterBlocks {
 		registerFlammability();
 		registerComposting();
 
-		var sign = (FabricBlockEntityType) BlockEntityType.SIGN;
-		var hangingSign = (FabricBlockEntityType) BlockEntityType.HANGING_SIGN;
-		var shelf = (FabricBlockEntityType) BlockEntityType.SHELF;
-		var campfire = (FabricBlockEntityType) BlockEntityType.CAMPFIRE;
+		var sign = BlockEntityTypes.SIGN;
+		var hangingSign = BlockEntityTypes.HANGING_SIGN;
+		var shelf = BlockEntityTypes.SHELF;
+		var campfire = BlockEntityTypes.CAMPFIRE;
 
 		sign.addValidBlock(AZALEA_SIGN);
 		sign.addValidBlock(AZALEA_WALL_SIGN);
@@ -1156,6 +1153,14 @@ public class RegisterBlocks {
 
 	private static <T extends Block> T makeBlock(Function<Properties, T> function, Properties properties, Identifier id) {
 		return function.apply(properties.setId(ResourceKey.create(Registries.BLOCK, id)));
+	}
+
+	private static void registerBlockItem(Block block) {
+		BiFunction<Block, Item.Properties, Item> itemSupplier = BlockItem::new;
+		if (block instanceof DoorBlock || block instanceof TallFlowerBlock) itemSupplier = DoubleHighBlockItem::new;
+		if (block instanceof ShelfBlock) itemSupplier = (shelfBlock, properties) -> new BlockItem(shelfBlock, properties.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
+		Identifier id = BuiltInRegistries.BLOCK.getKey(block);
+		Items.registerBlock(BlockItemId.create(id, id), block, itemSupplier);
 	}
 
 }

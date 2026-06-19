@@ -16,10 +16,9 @@
 package net.sergofoox.versecraft.registry;
 
 import java.util.function.Function;
-import net.frozenblock.lib.item.api.sherd.SherdRegistry;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
@@ -27,19 +26,18 @@ import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SignItem;
-import net.minecraft.world.level.block.Block;
-import net.sergofoox.versecraft.VerseFeatureFlags;
 import net.sergofoox.versecraft.VerseSharedConstants;
-import static net.minecraft.world.item.Items.registerBlock;
+import net.sergofoox.versecraft.misc.ItemImp;
+import static net.minecraft.world.item.Items.createBlockItemWithCustomItemName;
 
 public class RegisterItems {
 
 	//Azalea
-	public static final Item AZALEA_SIGN = registerBlock(RegisterBlocks.AZALEA_SIGN,
+	public static final Item AZALEA_SIGN = Items.registerBlock(BlockItemId.create(VerseSharedConstants.id("azalea_sign"), VerseSharedConstants.id("azalea_sign")), RegisterBlocks.AZALEA_SIGN,
 		(block, properties) -> new SignItem(block, RegisterBlocks.AZALEA_WALL_SIGN, properties),
 		new Item.Properties().stacksTo(16)
 	);
-	public static final Item AZALEA_HANGING_SIGN = registerBlock(RegisterBlocks.AZALEA_HANGING_SIGN,
+	public static final Item AZALEA_HANGING_SIGN = Items.registerBlock(BlockItemId.create(VerseSharedConstants.id("azalea_hanging_sign"), VerseSharedConstants.id("azalea_hanging_sign")), RegisterBlocks.AZALEA_HANGING_SIGN,
 		(block, properties) -> new HangingSignItem(block, RegisterBlocks.AZALEA_WALL_HANGING_SIGN, properties),
 		new Item.Properties().stacksTo(16)
 	);
@@ -57,47 +55,12 @@ public class RegisterItems {
 
     //Pottery Sherd
 
-	public static final Item DRAGON_POTTERY_SHERD = registerSherd("dragon",
-		Item::new,
-		new Properties()
-			.rarity(Rarity.UNCOMMON)
-			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
-	);
-
-	public static final Item EGG_POTTERY_SHERD = registerSherd("egg",
-		Item::new,
-		new Properties()
-			.rarity(Rarity.UNCOMMON)
-			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
-	);
-
-	public static final Item EYE_POTTERY_SHERD = registerSherd("eye",
-		Item::new,
-		new Properties()
-			.rarity(Rarity.UNCOMMON)
-			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
-	);
-
-	public static final Item PILLAGER_POTTERY_SHERD = registerSherd("pillager",
-		Item::new,
-		new Properties()
-			.rarity(Rarity.UNCOMMON)
-			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
-	);
-
-	public static final Item PORTAL_POTTERY_SHERD = registerSherd("portal",
-		Item::new,
-		new Properties()
-			.rarity(Rarity.UNCOMMON)
-			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
-	);
-
-	public static final Item SWORD_POTTERY_SHERD = registerSherd("sword",
-		Item::new,
-		new Properties()
-			.rarity(Rarity.UNCOMMON)
-			.requiredFeatures(VerseFeatureFlags.FEATURE_FLAG)
-	);
+	public static final Item DRAGON_POTTERY_SHERD = registerPotterySherd(ItemImp.DRAGON_POTTERY_SHERD);
+	public static final Item EGG_POTTERY_SHERD = registerPotterySherd(ItemImp.EGG_POTTERY_SHERD);
+	public static final Item EYE_POTTERY_SHERD = registerPotterySherd(ItemImp.EYE_POTTERY_SHERD);
+	public static final Item PILLAGER_POTTERY_SHERD = registerPotterySherd(ItemImp.PILLAGER_POTTERY_SHERD);
+	public static final Item PORTAL_POTTERY_SHERD = registerPotterySherd(ItemImp.PORTAL_POTTERY_SHERD);
+	public static final Item SWORD_POTTERY_SHERD = registerPotterySherd(ItemImp.SWORD_POTTERY_SHERD);
 
 	//Food
 	public static final Item CHERRY = register("cherry", Item::new, new Item.Properties().food(RegisterFood.CHERRY));
@@ -129,17 +92,12 @@ public class RegisterItems {
 	public static void init() {
 	}
 
-	private static <T extends Item> T register(String name, Function<Properties, Item> function, Item.Properties properties) {
+	private static <T extends Item> T register(String name, Function<Item.Properties, Item> function, Item.Properties properties) {
 		return (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
 	}
 
-	private static <T extends Item> T registerSherd(String name, Function<Properties, Item> function, Item.Properties properties) {
-		final T item = (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name + "_pottery_sherd")), function, properties);
-		SherdRegistry.register(item, VerseSharedConstants.id(name));
-		return item;
+	public static Item registerPotterySherd(ResourceKey<Item> id) {
+		return Items.registerItem(id, new Properties().rarity(Rarity.UNCOMMON));
 	}
 
-	public static Function<Properties, Item> createBlockItemWithCustomItemName(Block block) {
-		return properties -> new BlockItem(block, properties.useItemDescriptionPrefix());
-	}
 }
