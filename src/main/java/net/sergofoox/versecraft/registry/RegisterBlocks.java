@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.Compostable;
 import net.minecraft.world.item.component.CookingFuel;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
@@ -24,6 +25,8 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.providers.number.floats.ResolvableFloat;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProvider;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt;
 import net.sergofoox.versecraft.VerseCraft;
 import net.sergofoox.versecraft.block.*;
@@ -604,46 +607,6 @@ public class RegisterBlocks {
                     .pushReaction(PushReaction.PUSH)
     );
 
-
-    private static Block registerBlockWithoutBlockItem(String name, Function<BlockBehaviour.Properties, Block> function) {
-        Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name))));
-        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name), toRegister);
-    }
-
-    private static Block register(String name, Function<BlockBehaviour.Properties, Block> function) {
-        Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name))));
-        registerBlockItem(name, toRegister);
-        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name), toRegister);
-
-    }
-
-    private static Block register(String name, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
-        Block toRegister = function.apply(properties.setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name))));
-        registerBlockItem(name, toRegister);
-        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name), toRegister);
-    }
-
-    private static void registerBlockItem(String name, Block block) {
-        Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name),
-                new BlockItem(block, new Item.Properties().useBlockDescriptionPrefix()
-                        .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name)))));
-    }
-
-    private static void addFuel(ItemLike itemConvertible, int burnTicks) {
-        Item item = itemConvertible.asItem();
-        DefaultItemComponentEvents.MODIFY.register(context -> {
-            context.modify(item, builder -> {
-                builder.set(
-                        DataComponents.COOKING_FUEL,
-                        new CookingFuel(
-                                new ResolvableInt.Constant(burnTicks),
-                                new ResolvableFloat.Constant(1.0F)
-                        )
-                );
-            });
-        });
-    }
-
     private static void registerFuels() {
         addFuel(AZALEA_LOG, 300);
         addFuel(STRIPPED_AZALEA_LOG, 300);
@@ -757,11 +720,89 @@ public class RegisterBlocks {
         fireRegistry.add(PALE_OAK_MOSAIC_STAIRS, 5, 20);
         fireRegistry.add(PALE_OAK_MOSAIC_SLAB, 5, 20);
 
+        fireRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
+        fireRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
+        fireRegistry.add(RegisterBlocks.TALL_MYCELIUM_GRASS, 100, 60);
+        fireRegistry.add(RegisterBlocks.SHORT_MYCELIUM_GRASS, 100, 60);
+        fireRegistry.add(RegisterBlocks.POP_FLOWER, 100, 60);
     }
 
-        private static void strippingWood() {
+    private static void registerComposting() {
+
+        addCompostable(GLOWSHROOM, 0.65F);
+        addCompostable(BLUE_ROSE, 0.65F);
+        addCompostable(ICEFLOWER, 0.65F);
+        addCompostable(POP_FLOWER, 0.65F);
+        addCompostable(SHORT_MYCELIUM_GRASS, 0.65F);
+        addCompostable(TALL_MYCELIUM_GRASS, 0.65F);
+        addCompostable(RegisterItems.CHERRY, 0.65F);
+    }
+
+    private static void strippingWood() {
         BlockTransformerHelper.registerStripping(AZALEA_LOG, STRIPPED_AZALEA_LOG.defaultBlockState());
         BlockTransformerHelper.registerStripping(AZALEA_WOOD, STRIPPED_AZALEA_WOOD.defaultBlockState());
+    }
+
+
+    private static Block registerBlockWithoutBlockItem(String name, Function<BlockBehaviour.Properties, Block> function) {
+        Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name))));
+        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name), toRegister);
+    }
+
+    private static Block register(String name, Function<BlockBehaviour.Properties, Block> function) {
+        Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name))));
+        registerBlockItem(name, toRegister);
+        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name), toRegister);
+
+    }
+
+    private static Block register(String name, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
+        Block toRegister = function.apply(properties.setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name))));
+        registerBlockItem(name, toRegister);
+        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name), toRegister);
+    }
+
+    private static void registerBlockItem(String name, Block block) {
+        Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name),
+                new BlockItem(block, new Item.Properties().useBlockDescriptionPrefix()
+                        .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name)))));
+    }
+
+    private static void addFuel(ItemLike itemConvertible, int burnTicks) {
+        Item item = itemConvertible.asItem();
+        DefaultItemComponentEvents.MODIFY.register(context -> {
+            context.modify(item, builder -> {
+                builder.set(
+                        DataComponents.COOKING_FUEL,
+                        new CookingFuel(
+                                new ResolvableInt.Constant(burnTicks),
+                                new ResolvableFloat.Constant(1.0F)
+                        )
+                );
+            });
+        });
+    }
+
+    private static void addCompostable(ItemLike itemConvertible, float chance) {
+        ResourceKey<ContextIntProvider> providerKey;
+        if (chance <= 0.35f) {
+            providerKey = ContextIntProviders.COMPOSTABLE_LOW;          // 30%
+        } else if (chance <= 0.55f) {
+            providerKey = ContextIntProviders.COMPOSTABLE_LOW_MEDIUM;   // 50%
+        } else if (chance <= 0.75f) {
+            providerKey = ContextIntProviders.COMPOSTABLE_MEDIUM;       // 65%
+        } else if (chance <= 0.90f) {
+            providerKey = ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH;  // 85%
+        } else {
+            providerKey = ContextIntProviders.COMPOSTABLE_ALWAYS_ADD_ONE; // 100%
+        }
+
+        Item item = itemConvertible.asItem();
+        DefaultItemComponentEvents.MODIFY.register(context -> {
+            context.modify(item, builder -> {
+                builder.set(DataComponents.COMPOSTABLE, new Compostable(providerKey));
+            });
+        });
     }
 
     public static void registerBlocks() {
@@ -778,5 +819,6 @@ public class RegisterBlocks {
         strippingWood();
         registerFuels();
         registerFlammability();
+        registerComposting();
     }
 }
