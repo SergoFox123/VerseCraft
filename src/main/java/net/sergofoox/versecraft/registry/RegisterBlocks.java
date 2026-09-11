@@ -1,1166 +1,782 @@
-/*
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, see <https://www.gnu.org/licenses/>.
- */
-
 package net.sergofoox.versecraft.registry;
 
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
+import net.fabricmc.fabric.api.item.v1.BlockTransformerHelper;
+import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
-import net.fabricmc.fabric.api.registry.CompostableRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelValueEvents;
-import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.BlockFamilies;
-import net.minecraft.data.BlockFamily;
-import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.ItemContainerContents;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.CarvedPumpkinBlock;
-import net.minecraft.world.level.block.CampfireBlock;
-import net.minecraft.world.level.block.CeilingHangingSignBlock;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.FenceGateBlock;
-import net.minecraft.world.level.block.FireflyBushBlock;
-import net.minecraft.world.level.block.FlowerBlock;
-import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.PressurePlateBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.ShelfBlock;
-import net.minecraft.world.level.block.SignBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.StandingSignBlock;
-import net.minecraft.world.level.block.TallFlowerBlock;
-import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraft.world.level.block.WallBlock;
-import net.minecraft.world.level.block.WallHangingSignBlock;
-import net.minecraft.world.level.block.WallSignBlock;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.item.component.CookingFuel;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.sergofoox.versecraft.VerseSharedConstants;
-import net.sergofoox.versecraft.block.BlueRoseCropBlock;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ResolvableFloat;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt;
+import net.sergofoox.versecraft.VerseCraft;
+import net.sergofoox.versecraft.block.*;
 import net.sergofoox.versecraft.block.IceflowerCropBlock;
-import net.sergofoox.versecraft.block.ShortMyceliumGrass;
-import net.sergofoox.versecraft.block.TallMyceliumGrass;
-import static net.minecraft.world.level.block.Blocks.*;
-import static net.minecraft.world.level.block.Blocks.WARPED_STAIRS;
 
+import java.util.Properties;
+import java.util.function.Function;
 
 public class RegisterBlocks {
 
-	public static final BlockSetType AZALEA_SET = BlockSetTypeBuilder.copyOf(BlockSetType.CHERRY).register(VerseSharedConstants.id("azalea"));
-	public static final WoodType AZALEA_WOOD_TYPE = WoodTypeBuilder.copyOf(WoodType.CHERRY).register(VerseSharedConstants.id("azalea"), AZALEA_SET);
-
-	private static final MapColor AZALEA_PLANKS_COLOR = MapColor.TERRACOTTA_WHITE;
-	private static final MapColor AZALEA_BARK_COLOR = MapColor.TERRACOTTA_WHITE;
-
-
-	//Log
-	public static final Block AZALEA_LOG = register("azalea_log",
-		RotatedPillarBlock::new,
-		Blocks.logProperties(AZALEA_PLANKS_COLOR, AZALEA_BARK_COLOR, SoundType.CHERRY_WOOD)
-	);
-
-	//Stripped Log
-	public static final Block STRIPPED_AZALEA_LOG = register("stripped_azalea_log",
-		RotatedPillarBlock::new,
-		Blocks.logProperties(AZALEA_PLANKS_COLOR, AZALEA_PLANKS_COLOR, SoundType.CHERRY_WOOD)
-	);
-	//Wood
-	public static final RotatedPillarBlock AZALEA_WOOD = register("azalea_wood",
-		RotatedPillarBlock::new,
-		Properties.ofFullCopy(Blocks.CHERRY_WOOD)
-			.mapColor(AZALEA_BARK_COLOR)
-	);
-
-	//Stripped Wood
-	public static final RotatedPillarBlock STRIPPED_AZALEA_WOOD = register("stripped_azalea_wood",
-		RotatedPillarBlock::new,
-		Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD)
-			.mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	//Azalea Shelf
-	public static final Block AZALEA_SHELF = register(
-		"azalea_shelf",
-		ShelfBlock::new,
-		BlockBehaviour.Properties.of()
-			.mapColor(MapColor.WOOD)
-			.instrument(NoteBlockInstrument.BASS)
-			.sound(SoundType.SHELF)
-			.ignitedByLava()
-			.strength(2F, 3F)
-	);
-
-	//Planks
-	public static final Block AZALEA_PLANKS = register("azalea_planks",
-		Block::new,
-		Properties.ofFullCopy(Blocks.CHERRY_PLANKS)
-			.mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	//Planks stairs
-	public static final StairBlock AZALEA_STAIRS = register("azalea_stairs",
-		properties -> new StairBlock(AZALEA_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(CHERRY_STAIRS)
-	);
-
-	//Planks slab
-	public static final Block AZALEA_SLAB = register("azalea_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(Blocks.CHERRY_SLAB)
-			.mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	//Wood Fence
-	public static final FenceBlock AZALEA_FENCE = register("azalea_fence",
-		FenceBlock::new,
-		Properties.ofFullCopy(Blocks.CHERRY_FENCE)
-			.mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	//Wood Fence Gate
-	public static final Block AZALEA_FENCE_GATE = register("azalea_fence_gate",
-		properties -> new FenceGateBlock(AZALEA_WOOD_TYPE, properties),
-		Properties.ofFullCopy(Blocks.CHERRY_FENCE_GATE)
-			.mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-
-	//Wooden Doors
-	public static final DoorBlock AZALEA_DOOR = register("azalea_door",
-		properties -> new DoorBlock(AZALEA_SET, properties),
-		Properties.ofFullCopy(Blocks.CHERRY_DOOR).mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	//Wooden Trapdoors
-	public static final TrapDoorBlock AZALEA_TRAPDOOR = register("azalea_trapdoor",
-		properties -> new TrapDoorBlock(AZALEA_SET, properties),
-		Properties.ofFullCopy(Blocks.CHERRY_TRAPDOOR).mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	//Wooden PressurePlate
-	public static final PressurePlateBlock AZALEA_PRESSURE_PLATE = register("azalea_pressure_plate",
-		properties -> new PressurePlateBlock(AZALEA_SET, properties),
-		Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	//Wooden button
-	public static final Block AZALEA_BUTTON = register("azalea_button",
-		properties -> new ButtonBlock(AZALEA_SET, 30, properties),
-		Blocks.buttonProperties()
-	);
-
-	//Wooden Sign
-	public static final SignBlock AZALEA_SIGN = registerWithoutItem("azalea_sign",
-		properties -> new StandingSignBlock(AZALEA_WOOD_TYPE, properties),
-		BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_SIGN)
-			.mapColor(AZALEA_LOG.defaultMapColor())
-	);
-	public static final SignBlock AZALEA_WALL_SIGN = registerWithoutItem("azalea_wall_sign",
-		properties -> new WallSignBlock(AZALEA_WOOD_TYPE, properties),
-		Properties.ofFullCopy(Blocks.CHERRY_WALL_SIGN)
-			.mapColor(AZALEA_LOG.defaultMapColor())
-			.overrideDescription(AZALEA_SIGN.getDescriptionId())
-			.overrideLootTable(AZALEA_SIGN.getLootTable())
-	);
-
-	//Wooden hanging sing
-	public static final CeilingHangingSignBlock AZALEA_HANGING_SIGN = registerWithoutItem("azalea_hanging_sign",
-		properties -> new CeilingHangingSignBlock(AZALEA_WOOD_TYPE, properties),
-		Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)
-			.mapColor(AZALEA_LOG.defaultMapColor())
-	);
-
-	public static final WallHangingSignBlock AZALEA_WALL_HANGING_SIGN = registerWithoutItem("azalea_wall_hanging_sign",
-		properties -> new WallHangingSignBlock(AZALEA_WOOD_TYPE, properties),
-		Properties.ofFullCopy(Blocks.CHERRY_WALL_HANGING_SIGN)
-			.mapColor(AZALEA_LOG.defaultMapColor())
-			.overrideDescription(AZALEA_HANGING_SIGN.getDescriptionId())
-			.overrideLootTable(AZALEA_HANGING_SIGN.getLootTable())
-	);
-
-	public static final BlockFamily AZALEA = BlockFamilies.familyBuilder(AZALEA_PLANKS)
-		.button(AZALEA_BUTTON)
-		.slab(AZALEA_SLAB)
-		.stairs(AZALEA_STAIRS)
-		.fence(AZALEA_FENCE)
-		.fenceGate(AZALEA_FENCE_GATE)
-		.pressurePlate(AZALEA_PRESSURE_PLATE)
-		.sign(AZALEA_SIGN, AZALEA_WALL_SIGN)
-		.door(AZALEA_DOOR)
-		.trapdoor(AZALEA_TRAPDOOR)
-		.recipeGroupPrefix("wooden")
-		.recipeUnlockedBy("has_planks")
-		.getFamily();
-
-	//Acacia Mosaic
-
-	public static final Block ACACIA_MOSAIC = register("acacia_mosaic",
-		Block::new,
-		Properties.ofFullCopy(ACACIA_PLANKS)
-	);
-
-	public static final StairBlock ACACIA_MOSAIC_STAIRS = register("acacia_mosaic_stairs",
-		properties -> new StairBlock(ACACIA_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(ACACIA_STAIRS)
-	);
-
-	public static final SlabBlock ACACIA_MOSAIC_SLAB = register("acacia_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(ACACIA_SLAB)
-	);
-
-	//Azalea Mosaic
-
-	public static final Block AZALEA_MOSAIC = register("azalea_mosaic",
-		Block::new,
-		Properties.ofFullCopy(AZALEA_PLANKS)
-			.mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	public static final StairBlock AZALEA_MOSAIC_STAIRS = register("azalea_mosaic_stairs",
-		properties -> new StairBlock(AZALEA_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(AZALEA_STAIRS)
-	);
-
-	public static final SlabBlock AZALEA_MOSAIC_SLAB = register("azalea_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(AZALEA_SLAB)
-			.mapColor(AZALEA_PLANKS_COLOR)
-	);
-
-	//Birch Mosaic
-
-	public static final Block BIRCH_MOSAIC = register("birch_mosaic",
-		Block::new,
-		Properties.ofFullCopy(BIRCH_PLANKS)
-	);
-
-	public static final StairBlock BIRCH_MOSAIC_STAIRS = register("birch_mosaic_stairs",
-		properties -> new StairBlock(BIRCH_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(BIRCH_STAIRS)
-	);
-
-	public static final SlabBlock BIRCH_MOSAIC_SLAB = register("birch_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(BIRCH_SLAB)
-	);
-
-	//Cherry Mosaic
-
-	public static final Block CHERRY_MOSAIC = register("cherry_mosaic",
-		Block::new,
-		Properties.ofFullCopy(CHERRY_PLANKS)
-	);
-
-	public static final StairBlock CHERRY_MOSAIC_STAIRS = register("cherry_mosaic_stairs",
-		properties -> new StairBlock(CHERRY_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(CHERRY_STAIRS)
-	);
-
-	public static final SlabBlock CHERRY_MOSAIC_SLAB = register("cherry_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(CHERRY_SLAB)
-	);
-
-	//Crimson Mosaic
-
-	public static final Block CRIMSON_MOSAIC = register("crimson_mosaic",
-		Block::new,
-		Properties.ofFullCopy(CRIMSON_PLANKS)
-	);
-
-	public static final StairBlock CRIMSON_MOSAIC_STAIRS = register("crimson_mosaic_stairs",
-		properties -> new StairBlock(CRIMSON_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(CRIMSON_STAIRS)
-	);
-
-	public static final SlabBlock CRIMSON_MOSAIC_SLAB = register("crimson_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(CRIMSON_SLAB)
-	);
-
-	//Dark Oak Mosaic
-
-	public static final Block DARK_OAK_MOSAIC = register("dark_oak_mosaic",
-		Block::new,
-		Properties.ofFullCopy(DARK_OAK_PLANKS)
-	);
-
-	public static final StairBlock DARK_OAK_MOSAIC_STAIRS = register("dark_oak_mosaic_stairs",
-		properties -> new StairBlock(DARK_OAK_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(DARK_OAK_STAIRS)
-	);
-
-	public static final SlabBlock DARK_OAK_MOSAIC_SLAB = register("dark_oak_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(DARK_OAK_SLAB)
-	);
-
-	//Jungle Mosaic
-
-	public static final Block JUNGLE_MOSAIC = register("jungle_mosaic",
-		Block::new,
-		Properties.ofFullCopy(JUNGLE_PLANKS)
-	);
-
-	public static final StairBlock JUNGLE_MOSAIC_STAIRS = register("jungle_mosaic_stairs",
-		properties -> new StairBlock(JUNGLE_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(JUNGLE_STAIRS)
-	);
-
-	public static final SlabBlock JUNGLE_MOSAIC_SLAB = register("jungle_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(JUNGLE_SLAB)
-	);
-
-	//Mangrove Mosaic
-
-	public static final Block MANGROVE_MOSAIC = register("mangrove_mosaic",
-		Block::new,
-		Properties.ofFullCopy(MANGROVE_PLANKS)
-	);
-
-	public static final StairBlock MANGROVE_MOSAIC_STAIRS = register("mangrove_mosaic_stairs",
-		properties -> new StairBlock(MANGROVE_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(MANGROVE_STAIRS)
-	);
-
-	public static final SlabBlock MANGROVE_MOSAIC_SLAB = register("mangrove_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(MANGROVE_SLAB)
-	);
-
-	//Oak Mosaic
-
-	public static final Block OAK_MOSAIC = register("oak_mosaic",
-		Block::new,
-		Properties.ofFullCopy(OAK_PLANKS)
-	);
-
-	public static final StairBlock OAK_MOSAIC_STAIRS = register("oak_mosaic_stairs",
-		properties -> new StairBlock(OAK_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(OAK_STAIRS)
-	);
-
-	public static final SlabBlock OAK_MOSAIC_SLAB = register("oak_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(OAK_SLAB)
-	);
-
-	//Spruce Mosaic
-
-	public static final Block SPRUCE_MOSAIC = register("spruce_mosaic",
-		Block::new,
-		Properties.ofFullCopy(SPRUCE_PLANKS)
-	);
-
-	public static final StairBlock SPRUCE_MOSAIC_STAIRS = register("spruce_mosaic_stairs",
-		properties -> new StairBlock(SPRUCE_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(SPRUCE_STAIRS)
-	);
-
-	public static final SlabBlock SPRUCE_MOSAIC_SLAB = register("spruce_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(SPRUCE_SLAB)
-	);
-
-	//Pale Oak
-
-	public static final Block PALE_OAK_MOSAIC = register("pale_oak_mosaic",
-		Block::new,
-		Properties.ofFullCopy(PALE_OAK_PLANKS)
-	);
-
-	public static final StairBlock PALE_OAK_MOSAIC_STAIRS = register("pale_oak_mosaic_stairs",
-		properties -> new StairBlock(PALE_OAK_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(PALE_OAK_STAIRS)
-	);
-
-	public static final SlabBlock PALE_OAK_MOSAIC_SLAB = register("pale_oak_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(PALE_OAK_SLAB)
-	);
-
-	//Warped
-
-	public static final Block WARPED_MOSAIC = register("warped_mosaic",
-		Block::new,
-		Properties.ofFullCopy(WARPED_PLANKS)
-	);
-
-	public static final StairBlock WARPED_MOSAIC_STAIRS = register("warped_mosaic_stairs",
-		properties -> new StairBlock(WARPED_PLANKS.defaultBlockState(), properties),
-		Properties.ofFullCopy(WARPED_STAIRS)
-	);
-
-	public static final SlabBlock WARPED_MOSAIC_SLAB = register("warped_mosaic_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(WARPED_SLAB)
-	);
-
-	//Tuff
-
-	public static final Block CRACKED_TUFF_BRICKS = register("cracked_tuff_bricks",
-		Block::new,
-		Properties.ofFullCopy(TUFF)
-			.strength(1.5F)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.TUFF)
-	);
-
-	//Calcite
-
-	public static final StairBlock CALCITE_STAIRS = register("calcite_stairs",
-		properties -> new StairBlock(CALCITE.defaultBlockState(), properties),
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	public static final SlabBlock CALCITE_SLAB = register("calcite_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-
-	public static final WallBlock CALCITE_WALL = register("calcite_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-
-	public static final Block CHISELED_CALCITE = register("chiseled_calcite",
-		Block::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	//Polished Calcite
-
-	public static final Block POLISHED_CALCITE = register("polished_calcite",
-		Block::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	public static final StairBlock POLISHED_CALCITE_STAIRS = register("polished_calcite_stairs",
-		properties -> new StairBlock(CALCITE.defaultBlockState(), properties),
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	public static final SlabBlock POLISHED_CALCITE_SLAB = register("polished_calcite_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	public static final WallBlock POLISHED_CALCITE_WALL = register("polished_calcite_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	//Calcite Bricks
-
-	public static final Block CALCITE_BRICKS = register("calcite_bricks",
-		Block::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	public static final Block CRACKED_CALCITE_BRICKS = register("cracked_calcite_bricks",
-		Block::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-
-	public static final StairBlock CALCITE_BRICKS_STAIRS = register("calcite_bricks_stairs",
-		properties -> new StairBlock(CALCITE.defaultBlockState(), properties),
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	public static final SlabBlock CALCITE_BRICKS_SLAB = register("calcite_bricks_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	public static final WallBlock CALCITE_BRICKS_WALL = register("calcite_bricks_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	public static final Block CHISELED_CALCITE_BRICKS = register("chiseled_calcite_bricks",
-		Block::new,
-		Properties.ofFullCopy(CALCITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.CALCITE));
-
-	//Dripstone
-
-	public static final StairBlock DRIPSTONE_STAIRS = register("dripstone_stairs",
-		properties -> new StairBlock(DRIPSTONE_BLOCK.defaultBlockState(), properties),
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final SlabBlock DRIPSTONE_SLAB = register("dripstone_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final WallBlock DRIPSTONE_WALL = register("dripstone_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final Block CHISELED_DRIPSTONE = register("chiseled_dripstone",
-		Block::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	//Polished Dripstone
-
-	public static final Block POLISHED_DRIPSTONE = register("polished_dripstone",
-		Block::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final StairBlock POLISHED_DRIPSTONE_STAIRS = register("polished_dripstone_stairs",
-		properties -> new StairBlock(DRIPSTONE_BLOCK.defaultBlockState(), properties),
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final SlabBlock POLISHED_DRIPSTONE_SLAB = register("polished_dripstone_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final WallBlock POLISHED_DRIPSTONE_WALL = register("polished_dripstone_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	//Dripstone Bricks
-
-	public static final Block DRIPSTONE_BRICKS = register("dripstone_bricks",
-		Block::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final Block CRACKED_DRIPSTONE_BRICKS = register("cracked_dripstone_bricks",
-		Block::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final StairBlock DRIPSTONE_BRICKS_STAIRS = register("dripstone_bricks_stairs",
-		properties -> new StairBlock(DRIPSTONE_BLOCK.defaultBlockState(), properties),
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final SlabBlock DRIPSTONE_BRICKS_SLAB = register("dripstone_bricks_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final WallBlock DRIPSTONE_BRICKS_WALL = register("dripstone_bricks_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	public static final Block CHISELED_DRIPSTONE_BRICKS = register("chiseled_dripstone_bricks",
-		Block::new,
-		Properties.ofFullCopy(DRIPSTONE_BLOCK)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.DRIPSTONE_BLOCK));
-
-	//Diorite
-
-	public static final Block CHISELED_DIORITE = register("chiseled_diorite",
-		Block::new,
-		Properties.ofFullCopy(DIORITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final WallBlock POLISHED_DIORITE_WALL = register("polished_diorite_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(DIORITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final Block DIORITE_BRICKS = register("diorite_bricks",
-		Block::new,
-		Properties.ofFullCopy(DIORITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final Block CRACKED_DIORITE_BRICKS = register("cracked_diorite_bricks",
-		Block::new,
-		Properties.ofFullCopy(DIORITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final StairBlock DIORITE_BRICKS_STAIRS = register("diorite_bricks_stairs",
-		properties -> new StairBlock(DIORITE.defaultBlockState(), properties),
-		Properties.ofFullCopy(DIORITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final SlabBlock DIORITE_BRICKS_SLAB = register("diorite_bricks_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(DIORITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final WallBlock DIORITE_BRICKS_WALL = register("diorite_bricks_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(DIORITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final Block CHISELED_DIORITE_BRICKS = register("chiseled_diorite_bricks",
-		Block::new,
-		Properties.ofFullCopy(DIORITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	//Andesite
-
-	public static final Block CHISELED_ANDESITE = register("chiseled_andesite",
-		Block::new,
-		Properties.ofFullCopy(ANDESITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final WallBlock POLISHED_ANDESITE_WALL = register("polished_andesite_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(ANDESITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final Block ANDESITE_BRICKS = register("andesite_bricks",
-		Block::new,
-		Properties.ofFullCopy(ANDESITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final Block CRACKED_ANDESITE_BRICKS = register("cracked_andesite_bricks",
-		Block::new,
-		Properties.ofFullCopy(ANDESITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final StairBlock ANDESITE_BRICKS_STAIRS = register("andesite_bricks_stairs",
-		properties -> new StairBlock(ANDESITE.defaultBlockState(), properties),
-		Properties.ofFullCopy(ANDESITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final SlabBlock ANDESITE_BRICKS_SLAB = register("andesite_bricks_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(ANDESITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final WallBlock ANDESITE_BRICKS_WALL = register("andesite_bricks_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(ANDESITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final Block CHISELED_ANDESITE_BRICKS = register("chiseled_andesite_bricks",
-		Block::new,
-		Properties.ofFullCopy(ANDESITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	//Granite
-
-	public static final Block CHISELED_GRANITE = register("chiseled_granite",
-		Block::new,
-		Properties.ofFullCopy(GRANITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final WallBlock POLISHED_GRANITE_WALL = register("polished_granite_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(GRANITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final Block GRANITE_BRICKS = register("granite_bricks",
-		Block::new,
-		Properties.ofFullCopy(GRANITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final Block CRACKED_GRANITE_BRICKS = register("cracked_granite_bricks",
-		Block::new,
-		Properties.ofFullCopy(GRANITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final StairBlock GRANITE_BRICKS_STAIRS = register("granite_bricks_stairs",
-		properties -> new StairBlock(GRANITE.defaultBlockState(), properties),
-		Properties.ofFullCopy(GRANITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final SlabBlock GRANITE_BRICKS_SLAB = register("granite_bricks_slab",
-		SlabBlock::new,
-		Properties.ofFullCopy(GRANITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final WallBlock GRANITE_BRICKS_WALL = register("granite_bricks_wall",
-		WallBlock::new,
-		Properties.ofFullCopy(GRANITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	public static final Block CHISELED_GRANITE_BRICKS = register("chiseled_granite_bricks",
-		Block::new,
-		Properties.ofFullCopy(GRANITE)
-			.strength(1.5f)
-			.requiresCorrectToolForDrops()
-			.sound(SoundType.STONE));
-
-	//Plants
-
-	public static final Block BLUE_ROSE = register("blue_rose",
-		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
-		Properties.of()
-			.mapColor(MapColor.PLANT)
-			.noCollision()
-			.instabreak()
-			.sound(SoundType.GRASS)
-			.offsetType(BlockBehaviour.OffsetType.XZ)
-			.pushReaction(PushReaction.DESTROY)
-	);
-
-	public static final Block BLUE_ROSE_CROP = register("blue_rose_crop",
-		BlueRoseCropBlock::new,
-		Properties.of()
-			.mapColor(MapColor.PLANT)
-			.randomTicks()
-			.instabreak()
-			.sound(SoundType.CROP)
-			.pushReaction(PushReaction.DESTROY)
-	);
-
-	public static final Block POTTED_BLUE_ROSE = register("potted_blue_rose",
-		properties -> new FlowerPotBlock(BLUE_ROSE, properties),
-		Blocks.flowerPotProperties()
-	);
-
-	public static final Block ICEFLOWER = register("iceflower",
-		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
-		Properties.of()
-			.mapColor(MapColor.PLANT)
-			.noCollision()
-			.instabreak()
-			.sound(SoundType.GRASS)
-			.offsetType(BlockBehaviour.OffsetType.XZ)
-			.pushReaction(PushReaction.DESTROY)
-	);
-
-	public static final Block ICEFLOWER_CROP = register("iceflower_crop",
-		IceflowerCropBlock::new,
-		Properties.of()
-			.mapColor(MapColor.PLANT)
-			.randomTicks()
-			.instabreak()
-			.sound(SoundType.CROP)
-			.pushReaction(PushReaction.DESTROY)
-	);
-
-	public static final Block POTTED_ICEFLOWER = register("potted_iceflower",
-		properties -> new FlowerPotBlock(ICEFLOWER, properties),
-		Blocks.flowerPotProperties()
-	);
-
-	public static final ShortMyceliumGrass SHORT_MYCELIUM_GRASS = register("short_mycelium_grass",
-		ShortMyceliumGrass::new,
-		Properties.ofFullCopy(SHORT_DRY_GRASS)
-			.mapColor(MapColor.PLANT)
-			.replaceable()
-			.noOcclusion()
-			.instabreak()
-			.sound(SoundType.GRASS)
-			.ignitedByLava()
-			.offsetType(BlockBehaviour.OffsetType.XZ)
-			.pushReaction(PushReaction.DESTROY)
-	);
-
-	public static final TallMyceliumGrass TALL_MYCELIUM_GRASS = register("tall_mycelium_grass",
-		TallMyceliumGrass::new,
-		Properties.ofFullCopy(TALL_DRY_GRASS)
-			.mapColor(MapColor.PLANT)
-			.replaceable()
-			.noOcclusion()
-			.instabreak()
-			.sound(SoundType.GRASS)
-			.ignitedByLava()
-			.offsetType(BlockBehaviour.OffsetType.XZ)
-			.pushReaction(PushReaction.DESTROY)
-	);
-
-	public static final Block POP_FLOWER = register("pop_flower",
-		properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
-		Properties.of()
-			.mapColor(MapColor.PLANT)
-			.noCollision()
-			.instabreak()
-			.sound(SoundType.GRASS)
-			.offsetType(BlockBehaviour.OffsetType.XZ)
-			.pushReaction(PushReaction.DESTROY)
-	);
-
-	public static final Block POTTED_POP_FLOWER = register("potted_pop_flower",
-		properties -> new FlowerPotBlock(POP_FLOWER, properties),
-		Blocks.flowerPotProperties()
-	);
-
-	public static final FireflyBushBlock GLOWSHROOM = register("glowshroom",
-		FireflyBushBlock::new,
-		Properties.ofFullCopy(FIREFLY_BUSH)
-			.mapColor(MapColor.COLOR_YELLOW)
-			.sound(SoundType.FUNGUS)
-			.offsetType(BlockBehaviour.OffsetType.XZ)
-			.lightLevel(state -> 6)
-	);
-
-	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern",
-		CarvedPumpkinBlock::new,
-		Properties.ofFullCopy(JACK_O_LANTERN)
-			.mapColor(MapColor.COLOR_ORANGE)
-			.strength(1.0F).sound(SoundType.WOOD)
-			.lightLevel(state -> 10)
-			.pushReaction(PushReaction.DESTROY));
-
-	public static final Block COPPER_JACK_O_LANTERN = register("copper_jack_o_lantern",
-		CarvedPumpkinBlock::new,
-		Properties.ofFullCopy(JACK_O_LANTERN)
-			.mapColor(MapColor.COLOR_ORANGE)
-			.strength(1.0F).sound(SoundType.WOOD)
-			.lightLevel(state -> 14)
-			.pushReaction(PushReaction.DESTROY));
-
-	public static final CampfireBlock COPPER_CAMPFIRE = register("copper_campfire",
-		properties -> new CampfireBlock(true, 1, properties),
-		Properties.ofFullCopy(CAMPFIRE)
-			.mapColor(MapColor.COLOR_ORANGE)
-	);
-
-	public static void registerBlocks() {
-	}
-
-	private static void registerFlammability() {
-
-		var flammableBlockRegistry = FlammableBlockRegistry.getDefaultInstance();
-
-		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.ACACIA_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.BIRCH_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.BIRCH_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.BIRCH_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.CHERRY_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.CHERRY_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.CHERRY_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.DARK_OAK_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.DARK_OAK_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.DARK_OAK_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.JUNGLE_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.JUNGLE_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.JUNGLE_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.JUNGLE_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.JUNGLE_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.JUNGLE_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.MANGROVE_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.MANGROVE_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.MANGROVE_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.OAK_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.OAK_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.OAK_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.SPRUCE_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.PALE_OAK_MOSAIC_SLAB, 5, 20);
-
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_LOG, 5, 5);
-		flammableBlockRegistry.add(RegisterBlocks.STRIPPED_AZALEA_LOG, 5, 5);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_WOOD, 5, 5);
-		flammableBlockRegistry.add(RegisterBlocks.STRIPPED_AZALEA_WOOD, 5, 5);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_PLANKS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_STAIRS, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_FENCE, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_SLAB, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_FENCE_GATE, 5, 20);
-		flammableBlockRegistry.add(RegisterBlocks.AZALEA_SHELF, 30, 20);
-
-
-		flammableBlockRegistry.add(RegisterBlocks.ICEFLOWER, 100, 60);
-		flammableBlockRegistry.add(RegisterBlocks.BLUE_ROSE, 100, 60);
-		flammableBlockRegistry.add(RegisterBlocks.TALL_MYCELIUM_GRASS, 100, 60);
-		flammableBlockRegistry.add(RegisterBlocks.SHORT_MYCELIUM_GRASS, 100, 60);
-		flammableBlockRegistry.add(RegisterBlocks.POP_FLOWER, 100, 60);
-	}
-
-	private static void registerStrippable() {
-		StrippableBlockRegistry.register(AZALEA_LOG, STRIPPED_AZALEA_LOG);
-		StrippableBlockRegistry.register(AZALEA_WOOD, STRIPPED_AZALEA_WOOD);
-	}
-
-	private static void registerFuels() {
-
-		FuelValueEvents.BUILD.register((builder, context) -> {
-			builder.add(RegisterItems.AZALEA_BOAT, 1200);
-			builder.add(RegisterItems.AZALEA_CHEST_BOAT, 1200);
-			builder.add(AZALEA_LOG.asItem(), 300);
-			builder.add(STRIPPED_AZALEA_LOG.asItem(), 300);
-			builder.add(AZALEA_WOOD.asItem(), 300);
-			builder.add(STRIPPED_AZALEA_WOOD.asItem(), 300);
-			builder.add(AZALEA_PLANKS.asItem(), 300);
-			builder.add(AZALEA_SLAB.asItem(), 150);
-			builder.add(AZALEA_STAIRS.asItem(), 300);
-			builder.add(AZALEA_PRESSURE_PLATE.asItem(), 300);
-			builder.add(AZALEA_BUTTON.asItem(), 100);
-			builder.add(AZALEA_TRAPDOOR.asItem(), 300);
-			builder.add(AZALEA_FENCE_GATE.asItem(), 300);
-			builder.add(AZALEA_FENCE.asItem(), 300);
-			builder.add(RegisterItems.AZALEA_SIGN, 300);
-			builder.add(RegisterItems.AZALEA_HANGING_SIGN, 800);
-
-			builder.add(AZALEA_MOSAIC.asItem(), 300);
-			builder.add(AZALEA_MOSAIC_SLAB.asItem(), 150);
-			builder.add(AZALEA_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(ACACIA_MOSAIC.asItem(), 300);
-			builder.add(ACACIA_MOSAIC_SLAB.asItem(), 150);
-			builder.add(ACACIA_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(BIRCH_MOSAIC.asItem(), 300);
-			builder.add(BIRCH_MOSAIC_SLAB.asItem(), 150);
-			builder.add(BIRCH_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(CHERRY_MOSAIC.asItem(), 300);
-			builder.add(CHERRY_MOSAIC_SLAB.asItem(), 150);
-			builder.add(CHERRY_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(DARK_OAK_MOSAIC.asItem(), 300);
-			builder.add(DARK_OAK_MOSAIC_SLAB.asItem(), 150);
-			builder.add(DARK_OAK_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(JUNGLE_MOSAIC.asItem(), 300);
-			builder.add(JUNGLE_MOSAIC_SLAB.asItem(), 150);
-			builder.add(JUNGLE_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(MANGROVE_MOSAIC.asItem(), 300);
-			builder.add(MANGROVE_MOSAIC_SLAB.asItem(), 150);
-			builder.add(MANGROVE_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(OAK_MOSAIC.asItem(), 300);
-			builder.add(OAK_MOSAIC_SLAB.asItem(), 150);
-			builder.add(OAK_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(SPRUCE_MOSAIC.asItem(), 300);
-			builder.add(SPRUCE_MOSAIC_SLAB.asItem(), 150);
-			builder.add(SPRUCE_MOSAIC_STAIRS.asItem(), 300);
-
-			builder.add(PALE_OAK_MOSAIC.asItem(), 300);
-			builder.add(PALE_OAK_MOSAIC_SLAB.asItem(), 150);
-			builder.add(PALE_OAK_MOSAIC_STAIRS.asItem(), 300);
-		});
-	}
-
-	private static void registerComposting() {
-
-		CompostableRegistry.INSTANCE.add(GLOWSHROOM, 0.65F);
-		CompostableRegistry.INSTANCE.add(BLUE_ROSE, 0.65F);
-		CompostableRegistry.INSTANCE.add(ICEFLOWER, 0.65F);
-		CompostableRegistry.INSTANCE.add(POP_FLOWER, 0.65F);
-		CompostableRegistry.INSTANCE.add(SHORT_MYCELIUM_GRASS, 0.65F);
-		CompostableRegistry.INSTANCE.add(TALL_MYCELIUM_GRASS, 0.65F);
-		CompostableRegistry.INSTANCE.add(RegisterItems.CHERRY, 0.65F);
-	}
-
-	public static void registerBlockProperties() {
-
-		registerFuels();
-		registerStrippable();
-		registerFlammability();
-		registerComposting();
-
-		var sign = BlockEntityTypes.SIGN;
-		var hangingSign = BlockEntityTypes.HANGING_SIGN;
-		var shelf = BlockEntityTypes.SHELF;
-		var campfire = BlockEntityTypes.CAMPFIRE;
-
-		sign.addValidBlock(AZALEA_SIGN);
-		sign.addValidBlock(AZALEA_WALL_SIGN);
-
-		hangingSign.addValidBlock(AZALEA_HANGING_SIGN);
-		hangingSign.addValidBlock(AZALEA_WALL_HANGING_SIGN);
-
-		shelf.addValidBlock(AZALEA_SHELF);
-
-		campfire.addValidBlock(COPPER_CAMPFIRE);
-	}
-
-	private RegisterBlocks() {
-		throw new UnsupportedOperationException("Blocks contains only static declarations.");
-	}
-
-	private static <T extends Block> T registerWithoutItem(String path, Function<Properties, T> block, Properties properties) {
-		Identifier id = VerseSharedConstants.id(path);
-		return doRegister(id, makeBlock(block, properties, id));
-	}
-
-	private static <T extends Block> T register(String path, Function<Properties, T> block, Properties properties) {
-		T registered = registerWithoutItem(path, block, properties);
-		registerBlockItem(registered);
-		return registered;
-	}
-
-	private static <T extends Block> T doRegister(Identifier id, T block) {
-		if (BuiltInRegistries.BLOCK.getOptional(id).isEmpty()) {
-			return Registry.register(BuiltInRegistries.BLOCK, id, block);
-		}
-		throw new IllegalArgumentException("Block with id " + id + " is already in the block registry.");
-	}
-
-	private static <T extends Block> T makeBlock(Function<Properties, T> function, Properties properties, Identifier id) {
-		return function.apply(properties.setId(ResourceKey.create(Registries.BLOCK, id)));
-	}
-
-	private static void registerBlockItem(Block block) {
-		BiFunction<Block, Item.Properties, Item> itemSupplier = BlockItem::new;
-		if (block instanceof DoorBlock || block instanceof TallFlowerBlock) itemSupplier = DoubleHighBlockItem::new;
-		if (block instanceof ShelfBlock) itemSupplier = (shelfBlock, properties) -> new BlockItem(shelfBlock, properties.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
-		Identifier id = BuiltInRegistries.BLOCK.getKey(block);
-		Items.registerBlock(BlockItemId.create(id, id), block, itemSupplier);
-	}
+    //Azalea
+
+    public static final BlockSetType AZALEA_BLOCK_SET = BlockSetTypeBuilder.copyOf(BlockSetType.CHERRY)
+            .register(VerseCraft.id("azalea"));
+
+    public static final WoodType AZALEA_WOOD_TYPE = WoodTypeBuilder.copyOf(WoodType.CHERRY)
+            .register(VerseCraft.id("azalea"), AZALEA_BLOCK_SET);
+
+    public static final Block AZALEA_LOG = register("azalea_log",
+            properties -> new RotatedPillarBlock(properties.strength(2.0f,2.0f).sound(SoundType.CHERRY_WOOD))
+    );
+    public static final Block STRIPPED_AZALEA_LOG = register("stripped_azalea_log",
+            properties -> new RotatedPillarBlock(properties.strength(2.0f,2.0f).sound(SoundType.CHERRY_WOOD))
+    );
+    public static final Block AZALEA_WOOD = register("azalea_wood",
+            properties -> new RotatedPillarBlock(properties.strength(2.0f,2.0f).sound(SoundType.CHERRY_WOOD))
+    );
+    public static final Block STRIPPED_AZALEA_WOOD = register("stripped_azalea_wood",
+            properties -> new RotatedPillarBlock(properties.strength(2.0f,2.0f).sound(SoundType.CHERRY_WOOD))
+    );
+
+    public static final Block AZALEA_PLANKS = register("azalea_planks",
+            properties -> new Block(properties.strength(2.0f, 3.0f).sound(SoundType.CHERRY_WOOD))
+    );
+    public static final Block AZALEA_STAIRS = register("azalea_stairs",
+            properties -> new StairBlock(AZALEA_PLANKS.defaultBlockState(), properties.strength(2.0f, 3.0f).sound(SoundType.CHERRY_WOOD))
+    );
+    public static final Block AZALEA_SLAB = register("azalea_slab",
+            properties -> new SlabBlock(properties.strength(2.0f, 3.0f).sound(SoundType.CHERRY_WOOD))
+    );
+
+    public static final Block AZALEA_FENCE = register("azalea_fence",
+            properties -> new FenceBlock(properties.strength(2.0f, 3.0f).sound(SoundType.CHERRY_WOOD))
+    );
+    public static final Block AZALEA_FENCE_GATE = register("azalea_fence_gate",
+            properties -> new FenceGateBlock(AZALEA_WOOD_TYPE, properties.strength(2.0f, 3.0f).sound(SoundType.CHERRY_WOOD))
+    );
+
+    public static final Block AZALEA_DOOR = register("azalea_door",
+            properties -> new DoorBlock(AZALEA_BLOCK_SET, properties.strength(3.0f,3.0f).sound(SoundType.CHERRY_WOOD).noOcclusion())
+    );
+    public static final Block AZALEA_TRAPDOOR = register("azalea_trapdoor",
+            properties -> new TrapDoorBlock(AZALEA_BLOCK_SET, properties.strength(3.0f,3.0f).sound(SoundType.CHERRY_WOOD).noOcclusion())
+    );
+
+    public static final Block AZALEA_BUTTON = register("azalea_button",
+            properties -> new ButtonBlock(AZALEA_BLOCK_SET, 30, properties.noCollision().strength(0.5f).sound(SoundType.CHERRY_WOOD))
+    );
+    public static final Block AZALEA_PRESSURE_PLATE = register("azalea_pressure_plate",
+            properties -> new PressurePlateBlock(AZALEA_BLOCK_SET, properties.noCollision().strength(0.5f).sound(SoundType.CHERRY_WOOD))
+    );
+
+    public static final Block AZALEA_SHELF = register("azalea_shelf",
+            properties -> new ShelfBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_SHELF)
+                    .mapColor(AZALEA_PLANKS.defaultMapColor())
+                    .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, "azalea_shelf"))))
+    );
+
+    public static final Block AZALEA_SIGN = registerBlockWithoutBlockItem("azalea_sign",
+            props -> new StandingSignBlock(AZALEA_WOOD_TYPE,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_SIGN)
+                            .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, "azalea_sign"))))
+    );
+
+    public static final Block AZALEA_WALL_SIGN = registerBlockWithoutBlockItem("azalea_wall_sign",
+            props -> new WallSignBlock(AZALEA_WOOD_TYPE,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WALL_SIGN)
+                            .overrideLootTable(AZALEA_SIGN.getLootTable())
+                            .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, "azalea_wall_sign"))))
+    );
+
+    public static final Block AZALEA_HANGING_SIGN = registerBlockWithoutBlockItem("azalea_hanging_sign",
+            props -> new CeilingHangingSignBlock(AZALEA_WOOD_TYPE,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_HANGING_SIGN)
+                            .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, "azalea_hanging_sign"))))
+    );
+
+    public static final Block AZALEA_WALL_HANGING_SIGN = registerBlockWithoutBlockItem("azalea_wall_hanging_sign",
+            props -> new WallHangingSignBlock(AZALEA_WOOD_TYPE,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WALL_HANGING_SIGN)
+                            .overrideLootTable(AZALEA_HANGING_SIGN.getLootTable())
+                            .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, "azalea_wall_hanging_sign"))))
+    );
+
+    //Acacia Mosaic
+
+    public static final Block ACACIA_MOSAIC = register("acacia_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.WOOD)));
+
+    public static final Block ACACIA_MOSAIC_STAIRS = register("acacia_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.ACACIA_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    public static final Block ACACIA_MOSAIC_SLAB = register("acacia_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    //Azalea Mosaic
+
+    public static final Block AZALEA_MOSAIC = register("azalea_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.CHERRY_WOOD)));
 
+    public static final Block AZALEA_MOSAIC_STAIRS = register("azalea_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.AZALEA_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.CHERRY_WOOD)));
+
+    public static final Block AZALEA_MOSAIC_SLAB = register("azalea_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.CHERRY_WOOD)));
+
+    //Birch Mosaic
+
+    public static final Block BIRCH_MOSAIC = register("birch_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.WOOD)));
+
+    public static final Block BIRCH_MOSAIC_STAIRS = register("birch_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.BIRCH_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    public static final Block BIRCH_MOSAIC_SLAB = register("birch_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    //Cherry Mosaic
+
+    public static final Block CHERRY_MOSAIC = register("cherry_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.CHERRY_WOOD)));
+
+    public static final Block CHERRY_MOSAIC_STAIRS = register("cherry_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.CHERRY_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.CHERRY_WOOD)));
+
+    public static final Block CHERRY_MOSAIC_SLAB = register("cherry_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.CHERRY_WOOD)));
+
+    //Crimson Mosaic
+
+    public static final Block CRIMSON_MOSAIC = register("crimson_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.NETHER_WOOD)));
+
+    public static final Block CRIMSON_MOSAIC_STAIRS = register("crimson_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.CRIMSON_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.NETHER_WOOD)));
+
+    public static final Block CRIMSON_MOSAIC_SLAB = register("crimson_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.NETHER_WOOD)));
+
+    //Dark Oak Mosaic
+
+    public static final Block DARK_OAK_MOSAIC = register("dark_oak_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.WOOD)));
+
+    public static final Block DARK_OAK_MOSAIC_STAIRS = register("dark_oak_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.DARK_OAK_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    public static final Block DARK_OAK_MOSAIC_SLAB = register("dark_oak_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    //Jungle Mosaic
+
+    public static final Block JUNGLE_MOSAIC = register("jungle_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.WOOD)));
+
+    public static final Block JUNGLE_MOSAIC_STAIRS = register("jungle_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.JUNGLE_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    public static final Block JUNGLE_MOSAIC_SLAB = register("jungle_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    //Mangrove Mosaic
+
+    public static final Block MANGROVE_MOSAIC = register("mangrove_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.WOOD)));
+
+    public static final Block MANGROVE_MOSAIC_STAIRS = register("mangrove_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.MANGROVE_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    public static final Block MANGROVE_MOSAIC_SLAB = register("mangrove_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    //Oak Mosaic
+
+    public static final Block OAK_MOSAIC = register("oak_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.WOOD)));
+
+    public static final Block OAK_MOSAIC_STAIRS = register("oak_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.OAK_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    public static final Block OAK_MOSAIC_SLAB = register("oak_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    //Spruce Mosaic
+
+    public static final Block SPRUCE_MOSAIC = register("spruce_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.WOOD)));
+
+    public static final Block SPRUCE_MOSAIC_STAIRS = register("spruce_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.SPRUCE_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    public static final Block SPRUCE_MOSAIC_SLAB = register("spruce_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    //Pale Oak Mosaic
+
+    public static final Block PALE_OAK_MOSAIC = register("pale_oak_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.WOOD)));
+
+    public static final Block PALE_OAK_MOSAIC_STAIRS = register("pale_oak_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.PALE_OAK_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    public static final Block PALE_OAK_MOSAIC_SLAB = register("pale_oak_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    //Warped Mosaic
+
+    public static final Block WARPED_MOSAIC = register("warped_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.NETHER_WOOD)));
+
+    public static final Block WARPED_MOSAIC_STAIRS = register("warped_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.WARPED_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.NETHER_WOOD)));
+
+    public static final Block WARPED_MOSAIC_SLAB = register("warped_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.NETHER_WOOD)));
+
+    //Tuff
+
+    public static final Block CRACKED_TUFF_BRICKS = register("cracked_tuff_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.TUFF_BRICKS).requiresCorrectToolForDrops()));
+
+    //Calcite
+
+    public static final Block CALCITE_STAIRS = register("calcite_stairs",
+            properties -> new StairBlock(Blocks.CALCITE.defaultBlockState(),
+                    properties.strength(0.75f,0.75f).sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final Block CALCITE_SLAB = register("calcite_slab",
+            properties -> new SlabBlock(properties.strength(0.75f,0.75f).sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+
+    public static final Block CALCITE_WALL = register("calcite_wall",
+            properties -> new WallBlock(properties.strength(0.75f,0.75f).sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+
+    public static final Block CHISELED_CALCITE = register("chiseled_calcite",
+            properties -> new Block(properties.strength(0.75f,0.75f)
+                    .sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    //Polished Calcite
+
+    public static final Block POLISHED_CALCITE = register("polished_calcite",
+            properties -> new Block(properties.strength(0.75f,0.75f)
+                    .sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final Block POLISHED_CALCITE_STAIRS = register("polished_calcite_stairs",
+            properties -> new StairBlock(RegisterBlocks.POLISHED_CALCITE.defaultBlockState(),
+                    properties.strength(0.75f,0.75f).sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final Block POLISHED_CALCITE_SLAB = register("polished_calcite_slab",
+            properties -> new SlabBlock(properties.strength(0.75f,0.75f).sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final Block POLISHED_CALCITE_WALL = register("polished_calcite_wall",
+            properties -> new WallBlock(properties.strength(0.75f,0.75f).sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    //Calcite Bricks
+
+    public static final Block CALCITE_BRICKS = register("calcite_bricks",
+            properties -> new Block(properties.strength(0.75f,0.75f)
+                    .sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final Block CRACKED_CALCITE_BRICKS = register("cracked_calcite_bricks",
+            properties -> new Block(properties.strength(0.75f,0.75f)
+                    .sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final Block CALCITE_BRICKS_STAIRS = register("calcite_bricks_stairs",
+            properties -> new StairBlock(RegisterBlocks.CALCITE_BRICKS.defaultBlockState(),
+                    properties.strength(0.75f,0.75f).sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final Block CALCITE_BRICKS_SLAB = register("calcite_bricks_slab",
+            properties -> new SlabBlock(properties.strength(0.75f,0.75f).sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final Block CALCITE_BRICKS_WALL = register("calcite_bricks_wall",
+            properties -> new WallBlock(properties.strength(0.75f,0.75f).sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    public static final Block CHISELED_CALCITE_BRICKS = register("chiseled_calcite_bricks",
+            properties -> new Block(properties.strength(0.75f,0.75f)
+                    .sound(SoundType.CALCITE).requiresCorrectToolForDrops()));
+
+    //Dripstone
+
+    public static final Block DRIPSTONE_STAIRS = register("dripstone_stairs",
+            properties -> new StairBlock(Blocks.DRIPSTONE_BLOCK.defaultBlockState(),
+                    properties.strength(1.5f,1f).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block DRIPSTONE_SLAB = register("dripstone_slab",
+            properties -> new SlabBlock(properties.strength(1.5f,1f).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block DRIPSTONE_WALL = register("dripstone_wall",
+            properties -> new WallBlock(properties.strength(1.5f,1f).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block CHISELED_DRIPSTONE = register("chiseled_dripstone",
+            properties -> new Block(properties.strength(1.5f,1f)
+                    .sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    //Polished Dripstone
+
+    public static final Block POLISHED_DRIPSTONE = register("polished_dripstone",
+            properties -> new Block(properties.strength(1.5f,1f)
+                    .sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block POLISHED_DRIPSTONE_STAIRS = register("polished_dripstone_stairs",
+            properties -> new StairBlock(RegisterBlocks.POLISHED_DRIPSTONE.defaultBlockState(),
+                    properties.strength(1.5f,1f).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block POLISHED_DRIPSTONE_SLAB = register("polished_dripstone_slab",
+            properties -> new SlabBlock(properties.strength(1.5f,1f).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block POLISHED_DRIPSTONE_WALL = register("polished_dripstone_wall",
+            properties -> new WallBlock(properties.strength(1.5f,1f).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    //Dripstone Bricks
+
+    public static final Block DRIPSTONE_BRICKS = register("dripstone_bricks",
+            properties -> new Block(properties.strength(1.5f,1f)
+                    .sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block CRACKED_DRIPSTONE_BRICKS = register("cracked_dripstone_bricks",
+            properties -> new Block(properties.strength(1.5f,1f)
+                    .sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block DRIPSTONE_BRICKS_STAIRS = register("dripstone_bricks_stairs",
+            properties -> new StairBlock(RegisterBlocks.DRIPSTONE_BRICKS.defaultBlockState(),
+                    properties.strength(1.5f,1f).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block DRIPSTONE_BRICKS_SLAB = register("dripstone_bricks_slab",
+            properties -> new SlabBlock(properties.strength(1.5f,1f).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block DRIPSTONE_BRICKS_WALL = register("dripstone_bricks_wall",
+            properties -> new WallBlock(properties.strength(1.5f,1f).sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final Block CHISELED_DRIPSTONE_BRICKS = register("chiseled_dripstone_bricks",
+            properties -> new Block(properties.strength(1.5f,1f)
+                    .sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops()));
+
+    //Diorite
+
+    public static final Block CHISELED_DIORITE = register("chiseled_diorite",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block POLISHED_DIORITE_WALL = register("polished_diorite_wall",
+            properties -> new WallBlock(properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block DIORITE_BRICKS = register("diorite_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block CRACKED_DIORITE_BRICKS = register("cracked_diorite_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block DIORITE_BRICKS_STAIRS = register("diorite_bricks_stairs",
+            properties -> new StairBlock(RegisterBlocks.DIORITE_BRICKS.defaultBlockState(),
+                    properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block DIORITE_BRICKS_SLAB = register("diorite_bricks_slab",
+            properties -> new SlabBlock(properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block DIORITE_BRICKS_WALL = register("diorite_bricks_wall",
+            properties -> new WallBlock(properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block CHISELED_DIORITE_BRICKS = register("chiseled_diorite_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    //Andesite
+
+    public static final Block CHISELED_ANDESITE = register("chiseled_andesite",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block POLISHED_ANDESITE_WALL = register("polished_andesite_wall",
+            properties -> new WallBlock(properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block ANDESITE_BRICKS = register("andesite_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block CRACKED_ANDESITE_BRICKS = register("cracked_andesite_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block ANDESITE_BRICKS_STAIRS = register("andesite_bricks_stairs",
+            properties -> new StairBlock(RegisterBlocks.ANDESITE_BRICKS.defaultBlockState(),
+                    properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block ANDESITE_BRICKS_SLAB = register("andesite_bricks_slab",
+            properties -> new SlabBlock(properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block ANDESITE_BRICKS_WALL = register("andesite_bricks_wall",
+            properties -> new WallBlock(properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block CHISELED_ANDESITE_BRICKS = register("chiseled_andesite_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    //Granite
+
+    public static final Block CHISELED_GRANITE = register("chiseled_granite",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block POLISHED_GRANITE_WALL = register("polished_granite_wall",
+            properties -> new WallBlock(properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block GRANITE_BRICKS = register("granite_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block CRACKED_GRANITE_BRICKS = register("cracked_granite_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block GRANITE_BRICKS_STAIRS = register("granite_bricks_stairs",
+            properties -> new StairBlock(RegisterBlocks.GRANITE_BRICKS.defaultBlockState(),
+                    properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block GRANITE_BRICKS_SLAB = register("granite_bricks_slab",
+            properties -> new SlabBlock(properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block GRANITE_BRICKS_WALL = register("granite_bricks_wall",
+            properties -> new WallBlock(properties.strength(1.5f,6f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block CHISELED_GRANITE_BRICKS = register("chiseled_granite_bricks",
+            properties -> new Block(properties.strength(1.5f,6f)
+                    .sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
+    public static final Block COPPER_CAMPFIRE = register("copper_campfire",
+            properties -> new CampfireBlock(false, 1, properties.strength(2.0f,2.0f).sound(SoundType.WOOD).noOcclusion().lightLevel(state -> state.getValue(CampfireBlock.LIT) ? 15 : 0))
+    );
+
+    public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern",
+            p -> new CarvedPumpkinBlock(p.strength(1.0F).sound(SoundType.WOOD).mapColor(MapColor.COLOR_ORANGE).lightLevel(state -> 10) .pushReaction(PushReaction.POPPED))
+    );
+    public static final Block COPPER_JACK_O_LANTERN = register("copper_jack_o_lantern",
+            p -> new CarvedPumpkinBlock(p.strength(1.0F).sound(SoundType.WOOD).mapColor(MapColor.COLOR_ORANGE).lightLevel(state -> 15) .pushReaction(PushReaction.POPPED))
+    );
+
+    //Plants
+
+    public static final Block BLUE_ROSE = register("blue_rose",
+            properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollision()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.PUSH)
+    );
+
+    public static final Block BLUE_ROSE_CROP = registerBlockWithoutBlockItem("blue_rose_crop",
+            properties -> new BlueRoseCropBlock(properties
+                    .mapColor(MapColor.PLANT)
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.CROP)
+                    .pushReaction(PushReaction.PUSH))
+    );
+
+    public static final Block POTTED_BLUE_ROSE = registerBlockWithoutBlockItem("potted_blue_rose",
+            properties -> new FlowerPotBlock(BLUE_ROSE, properties
+                    .instabreak()
+                    .noOcclusion()
+                    .pushReaction(PushReaction.PUSH))
+    );
+
+    public static final Block ICEFLOWER = register("iceflower",
+            properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollision()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.PUSH)
+    );
+
+    public static final Block ICEFLOWER_CROP = register("iceflower_crop",
+            IceflowerCropBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.CROP)
+                    .pushReaction(PushReaction.PUSH)
+    );
+
+    public static final Block POTTED_ICEFLOWER = register("potted_iceflower",
+            properties -> new FlowerPotBlock(ICEFLOWER, properties),
+            Blocks.flowerPotProperties()
+    );
+
+    public static final Block POP_FLOWER = register("pop_flower",
+            properties -> new FlowerBlock(MobEffects.SATURATION, 0.0F, properties),
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollision()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.PUSH)
+    );
+
+    public static final Block POTTED_POP_FLOWER = register("potted_pop_flower",
+            properties -> new FlowerPotBlock(POP_FLOWER, properties),
+            Blocks.flowerPotProperties()
+    );
+
+    public static final Block GLOWSHROOM = register("glowshroom",
+            FireflyBushBlock::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.FIREFLY_BUSH)
+                    .mapColor(MapColor.COLOR_YELLOW)
+                    .sound(SoundType.FUNGUS)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .lightLevel(state -> 6)
+    );
+
+    public static final Block SHORT_MYCELIUM_GRASS = register("short_mycelium_grass",
+            ShortMyceliumGrass::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_DRY_GRASS)
+                    .mapColor(MapColor.PLANT)
+                    .replaceable()
+                    .noOcclusion()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .ignitedByLava()
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.PUSH)
+    );
+
+    public static final Block TALL_MYCELIUM_GRASS = register("tall_mycelium_grass",
+            TallMyceliumGrass::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_DRY_GRASS)
+                    .mapColor(MapColor.PLANT)
+                    .replaceable()
+                    .noOcclusion()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .ignitedByLava()
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.PUSH)
+    );
+
+
+    private static Block registerBlockWithoutBlockItem(String name, Function<BlockBehaviour.Properties, Block> function) {
+        Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name))));
+        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name), toRegister);
+    }
+
+    private static Block register(String name, Function<BlockBehaviour.Properties, Block> function) {
+        Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name))));
+        registerBlockItem(name, toRegister);
+        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name), toRegister);
+
+    }
+
+    private static Block register(String name, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
+        Block toRegister = function.apply(properties.setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name))));
+        registerBlockItem(name, toRegister);
+        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name), toRegister);
+    }
+
+    private static void registerBlockItem(String name, Block block) {
+        Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name),
+                new BlockItem(block, new Item.Properties().useBlockDescriptionPrefix()
+                        .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name)))));
+    }
+
+    private static void addFuel(ItemLike itemConvertible, int burnTicks) {
+        Item item = itemConvertible.asItem();
+        DefaultItemComponentEvents.MODIFY.register(context -> {
+            context.modify(item, builder -> {
+                builder.set(
+                        DataComponents.COOKING_FUEL,
+                        new CookingFuel(
+                                new ResolvableInt.Constant(burnTicks),
+                                new ResolvableFloat.Constant(1.0F)
+                        )
+                );
+            });
+        });
+    }
+
+    private static void registerFuels() {
+        addFuel(AZALEA_LOG, 300);
+        addFuel(STRIPPED_AZALEA_LOG, 300);
+        addFuel(AZALEA_WOOD, 300);
+        addFuel(STRIPPED_AZALEA_WOOD, 300);
+        addFuel(AZALEA_PLANKS, 300);
+        addFuel(AZALEA_STAIRS, 300);
+        addFuel(AZALEA_SLAB, 150);
+        addFuel(AZALEA_FENCE, 300);
+        addFuel(AZALEA_FENCE_GATE, 300);
+        addFuel(AZALEA_PRESSURE_PLATE, 300);
+        addFuel(AZALEA_BUTTON, 100);
+        addFuel(AZALEA_TRAPDOOR, 300);
+        addFuel(AZALEA_DOOR, 200);
+        addFuel(AZALEA_SHELF, 300);
+        addFuel(AZALEA_MOSAIC, 300);
+        addFuel(AZALEA_MOSAIC_STAIRS, 300);
+        addFuel(AZALEA_MOSAIC_SLAB, 150);
+        addFuel(RegisterItems.AZALEA_SIGN, 200);
+        addFuel(RegisterItems.AZALEA_HANGING_SIGN, 200);
+        addFuel(RegisterItems.AZALEA_BOAT, 1200);
+        addFuel(RegisterItems.AZALEA_CHEST_BOAT, 1200);
+
+        addFuel(ACACIA_MOSAIC, 300);
+        addFuel(ACACIA_MOSAIC_STAIRS, 300);
+        addFuel(ACACIA_MOSAIC_SLAB, 150);
+
+        addFuel(BIRCH_MOSAIC, 300);
+        addFuel(BIRCH_MOSAIC_STAIRS, 300);
+        addFuel(BIRCH_MOSAIC_SLAB, 150);
+
+        addFuel(CHERRY_MOSAIC, 300);
+        addFuel(CHERRY_MOSAIC_STAIRS, 300);
+        addFuel(CHERRY_MOSAIC_SLAB, 150);
+
+        addFuel(DARK_OAK_MOSAIC, 300);
+        addFuel(DARK_OAK_MOSAIC_STAIRS, 300);
+        addFuel(DARK_OAK_MOSAIC_SLAB, 150);
+
+        addFuel(JUNGLE_MOSAIC, 300);
+        addFuel(JUNGLE_MOSAIC_STAIRS, 300);
+        addFuel(JUNGLE_MOSAIC_SLAB, 150);
+
+        addFuel(MANGROVE_MOSAIC, 300);
+        addFuel(MANGROVE_MOSAIC_STAIRS, 300);
+        addFuel(MANGROVE_MOSAIC_SLAB, 150);
+
+        addFuel(OAK_MOSAIC, 300);
+        addFuel(OAK_MOSAIC_STAIRS, 300);
+        addFuel(OAK_MOSAIC_SLAB, 150);
+
+        addFuel(SPRUCE_MOSAIC, 300);
+        addFuel(SPRUCE_MOSAIC_STAIRS, 300);
+        addFuel(SPRUCE_MOSAIC_SLAB, 150);
+
+        addFuel(PALE_OAK_MOSAIC, 300);
+        addFuel(PALE_OAK_MOSAIC_STAIRS, 300);
+        addFuel(PALE_OAK_MOSAIC_SLAB, 150);
+    }
+
+    private static void registerFlammability() {
+
+        FlammableBlockRegistry fireRegistry = FlammableBlockRegistry.getDefaultInstance();
+
+        //Azalea
+        fireRegistry.add(AZALEA_LOG, 5, 5);
+        fireRegistry.add(STRIPPED_AZALEA_LOG, 5, 5);
+        fireRegistry.add(AZALEA_WOOD, 5, 5);
+        fireRegistry.add(STRIPPED_AZALEA_WOOD, 5, 5);
+        fireRegistry.add(AZALEA_PLANKS, 5, 20);
+        fireRegistry.add(AZALEA_STAIRS, 5, 20);
+        fireRegistry.add(AZALEA_SLAB, 5, 20);
+
+        fireRegistry.add(AZALEA_MOSAIC, 5, 20);
+        fireRegistry.add(AZALEA_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(AZALEA_MOSAIC_SLAB, 5, 20);
+
+        fireRegistry.add(ACACIA_MOSAIC, 5, 20);
+        fireRegistry.add(ACACIA_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(ACACIA_MOSAIC_SLAB, 5, 20);
+
+        fireRegistry.add(BIRCH_MOSAIC, 5, 20);
+        fireRegistry.add(BIRCH_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(BIRCH_MOSAIC_SLAB, 5, 20);
+
+        fireRegistry.add(CHERRY_MOSAIC, 5, 20);
+        fireRegistry.add(CHERRY_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(CHERRY_MOSAIC_SLAB, 5, 20);
+
+        fireRegistry.add(DARK_OAK_MOSAIC, 5, 20);
+        fireRegistry.add(DARK_OAK_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(DARK_OAK_MOSAIC_SLAB, 5, 20);
+
+        fireRegistry.add(JUNGLE_MOSAIC, 5, 20);
+        fireRegistry.add(JUNGLE_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(JUNGLE_MOSAIC_SLAB, 5, 20);
+
+        fireRegistry.add(MANGROVE_MOSAIC, 5, 20);
+        fireRegistry.add(MANGROVE_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(MANGROVE_MOSAIC_SLAB, 5, 20);
+
+        fireRegistry.add(OAK_MOSAIC, 5, 20);
+        fireRegistry.add(OAK_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(OAK_MOSAIC_SLAB, 5, 20);
+
+        fireRegistry.add(SPRUCE_MOSAIC, 5, 20);
+        fireRegistry.add(SPRUCE_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(SPRUCE_MOSAIC_SLAB, 5, 20);
+
+        fireRegistry.add(PALE_OAK_MOSAIC, 5, 20);
+        fireRegistry.add(PALE_OAK_MOSAIC_STAIRS, 5, 20);
+        fireRegistry.add(PALE_OAK_MOSAIC_SLAB, 5, 20);
+
+    }
+
+        private static void strippingWood() {
+        BlockTransformerHelper.registerStripping(AZALEA_LOG, STRIPPED_AZALEA_LOG.defaultBlockState());
+        BlockTransformerHelper.registerStripping(AZALEA_WOOD, STRIPPED_AZALEA_WOOD.defaultBlockState());
+    }
+
+    public static void registerBlocks() {
+        VerseCraft.LOGGER.info("Registering Blocks for " + VerseCraft.MOD_ID);
+
+        BlockEntityTypes.SHELF.addValidBlock(AZALEA_SHELF);
+        BlockEntityTypes.SIGN.addValidBlock(AZALEA_SIGN);
+        BlockEntityTypes.SIGN.addValidBlock(AZALEA_WALL_SIGN);
+        BlockEntityTypes.HANGING_SIGN.addValidBlock(AZALEA_HANGING_SIGN);
+        BlockEntityTypes.HANGING_SIGN.addValidBlock(AZALEA_WALL_HANGING_SIGN);
+        BlockEntityTypes.CAMPFIRE.addValidBlock(COPPER_CAMPFIRE);
+
+
+        strippingWood();
+        registerFuels();
+        registerFlammability();
+    }
 }

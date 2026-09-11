@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "versecraft:copper_campfire"
+        "recipes": "versecraft:copper_campfire"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,103 +1,81 @@
-/*
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, see <https://www.gnu.org/licenses/>.
- */
-
 package net.sergofoox.versecraft.registry;
 
-import java.util.function.Function;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.references.BlockItemId;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.BoatItem;
-import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Item.Properties;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SignItem;
-import net.sergofoox.versecraft.VerseSharedConstants;
-import net.sergofoox.versecraft.misc.ItemImp;
-import static net.minecraft.world.item.Items.createBlockItemWithCustomItemName;
+import net.minecraft.world.item.*;
+import net.sergofoox.versecraft.VerseCraft;
+
+import java.util.function.Function;
 
 public class RegisterItems {
 
-	//Azalea
-	public static final Item AZALEA_SIGN = Items.registerBlock(BlockItemId.create(VerseSharedConstants.id("azalea_sign"), VerseSharedConstants.id("azalea_sign")), RegisterBlocks.AZALEA_SIGN,
-		(block, properties) -> new SignItem(block, RegisterBlocks.AZALEA_WALL_SIGN, properties),
-		new Item.Properties().stacksTo(16)
-	);
-	public static final Item AZALEA_HANGING_SIGN = Items.registerBlock(BlockItemId.create(VerseSharedConstants.id("azalea_hanging_sign"), VerseSharedConstants.id("azalea_hanging_sign")), RegisterBlocks.AZALEA_HANGING_SIGN,
-		(block, properties) -> new HangingSignItem(block, RegisterBlocks.AZALEA_WALL_HANGING_SIGN, properties),
-		new Item.Properties().stacksTo(16)
-	);
+    public static final Item DRAGON_POTTERY_SHERD = registerItem("dragon_pottery_sherd",
+            props -> new Item(props.potPattern(RegisterPotPattern.DRAGON).rarity(Rarity.UNCOMMON)));
 
-	public static final BoatItem AZALEA_BOAT = register("azalea_boat",
-		properties -> new BoatItem(RegisterEntityTypes.AZALEA_BOAT, properties),
-		new Item.Properties()
-			.stacksTo(1)
-	);
-	public static final BoatItem AZALEA_CHEST_BOAT = register("azalea_chest_boat",
-		properties -> new BoatItem(RegisterEntityTypes.AZALEA_CHEST_BOAT, properties),
-		new Item.Properties()
-			.stacksTo(1)
-	);
+    public static final Item EYE_POTTERY_SHERD = registerItem("eye_pottery_sherd",
+            props -> new Item(props.potPattern(RegisterPotPattern.EYE).rarity(Rarity.UNCOMMON)));
 
-    //Pottery Sherd
+    public static final Item EGG_POTTERY_SHERD = registerItem("egg_pottery_sherd",
+            props -> new Item(props.potPattern(RegisterPotPattern.EGG).rarity(Rarity.UNCOMMON)));
 
-	public static final Item DRAGON_POTTERY_SHERD = registerPotterySherd(ItemImp.DRAGON_POTTERY_SHERD);
-	public static final Item EGG_POTTERY_SHERD = registerPotterySherd(ItemImp.EGG_POTTERY_SHERD);
-	public static final Item EYE_POTTERY_SHERD = registerPotterySherd(ItemImp.EYE_POTTERY_SHERD);
-	public static final Item PILLAGER_POTTERY_SHERD = registerPotterySherd(ItemImp.PILLAGER_POTTERY_SHERD);
-	public static final Item PORTAL_POTTERY_SHERD = registerPotterySherd(ItemImp.PORTAL_POTTERY_SHERD);
-	public static final Item SWORD_POTTERY_SHERD = registerPotterySherd(ItemImp.SWORD_POTTERY_SHERD);
+    public static final Item PILLAGER_POTTERY_SHERD = registerItem("pillager_pottery_sherd",
+            props -> new Item(props.potPattern(RegisterPotPattern.PILLAGER).rarity(Rarity.UNCOMMON)));
 
-	//Food
-	public static final Item CHERRY = register("cherry", Item::new, new Item.Properties().food(RegisterFood.CHERRY));
+    public static final Item PORTAL_POTTERY_SHERD = registerItem("portal_pottery_sherd",
+            props -> new Item(props.potPattern(RegisterPotPattern.PORTAL).rarity(Rarity.UNCOMMON)));
 
-	//Seeds
+    public static final Item SWORD_POTTERY_SHERD = registerItem("sword_pottery_sherd",
+            props -> new Item(props.potPattern(RegisterPotPattern.SWORD).rarity(Rarity.UNCOMMON)));
 
-	public static final Item BLUE_ROSE_SEEDS = register("blue_rose_seeds",
-		createBlockItemWithCustomItemName(RegisterBlocks.BLUE_ROSE_CROP),
-		new Properties()
-	);
+    public static final Item AZALEA_SIGN = registerItem("azalea_sign",
+            props -> new StandingAndWallBlockItem(
+                    RegisterBlocks.AZALEA_SIGN,
+                    RegisterBlocks.AZALEA_WALL_SIGN,
+                    Direction.DOWN,
+                    props.stacksTo(16).signText()
+            )
+    );
 
-	public static final Item ICEFLOWER_SEEDS = register("iceflower_seeds",
-		createBlockItemWithCustomItemName(RegisterBlocks.ICEFLOWER_CROP),
-		new Properties()
-	);
+    public static final Item AZALEA_HANGING_SIGN = registerItem("azalea_hanging_sign",
+            props -> new HangingSignItem(
+                    RegisterBlocks.AZALEA_HANGING_SIGN,
+                    RegisterBlocks.AZALEA_WALL_HANGING_SIGN,
+                    props.stacksTo(16)
+            )
+    );
 
-	public static void registerItems() {
-		registerDispenses();
-	}
+    public static final Item AZALEA_BOAT = registerItem(
+            "azalea_boat",
+            properties -> new BoatItem(RegisterEntityTypes.AZALEA_BOAT, properties.stacksTo(1))
+    );
 
-	private static void registerDispenses() {
+    public static final Item AZALEA_CHEST_BOAT = registerItem(
+            "azalea_chest_boat",
+            properties -> new BoatItem(RegisterEntityTypes.AZALEA_CHEST_BOAT, properties.stacksTo(1))
+    );
 
-	}
+    public static final Item CHERRY = registerItem("cherry", properties -> new Item(properties
+            .food(RegisterFood.CHERRY)));
 
-	private RegisterItems() {
-		throw new UnsupportedOperationException("RegisterItems contains only static declarations.");
-	}
+    public static final Item BLUE_ROSE_SEEDS = registerItem("blue_rose_seeds",
+            properties -> new BlockItem(RegisterBlocks.BLUE_ROSE_CROP, properties)
+    );
 
-	public static void init() {
-	}
+    public static final Item ICEFLOWER_SEEDS = registerItem("iceflower_seeds",
+            properties -> new BlockItem(RegisterBlocks.ICEFLOWER_CROP, properties)
+    );
 
-	private static <T extends Item> T register(String name, Function<Item.Properties, Item> function, Item.Properties properties) {
-		return (T) Items.registerItem(ResourceKey.create(Registries.ITEM, VerseSharedConstants.id(name)), function, properties);
-	}
+    private static Item registerItem(String name, Function<Item.Properties, Item> function) {
+        return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name),
+                function.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(VerseCraft.MOD_ID, name)))));
+    }
 
-	public static Item registerPotterySherd(ResourceKey<Item> id) {
-		return Items.registerItem(id, new Properties().rarity(Rarity.UNCOMMON));
-	}
+    public static void registerItems() {
+        VerseCraft.LOGGER.info("Registering Items for Mod" + VerseCraft.MOD_ID);
+    }
 
 }

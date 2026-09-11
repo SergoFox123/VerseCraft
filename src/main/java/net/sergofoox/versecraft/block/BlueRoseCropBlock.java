@@ -1,21 +1,5 @@
-/*
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, see <https://www.gnu.org/licenses/>.
- */
-
 package net.sergofoox.versecraft.block;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -33,69 +17,63 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sergofoox.versecraft.registry.RegisterBlocks;
 import net.sergofoox.versecraft.registry.RegisterItems;
-import org.jetbrains.annotations.NotNull;
 
 public class BlueRoseCropBlock extends CropBlock {
-	public static final MapCodec<BlueRoseCropBlock> CODEC = simpleCodec(BlueRoseCropBlock::new);
-	public static final int MAX_AGE = 2;
-	public static final IntegerProperty AGE = BlockStateProperties.AGE_1;
-	private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
-		Block.box(5D, 0D, 5D, 11D, 6D, 11D),
-		Block.box(5D, 0D, 5D, 11D, 10D, 11D)
-	};
-	private static final int BONEMEAL_INCREASE = 1;
 
-	@Override
-	@NotNull
-	public MapCodec<BlueRoseCropBlock> codec() {
-		return CODEC;
-	}
+    public static final int MAX_AGE = 2;
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_1;
 
-	public BlueRoseCropBlock(BlockBehaviour.Properties settings) {
-		super(settings);
-	}
+    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+            Block.box(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D),
+            Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D)
+    };
 
-	@Override
-	protected void createBlockStateDefinition(@NotNull StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(AGE);
-	}
+    private static final int BONEMEAL_INCREASE = 1;
 
-	@Override
-	@NotNull
-	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-		return SHAPE_BY_AGE[this.getAge(state)];
-	}
+    public BlueRoseCropBlock(BlockBehaviour.Properties properties) {
+        super(properties);
+    }
 
-	@Override
-	@NotNull
-	protected IntegerProperty getAgeProperty() {
-		return AGE;
-	}
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(AGE);
+    }
 
-	@Override
-	public int getMaxAge() {
-		return MAX_AGE;
-	}
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPE_BY_AGE[this.getAge(state)];
+    }
 
-	@Override
-	@NotNull
-	protected ItemLike getBaseSeedId() {
-		return RegisterItems.BLUE_ROSE_SEEDS;
-	}
+    @Override
+    protected IntegerProperty getAgeProperty() {
+        return AGE;
+    }
 
-	@Override
-	@NotNull
-	public BlockState getStateForAge(int age) {
-		return age == MAX_AGE ? RegisterBlocks.BLUE_ROSE.defaultBlockState() : super.getStateForAge(age);
-	}
+    @Override
+    public int getMaxAge() {
+        return MAX_AGE;
+    }
 
-	@Override
-	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, @NotNull RandomSource random) {
-		if (random.nextInt(3) != 0) super.randomTick(state, level, pos, random);
-	}
+    @Override
+    protected ItemLike getBaseSeedId() {
+        return RegisterItems.BLUE_ROSE_SEEDS;
+    }
 
-	@Override
-	protected int getBonemealAgeIncrease(Level level) {
-		return BONEMEAL_INCREASE;
-	}
+    @Override
+    public BlockState getStateForAge(int age) {
+        return age == MAX_AGE ? RegisterBlocks.BLUE_ROSE.defaultBlockState() : super.getStateForAge(age);
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        // Рост чуть замедлен (шанс 2 из 3 пропустить такт, как у факельника)
+        if (random.nextInt(3) != 0) {
+            super.randomTick(state, level, pos, random);
+        }
+    }
+
+    @Override
+    protected int getBonemealAgeIncrease(Level level) {
+        return BONEMEAL_INCREASE;
+    }
 }
