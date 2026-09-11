@@ -729,13 +729,16 @@ public class RegisterBlocks {
 
     private static void registerComposting() {
 
-        addCompostable(GLOWSHROOM, 0.65F);
-        addCompostable(BLUE_ROSE, 0.65F);
-        addCompostable(ICEFLOWER, 0.65F);
-        addCompostable(POP_FLOWER, 0.65F);
-        addCompostable(SHORT_MYCELIUM_GRASS, 0.65F);
-        addCompostable(TALL_MYCELIUM_GRASS, 0.65F);
+        addCompostable(GLOWSHROOM, 0.50F);
+        addCompostable(BLUE_ROSE, 0.50F);
+        addCompostable(ICEFLOWER, 0.50F);
+        addCompostable(RegisterItems.BLUE_ROSE_SEEDS, 0.30F);
+        addCompostable(RegisterItems.ICEFLOWER_SEEDS, 0.30F);
+        addCompostable(POP_FLOWER, 0.30F);
+        addCompostable(SHORT_MYCELIUM_GRASS, 0.30F);
+        addCompostable(TALL_MYCELIUM_GRASS, 0.50F);
         addCompostable(RegisterItems.CHERRY, 0.65F);
+
     }
 
     private static void strippingWood() {
