@@ -264,6 +264,19 @@ public class RegisterBlocks {
     public static final Block PALE_OAK_MOSAIC_SLAB = register("pale_oak_mosaic_slab",
             properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
 
+    //Poplar Mosaic
+
+    public static final Block POPLAR_MOSAIC = register("poplar_mosaic",
+            properties -> new Block(properties.strength(2f,3f)
+                    .sound(SoundType.WOOD)));
+
+    public static final Block POPLAR_MOSAIC_STAIRS = register("poplar_mosaic_stairs",
+            properties -> new StairBlock(RegisterBlocks.PALE_OAK_MOSAIC.defaultBlockState(),
+                    properties.strength(2f,3f).sound(SoundType.WOOD)));
+
+    public static final Block POPLAR_MOSAIC_SLAB = register("poplar_mosaic_slab",
+            properties -> new SlabBlock(properties.strength(2f,3f).sound(SoundType.WOOD)));
+
     //Warped Mosaic
 
     public static final Block WARPED_MOSAIC = register("warped_mosaic",

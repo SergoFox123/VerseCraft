@@ -62,6 +62,12 @@ public class RegisterCreativeInventorySorting {
             output.insertAfter(Blocks.PALE_OAK_STAIRS, RegisterBlocks.PALE_OAK_MOSAIC_STAIRS);
             output.insertAfter(Blocks.PALE_OAK_SLAB, RegisterBlocks.PALE_OAK_MOSAIC_SLAB);
 
+            //Poplar Mosaic
+
+            output.insertAfter(Blocks.POPLAR_PLANKS, RegisterBlocks.POPLAR_MOSAIC);
+            output.insertAfter(Blocks.POPLAR_STAIRS, RegisterBlocks.POPLAR_MOSAIC_STAIRS);
+            output.insertAfter(Blocks.POPLAR_SLAB, RegisterBlocks.POPLAR_MOSAIC_SLAB);
+
             //Warped Mosaic
             output.insertAfter(Blocks.WARPED_PLANKS, RegisterBlocks.WARPED_MOSAIC);
             output.insertAfter(Blocks.WARPED_STAIRS, RegisterBlocks.WARPED_MOSAIC_STAIRS);
